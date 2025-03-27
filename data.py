@@ -34,11 +34,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Tutkittavana 12 edustavaa neulabiopsiaa prostatan tyyppipaikoista. Näytteiden yhteispituus on noin 150mm. Nähdään normaaleja rauhasrakenteita ja jonkin verran aaltoilevaa hyperplastisen kaltaista epiteeliä. Lopputulos on siis lähinnä benignin oloista kasvua. Lääk. Heikki Histopatologi",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -60,11 +60,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Näytteenä on radikaali prostatektomianäyte, jonka paino 44g. Ulkomitat ovat noin 5*4*3 cm ilman vesikkeleitä. Otetaan kolme makroleikettä ja rutiinin mukaiset mikroleikkeet. Kyseessä on tutkimuskäyttöön saatu autopsianäyte. Tehdään dorsaalisesti musta merkkiväri, oikea lohko keltainen, ja vasen lohko vihreä. Mikroskooppisesti kaikissa makroleikkeissä sekä apeksin ja basiksen pitkittäin otetuista näytteistä nähdään lähinnä normaalia kasvustoa. Jonkin verran havaitaan atrofiaa ja läikittäistä tulehdusta, sekä korkeintaan hyperplasiaan viittaavaa kasvua. Varmistetaan että resektiopinnat ovat puhtaat, kapselissa ei havaita mitään poikkeavaa, ja seminaaleissa ei kasvainkudosta. YHTEENVETO: Prostatassa korkeintaan lievä-asteista tulehdusta ja tyypillisiä ikäpohjaisia muutoksia.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -86,11 +86,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Näytteenä on yhteensä 12.3g lastuja. Käynnistetään ne yhdellä kasetilla. Histologisessa tarkastelussa näkyy läiskittäistä kroonista tulehdusta, ja näytteistä tulee yleinen vaikutelma strooman hyperplasiasta. Mitään maligniin suoraan viittaavaa ei näy.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -112,11 +112,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Näytteenä 1-6 prostatabiopsiat tyyppipaikoista. Näytteen 3 biopsiasylinterit eivät edustavia, sillä siinä ei nähdä prostatakudosta. Muutoin näytteet ovat edustavat ja nähdään benigniä prostatakudosta. Rauhasepiteeleissä ei myöskään havaita merkittävää atypiaa. Näytteistä ei siis löydetä karsinoomaa tai PIN-muutoksia.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -138,11 +138,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Tutkittavana on radikaali prostatektomia, jossa prostatan paino 50g. Laitetaan vasempaan lohkoon keltainen ja oikeaan lohkoon vihreä väri. Apex pitkittäissuuntaisesti makroblokkeihin A & B. Poikkileikkeet basiksesta C-E ja pitkittäiset vasemmalta oikealle F-H. Vasen vesikkeli blokkiin I ja oikea blokkiin J. Mikroskooppisesti havaitaan kasvainkudosta molemmissa apexin makroissa (A+B). Makrossa A havaitaan kasvutapaa 4+3, jossa vallitseva kasvutapa 4 n. 60%. Makrossa B havaitaan korkeamman pistesumman (9) kasvua 4+5, jossa osuudet n. 50% ja 20%. Muut prostatan makroblokit puhtaita kuten myös vesikkelit. Ei havaita kasvua kapselin läpi tai hermoinvaasiota.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -164,11 +164,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Näytteinä yhteensä 4g höyläyslastuja, jotka käynnistetty kolmeen kudoskasettiin. Todetaan mikroskooppisesti suhteellisen normaalia prostatasolukkoa, jossa kuitenkin voimakasta polttoartefaktaa. Rauhaset melko tuhoutuneet polttoartefaktoista johtuen, mutta löydökset viittaisivat hienoisesti prostatahyperplasiaan.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -190,11 +190,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Kaseteissa normaalin tavan mukaan otetut prostatabiopsiat, kokonaispituus n. 150mm. Näytteesssä 1B oikeasta basiksesta hyppää esiin fokus, jossa pieniä rauhasrakenteita, missä tuma-atypiaa ja morfologinen löydös saattaisi vastata adenokarsinoomaa. Löydös on niin niukka että jää suspisio-asteelle, eikä selvää adenokarsinoomaa löydetä. Muissa näytteissä havaitaan vain normaalia rauhaskudosta. /Lauri Lääkäri, Meilahti, 11.11.2021",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -216,11 +216,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Näytteet 1 ja 2 sisältävät imusolmukkeita (3 kpl molemmissa), joiden koko on välillä 1 - 3 cm. Näyte 3 sisältää radikaaliprostatetomian preparaatin, joka käynnistetään rutiiniprotokollan mukaisesti. Näytteessä 3 havaitaan molemmissa lohkoissa kasvainkudosta, joka invasoi sekä toisiinsa sulautuvia että erillisiä rauhasrakenteita muodostaen. Löydökset kattavat n. 10% leikkeiden pinta-alasta. Lisäksi nähdään makrofagikertymiä ja voimakasasteista tulehdusmuutosta. Löydetty korkein Gleason kasvutapa on 4+3=7, josta alemman luokan 3 osuus n. 30-40%. Havaitaan myös high grade PIN -muutoksia. Tutkituissa imusolmukkeissa ei kuitenkaan maligneja löydöksiä (0/6).",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -242,11 +242,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Tutkittavaksi on saatu prostatan elektrosektiolastuja, joiden yhteispaino 20g. Näistä tutkitaan 10g, joten noin puolet materiaalista jää käyttämättä. Käytössä yhteensä 8 kasettia. Nähdään histologisesti runsas määrä prostatan stroomakudosta. Epiteeli on kaksirivistä. Paikoitellen rauhaset ovat laajentuneita sopien hyperplasiaan. Mitään malignia ei tule esiin, joten löydös sopii hyvänlaatuiseen liikakasvuun.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -268,11 +268,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Näytteinä 6 kpl edustavia prostatabiopsioita tyyppipaikoista, yhteensä n. 120mm. Laseilla nähdään prostatakudoksessa paikoin basaalisoluhyperplasiaa. Immunovärjäyksissä näytteissä 3-4 basaalisolut rajoittuneet ja värjäykset positiivisia, mutta epäilty fokus on häviävän pieni ja varmaa syöpädiagnoosia ei voida antaa. Johtopäätös: Suspicio-löydös biopsioista, mutta diagnoosi epävarma, benigniin päin.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -294,11 +294,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Prostatektomiapreparaatti käynnistetään protokollan mukaisesti, paino n. 80g. Mikroskooppisesti nähdään invasoivaa kasvainsolukkoa, joka muodostaaa sulautuvia rauhasputkia, Gleason luokkaa 4+3. Näytelasilla korkeintaan 3 cm läpimittainen maligni pesäke on apexissa ja keskiosassa. Löydös käsittää noin 15% leikkeiden pinta-alasta. Nähdään myös high-grade PIN -muutosta kasvainsolukon ympärillä. Basiksessa tai vesikkeleissä ei tule esiin maligneja löydöksiä. Marginaalit näyttävät puhtailta.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -320,11 +320,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Näytteeksi saadut prostatan elektrosektiolastut on käynnistetty kahdeksassa blokissa. Histologisessa tarkastelussa näkyy pääasiassa säännöllistä prostatakudosta, löydös siis benigni.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -346,11 +346,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Näytteinä prostatan paksuneulabiopsioita tyyppipaikoista otettuna, yhteispituus oikealta noin 60mm ja vasemmalta noin 80mm. Näytteestä B havaitaan karsinoomaa, joka menee jo Gleason tasolle 5 ja kokonais Gleason taso on 9 (4+5). Kyseistä muutosta noin 20% vasemmalla. Muissa näytteissä normaalia rauhasrakennetta, eikä merkittävää tulehdusta.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -372,11 +372,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Tutkittavaksi tullut prostatektomia-preparaatti, joka ajetaan kaseteilla normaalikaavan mukaan. Näytteissä D-G apexia, basis näytteissä K-P, seminaalivehikkeleitä O-Q. Ensimmäisessä leikkeessä havaitaan jo jonkin verran kasvainta perifeerisesti, ja tuumori lähellä kapselin reunaa. Läpikasvua ei nähdä eikä pos. reunamarginaaleja. Basis ja seminaalivehikkelit puhtaat. Löydetyt tuumorit Gleason 7-tasoista karsinoomaa, josta isompi osuus scoorauksella 3 n. 60% löydöksissä.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -398,11 +398,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Katsottavaksi tullut yhteensä noin 5g edestä prostatan höylälastuja, joista kaikki käyty läpi. Potilas ollut suspekti aiemmin kohonneen PSA:n takia. Skoopilla katsoen lähes kaikissa nähdään adenokarsinoomaa, edustavin Gleason 4:ää ja sen eri variantteja joten pistesumma 8. Löydös siis vahvistaa aiemman suspision.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -424,11 +424,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Tutkittavana kolme fuusiobiopsiaa prostatan suspektista fokuksesta. Yhteispituudesta 30mm nähdänä n. puolelta matkaa karsinoomafokuksia siten että pituudet noin 7, 6 ja 2mm. Näissä tason 3 graduksen kasvua, joskus jonkin verran myös Gleason 4 -tyypin silmukoituvaa rakennetta vajaalta kolmasosalta karsinooman pituudelta. Yhteenvetona löydös score 7 yhteensä 15mm matkalta, jossa 3 arkkitehtuuri n. 2/3 ja 4 arkkitehtuuri n. 1/3 karsinooman osasta.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["^3\\+4=7$"]
         ],
         # Censored
         [
@@ -450,11 +450,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Ajetaan prostatetomiapreparaatti normaalin kaavan mukaan, s.e. oikea lohko värjätty vihreällä ja vasen keltaisella väriaineella. Näytteet A-D basiksesta apexiin päin makroleikkeinä, ja apex näytteinä E-F ja basis G-N, ja loput seminaalivesikkelit molemmilta puolilta N-O. Nähdään makroleikkeissä useampi selkeä fokus, joissa vallitseva Gleason luokka on 4 ja mukana myös jonkin verran luokkaa 3. Pääosa löydöksistä basiksessa, mutta apex ja seminaalivesikkelit puhtaat. Perineuraalista invaasiota havaitaan runsaasti, ja kasvain infiltroi selvästi kapselin läpi rasvaan.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -476,11 +476,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Höyläyksestä saatuja lastuja ajettiin 12 kudosblokkia. Lastuissa pienessä osassa nähdään karsinoomaa. Kasvu pääosin itsenäistä rauhasrakennetta ja mukana myös rauhasten yhteenkasvua, mutta karsinooman osuus jää pieneksi (alle 5%). Neoplastiseksi tulkittavassa osuudessa Gleason summana 7, josta suuremman osuuden luokka 3 noin 60% tuumorista.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -502,11 +502,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Näytteinä kohdennetut prostatabiopsiat eri puolilta. Näytteessä 1) 10mm, 2) 8mm, 3) 14mm ja 4) 14mm materiaalia. Näyte 1 epäedustava, näytteet 2 ja 3 edustavat tervettä prostatakudosta. Näytteessä 4 nähdään koko lieriön pituudelta adenokarsinoomaa, isompi osuus rauhasrakenteita muodostaen (Gleason 3, noin 90%) ja pienempi osuus rauhasten yhteensulautumista (Gleason 4, 10%). Kapselin läpikasvua tai perineuraalista invaasiota ei näytteissä nähdä.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -528,11 +528,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Näytteenä prostatektomiaresekaatti, josta tehty kuusi makroleikettä ja normaalit mikroskooppileikkeet. Sekä apexista että basiksesta otetuista leikkeistä löytyy adenokarsinoomaa. Apexin pitkittäinen leike näyttää mikroksooppisesti rauhasten yhteensulautumista sopien parhaiten Gleason 4+4 luokkaan, kun taas basiksessa lähinnä luokkaa 3+4. Näiden malignien näytteiden fokusten koot n. 8mm ja 5mm. Ei kuitenkaan havaita kapselista uloskasvua, ja marginaalit ovat puhtaat.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["yes|kyllä|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -554,11 +554,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Prostatalastuja yhteensä noin 19g, josta laitettu 10g histologiaan. Näkyy paljon fibromuskulaaria stroomaa ja mattomaista pahanlaatuista kasvua stroomassa. Tumat suurentuneet, kooltaan vaihtelevat ja tumajyväset erottuvat selvästi. Noin puolet lastujen pinta-alasta kasvainkudosta, jossa Gleason luokituksessa eniten tasoa 5 ja toiseksi eniten tasoa 4.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^5\\+4=9$"]
         ],
         # Censored
         [
@@ -580,11 +580,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Tutkittavana purkillinen prostatan paksuneulanäytteitä molemmilta puolilta, joista vasemman puolen fragmentit pituudeltaan 10 ja 7mm ja oikean puolen 15 ja 10mm. Kroonista tulehdusta nähdään systemaattisesti. Vasemman puolen fragmenteissa näkyy lähinnä matalalle erilaistunutta karsinoomasolukkoa, josta Gleason kasvutapaa 3 pääsääntöisesti ja toiseksi eniten tapaa 4. Lisäksi hermojen ja suonien ympärillä kasvustoa. Oikean puolen fragmentit taas eivät näytä malignilta.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+4=7"]
         ],
         # Censored
         [
@@ -606,11 +606,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Näytteeksi saadusta prostatektomiapreparaastista käynnistetyistä leikkeistä (4 makroleikettä ja tavanomaiset mikroskooppileikkeet) todetaan keskivaiheilta basikseen asti ulottuvaa adenokarsinoomamuutosta. Edustaa pääosin erilaistumisluokkaa 4 (60%). Toiseksi yleisin luokka 5 (n. 30% osuus) edustava huonosti erilaistunut kasvainkomponentti. Tertiäärinen vähäisin luokka 3 erittäin pieni. Näytteessä ei tule esiin kapselin läpikasvua tai positiveja marginaaleja. YHTEENVETO: Gleason-pistesumma on 9, grade group 5.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -632,11 +632,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Näytteenä on varmistuksena ajettavaksi n. 10g turp-lastuja, joista noin puolet käynnistetään 6:een kudoskasettiin. Lastuissa havaitaan >50%:ssa yhteensulaneina asinuksina kasvavaa Gleason 4 -luokan tuumorikasvua. Jonkin verran havaitaan myös kroonistunutta tulehdussolukkoa. YHTEENVETO: Aiemmin benigniksi luokiteltu mutta malignin epäilyksen jättänyt höyläysnäyte arvioidaan uusiksi siis pistesumman 8 adenokarsinoomaksi.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -658,11 +658,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Näyte (1) sisältää kaksi kudoslieriötä, joiden pituus 8+6mm. Pidemmässä nähdään noin 4mm pituudelta (noin puolet kokonaispituudesta) kasvainkudosta, jossa Gleason 3 -kasvutapaa 60% ja 4 -osuus n. 30%. Näyte (2) yksi 10mm, jossa kasvainkudosta n. 5mm pituudelta ja erilaistuminen Gleason 3 n. 70% ja 4-luokkaa vajaa 30%. Näyte (3) sis. 5+5mm, joissa ei havaita tavallisesta poikkeavaa prostatakudosta. Näytteissa (1) ja (2) nähdään myös PIN-muutoksia. Todetaan em. näytteistä siis Gleason 7:n prostatan adenokarsinooma.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -684,11 +684,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Tutkittavana on prostatektomiapreparaatti, joka käynnistetään normaalilla kaavalla oikea lohko vihreällä ja vasen lohko keltaisella värjäten. Apex näytteisiin A-C, kaksi makroleikettä kohti basista D-E, F-G basis ja H-I kaksi näytettä seminaalivehikkeleistä. Histologiassa nähdään laaja kasvain, joka ulottuu apexista basikseen asti. Osassa apex-näytteitä ulottuu myös reunan merkattuun rajaan ja tulee pienet positiiviset reunamarginaalit. Suurin kasvainfokus on basiksen puolella, missä vallitseva Gleason luokka 3, ja luokan 4 erilaistumista melkein yhtä paljon. Ei havaita kuitenkaan kasvaimen läpikasvua kapselin ulkopuolelle.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -710,11 +710,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Yhteensä 13g edestä höyläyslastuja ajettiin kahdeksalla kasetilla. Karsinoomaa todettiin histologisesti blokeissa F & G, joiden kasvutapa oli Gleason 3+3=6.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^3\\+3=6$"]
         ],
         # Censored
         [
@@ -736,11 +736,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Tutkittavana kuusi biopsialieriötä otettuna kohonneen PSA:n takia. Pesäke 1. vasemmalta edestä, nähdään 5mm matkalla huonosti erilaistunutta atyyppista rauhasrakennetta. Kyseessä adenokarsinooma, jossa Gleason luokitus 4+4=8. Pesäke 2. vasemmalta keskeltä noin 10mm matkalla nähdään myös karsinoomakudosta, jossa Gleasonin pistesumma 4+3=7 ja graduksen 4 osuus n. 80%. Pesäkkeessä 3. oikealta keskeltä myös löydös jossa gradusten 3 ja 4 suhde n. 70:30%, joten summa 7 (3+4). Lopuissa näytteistä lähinnä epiteelissä hyperplastisia muutoksia. Yhteenvetona korkeimman graden maligni löydös pesäkkeessä 1 pistesummalla 8.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["yes|kyllä|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -762,11 +762,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Tuorenäytteenä saatu prostata, jonka paino on n. 40g. Näytteet otettu seuraavasti: lähinnä apexia A - vasen lohko, B - oikea lohko ja seuraavasta tasosta C - vasen lohko, D - oikea lohko, ja ylin taso E - vasen lohko, F- oikea lohko. Vasemman lohkon kaseteista A ja C havaitaan invasoivaa adenokarsinoomaa, joka on läpäissyt kapselin ja esiintyy myös perineuraalista invaasiota. Tuumorisolut muodostavat sekä huonosti erilaistuneita että yhteenkasvavia rauhasrakenteita muodostaen; nähdään eniten luokan 4 erilaistumista, ja pienempi luokka 3. Tuumorin läpimitta ylittää 2 cm. YHTEENVETO: Pistesumman 7 löydös vasemman puolen leikkeistä.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -788,11 +788,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "LISÄKONSULTAATIO: Matti Meikäläistä ja Maija Meikäläistä konsultoitu epävarmojen löydösten vuoksi yhteistapaamisessa. Soluissa paljon atrofiaa ja ehkä atypiaa, jonkin verran lasilla polttoartefaktaa, mutta nähdään myös basaalia. MM & MM varmistavat että ureteelisolujen läheltä saaduista lastuista löytyy todelle erilaistumisluokkaa 4 (vallitseva) ja luokkaa 3, tertiäärinen 5. Siten potilaan aiempi suhteellisen epävarma diagnoosi (3+3) päivitetään keskitasoiseksi adenokarsonoomaksi (nyt siis Grade Group 3, aiempi GG 1) ja otetaan yhteyttä potilaaseen.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -814,11 +814,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Potilas on käynyt rutiineissa systeemibiopsiossa, joissa kuitenkin vain aivan minimaalinen fokus 3+3=6 Gleason löydöstä ja johtanut aluksi aktiiviseurantaan. Potilas kuitenkin oireillut ja PSA lähtenyt nousuun (viimeisin arvo jo >100), joten kuvantamisen jälkeen on tehty pari targetoitua biopsiaa. Toisessa biopsiapalassa tekninen epäonnistuminen leikkeissä, mutta toisesta löytyykin melkein 10mm matkalta laaja fokus, jossa pääosin kasvutapaa 4. Potilas ehtinyt aloittaa jo sädehoidon, ja morfologiset solumuutokset vaikeuttavat tulkintaa. Vaikuttaa vahvasti kuitenkin että toiseksi yleisin kasvutapa 5. Löydös vahvistaa epäilyn että aiempi Gleason summa 6 ei sattunut osumaan pahimman laatuisiin fokuksiin, ja hoitosuunnitelmaa on jo päivitetty uuden löydöksen perusteella.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -840,11 +840,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "PÄIVITYS: Alun perin ollut radikaali prostatektomia tutkittavana, josta sittemmin otettu erilleen näytteeseen 1 viisi ja näytteeseen 2 kahdeksan imusolmuketta. Näiden imusolmukkeiden mediaanipituus oli 3cm ja pisin 5cm. Lisäksi näytteissä 3 ja 4 on tutkittava seminaalivehikkelit. Alkuperäisestä multifokaalista adenokarsinoomasta itse prostatassa oli erityisesti basiksestä löytynyt gleason 4+4 tason kasvua, myös 3+3, 3+4 ja 4+3. Nyt lisätutkimuksena saadut imusolmukkeet ovat näytteessä 1 puhtaat (0/5) ja samoin näytteessä 2 (0/8), havaitaan vaan normaalia solukkoa. Tutkittavat seminaalivehikkelit (näytteet 3 ja 4) ovat myös puhtaat, joten löydökset benignejä. Todetaan siis että tauti ei vaikuta levinneen lokaalisti (status N0). Alkuperäisen prostatan primäärinäytteen makroleikkeiden löydökset jäävät siis voimaan. Nyt tutkitut imusolmukkeet ja seminaalivehikkelit siis puhtaita.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -866,11 +866,11 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "",
+            "Radikaalipostatetoktomian preparaatti on käynnistetty normaalisti protokollan mukaisesti. Kapselin reuna-alueella kasvutapa vaihtelee Gleason tyypeittäin 3+4/4+3, ja tuumori on läpäissyt kapselia (arvio T3b). Katso tarkemmat raportin lisätiedot yksityiskohdista. Makroleikkeissä ajetuissa imusolmukkeissa yksi löydös (1/4, N1) mutta seminaalivehikkeleissä ei maligneja löydöksiä.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -894,9 +894,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "7,5gr elektroresekat av vilket preparerats 7 g i sex vävnadkassetter. Histologiskt ses att körtlarna är mycket nära varanda, och delvis silformade strukturer. Fyndet är inte förenligt med prosta adenokarcinoma. Man ses mest hyperplastisk prostatavävnad med kronisk inflammation, men inget malignt.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -920,9 +920,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Som prov 1-6 föreligger representativa biopsier från höger och vänster lob. På ett ställe ses lite high-grade PIN-förändring på vänster sidan. Observeras ingen perineural invasion. På höger sidan finns några vävnadsstrukturer som representerar hyperplasi. Något karcinom kommer inte fram.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -946,9 +946,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Preparatet väger 80 gram och är ca 7 x 6 x 5 cm i storlek, prepareras i 8 makrokasetter och 5 vanliga kasetter. Makroskopiskt ses nodulär hyperplasi, och mikroskopiskt föreligger epitelial hyperplasi. Malignitet eller inflammation kommer inte fram.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -972,9 +972,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Som preparat föreligger 7 g elektrosektionsspånor. Histologiskt ses prostatavävnad med delvis nodulart prolifererad körtelkomponent. Ställvis ses lindrig inflammation. Som fynd en hyperplasi.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -998,9 +998,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Representativa nålbiopsier undersöks. Biopsiernas totala längds är cirka 111 mm. Histologiskt ses hyperplastisk prostatavävnad med kronisk inflammation. Något malignsuspekt kommer inte fram.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1024,9 +1024,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Undersöks prostatektomipreparat som väger 85g. Från preparatet tas 7 makrosnitt och den övriga vävnden igångsätts enlight normal rutin. I de mikroskopiska snitten hittas tumör i tre foci. På detta område ses även positiv marginal på ett cirka 1,5mm stort område. Hittas både Gleason 3 (vanligaste) och 4 differentiering i dessa foci, sammanlagna Gleason är sålunda 7. Ses ingen penetrativ växt genom kapseln ej heller infiltration av seminalvesiklar.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1050,9 +1050,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Hyvlingmaterialet väger cirka 8,9 gram och ca 5 g har satts i åtta kasetter. Histologiskt ses hyperplastisk prostatavävnad med kroniskt inflammation. Atypi eller infiltrativt växande epitel kommer inte fram. SAMMANFATNING: Godartad prostatahyperplasi.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1076,9 +1076,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Som prov 1-6 föreligger representiva systematic biopsier från höger och vänster lob. I prov 3 (vänster apex) finns lite kronisk inflammation. Ses också på vänster sidan prov 1 och 2 att det finns ett antal atrofiska körtlar stillvis lindrig kronisk inflammation. Ingen prostatacancer kommer inte fram i detta material.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1102,9 +1102,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Prostatektomipreparatet undersöks ca 80g. Ses nästan enbart Gleason 4 differentiering, mestadels till en liten del fusionerade körtlar. Liten komponent av Gleason 3. Sammanfattningt: poängsumma blir 7 (4+3).",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -1128,9 +1128,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Som prov föreligger ca 30 g prostataspån. Materialet satts i kasetter A till H, kvar i burken circa 15 g. Ses vanlig prostatavävnad med mörtlar. Ses några enstaka atrofiska körtlar men något prostata adenocacinom kommer inte fram i detta material.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1154,9 +1154,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Representiva prostatabiopsier enligt normal mönster. I mikroskopin ses normalstrukturerad prostatavävnad med varierande körtelstorlek. Lite kronisk inflammation och på några ställen ses lite atrofi. Ingenting suspekt. Sammanfatning: I tidigare biopsi har man ju hittat prostatakancer, men nu hittas alltså ingen tumörvävnad.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1180,9 +1180,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Som prov är total prostatektomipreparat (vikt 70g), processerad enligt rutin. Makroklipp av mitten E, F ja G formeras en sammanflytande tumorvävnads fokus (storlek ca 3x2x1mm). I fokus mest av körtelstrukturer separerades, men en del bildar sammanflytande körtelkanaler (klasser 3+4). Seminalvesiklar i klipp O och P är rena. Gleason 4 vävnad invaderas perineuralt. Marginals är negativ, och kapseln är intakt. Ingen metastasis observeras i regionära lymfknutor.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1206,9 +1206,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Hela hyvlingsprostataspån vävnadsmaterialet väger ca 60gr. Materialet sätts i åtta kasetter i gång en mindre del av materialet. I mikroskopin ses regelbunden prostatavävnad med körtlar. Ses även några körtlar där fyndet passar in på basalcells hyperplasi. Ingen prostatacancer kommer inte fram i detta materialet.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1232,9 +1232,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Undersöks tre stycken biopsier från höger och tre stycker från vänster. Totala längden av biopsierna är cirka 30+40=70 mm. På vänster sidan ses normalt prostataepitel men ställvis litet lymfocytansamlingar förenliga med lindrig kronisk inflammation. Några maligna förändringar hittas inte från vänster eller höger sidan.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1258,9 +1258,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Undersöks prostataresekat som väger 100g. Prov prepareras enligt normal rutin, så att apex ligger i kassetterna A-D och basis i kassetterna E-H. Seminalvesiklarna i kassetterna I & J. Histologiskt hittas adenokarcinoma i två första makrosnitten av basis. Tumören förekommer i den vänster loben dorsalt. Kapselinvasion och perineuralväxt observeras. Seminalvesiklarna och apex är rena. I första hittade tumorfocus vanligaste Gleason är 4 och nästvanligaste 3. Den andra focus har Gleason 5 (>80% representering) med liten del Gleason 4. SAMMANFATNING: I resekat hittade alltså en Gleason 9 tumör.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^5\\+4=9$"]
         ],
         # Censored
         [
@@ -1284,9 +1284,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Resten av hyvligns-spånen från prostata undersöks, ytterligare 90 spånor på 8 glas. Av dessa finns det carcinom i 5 spånor. Den vanligaste Gleason klassen är 3 och den nästvanligaste Gleason klassen 4.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1310,9 +1310,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Högra nålbiopsier konstateras 8/12mm Gleason 3+4 på glas 1A och den andra biopsin normalt 12mm. På 1B finns bara 1/12mm och 3/10mm 3+3 differentiering. På vänstra sidan glasen 2A och 2B ses där man enbart hittar benign prostatavävnad. Epitelet är tvåradigt, ingen atypi ses. 3+4 arkitektur är cirka 60% Gleason 3. Gleason 4 växt är delvis kribriform.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1336,9 +1336,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Som prov föreligger ett radikal prostatektomipreparat. Makrosektioner tas i apex-bas riktning för kasetter A-F. Saknat och förstört urotel på ytan ses på grund av neoadjuvanta behandlingar. Inflammatorisk reaktion av lymfocyter i bindväv och muskelskikt. Mikroskopiskt ses tumorvävnaden som några fokus av olika storlekar. Invaderar huvudakligen och bildar separata och variabelt formade körtelkanaler. Bildar körtelkanaler som går över i varandra på några ställen. Adenikarcinom finns i båda loberna omfattas ca 20% av helt ytan. Dominerande Gleason-klassen är 4, den näst vanligaste är klass 5 (klass 5 är ca 10% av ytan). Lymfkörtlar på båda sidor är rena. Det finns en positiv marginal på 2mm i apex.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -1362,9 +1362,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Som prov föreligger spån från prostatahyvling, väger cirka 10,5g efer fixation. Material i gångsätts i sammanlagt tio kasetter, vilket är ungefär en tredjedel av helt materialet. Vid histologin ses till stora delar benign prostatahyperplasi, men det finns litet suspicion också. Man ses både fusionerande kribriforma körtlar och skillt stående körtlar. Det finns både Gleason 3 och 4 -differentiering. Klassen 4 är litet vanligare. I resten av spånen ses kronisk inflammation och urotelmetaplasi i körtel gångarna.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -1388,9 +1388,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Sammanlagt 10 biopsier och små vävnadsfragment. I fem av biopsierna hittas cancer, mest i vänster lob. Man ser förutom perineural invasion också växt av carcinomvävnad i fettvävnad. Cancern har sålunda spritt sig untanför kapseln. I prov 5 är det lilla fokuset med Gleason 4 differentiering och resterande delen är Gleason 3 (poängsum 7). Resten av fokus hittas i prov 3 or 4 med endast Gleason-klass 4, resultat är sum 8.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -1414,9 +1414,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Radikal prostatektomi undersöks (orig prostata väger 78g): i A-C avsnitt från apex från höger till vänster, D-J makroklipp från apex till basis, K-M från basis från höger till vänster, N-O baser av seminalvehikeln. Mikroskopiskt ses tumorvävnaden i båda sidor, som invaderar bildar sammanflytande körtelkanaler. Tumorvävnaden sticker ut genom vänstra centrala delen av kapseln. I basisklipp ses ca 5 mm av positiv marginal. Adenocarsinom andels ca 25% av snitten yta. Dominerande differentiering klass 4, mindre del av klass 3.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -1440,9 +1440,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Hela hyvlingsmaterial väger 5,7 gram och av detta material har tagits ca 4 gram som prov i 8 kasetter. I mikroskopin ses att största delen är dåligt differentierad prostatakancer Gleason 5, med en liten komponent av Gleason 4. Ses också atrofiska körtlar och fläckvis lindrig inflammation.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^5\\+4=7$"]
         ],
         # Censored
         [
@@ -1466,9 +1466,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Som prov 1 - 6 ses representiva systembiopsier från höger och vänster lob. Längden 1-6: 6 + 6 + 10 + 11 + 7 + 5mm av material. I alla tre biopsier 1-3 från vänster sidan hittas karcinon, där den vanligaste Gleason-klassen är 3. 4-6 hittas endast benign prostatavävnad. SAMMANFATTNING: Poängsum 3+3=6 på vänster sida, kancern andel av snittens yta 20%.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+3=6$"]
         ],
         # Censored
         [
@@ -1492,9 +1492,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Prostatektomipreparat startas enlight normal protokol. Histologiskt ses mest benign hyperplastisk prostatavävnad. Kronisk inflammation observeras en helt del i stroma. Tumorvävnad hittas i höger apex, mestadels ca 3x5 mm fokus. Körtelstrukturer separeras huvudsakligen (Gleason klass 3, >70%), men en liten del formeras sammanflytande körtlar (klass 4, ca 5-10% yta). Andelen av tertiär Gleason klass 5 är praktiskt oansenlig (<1%).",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1518,9 +1518,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "20 gram av prostataspån undersöks, material har igångsatts i tre kassetter. Kvar i burken blir cirka 7g. Histologiskt ses i snittena A till C prostatacancer där det finns tumorvävnad i cirka 40% av materialet. Vanligaste differentiering är Gleason 3 (>50%). Näst vanligaste komponent klass 4 andel är cirka 20% och ses som fusionerade körtlar. Observeras också fläckvis kronisk inflammation och något atrofiska acinusstrukturer.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1544,9 +1544,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Prov nr. 1 och 2 föreligger repsentativa biopsier från höger och vänster lob. Totala längds är cirka 60 + 60 mm. Från vänster lob ses ett litet fokus med cancer, enbart Gleason 3 differentiering. I andra biopsier kommer ingen tumörvävnad fram. Carcinom finns totalt på 10 mm längd. Ses kribiforma strukturer och kronisk inflammation.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+3=6$"]
         ],
         # Censored
         [
@@ -1570,9 +1570,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Prostatektomiopererad preparatet är 6/7/4 cm i storlek och väger 75g. Det prepareras i 8 makrokasetter A-H (researchprov i A & B, apex C-E och basis F-H) och 4 vanliga kasetter I-L. Histologiskt observeras i båda lob anterioriskt växt karcinom. Dessa förändringar repsenterar ett prostatakarcinom till största delen bestående av Gleason typ 4, men ca 10% av vävnaden är av Gleason typ 5. Tumorvävnaden har också drag av duktal karcinom. Ingen neuralinvasion eller positiv marginal hittas. Seminalvehikeln är rena och kapsulen är intakt. Inga metastaser hittas i lymfknutarna.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -1596,9 +1596,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Materialet är formalinfixerade spånar, helt vikt ca 15g. Av dessa igångsätts material i sex kassetter, so att över hälften av spånorna undersökts. Vid histologin ses tumorvävnad nästan i hälften av spånorna och sålunda ugör umören cirka 35% av vävnadens yta. Tumören är tämligen dåligt differentierad. Det också kommer fram litet kribriforma körtlar. Ses närmast Gleason 4 differentiering, mindre andel av Gleason 5. Påängsumman blir sålades 9.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -1622,9 +1622,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Prov 1 till 6 föreligger representativa biopsier från höger och vänster lob. Från höger basis ses ett litet fokus ca 0.7mm stort med prostatadenocarcinom. Från vänster mittdel finns et annat fokus med cancer, detta fokus är ca 1mm stort. I dom andra biopsierna finns fläckvis mängd kronisk inflammation men inget karcinom. Cancerfynd i höger och vänster prov med Gleasonpoängsumma 6 (3+3).",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+3=6$"]
         ],
         # Censored
         [
@@ -1648,9 +1648,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "PROSTATEKTOMIREPORT \n\n Vikt: 80gr \n Antal tumorfoci: 3 \n Tumörens andel: 10% \n Den vanligaste Gleason klassen: 4 \n Den nästvanligaste Gleason klassen: 4 \n Gleason summa: 8 \n Positiv marginal: 1mm \n Penetration genom kapsel: Nej \n Invasion till seminalvesikel: Nej \n Lymfknutar, höger: 0/3 \n Lymfknutar, vänster: 0/2 \n\n MER INFO \n\n Från preparatet har tagit 6 makrosnitt enligt normal rutin. Mikroskopiskt snitten hittas tumör i tre foci. Mest av tumorvävnaden i närheten av posteriora apex. Nära foci hittas positiv marginal på ett ca 1mm stort omrode. Vävnadsbit är 4x2x1,5mm i storlek. I lymfknutar 0/3+0/2 ses ingen metastasering. Kapseln ses ut normalt, samma för seminalvesiklar.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -1674,9 +1674,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "YTTERLIGARE KONSULTATION: Olle Svensson och Anna Andersson har konsulterats på grund av några osäkra fynd vid ett gemensamt möte. Cellerna hade visat mycket atrofisk och kanske atypiskt pattern, men det finns också en hel del brännartefakter på det histologiska glaset. Basal cellstrukturer kan också ses. OS & AA bekräftar att vävnadsspånor tagna nära urotelcellerna visar just differentieringsgrad 4 (dominerande) och grad 3, med även tertiär grad 5. Så, uppdateras patientens tidigare relativt osäkra diagnosis (3+3) till medelhög adenokarcinom (nu Grade Group 3, tidigare GG 1). Kontakt tas med patienten.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -1700,9 +1700,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Patient har haft en rutin mässigsystematisk biopsi, där man endast hittade ett minimalt fokus med 3+3=6 Gleason. Inlendingsvis ledde det till aktiv uppföljning. Patienten har dock utvecklat symptom och PSA har börjat stiga (senaste värdet redan >100), varför ett par riktade biopsier har utförts efter imaging. I den första biopsin var det ett tekniskt misslyckande med snitten, men i den andra hittades ett stort fokus på nästan 10mm med huvudsakligen tillväxtmönster 4. Patienten har redan påbörjat strålbehandling, därför morfologiska cellförändringar försvårar tolkningen. Det verkar starkt som att det näst vanligaste tillväxtmönster är 5. Fynden bekräftar misstanken att den tidigare Gleason sum 6 inte fångade de mest aggressiva fokus. Behandlingsplanen har redan uppdaterats baserat på de nya fynden.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -1726,9 +1726,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "UPPDATERING: Ursprungligen undersöktes en radikal prostatektomi, där fem lymfkörtlar undersöktes i prov 1 och åtta i prov 2. Medianlängden var 3 cm och den längsta 5 cm. Dessutom finns det seminalvehiklar i prov 3 och 4. I den ursprungliga multifokala adenokarcinomen i prostatan fanns tillväxt av Gleason 4+4 särskilt i basis område, samt 3+3, 3+4, och, 4+3. De lymfkörtlar som nu har undersökts vidare är rena i prov 1 (0/5) och likaså i prov 2 (0/8), där endast normalt cellmaterial observeras. De undersökta seminalvehiklar (prover 3 och 4) är också rena, så fynden är benigna. Det konstateras således att kancern inte verkar ha lokalt metastaserat (status N0). Fynden från makrosnitten av den ursprungliga primärprostatavävnaden kvarstår. De lymfkörtlar och seminalvehiklar som nu undersökts är alltså rena.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -1752,9 +1752,9 @@ statements = [
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
-            "",
+            "Samtliga insända vävnadsbitar utgörs av prostatakörtelvävnad i form av chippings, med en sammanlagd vikt på 12 gram. Vävnaden är gråvit med områden av fastare konsistens.Vävnadsbitarna uppvisar histologiska tecken på adenocarcinom med blandad arkitektur. Enligt Gleason-systemet graderas tumören som 3+4=7. Höggradiga tumörkörtlar (Gleason 4) utgör mindre än 50 % av den totala tumörytan. Ingen perineural invasion observeras. Benign hyperplasi och områden med kronisk inflammation (prostatit) ses i omgivande körtelvävnad. Fynden är förenliga med prostatacancer av medelhög risk. Vidare klinisk korrelation och eventuell kompletterande utredning rekommenderas.",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1774,13 +1774,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The prostate chippings received have been entirely examined in 3 blocks. These show benign features only. \n\n SUMMARY PROSTATE CHIPPINGS: BENIGN FEATURES ONLY \n T=77100, M=09450",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1800,13 +1800,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. LEFT \n 6 benign prostate cores. There is acute and chronic inflammation. There is no PIN. \n\n 2. RIGHT \n 5 benign prostate cores. There is no inflammation. There is no PIN. \n SUMMARY PROSTATE BIOPSIES: BENIGN FEATURES ONLY T=77100 \n M=41000, 43000, 09450",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1826,13 +1826,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. ANTERIOR FAT \n Fatty tissue with no evidence of malignancy. \n\n 2. PROSTATE \n The entire prostate has been examined and no residual malignancy could be found. Please discuss at MDT. \n\n SUMMARY \n 1. PROSTATE FAT: CLEAR \n 2. RADICAL PROSTATECTOMY: BENIGN FEATURES ONLY \n T= 77000, 1X010, M = 09450",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1852,13 +1852,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The prostate chippings received have been entirely examined in 8 blocks. These show acute and chronic inflammation. There is no malignancy. \n\n SUMMARY PROSTATE CHIPPINGS: INFLAMMATION ONLY T=77100, M=41000, 43000",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1878,13 +1878,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. LEFT \n 7 fragmented benign prostate cores. There is acute inflammation. There is no PIN. \n\n 2. RIGHT \n 8 benign prostate cores. There is no inflammation. There is no PIN, nor invasive malignancy. \n\n SUMMARY PROSTATE BIOPSIES: BENIGN FEATURES ONLY \n T=77100, M=41000, 09450",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1904,13 +1904,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. ANTERIOR FAT \n No evidence of malignancy. \n\n 2. PROSTATE \n Tumour type: Acinar prostatic adenocarcinoma \n Primary Gleason pattern: 3 \n Secondary Gleason pattern: 3 \n Tertiary Gleason pattern: No \n Gleason score: 6 \n Dominant tumour nodule: Right \n Extra Prostatic Extension Present: No \n Seminal Vesicle Invasion: No \n Bladder Neck Invasion: No \n Vascular Invasion: No \n Perineural Invasion: Yes \n\n Margins: \n Apex margin: negative \n Distance to margin: 1.2mm \n Location of closest point: Right \n Base margin: negative \n Distance to margin: >4mm \n Location of closest point: right \n Circumferential margin: negative \n Distance to margin: 2mm \n Location of closest point: Anterior \n\n Tumour Size: \n Largest focus of tumour: 16 x 12 x 10mm \n Largest focus location: Right anterior \n\n SUMMARY \n 1. PROSTATE FAT: CLEAR \n 2. RADICAL PROSTATECTOMY - PROSTATIC ADENOCARCINOMA, GLEASON SCORE 6 (3+3), GRADE GROUP 1. pT2 Nx (UICC TNM 8th edition). ALL MARGINS CLEAR \n T= 77000, 1X010, M = 81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^3\\+3=6$"]
         ],
         # Censored
         [
@@ -1930,13 +1930,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The prostate chippings received have been representatively examined in 16 blocks. These show focal areas of PIN. No invasive disease. \n SUMMARY PROSTATE CHIPPINGS: PIN \n T=77100, M=74000",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1956,13 +1956,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. LEFT \n An estimated (fragmented) 10 prostate cores. There is PIN but no invasive malignancy. \n 2. RIGHT \n 6 benign prostate cores. There is no PIN or invasive malignancy. \n SUMMARY \n PROSTATE BIOPSIES: LEFT SIDED PIN \n T=77100, M=09450",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -1982,13 +1982,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. ANTERIOR FAT \n\n No evidence of malignancy. \n\n 2. PROSTATE \n Tumour type: Acinar prostatic adenocarcinoma \n Primary Gleason pattern: 3 \n Secondary Gleason pattern: 4 \n Tertiary Gleason pattern: No \n Gleason score: 7 \n Dominant tumour nodule: Anterior \n Extra Prostatic Extension Present: Yes \n Description: \n Tumour involving adipose tissue \n Tumour beyond contour of prostate edge \n Location: Anterior  \n Extent of extraprostatic extension: Established \n Seminal Vesicle Invasion: No \n Bladder Neck Invasion: No \n Vascular Invasion: No \n Perineural Invasion: Yes \n\n Margins: \n Apex margin: positive, extraprostatic \n Location of involvement: Anterior \n Estimated length of involvement: 3.5mm \n No. blocks positive: 1 \n Extent of margin positivity: >=3mm \n Gleason grade at positive margin: 3 \n Base margin: negative \n Distance to margin: >4mm \n Location of closest point: right \n Circumferential margin: negative \n Distance to margin: 2.2mm \n Location of closest point: Anterior \n\n Tumour Size: \n Largest focus of tumour: 38 x 12 x 12mm \n Largest focus location: Anterior \n\n Tumour comments: Cribriform growth noted.  \n\n 3. ANTERIOR MARGIN \n This is clear of tumour.  \n\n SUMMARY \n 1. PROSTATE FAT: CLEAR \n 2. RADICAL PROSTATECTOMY - PROSTATIC ADENOCARCINOMA, GLEASON SCORE 7 (3+4), GRADE GROUP 2. pT3a pNx (UICC TNM 8th edition). POSITIVE APEX MARGIN. CIRCUMFERENTIAL MARGIN AND BASE MARGIN CLEAR \n 3. ANTERIOR MARGIN: CLEAR \n T= 77000, 1X010, M = 81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -2008,13 +2008,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The prostate chippings received have been representatively examined in 13 blocks. These show areas of glandular and stromal hyperplasia. No malignancy seen. \n\n SUMMARY \n PROSTATE CHIPPINGS: BPH \n T=77100, M=72440",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -2034,13 +2034,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. LEFT \n 6 benign prostate cores. \n\n 2. RIGHT \n 5 prostate cores. One core contains a 0.3 mm cluster of moderately atypical glands that lack basal cells on immunostaining. These fall short of malignancy and are considered to be an area of atypical small acinar proliferation (ASAP) adjacent to PIN. \n\n SUMMARY \n PROSTATE BIOPSIES: RIGHT SIDED ASAP & PIN \n T=77100, M=69700",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -2060,39 +2060,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. ANTERIOR FAT \n\n No evidence of malignancy. There is one incidental negative lymph node noted. \n\n 2. PROSTATE \n\n Tumour type: Acinar prostatic adenocarcinoma \n Primary Gleason pattern: 4 \n Secondary Gleason pattern: 3 \n Tertiary Gleason pattern: No \n Gleason score: 7 \n Dominant tumour nodule: Right mid \n Extra Prostatic Extension Present: No \n Seminal Vesicle Invasion: No \n Bladder Neck Invasion: No \n Vascular Invasion: No \n Perineural Invasion: Yes \n\n Margins: \n Apex margin: negative \n Distance to margin: 2mm \n Location of closest point: Right \n Base margin: negative \n Distance to margin: >4mm \n Location of closest point: right \n Circumferential margin: negative \n Distance to margin: 5mm \n Location of closest point: Right mid \n\n Tumour Size: \n Largest focus of tumour: 32 x 19 x 11mm \n Largest focus location: Right mid \n Second largest focus of tumour: 18 x 9 x 8mm \n Largest focus location: left anterior \n\n SUMMARY \n 1. PROSTATE FAT: CLEAR \n 2. RADICAL PROSTATECTOMY - PROSTATIC ADENOCARCINOMA, GLEASON SCORE 7 (4+3), GRADE GROUP 3. pT2 (UICC TNM 8th edition). ALL MARGINS CLEAR. \n T= 77000, 1X010, 08000, M = 81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
-        ],
-        # Censored
-        [
-            # English (censored)
-            "",
-            # Finnish (censored)
-            "",
-            # Swedish (censored)
-            "",
-            # Correct answers (censored)
-            ["^NA$", "^NA$", "^NA$"]
-        ]
-    ],
-
-    # Statement 079
-    [
-        # Non-censored
-        [
-            # English (non-censored)
-            "",
-            # Finnish (non-censored)
-            "",
-            # Swedish (non-censored)
-            "",
-            # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -2112,13 +2086,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The chippings have been entirely examined in 23 blocks. These show areas of chronic imflammation. Only benign features seen. \n\n SUMMARY \n PROSTATE CHIPPINGS: BENIGN FEATURES ONLY \n T=77100, M=72440",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
@@ -2138,13 +2112,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. LEFT \n\n 6 benign prostate cores. There is acute and chronic inflammation. There is PIN. \n\n 2. RIGHT \n\n 2 of 5 prostate cores infiltrated by acinar adenocarcinoma which is of primary Gleason pattern 4 and secondary pattern 3 (about 75% pattern 4). The tumour has a maximum core length of approximately 8 mm (about 60% of that core) and involves about 20% of the total tissue. There is no perineural invasion. There is no extraprostatic extension. \n\n SUMMARY \n PROSTATE BIOPSIES: RIGHT SIDED ADENOCARCINOMA \n MAXIMUM GLEASON SCORE 7 (4+3), GRADE GROUP 3 \n T=77100, M=81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -2164,13 +2138,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. ANTERIOR FAT \n\n No evidence of malignancy. \n\n 2. PROSTATE \n\n Tumour type: Acinar prostatic adenocarcinoma \n Primary Gleason pattern: 4 \n Secondary Gleason pattern: 4 \n Tertiary Gleason pattern: No \n Gleason score: 8 \n Dominant tumour nodule: Posterior left \n Extra Prostatic Extension Present: No \n Seminal Vesicle Invasion: No \n Bladder Neck Invasion: No \n Vascular Invasion: Yes \n Perineural Invasion: Yes \n\n Margins: \n Apex margin: negative \n Distance to margin: 1mm \n Location of closest point: Left posterior \n Base margin: negative \n Distance to margin: 3mm \n Location of closest point: Left posterior \n Circumferential margin: negative \n Distance to margin: 4.2mm \n Location of closest point: Left posterior \n Tumour Size: \n Largest focus of tumour: 30 x 24 x 19mm \n Largest focus location: Left posterior \n\n Tumour comments: cribriform growth seen and some ductal phenotype noted (about 10%). \n\n SUMMARY \n 1. PROSTATE FAT: CLEAR \n 2. RADICAL PROSTATECTOMY - PROSTATIC ADENOCARCINOMA, GLEASON SCORE 8 (4+4), GRADE GROUP 4. pT2 pN0 pMX (UICC TNM 8th edition). ALL MARGINS CLEAR. \n T= 77000, 1X010, 08000, M = 81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -2190,13 +2164,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The chippings have been entirely examined in 4 blocks. These show approximately 18 of 67 (about 27%) chips contain Gleason 3+4=7 prostatic adenocarcinoma. \n\n SUMMARY \n PROSTATE CHIPS: ADENOCARCINOMA, GLEASON SCORE 7 (3 + 4) GRADE GROUP 2 \n T=77100, M=81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -2216,13 +2190,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. LEFT \n\n 1 of 6 prostate cores infiltrated by acinar adenocarcinoma which is of primary Gleason pattern 3 and secondary pattern 3. The tumour has a maximum core length of approximately 4.8 mm (about 40% of that core) and involves about 10% of the total tissue. There is perineural invasion. There is no extraprostatic extension. \n\n 2. RIGHT \n\n 6 benign prostate cores. There is acute and chronic inflammation. There is PIN. \n\n SUMMARY \n PROSTATE BIOPSIES: LEFT SIDED ADENOCARCINOMA, RIGHT SIDED PIN \n MAXIMUM GLEASON SCORE 6 (3+3), GRADE GROUP 1 \n T=77100, M=81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+3=6$"]
         ],
         # Censored
         [
@@ -2242,13 +2216,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. ANTERIOR FAT \n\n Benign only. \n\n 2. PROSTATE \n\n Tumour type: Acinar prostatic adenocarcinoma \n Primary Gleason pattern: 4 \n Secondary Gleason pattern: 5 \n Tertiary Gleason pattern: 3 (not included in grading, <5%) \n Gleason score: 9 \n Dominant tumour nodule: whole gland \n Extra Prostatic Extension Present: Yes \n Description: \n Tumour involving adipose tissue \n Tumour beyond contour of prostate edge \n Location: Anterior  \n Extent of extraprostatic extension: Established \n Seminal Vesicle Invasion: Yes, right side \n Bladder Neck Invasion: No \n Vascular Invasion: Yes \n Perineural Invasion: Yes \n\n Margins: \n Apex margin: positive, extraprostatic \n Location of involvement: Anterior \n Estimated length of involvement: 13mm \n No. blocks positive: 1 \n Extent of margin positivity: >=3mm \n Gleason grade at positive margin: 4 \n Base margin: negative \n Distance to margin: 3.2mm \n Location of closest point: right \n Circumferential margin: positive, extraprostatic \n Location of involvement: Posterior left \n Estimated length of involvement: 33mm \n No. blocks positive: 3 \n Extent of margin positivity: >=3mm \n Gleason grade at positive margin: 4 \n\n Tumour Size: \n Largest focus of tumour: 37 x 32 x 28mm \n Largest focus location: replacing almost the whole gland \n\n Tumour comments: Cribriform growth noted and comedo necrosis. \n\n 3. SEPARATE LEFT SEMINAL VESICLE FRAGMENT \n This is clear of tumour. \n\n SUMMARY \n 1. PROSTATE FAT: CLEAR \n 2. RADICAL PROSTATECTOMY - PROSTATIC ADENOCARCINOMA, GLEASON SCORE 9 (4+5), GRADE GROUP 5. pT3b pNx (UICC TNM 8th edition). POSITIVE APEX MARGIN AND CIRCUMFERENTIAL MARGINS, BASE MARGIN CLEAR \n 3. SEPARATE LEFT SEMINAL VESICLE FRAGMENT: CLEAR \n T= 77000, 1X010, M = 81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -2268,13 +2242,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The chippings have been entirely examined in 12 blocks. These show approximately 8 of 104 (about 8%) chips contain Gleason 4+3=7 prostatic adenocarcinoma.  \n\n SUMMARY \n PROSTATE CHIPS: ADENOCARCINOMA, GLEASON SCORE 6 (4 + 3) GRADE GROUP 3 \n T=77100, M=81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^4\\+3=6$"]
         ],
         # Censored
         [
@@ -2294,13 +2268,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. LEFT \n\n 3 of 6 prostate cores infiltrated by acinar adenocarcinoma which is of primary Gleason pattern 3 and secondary pattern 4 (about 25% pattern 4). The tumour has a maximum core length of approximately 6.7 mm (about 35% of that core) and involves about 50% of the total tissue. There is perineural invasion. There is no extraprostatic extension. \n\n 2. RIGHT \n\n 4 of 7 prostate cores infiltrated by acinar adenocarcinoma which is of primary Gleason pattern 3 and secondary pattern 4 (about 15% pattern 4). The tumour has a maximum core length of approximately 2.9 mm (about 15% of that core) and involves about 35% of the total tissue. There is no perineural invasion. There is no extraprostatic extension. \n\n SUMMARY \n PROSTATE BIOPSIES: BILATERAL ADENOCARCINOMA \n MAXIMUM GLEASON SCORE 7 (3+4), GRADE GROUP 2 \n T=77100, M=81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -2320,13 +2294,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. ANTERIOR FAT \n Negative. \n\n 2. PROSTATE \n Tumour type: Acinar prostatic adenocarcinoma \n Primary Gleason pattern: 3 \n Secondary Gleason pattern: 5 \n Tertiary Gleason pattern: No \n Gleason score: 8 \n Dominant tumour nodule: left lateral \n Extra Prostatic Extension Present: Yes \n Description: \n Tumour involving adipose tissue \n Location: Anterior \n Extent of extraprostatic extension: focal \n Seminal Vesicle Invasion: No \n Bladder Neck Invasion: Yes \n Vascular Invasion: No \n Perineural Invasion: No \n\n Margins: \n Apex margin: negative \n Distance to margin: 1.1mm \n Location of closest point: left \n Base margin: negative \n Distance to margin: 3mm \n Location of closest point: left \n Circumferential margin: negative \n Distance to margin: 1.8mm \n Location of closest point: left \n Tumour Size: \n Largest focus of tumour: 27 x 22 x 18mm \n Largest focus location: left lateral \n Largest focus of tumour: 14 x 12 x 8mm \n Largest focus location: right anterior \n\n Tumour comments: none. \n\n SUMMARY \n 1. PROSTATE FAT: CLEAR \n 2. RADICAL PROSTATECTOMY - PROSTATIC ADENOCARCINOMA, GLEASON SCORE 8 (3+5), GRADE GROUP 4. pT3a pNx (UICC TNM 8th edition). ALL MARGINS CLEAR \n T= 77000, 1X010, M = 81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^3\\+5=8$"]
         ],
         # Censored
         [
@@ -2346,13 +2320,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The chippings have been entirely examined in 7 blocks. These show approximately 23 of 57 (about 40%) chips contain Gleason 5+5=10 prostatic adenocarcinoma. \n\n SUMMARY \n PROSTATE CHIPS: ADENOCARCINOMA, GLEASON SCORE 10 (5 + 5) GRADE GROUP 5 \n T=77100, M=81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^5\\+5=10$"]
         ],
         # Censored
         [
@@ -2372,13 +2346,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. LEFT \n\n 4 of 6 prostate cores infiltrated by acinar adenocarcinoma which is of primary Gleason pattern 4 and secondary pattern 3 (about 70 % pattern 4). The tumour has a maximum core length of approximately 8.7 mm (about 45% of that core) and involves about 60% of the total tissue. There is no perineural invasion. There is no extraprostatic extension. \n\n 2. RIGHT \n\n 4 of 7 prostate cores infiltrated by acinar adenocarcinoma which is of Gleason pattern 4 (100% pattern 4). The tumour has a maximum core length of approximately 9.1 mm (about 80% of that core) and involves about 65% of the total tissue. There is no perineural invasion. There is no extraprostatic extension. \n\n SUMMARY \n PROSTATE BIOPSIES: BILATERAL ADENOCARCINOMA \n MAXIMUM GLEASON SCORE 8 (4+4), GRADE GROUP 4 \nT=77100, M=81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -2398,13 +2372,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. ANTERIOR FAT \n There is a small focus of adenocarcinoma within the fat. \n\n 2. PROSTATE \n Tumour type: Acinar prostatic adenocarcinoma \n Primary Gleason pattern: 5 \n Secondary Gleason pattern: 3 \n Tertiary Gleason pattern: No \n Gleason score: 8 \n Dominant tumour nodule: Left posterior \n Extra Prostatic Extension Present: Yes \n Description: \n Tumour involving adipose tissue \n Location: left  \n Extent of extraprostatic extension: established \n Seminal Vesicle Invasion: Yes \n Bladder Neck Invasion: Yes \n Vascular Invasion: Yes \n Perineural Invasion: Yes \n\n Margins: \n Apex margin: negative \n Distance to margin: 1.1mm \n Location of closest point: left \n Base margin: negative \n Distance to margin: just clear at 0.1mm \n Location of closest point: left \n Circumferential margin: negative \n Distance to margin: 0.7mm \n Location of closest point: left \n\n Tumour Size: \n Largest focus of tumour: 39 x 27 x 28mm \n Largest focus location: left lateral \n \n Tumour comments: Cribriform growth noted and widespread comedo necrosis and single cell / sheet pattern of growth.  \n\n SUMMARY \n 1. PROSTATE FAT: METASTATIC TUMOUR DEPOSIT \n 2. RADICAL PROSTATECTOMY - PROSTATIC ADENOCARCINOMA, GLEASON SCORE 8 (5+3), GRADE GROUP 4. pT3b pNX M1 (UICC TNM 8th edition). ALL MARGINS CLEAR \n T= 77000, 1X010, M = 81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^5\\+3=8$"]
         ],
         # Censored
         [
@@ -2424,13 +2398,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The chippings have been entirely examined in 14 blocks. These show approximately 17 of 257 (about 7%) chips contain Gleason 4+5=9 prostatic adenocarcinoma. \n\n SUMMARY \n PROSTATE CHIPS: ADENOCARCINOMA, GLEASON SCORE 9 (4 + 5) GRADE GROUP 5 \n T=77100, M=81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -2450,13 +2424,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. LEFT \n\n 6 of 6 prostate cores infiltrated by acinar adenocarcinoma which is of primary Gleason pattern 4 and secondary pattern 5 (about 90% pattern 4). The tumour has a maximum core length of approximately 13 mm (100% of that core) and involves 100% of the total tissue. There is perineural invasion and extraprostatic extension. \n\n 2. RIGHT \n No malignancy. \n\n SUMMARY \n PROSTATE BIOPSIES: LEFT SIDED ADENOCARCINOMA \n MAXIMUM GLEASON SCORE 9 (4+5), GRADE GROUP 5 \n T=77100, M=81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -2476,13 +2450,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. ANTERIOR FAT \n No tumour. \n\n  2. LEFT OBTURATOR NODES \n 6 lymph nodes identified, all clear of tumour. \n\n  3. RIGHT OBTURATOR NODES \n 3 lymph nodes identified, all clear of tumour.  \n\n 4. LEFT EXTERNAL ILIAC NODES \n 16 lymph nodes identified, all clear of tumour.  \n\n 5. RIGHT INTERNAL ILIAC NODES \n 7 lymph nodes identified, all clear of tumour.  \n\n 6. PROSTATE \n Tumour type: Acinar prostatic adenocarcinoma \n Primary Gleason pattern: 4 \n Secondary Gleason pattern: 3 \n Tertiary Gleason pattern: No \n Gleason score: 7 \n Dominant tumour nodule: Left \n Extra Prostatic Extension Present: No \n Seminal Vesicle Invasion: No \n Bladder Neck Invasion: No \n Vascular Invasion: No \n Perineural Invasion: No \n\n Margins: \n Apex margin: negative \n Distance to margin: 1.9mm \n Location of closest point: left \n Base margin: negative \n Distance to margin: >5mm \n Location of closest point: left \n Circumferential margin: negative \n Distance to margin: 0.2mm \n Location of closest point: left \n\n Tumour Size: \n Largest focus of tumour: 19 x 27 x 38mm \n Largest focus location: left \n\n SUMMARY 1. PROSTATE FAT: NEGATIVE \n 2. LEFT OBTURATOR NODES: 6 NEGATIVE NODES \n 3. RIGHT OBTURATOR NODES: 3 NEGATIVE LYMPH NODES \n 4. LEFT EXTERNAL ILIAC NODES: 16 NEGATIVE NODES \n 5. RIGHT INTERNAL ILIAC NODES: 7 NEGATIVE NODES \n 6. RADICAL PROSTATECTOMY - PROSTATIC ADENOCARCINOMA, GLEASON SCORE 7 (4+3), GRADE GROUP 3. pT2 pN0 M0 (UICC TNM 8th edition). ALL MARGINS CLEAR \n TOTAL NODES = 0/32 \n T= 77000, 1X010, M = 81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -2502,13 +2476,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The chippings have been entirely examined in 9 blocks. These show approximately 15 of 153 (about 10%) chips contain Gleason 3+5=8 prostatic adenocarcinoma. \n\n SUMMARY \n PROSTATE CHIPS: ADENOCARCINOMA, GLEASON SCORE 8 (3 + 5) GRADE GROUP 5 \n T=77100, M=81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^3\\+5=8$"]
         ],
         # Censored
         [
@@ -2528,13 +2502,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. LEFT \n\n 3 of 6 prostate cores infiltrated by acinar adenocarcinoma which is of Gleason pattern 5. The tumour has a maximum core length of approximately 18 mm (about 95% of that core) and involves about 60% of the total tissue. There is perineural invasion. There is no extraprostatic extension. \n\n 2. RIGHT \n 7 of 8 prostate cores infiltrated by acinar adenocarcinoma which is of Gleason pattern 5. The tumour has a maximum core length of approximately 15 mm (about 80% of that core) and involves about 85% of the total tissue. There is no perineural invasion. There is no extraprostatic extension. \n\n SUMMARY \n PROSTATE BIOPSIES: BILATERAL ADENOCARCINOMA \n MAXIMUM GLEASON SCORE 10 (5+5), GRADE GROUP 5 \n T=77100, M=81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^5\\+5=10$"]
         ],
         # Censored
         [
@@ -2554,13 +2528,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "1. ANTERIOR FAT \n Fatty tissue, no evidence of malignancy. \n\n  2. LEFT OBTURATOR NODES \n 14 lymph nodes identified, all clear of tumour. \n\n 3. RIGHT OBTURATOR NODES \n 3 lymph nodes identified, one of which contains metastatic adenocarcinoma measuring 1.3 mm. \n\n 4. LEFT EXTERNAL ILIAC NODES \n 6 lymph nodes identified, all clear of tumour. \n\n 5. RIGHT INTERNAL ILIAC NODES \n 8 lymph nodes identified, 2 of which contain prostate cancer, 3.4mm in maximum dimension. \n\n 6. PROSTATE \n Tumour type: Acinar prostatic adenocarcinoma \n Primary Gleason pattern: 5 \n Secondary Gleason pattern: 5 \n Tertiary Gleason pattern: No \n Gleason score: 10 \n Dominant tumour nodule: right mid gland \n Extra Prostatic Extension Present: No \n Seminal Vesicle Invasion: No \n Bladder Neck Invasion: Yes \n Vascular Invasion: No \n Perineural Invasion: Yes \n\n Margins: \n Apex margin: negative \n Distance to margin: 1.0mm \n Location of closest point: right \n Base margin: negative \n Distance to margin: >5mm \n Location of closest point: right \n Circumferential margin: negative \n Distance to margin: 0.8mm \n Location of closest point: right \n\n Tumour Size: \n Largest focus of tumour: 29 x 18 x 8mm \n Largest focus location: right side \n\n SUMMARY \n 1. PROSTATE FAT: NEGATIVE \n 2. LEFT OBTURATOR NODES: 14 NEGATIVE NODES \n 3. RIGHT OBTURATOR NODES: 1/3 LYMPH NODES POSITIVE \n 4. LEFT EXTERNAL ILIAC NODES: 6 NEGATIVE NODES \n 5. RIGHT INTERNAL ILIAC NODES: 2/8 NODES \n 6. RADICAL PROSTATECTOMY - PROSTATIC ADENOCARCINOMA, GLEASON SCORE 10 (5+5), GRADE GROUP 5. pT3a pN1 pMX (UICC TNM 8th edition). ALL MARGINS CLEAR \n 3/31 LYMPH NODES  \n T= 77000, 1X010, M = 81403",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^5\\+5=10$"]
         ],
         # Censored
         [
@@ -2580,13 +2554,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "APPENDIX, ADDITIONAL CONSULTATION: John Doe and Jane Doe were consulted at a joint meeting, due to some uncertainties regarding the findings. Cells had shown a lot of atrophy and possibly some atypical patterns, but the notable amount of burn artefacts on the histological slides made interpretation difficult. Basal cell structures were also observed. JD & JD both confirmed that the samples taken from chippings near the urothelial cells do show a diffentiation of grade 4 (most common pattern) and secondary pattern grade 3, with tertiary pattern grade 5. The relatively uncertain diagnosis (3+3) from the patient from before should be updated to moderate-high grade adenocarcinoma (Grade Group 3 after revision, prior GG 1). The patient should be contacted to discuss further options.",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -2606,13 +2580,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The patient had undergone routine systematic biopsy, where only a minimal focus with Gleason 3+3=6 was found. This led to active surveillance. However, the patient has since developed active symptons, and PSA levels have elevated rapidly (latest value already >100). This led to two targeted biopsies done using imaging for guidance. The first targeted biopsy there was a technical failure reesulting in loss of the material, but the second targeted biopsy hit a large focus of almost 10mm with primary differentiation pattern 4. The patient had already started radiotherapy, which made interpretation of the cell morphological changes difficult. However, it would strongly appear that the second most common differentiation pattern is 5. The novel findings confirm that the previous Gleason sum 6 did not capture the most aggressive tumor characteristics. The patient treatment plan has already been updated based on the new findings.",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["biopsy", "yes|kyllä|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -2632,13 +2606,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The patient originally underwent a radical prostatectomy, during which five lymph nodes were examined in sample 1 and eight lymph nodes in sample 2. The median length was 3 cm and the longest 5 cm. Additionally, seminal vesicles were processed in samples 3 and 4. In the original multifocal adenocarcinoma of the prostate, Gleason 4+4 pattern was observed particularly in the base of the prostate, along with 3+3, 3+4, and 4+3 patterns. The lymph nodes examined were clear in sample 1 (0/5) as well as in sample 2 (0/8), with only normal benign cell material observed. The examined seminal vesicles (samples 3 and 4) are also clear of cancer, so the findings are benign. Therefore, it is concluded that the cancer has not metastasized locally (status N0). The findings from the macroscopic sections of the original primary prostate tissue remain. In summary, the lymph nodes and seminal vesicles examined were clear.",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["RP", "yes|kyllä|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -2658,15 +2632,15 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Transurethral resection chippings were obtained after operation, totalling 10g in sample weight. Examination of the chippings provided evidence of adenocarcinoma with heterogeneous growth patterns, with Gleason grading major 4 and minor 3. The identified minor components were distributed focally, totalling around 10% of tumor area, with the major component prominent in whole sample (totalling around 40% of tumor area). The non-tumorous area exhibited benign hyperplasia, with further chronic inflammation patterns. The ISUP Grade Group 3 suggests that patient should be possibly screened or biopsied further in addition to his on-going active surveillance, as cribriform-like patterns were pointed out by colleague John Doe, MD, during post-BPH treatment consultation.",
             # Finnish (non-censored)
             "",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["", "", ""]
+            ["TURP", "yes|kyllä|ja", "^4\\+3=7$"]
         ],
-        # Censored
+            # Censored
         [
             # English (censored)
             "",
@@ -2676,28 +2650,6 @@ statements = [
             "",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
-        ]
-    ],
-
-    # Statement 102
-    [
-        # Non-censored
-        [
-            # English (non-censored)
-            ["Transurethral resection chippings were obtained after operation, totalling 10g in sample weight. Examination of the chippings provided evidence of adenocarcinoma with heterogeneous growth patterns, with Gleason grading major 4 and minor 3. The identified minor components were distributed focally, totalling around 10% of tumor area, with the major component prominent in whole sample (totalling around 40% of tumor area). The non-tumorous area exhibited benign hyperplasia, with further chronic inflammation patterns. The ISUP Grade Group 3 suggests that patient should be possibly screened or biopsied further in addition to his on-going active surveillance, as cribriform-like patterns were pointed out by colleague John Doe, MD, during post-BPH treatment consultation.", "TURP", "yes|kyllä|ja", "^4\\+3=7$"],
-            # Finnish (non-censored)
-            ["", "TURP", "yes|kyllä|ja", "^4\\+3=7$"],
-            # Swedish (non-censored)
-            ["", "TURP", "yes|kyllä|ja", "^4\\+3=7$"]
-        ],
-            # Censored
-        [
-            # English (censored)
-            ["", "^NA$", "^NA$", "^NA$"],
-            # Finnish (censored)
-            ["", "^NA$", "^NA$", "^NA$"],
-            # Swedish (censored)
-            ["", "^NA$", "^NA$", "^NA$"]
         ]
     ]
 ]
