@@ -140,7 +140,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The specimen consists of a radical prostatectomy, with the weight of prostate 50g. Left section is run in yellow and right section in green. Apex is longitudinally inserted into macroblocks A & B. Cross sections from the basis as C-E and longitudinal from left to right as F-H. Left seminal vehicle into block I and right into block J. Microscopically cancerous tissue is observed in both macroes of the apex (A+B). Macro A exhibits growth pattern 4+3, with the dominant differentiation architecture 4 presenting approx 60%. In macro B higher sum (9) is observed of architecture 4+5, with the proportions approx 50% and 20%. Other prostate macroblocks are clean along with the seminal vehicles. No penetration of the prostate capsule or perineural invasion is observed.",
             # Finnish (non-censored)
             "Tutkittavana on radikaali prostatektomia, jossa prostatan paino 50g. Laitetaan vasempaan lohkoon keltainen ja oikeaan lohkoon vihreä väri. Apex pitkittäissuuntaisesti makroblokkeihin A & B. Poikkileikkeet basiksesta C-E ja pitkittäiset vasemmalta oikealle F-H. Vasen vesikkeli blokkiin I ja oikea blokkiin J. Mikroskooppisesti havaitaan kasvainkudosta molemmissa apexin makroissa (A+B). Makrossa A havaitaan kasvutapaa 4+3, jossa vallitseva kasvutapa 4 n. 60%. Makrossa B havaitaan korkeamman pistesumman (9) kasvua 4+5, jossa osuudet n. 50% ja 20%. Muut prostatan makroblokit puhtaita kuten myös vesikkelit. Ei havaita kasvua kapselin läpi tai hermoinvaasiota.",
             # Swedish (non-censored)
@@ -151,7 +151,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "The sample specimen originates from a relatively enlargened prostate. Sections from the left have been processed with yellow dye and sections from right with green dye. Samples taken from both apex and basis are processed (inspected longitudinally + cross sections). Based on reading the report by produced by a colleague, the samples are indexed as A to H. Microscopically clear prostate tissue can be observed across all basis and apex samplings. Major and minor Gleason classes using a reasonable threshold such as above 50% could not be inferred. Different kind of architectures are observed between the main macros, and the suspected higher sum one is referred to colleague for further inspection. Based on the patient's clinical report from the referral center, it would be likely that prostate capsule is intact and likely no perineural invasion has occurred either.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -166,7 +166,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Samples consist of total 4g shaving chips, which are run via three tissue casettes. Microscopically relatively normal prostate grandular structures are observed, although a heavy burn artefact is present. Although glands are largely unobservable due to the artefacts, the findings hint at the specimen presenting with benign prostate hyperplasia.",
             # Finnish (non-censored)
             "Näytteinä yhteensä 4g höyläyslastuja, jotka käynnistetty kolmeen kudoskasettiin. Todetaan mikroskooppisesti suhteellisen normaalia prostatasolukkoa, jossa kuitenkin voimakasta polttoartefaktaa. Rauhaset melko tuhoutuneet polttoartefaktoista johtuen, mutta löydökset viittaisivat hienoisesti prostatahyperplasiaan.",
             # Swedish (non-censored)
@@ -177,7 +177,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Samples consist of very fragmented parts of the original prostatic operation material. Albeit fragmented, the material is run in three separate batches. Microscopically, relatively normal prostate tissue structures are observed, but majority of the sample material cannot be further inspected due to a heavy burn artefact. The results are therefore inconclusive; due to the technical challenges, re-examination is heavily suggested.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -192,9 +192,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Casettes contain routinely collected prostate biopsies with a total length approx. 150mm. In sample 1B from the right side of basis, a focus with small grandular structures with stromal atypia with morphological changes suggesting adenocarcinoma is observed. However, the finding is so small that the conclusions remain on the suspicion-level, and clear conclusive finding cannot be drawn yet. Rest of the samples exhibit only ordinary grandular structures. /John Doe, Meilahti, 11.11.2011",
             # Finnish (non-censored)
-            "Kaseteissa normaalin tavan mukaan otetut prostatabiopsiat, kokonaispituus n. 150mm. Näytteesssä 1B oikeasta basiksesta hyppää esiin fokus, jossa pieniä rauhasrakenteita, missä tuma-atypiaa ja morfologinen löydös saattaisi vastata adenokarsinoomaa. Löydös on niin niukka että jää suspisio-asteelle, eikä selvää adenokarsinoomaa löydetä. Muissa näytteissä havaitaan vain normaalia rauhaskudosta. /Lauri Lääkäri, Meilahti, 11.11.2021",
+            "Kaseteissa normaalin tavan mukaan otetut prostatabiopsiat, kokonaispituus n. 150mm. Näytteessä 1B oikeasta basiksesta hyppää esiin fokus, jossa pieniä rauhasrakenteita, missä tuma-atypiaa ja morfologinen löydös saattaisi vastata adenokarsinoomaa. Löydös on niin niukka että jää suspisio-asteelle, eikä selvää adenokarsinoomaa löydetä. Muissa näytteissä havaitaan vain normaalia rauhaskudosta. /Lauri Lääkäri, Meilahti, 11.11.2021",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
@@ -203,7 +203,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Sufficient amount of prostate sample material was routinely collected according to provided instructions. One sample exhibited a point of interest, with some atypical structures and morphological changes. The finding was so diminishingly small, that in the end no definite conclusions could be drawn from the material, as rest of the material exhibited structures one would typically expect. /John Doe, Meilathi, 11.11.2011",
             # Finnish (censored)
             "",
             # Swedish (censored)
