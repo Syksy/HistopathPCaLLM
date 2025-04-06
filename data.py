@@ -218,9 +218,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Samples 1 and 2 contain lymph nodes (3 pcs each), with lengths spanning 1 to 3 cm. Sample 3 contains radical prostatectomy preparate, which is run according to the routine protocol. In the third sample tumor tissue is observed in both lobes, with invasive properties and forming fusing and separately growing grandular structures. The findings cover approx 10% of the section area. Additionally, aggregates of macrophages are observed and high grade inflammatory changes. Highest identified Gleason growth pattern is 4+3=7, with the lower grade 3 consisting of approx 30%. High grade PIN-changes are also observed. The inspected lymph nodes are free from malignant findings (0/6).",
             # Finnish (non-censored)
-            "Näytteet 1 ja 2 sisältävät imusolmukkeita (3 kpl molemmissa), joiden koko on välillä 1 - 3 cm. Näyte 3 sisältää radikaaliprostatetomian preparaatin, joka käynnistetään rutiiniprotokollan mukaisesti. Näytteessä 3 havaitaan molemmissa lohkoissa kasvainkudosta, joka invasoi sekä toisiinsa sulautuvia että erillisiä rauhasrakenteita muodostaen. Löydökset kattavat n. 10% leikkeiden pinta-alasta. Lisäksi nähdään makrofagikertymiä ja voimakasasteista tulehdusmuutosta. Löydetty korkein Gleason kasvutapa on 4+3=7, josta alemman luokan 3 osuus n. 30-40%. Havaitaan myös high grade PIN -muutoksia. Tutkituissa imusolmukkeissa ei kuitenkaan maligneja löydöksiä (0/6).",
+            "Näytteet 1 ja 2 sisältävät imusolmukkeita (3 kpl molemmissa), joiden koko on välillä 1 - 3 cm. Näyte 3 sisältää radikaaliprostatetomian preparaatin, joka käynnistetään rutiiniprotokollan mukaisesti. Näytteessä 3 havaitaan molemmissa lohkoissa kasvainkudosta, joka invasoi sekä toisiinsa sulautuvia että erillisiä rauhasrakenteita muodostaen. Löydökset kattavat n. 10% leikkeiden pinta-alasta. Lisäksi nähdään makrofagikertymiä ja voimakasasteista tulehdusmuutosta. Löydetty korkein Gleason kasvutapa on 4+3=7, josta alemman luokan 3 osuus n. 30%. Havaitaan myös high grade PIN -muutoksia. Tutkituissa imusolmukkeissa ei kuitenkaan maligneja löydöksiä (0/6).",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
@@ -229,7 +229,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Samples with indices 1 and 2 contain non-primary tissue (multiple segments each), of varying quantities. Sample 3 contains majority of the prostate tissue of interest, which is run according to the routine protocol. Examination across the third sample reveals some potentially interesting properties, and the histological properties illustrate varying growth patterns. The most interesting parts covers approx 10% of the third sample. Immunological activity is evident and normal inflammation related changes are suspected. Highest identified Gleason patterns appear missing, with empty fields ? and ? indicating major and minor in the chart; apparently the lower grade was covering above 10% of the sample but no grade score is reported, possibly a recording mishap. Suspicion of PIN-changes were discussed at a meeting to approach consensus regarding the various options. The samples run in index 1 and index 2 were confirmed to be completely free of malignant findings.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -244,7 +244,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "A total 20g of electrosection shavings were obtained as the sample material. 10g sample material is then processed, leaving the other half of the sample material unused. A total of 8 casettes were utilized in the runs. Histologically a large quantity of prostate stromal tissue is observed. Epithelial cell lining appears to dual layered. Parts of the grandular structures appear enlarged, which fit hyperplasia. No malignant findings are observed, thus the findings fits the expected benign hyperplasia.",
             # Finnish (non-censored)
             "Tutkittavaksi on saatu prostatan elektrosektiolastuja, joiden yhteispaino 20g. Näistä tutkitaan 10g, joten noin puolet materiaalista jää käyttämättä. Käytössä yhteensä 8 kasettia. Nähdään histologisesti runsas määrä prostatan stroomakudosta. Epiteeli on kaksirivistä. Paikoitellen rauhaset ovat laajentuneita sopien hyperplasiaan. Mitään malignia ei tule esiin, joten löydös sopii hyvänlaatuiseen liikakasvuun.",
             # Swedish (non-censored)
@@ -255,7 +255,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "A few dozen grams total of sampe material was obtained, of which roughly half was then processed. The other half was then discarded. Batches were run in 8 steps, after which the material was histologically examined. Large quantities of prostate tissue was observed, and the epithelial cell lining appears rather normal. Parts of the grandular structures appear to be disproportionate, which could be attributed to technical difficulties in processing of the sample. Conclusions cannot be conclusively drawn from currently examined material, and a faulty processing of the sample material is suspected.",
             # Finnish (censored)
             "",
             # Swedish (censored)
