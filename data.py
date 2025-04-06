@@ -2657,3 +2657,56 @@ statements = [
         ]
     ]
 ]
+
+# Different prompt designs, available in different languages
+prompts = [
+    # Prompt index 00 - base
+    [
+        # English
+        'Your task is to produce structured data from free format text. Raw data will be provided in the end of these instructions. These statements are prostate cancer histopathological statements. You should act as a data structuring algorithm. Return the structured answers in valid JSON format. Note that only the results from the most severe lesion should be returned, and the structured result should not consist of nested structures. Provide answers to the following three structured fields: \n 1. What is the original sample type (allowed values: \"biopsy\", \"RP\", \"TURP\" or \"NA\"). \n 2. Were there malignant tumor findings (allowed values: \"yes\", \"no\" or \"NA\"). \n 3. What is the reported Gleason grade (allowed values preferably \"major+minor=sum\" in the form of whole numbers for malignant statements or \"NA\" for benign statements). \n Apply the above questions to the following statement: \n',
+
+        # Finnish
+        'Tehtävänäsi on tuottaa rakenteista dataa vapaamuotoisesta tekstistä. Raakadata annetaan näiden ohjeiden lopuksi. Prosessoitavat syötteet ovat eturauhassyövän histopatologisia lausuntoja. Sinun tulee toimia kuin dataa rakenteistava algoritmi. Palauta rakenteelliset vastaukset syntaksia noudattavassa JSON-formaatissa. Ota huomioon että vain pahimman leesion tulokset tulisi palauttaa eikä rakenteinen tulos saisi koostua sisäkkäisistä rakenteista. Anna vastaukset seuraaviin kolmeen rakenteelliseen kenttään: \n 1. Mikä on näytteen alkuperäinen tyyppi (sallitut arvot \"biopsy\", \"RP\", \"TURP\" tai \"NA\"). \n 2. Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot \"kyllä\", \"ei\" tai \"NA\"). \n 3. Mikä oli raportoitu Gleason-luokka (sallitut arvot \"major+minor=sum\" muodossa kokonaislukuina pahanlaatuisille löydöksille ja \"NA\" hyvänlaatuisille löydöksille). \n Sovella yllä olevia kysymyksiä tähän seuraavaan lausuntoon: \n',
+
+        # Swedish
+        'Din uppgift är att producera strukturerad data från friformstext. Rådata finns i slutet av dessa instruktioner. Indata som ska behandlas är histopatologiska rapporter för prostatacancer. Du bör fungera som en datastruktureringsalgoritm. Returnera strukturerade svar i giltigt JSON-format. Observera att endast resultaten från den allvarligaste lesionen ska återges och den strukturerade resultatet får inte bestå av nästlade strukturer. Ge svar på följande tre strukturerade fält: \n 1. Vilken är den ursprungliga typen av provet (tillåtna värden \"biopsy\", \"RP\", \"TURP\" eller \"NA\"). \n 2. Om det fanns maligna fynd i provet (tillåtna värden \"ja\", \"nej\" eller \"NA\"). \n 3. Vilken var den rapporterade Gleason-graden (tillåtna värden \"major+minor=sum\" i form av heltal för maligna fynd och \"NA\" för godartade fynd). \n Tillämpa frågorna ovan på följande utlåtande: \n'
+    ],
+    # Prompt index 01 - one shot learning
+    [
+        # English
+        'Your task is to produce structured data from free format text. Raw data will be provided in the end of these instructions. These statements are prostate cancer histopathological statements. You should act as a data structuring algorithm. Return the structured answers in valid JSON format. Please note that only the results from the most severe lesion should be returned, and the structured result should not consist of nested structures. Provide answers to the following three structured fields: \n 1. What is the original sample type (allowed values: \"biopsy\", \"RP\", \"TURP\" or \"NA\"). \n 2. Were there malignant tumor findings (allowed values: \"yes\", \"no\" or \"NA\"). \n 3. What is the reported Gleason grade (allowed values preferably \"major+minor=sum\" in the form of whole numbers for malignant statements or \"NA\" for benign statements). \n\n For example, the statement \"Adenocarcinoma is detected in the prostate biopsy with Gleason grades 4 and 3, resulting in a sum of 4+3=7.\" should be structured in JSON format as follows: \n\n {\n \"Sampletype\": \"biopsy\",\n \"Malignancy\": \"yes\",\n \"Gleason\": \"4+3=7\" }\n\n Apply the above questions to the following statement: \n',
+
+        # Finnish
+        'Tehtävänäsi on tuottaa rakenteista dataa vapaamuotoisesta tekstistä. Raakadata annetaan näiden ohjeiden lopuksi. Prosessoitavat syötteet ovat eturauhassyövän histopatologisia lausuntoja. Sinun tulee toimia kuin dataa rakenteistava algoritmi. Palauta rakenteelliset vastaukset syntaksia noudattavassa JSON-formaatissa. Ota huomioon että vain pahimman leesion tulokset tulisi palauttaa eikä rakenteinen tulos saisi koostua sisäkkäisistä rakenteista. Anna vastaukset seuraaviin kolmeen rakenteelliseen kenttään: \n 1. Mikä on näytteen alkuperäinen tyyppi (sallitut arvot \"biopsy\", \"RP\", \"TURP\" tai \"NA\"). \n 2. Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot \"kyllä\", \"ei\" tai \"NA\"). \n 3. Mikä oli raportoitu Gleason-luokka (sallitut arvot \"major+minor=sum\" muodossa kokonaislukuina pahanlaatuisille löydöksille ja \"NA\" hyvänlaatuisille löydöksille). \n\n Esimerkiksi lausunto \"Prostata biopsiasta havaitaan adenokarsinoomaa Gleason luokilla 4 ja 3, joten summa 4+3=7.\" kuuluisi rakenteistaa JSON-formaattiin tavalla: \n\n {\n \"Sampletype\": \"biopsy\",\n  \"Malignancy\": \"kyllä\",\n \"Gleason\": \"4+3=7\" }\n\n Sovella yllä olevia kysymyksiä tähän seuraavaan lausuntoon: \n',
+
+        # Swedish
+        'Din uppgift är att producera strukturerad data från friformstext. Rådata finns i slutet av dessa instruktioner. Indata som ska behandlas är histopatologiska rapporter för prostatacancer. Du bör fungera som en datastruktureringsalgoritm. Returnera strukturerade svar i giltigt JSON-format. Observera att endast resultaten från den allvarligaste lesionen ska återges och den strukturerade resultatet får inte bestå av nästlade strukturer. Ge svar på följande tre strukturerade fält: \n 1. Vilken är den ursprungliga typen av provet (tillåtna värden \"biopsy\", \"RP\", \"TURP\" eller \"NA\"). \n 2. Om det fanns maligna fynd i provet (tillåtna värden \"ja\", \"nej\" eller \"NA\"). \n 3. Vilken var den rapporterade Gleason-graden (tillåtna värden \"major+minor=sum\" i form av heltal för maligna fynd och \"NA\" för godartade fynd). \n\n Till exempel skulle utlåtandet \"Adenokarcinom upptäcks i prostatabiopsin med Gleason-graderna 4 och 3, vilket ger summan 4+3=7.\" struktureras i JSON-format på följande sätt: \n\n {\n \"Sampletype\": \"biopsy\",\n  \"Malignancy\": \"ja\",\n \"Gleason\": \"4+3=7\" }\n\n Tillämpa frågorna ovan på följande utlåtande: \n'
+    ],
+    # Prompt index 02 - few shot learning with both a positive and a negative example
+    [
+
+    ]
+]
+
+## Functions for interacting with the data
+
+# Statement handling
+def getMaxInputIndex():
+    return len(statements)
+
+def getArrayInputIndex():
+    return list(range(10))
+
+# Prompt handling
+
+def getMaxPromptIndex():
+    return len(prompts)
+
+def getArrayPromptIndex():
+    return list(range(len(prompts)))
+
+# Whole content fetching; combines prompt + statement (in correct language & censoring status)
+
+def getQuery(promptIndex : int, inputIndex : int, lang : int, cens : int) -> str:
+    # TODO: Add sanity checking to indices
+    return prompts[promptIndex][lang] + "\n\n" + statements[inputIndex][cens][lang]
