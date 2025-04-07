@@ -30,7 +30,6 @@ try:
         "gpt-4o-2024-05-13",
         "gpt-4o-2024-08-06",
         "gpt-4o-2024-11-20",
-        # "gpt-4o-latest-0326", # Exists?
         # "gpt-4o-mini-2024-07-18",
         # "o1-mini-2024-09-12",
         # "o1-2024-12-17"
@@ -46,7 +45,7 @@ try:
                         # Seed settings
                         for seed in [False, True]:
                             # Temperature-parameter values
-                            for temperature in [0.0, 0.1, 0.3]:
+                            for temperature in [0.0, 0.01, 0.1]:
                                 # Run everything as triplicates
                                 for rep in range(3):
                                     # Construct file name
@@ -59,8 +58,62 @@ try:
                                                 + "_temp" + str(temperature)
                                                 + "_rep" + str(rep)
                                     )
-
-
+                                    # Run only if the output file doesn't exist yet
+                                    if not os.path.isfile(os.path.realpath(filename + ".out")):
+                                        print("Running \n" + filename + "\n")
+                                        # Construct the prompt + statement query to send
+                                        query = data.getQuery(promptIndex, inputIndex, lang, cens)
+                                        print("With query: \n" + query + "\n")
+                                        startTime = time.time()
+                                        # Run the actual prompt itself
+                                        # Both seed and non-seed version
+                                        if seed:
+                                            response = client.chat.completions.create(
+                                                messages=[
+                                                    {
+                                                        "role": "user",
+                                                        "content": query,
+                                                    }
+                                                ],
+                                                model=modelname,
+                                                # Do not allow GPT the extra information in response_format parameter
+                                                # Fair comparison would expect the LLM to infer it from the statement
+                                                #response_format={"type": "json_object"},
+                                                temperature=temperature,
+                                                # Test fixed seed runs on GPT
+                                                seed=1
+                                            )
+                                        else:
+                                            response = client.chat.completions.create(
+                                                messages=[
+                                                    {
+                                                        "role": "user",
+                                                        "content": query,
+                                                    }
+                                                ],
+                                                model=modelname,
+                                                # Do not allow GPT the extra information in response_format parameter
+                                                # Fair comparison would expect the LLM to infer it from the statement
+                                                #response_format={"type": "json_object"},
+                                                temperature=temperature,
+                                            )
+                                        endTime = time.time()
+                                        # Write output to a suitable file, output
+                                        f = open(filename + ".out", 'w', encoding="utf-8")
+                                        f.write(response.choices[0].message.content)
+                                        f.close()
+                                        print("\nOutput:\n" + response.choices[0].message.content)
+                                        # Record wall clock time for the API call (seconds with enough decimals)
+                                        f = open(filename + ".time", 'w', encoding="utf-8")
+                                        f.write(str(endTime - startTime))
+                                        f.close()
+                                        # Record the prompt put in (sanity checks etc)
+                                        f = open(filename + ".prompt", 'w', encoding="utf-8")
+                                        f.write(query)
+                                        f.close()
+                                        # Handle console output and sleep before next API call
+                                        print("\n\n")
+                                        time.sleep(1) # Sleep a second
 except openai.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
