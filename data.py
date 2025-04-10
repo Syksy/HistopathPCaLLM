@@ -272,7 +272,7 @@ statements = [
             # English (non-censored)
             "",
             # Finnish (non-censored)
-            "Näytteinä 6 kpl edustavia prostatabiopsioita tyyppipaikoista, yhteensä n. 120mm. Laseilla nähdään prostatakudoksessa paikoin basaalisoluhyperplasiaa. Immunovärjäyksissä näytteissä 3-4 basaalisolut rajoittuneet ja värjäykset positiivisia, mutta epäilty fokus on häviävän pieni ja varmaa syöpädiagnoosia ei voida antaa. Johtopäätös: Suspicio-löydös biopsioista, mutta diagnoosi epävarma, benigniin päin.",
+            "Näytteinä 8 kpl edustavia prostatan systeemibiopsioita tyyppipaikoista, yhteensä n. 120mm. Laseilla nähdään prostatakudoksessa paikoin basaalisoluhyperplasiaa. Immunovärjäyksissä näytteissä 3-4 basaalisolut rajoittuneet ja värjäykset positiivisia, mutta epäilty fokus on häviävän pieni ja varmaa syöpädiagnoosia ei voida antaa. Johtopäätös: Suspicio-löydös biopsioista, mutta diagnoosi epävarma, benigniin päin.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
