@@ -270,7 +270,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Samples include 8 representative prostate systematic biopsies from typical locations, with total length approx 120mm. The slides show prostate tissue with some basal cell hyperplasia. In immonological stainings of samples 3-4, basal cells are highlighted and stainings positive, but the suspicious focus is too tiny to give a definitive diagnosis of carcinoma. Conclusion: Suspicion-level finding from biopsies, but the diagnosis is uncertain although leaning towards benign.",
             # Finnish (non-censored)
             "Näytteinä 8 kpl edustavia prostatan systeemibiopsioita tyyppipaikoista, yhteensä n. 120mm. Laseilla nähdään prostatakudoksessa paikoin basaalisoluhyperplasiaa. Immunovärjäyksissä näytteissä 3-4 basaalisolut rajoittuneet ja värjäykset positiivisia, mutta epäilty fokus on häviävän pieni ja varmaa syöpädiagnoosia ei voida antaa. Johtopäätös: Suspicio-löydös biopsioista, mutta diagnoosi epävarma, benigniin päin.",
             # Swedish (non-censored)
@@ -281,7 +281,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Requested prostate samples arrived in 8 separate batches due to a logistics error, which made suitable combining of the sample material difficult. However, on preliminary examination, normal basal cells were observed in the prostate tissue material. In the institute's experimental panel of immunological stainings of the latest two samples, clear patterns emerged, verifying that the panel worked. Suspicious formations that hinted at stainings failing were observed in some of the earlier samples, so conclusive verification of the panel's reliability could not be established. Conclusion: Suspicion of the staining immunopanel of prostate tissue failing in some of the samples, although most of the material appeared to exhibit expected patterns.",
             # Finnish (censored)
             "",
             # Swedish (censored)
