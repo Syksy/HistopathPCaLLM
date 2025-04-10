@@ -255,7 +255,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "A few dozen grams total of sampe material was obtained, of which roughly half was then processed. The other half was then discarded. Batches were run in 8 steps, after which the material was histologically examined. Large quantities of prostate tissue was observed, and the epithelial cell lining appears rather normal. Parts of the grandular structures appear to be disproportionate, which could be attributed to technical difficulties in processing of the sample. Conclusions cannot be conclusively drawn from currently examined material, and a faulty processing of the sample material is suspected.",
+            "A few dozen grams total of sample material was obtained, of which roughly half was then processed. The other half was then discarded. Batches were run in 8 steps, after which the material was histologically examined. Large quantities of prostate tissue was observed, and the epithelial cell lining appears rather normal. Parts of the grandular structures appear to be disproportionate, which could be attributed to technical difficulties in processing of the sample. Conclusions cannot be conclusively drawn from currently examined material, and a faulty processing of the sample material is suspected.",
             # Finnish (censored)
             "",
             # Swedish (censored)
