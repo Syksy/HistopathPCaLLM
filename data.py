@@ -296,7 +296,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Prostatectomy preparate was run according to the standard protocol, with weight approx 80g. Microscopically invasive tumor tissue is observed, which appear to form merging grandular tubules with a Gleason grading 4+3. On the sample slide a max size 3 cm in diameter malignant focus is in the apex and central lobe. The finding covers approx 15% of the sections' area. High-grade PIN formation is also observed around the tumor tissue. Basis and the vehicles appear to be free of malignant findings. Margins appear to be clean.",
             # Finnish (non-censored)
             "Prostatektomiapreparaatti käynnistetään protokollan mukaisesti, paino n. 80g. Mikroskooppisesti nähdään invasoivaa kasvainsolukkoa, joka muodostaaa sulautuvia rauhasputkia, Gleason luokkaa 4+3. Näytelasilla korkeintaan 3 cm läpimittainen maligni pesäke on apexissa ja keskiosassa. Löydös käsittää noin 15% leikkeiden pinta-alasta. Nähdään myös high-grade PIN -muutosta kasvainsolukon ympärillä. Basiksessa tai vesikkeleissä ei tule esiin maligneja löydöksiä. Marginaalit näyttävät puhtailta.",
             # Swedish (non-censored)
@@ -307,7 +307,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Prepared sampleset was run according to the standard protocol, with the weight(s) fitting within the scope of normal reference values. Microscopically prostate tissue is obsserved, which appears to be forming tubular structures of varying differentiation stages. Fractions of the most usual Gleason scores in this type of a scenario, score 4 and score 3, could not be reliably assessed, as approximately only 5% of the whole material could be investigated. The requested evaluation of high-grade PIN presence remains inconclusive. All parts of the prostate including the basis, apex and mid section were inspected, and the cell architecture was confirmed to resemble prostate tissue.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -322,7 +322,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The obtained sample consist of electrosection shavings from the prostate and have been started in eight blocks. In histological examination, majority of the sample material exhibits normal prostate tissue like architecture, thus the material is classified as benign.",
             # Finnish (non-censored)
             "Näytteeksi saadut prostatan elektrosektiolastut on käynnistetty kahdeksassa blokissa. Histologisessa tarkastelussa näkyy pääasiassa säännöllistä prostatakudosta, löydös siis benigni.",
             # Swedish (non-censored)
@@ -333,7 +333,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "The obtained sample consists of prostate cancer tissue and has been started in eight batches. In histological examination, majority of the sample material appeared to at least originate from the prostate, but high resolution images are currently in the digipathology queue.",
             # Finnish (censored)
             "",
             # Swedish (censored)
