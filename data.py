@@ -348,7 +348,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The samples consist of prostate needle biopsies taken from the typical locations, totalling approx 60mm on the right and approx 80mm on the left. In sample B carcinoma is observed, reaching as far as Gleason score 5 and the total Gleason stage being 9 (4+5). This higher grade differentiation consists of approx 20% on the left. In rest of the samples normal grandular structures are observed, without any significant inflammation either.",
             # Finnish (non-censored)
             "Näytteinä prostatan paksuneulabiopsioita tyyppipaikoista otettuna, yhteispituus oikealta noin 60mm ja vasemmalta noin 80mm. Näytteestä B havaitaan karsinoomaa, joka menee jo Gleason tasolle 5 ja kokonais Gleason taso on 9 (4+5). Kyseistä muutosta noin 20% vasemmalla. Muissa näytteissä normaalia rauhasrakennetta, eikä merkittävää tulehdusta.",
             # Swedish (non-censored)
@@ -359,7 +359,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "The samples have been taken from typical locations in the prostate, totalling in a bit more total sample material originating from the right side in comparison with the left. In sample B some irregularities are observed, reaching differentiation patterns that warrant further inspection by a colleague. This suspicious pattern includes enough material for inspection and assessment from the left side, but at this time further verification is needed via consultation. Rest of the samples seem to exhibit rather ordinary patterns, and there are no out of the ordinary inflammation either.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -374,7 +374,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The specimen consist of a prostatetectomy preparate, which is run on casettes according to normal routines. Samples D-G have apex, basis in samples K-P, seminal vehicles O-Q. Already in first section some tumorous growth is observed peripherally, with the tumor growth reaching near the capsule border. No breach is seen nor is there any pos. surgical margins. Basis and seminal vehicles are clean. The found tumors exhibit Gleason 7-stage carcinoma, with the larger portion of score 3 approx 60% in the findings.",
             # Finnish (non-censored)
             "Tutkittavaksi tullut prostatektomia-preparaatti, joka ajetaan kaseteilla normaalikaavan mukaan. Näytteissä D-G apexia, basis näytteissä K-P, seminaalivehikkeleitä O-Q. Ensimmäisessä leikkeessä havaitaan jo jonkin verran kasvainta perifeerisesti, ja tuumori lähellä kapselin reunaa. Läpikasvua ei nähdä eikä pos. reunamarginaaleja. Basis ja seminaalivehikkelit puhtaat. Löydetyt tuumorit Gleason 7-tasoista karsinoomaa, josta isompi osuus scoorauksella 3 n. 60% löydöksissä.",
             # Swedish (non-censored)
@@ -385,7 +385,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "The specimen consists of a comprehensive overview of the patient's prostate tissue, prepared to be run on casettes following the normal routine. Samples D-G were run for the first tissue batch, second batch in samples K-P, third batch in O-Q. Already in the first part some special patterns of cell growth are observed peripherally, with attention being focused especially on sample material drawn from roughly the prostate capsule border region. It is impossible to assess potential prostate capsule breach or positive/negative surgical margin status from the current material. The role of the histological traits found in basis and seminal vehicle findings are proposed to be discussed at the next week's uro-meeting to reach a consensus with colleagues. During an earlier meeting, a colleague compared this patient based on his other clinical factors of to a different, recent Gleason 7 score patient of his, and proposed that a more through-out sampling ought to be conducted to be able to rule out mid-grade GG findings. Further histopathological investigation is therefore warranted, especially before making a statement affecting any potential intervention-decisions.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -400,7 +400,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Prostate chippings totalling to weight approximately 5g comprise the sample material, all of which have been processed. Patient has been considered suspect before due to elevation of PSA. Scopic inspection through the shavings does confirm adenocarcinoma through-out the sample material, with the Gleason 4 being the most represented along with its variants, leading to a sum of 8. The finding therefore confirms the earlier suspicion.",
             # Finnish (non-censored)
             "Katsottavaksi tullut yhteensä noin 5g edestä prostatan höylälastuja, joista kaikki käyty läpi. Potilas ollut suspekti aiemmin kohonneen PSA:n takia. Skoopilla katsoen lähes kaikissa nähdään adenokarsinoomaa, edustavin Gleason 4:ää ja sen eri variantteja joten pistesumma 8. Löydös siis vahvistaa aiemman suspision.",
             # Swedish (non-censored)
@@ -411,7 +411,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Prostate tissue material totalling to a very meager weight comprise the sample material, all of which have been processed. Based on complementing clinical notes of the patient, the tissue material was processed with a high priority. Preliminary scopic inspection through the sample material confirms that the symptoms reported in the clinical notes may have a basis on histopathology, although representative Gleason or other marker could not be determined at this time (clinical notes mentioned suspected presence of an adenocaricoma following disease trajectory akin to e.g. Gleason sum of 8 or above / ISUP GG of 4 or above, but this was not based on any histopathology). Potential findings have to be revised in the next histologic examination session, in order to be able to either confirm or discard the earlier suspicion.",
             # Finnish (censored)
             "",
             # Swedish (censored)
