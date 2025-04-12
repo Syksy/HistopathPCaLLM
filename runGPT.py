@@ -5,12 +5,13 @@ from openai import OpenAI
 import time
 import os
 import re
+# Load the synthetic data and prompts
+import data
+
 # API key load
 from dotenv import load_dotenv
 load_dotenv()
 
-# Load the synthetic data and prompts
-import data
 
 # Load OpenAI API key from local environment; starts with "sk-proj-..."
 client = OpenAI(
@@ -45,11 +46,11 @@ try:
                         # Seed settings
                         for seed in [False, True]:
                             # Temperature-parameter values
-                            for temperature in [0.0, 0.01, 0.1]:
+                            for temperature in [0.0, 0.1]:
                                 # Run everything as triplicates
                                 for rep in range(3):
                                     # Construct file name
-                                    filename = ("HistopathPcaLLM_" + modelname
+                                    filename = ("HistopathPCaLLM_" + modelname
                                                 + "_prompt" + str(promptIndex)
                                                 + "_input" + str(inputIndex)
                                                 + "_lang" + str(lang)

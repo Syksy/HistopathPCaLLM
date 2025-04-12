@@ -35,7 +35,7 @@ try:
                                 # Run everything as triplicates
                                 for rep in range(3):
                                     # Construct file name
-                                    filename = ("HistopathPcaLLM_" + re.sub("/", "-", modelname)
+                                    filename = ("HistopathPCaLLM_" + re.sub("/", "-", modelname)
                                                 + "_prompt" + str(promptIndex)
                                                 + "_input" + str(inputIndex)
                                                 + "_lang" + str(lang)

@@ -39,11 +39,11 @@ while True:
                             #for seed in [False, True]:
                             for seed in [False]:
                                 # Temperature-parameter values
-                                for temperature in [0.0, 0.01, 0.1]:
+                                for temperature in [0.0, 0.1]:
                                     # Run everything as triplicates
                                     for rep in range(3):
                                         # Construct file name
-                                        filename = ("HistopathPcaLLM_" + modelname
+                                        filename = ("HistopathPCaLLM_" + modelname
                                                     + "_prompt" + str(promptIndex)
                                                     + "_input" + str(inputIndex)
                                                     + "_lang" + str(lang)
@@ -93,7 +93,7 @@ while True:
                                             f.close()
                                             # Handle console output and sleep before next API call
                                             print("\n\n")
-                                            time.sleep(3)  # Sleep a bit
+                                            time.sleep(5)  # Sleep a bit
         break
     except anthropic.InternalServerError as e:
         print("Error: " + str(e))
