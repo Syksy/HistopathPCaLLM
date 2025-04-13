@@ -2703,7 +2703,7 @@ def getMaxInputIndex():
     return len(statements)
 
 def getArrayInputIndex():
-    return list(range(10))
+    return list(range(20))
 
 # Prompt handling
 
