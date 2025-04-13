@@ -426,7 +426,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The inspected material consists of three fusion biopsies from a suspicious focus in the prostate. Along the total length 30mm approximately half contains carcinoma focuses, so that lengths approx 7, 6, and 2mm. In these mainly level 3 grade growth, although some Gleason 4 -type of looping structures are observed spanning less than one third of the carcinoma length. Conclusion that finding of score 7 comes from 15mm length, with architecture 3 covering approx 2/3 and architecture 4 approx 1/3 of the carcinoma part.",
             # Finnish (non-censored)
             "Tutkittavana kolme fuusiobiopsiaa prostatan suspektista fokuksesta. Yhteispituudesta 30mm nähdänä n. puolelta matkaa karsinoomafokuksia siten että pituudet noin 7, 6 ja 2mm. Näissä tason 3 graduksen kasvua, joskus jonkin verran myös Gleason 4 -tyypin silmukoituvaa rakennetta vajaalta kolmasosalta karsinooman pituudelta. Yhteenvetona löydös score 7 yhteensä 15mm matkalta, jossa 3 arkkitehtuuri n. 2/3 ja 4 arkkitehtuuri n. 1/3 karsinooman osasta.",
             # Swedish (non-censored)
@@ -437,7 +437,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "The inspected material consists of multiple suspicious foci from the prostate. Among the total sample material, about half of it contains tissue that exhibits patterns that were closely inspected in digital histopathology. In these, various grades of cell differentation are observed, although assigning explicit scores is inconclusive due to resolution issues in the digitalized images. Conclusion is that grading of the sample content ought to be conducted manually on the slides prior to digitalization, and then re-entered into the statement system. This scrutiny is warranted, as any mid-grade (i.e. 3+4 or 4+3) differentation would be very difficult to reliable assess due to some mishap in digitalization.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -452,7 +452,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Prostatectomy preparate is processed according to the standard routine, so that right side is indicated with green and left side with yellow dye. Samples A-D from basis toward apex as macro sections, apex in samples E-F and basis G-N, and remaining N-O as seminal vehicles from both sides. Multiple clear foci emerge in macro sections, with the most dominant Gleason grade 4 along with some grade 3. Most of the findings emerge from the basis, but the apex and seminal vehicles are clear. Perineural invasion is also prominent and the tumor is clearly infiltrating through the capsule to the fat.",
             # Finnish (non-censored)
             "Ajetaan prostatetomiapreparaatti normaalin kaavan mukaan, s.e. oikea lohko värjätty vihreällä ja vasen keltaisella väriaineella. Näytteet A-D basiksesta apexiin päin makroleikkeinä, ja apex näytteinä E-F ja basis G-N, ja loput seminaalivesikkelit molemmilta puolilta N-O. Nähdään makroleikkeissä useampi selkeä fokus, joissa vallitseva Gleason luokka on 4 ja mukana myös jonkin verran luokkaa 3. Pääosa löydöksistä basiksessa, mutta apex ja seminaalivesikkelit puhtaat. Perineuraalista invaasiota havaitaan runsaasti, ja kasvain infiltroi selvästi kapselin läpi rasvaan.",
             # Swedish (non-censored)
@@ -463,7 +463,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "The prepared samples are processed through the standard routine procedures, so that right side of the prostate is indicated differently than the left side. Samples A-D shift focus from basis toward apex, with more apex in E-F and basis in G-N, with remaining material in N-O. Multiple clear well prepared prostate tissue sites can be observed, likely allowing assessment of e.g. differentiation stages Gleason between 3 to 5 are at all present or if the material is fully healthy. This assessment, together with complementing histopathology with full body imaging and status of seminal vehicles, lymph nodes, and capsule intactness will be held out as an assignment to specializing resident candidates in next week's course session. The status update from the consensus will then be appended to this preliminary report.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -478,7 +478,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Chippings obtained through standard shaving procedure are processed through 12 tissue blocks. In the chippings, a small fraction appears to be carcinoma. The growth appears mainly as separate granular nodules as well as some melding can be observed, but the fraction of carcinoma remains small (less than 5%). The portion that can be interpreted as neoplastic has Gleason sum 7, with the larger fraction with stage 3 representing about 60% of the tumor area.",
             # Finnish (non-censored)
             "Höyläyksestä saatuja lastuja ajettiin 12 kudosblokkia. Lastuissa pienessä osassa nähdään karsinoomaa. Kasvu pääosin itsenäistä rauhasrakennetta ja mukana myös rauhasten yhteenkasvua, mutta karsinooman osuus jää pieneksi (alle 5%). Neoplastiseksi tulkittavassa osuudessa Gleason summana 7, josta suuremman osuuden luokka 3 noin 60% tuumorista.",
             # Swedish (non-censored)
@@ -489,7 +489,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Sample material obtained through standard prostate related procedures are processed in 12 tissue batches. In the sample material, a small fraction appears to stand out. The region of interest seems to form normal cell architecture, but a small fraction would require further inspection (less than 5%). The smaller portion that warrants further investigation as it might contain a small subset of material ISUP GG 1 or above, but the suspicious focus right now is too small to properly assign a grade group. On the other hand, >95% of material appears benign on preliminary inspection.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -504,9 +504,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The samples are targeted prostate biopsies from the typical sampling locations. Sample 1) 10mm, 2) 8mm, 3) 14mm and 4) 14mm in material amount. Sample 1 is unrepresentative of the prostate, while samples 2 and 3 represent healthy benign prostate tissue. In sample 4, the whole cylinder's length appears to contain adenocarcinoma, with the larger portion forming grandular structures (Gleason 3, approx 90%) and the smaller part merging grandular structures (Gleason 4, 10%). Breaching of the capsule or perineural invasion is not suspected based on the current sample material, although definitive inspection would require imaging.",
             # Finnish (non-censored)
-            "Näytteinä kohdennetut prostatabiopsiat eri puolilta. Näytteessä 1) 10mm, 2) 8mm, 3) 14mm ja 4) 14mm materiaalia. Näyte 1 epäedustava, näytteet 2 ja 3 edustavat tervettä prostatakudosta. Näytteessä 4 nähdään koko lieriön pituudelta adenokarsinoomaa, isompi osuus rauhasrakenteita muodostaen (Gleason 3, noin 90%) ja pienempi osuus rauhasten yhteensulautumista (Gleason 4, 10%). Kapselin läpikasvua tai perineuraalista invaasiota ei näytteissä nähdä.",
+            "Näytteinä kohdennetut prostatabiopsiat eri puolilta tyyppilokaatioita. Näytteessä 1) 10mm, 2) 8mm, 3) 14mm ja 4) 14mm materiaalia. Näyte 1 epäedustava, näytteet 2 ja 3 edustavat tervettä prostatakudosta. Näytteessä 4 nähdään koko lieriön pituudelta adenokarsinoomaa, isompi osuus rauhasrakenteita muodostaen (Gleason 3, noin 90%) ja pienempi osuus rauhasten yhteensulautumista (Gleason 4, 10%). Kapselin läpikasvua tai perineuraalista invaasiota ei näytteiden perusteella epäillä, vaikkakin näiden definitiivi tarkastelu vaatisi kuvantamista.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
@@ -515,7 +515,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "The samples are prostate tissue processed as per routine for the specific sample type. Samples were divided into 4 batches and include borderline low to sufficient amounts of material for histopathological inspection. Sample 1 is unrepresentative of the prostate, while samples 2 and 3 represent healthy benign prostate tissue. In sample 4, the whole cylinder's length contain cell architectures that may differ from normal prostate tissue. However, quality control suggests that it is uncertain whether the tissue material has been mixed with non-prostate tissue or if this is truly abnormal prostate tissue (possibly malignant). To rule out possibility of a lab mishap, sample 4's lab trajectory will be first verified before proceeding further into the histopathology.",
             # Finnish (censored)
             "",
             # Swedish (censored)
