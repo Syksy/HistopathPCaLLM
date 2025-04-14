@@ -530,13 +530,13 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The presented sample is a prostatectomy resection, which has been divided into six macrosections and the usual microscopic sections. Samplings from both the apex and basis present with adenocarcinoma. Longitudinal section from the apex shows microscopically both fusing of the grandular structures, fitting best into the Gleason 3+4 staging, while the basis presents mostly with class 4+4. The size of these malignant focuses are approx. 8mm and 5mm, respectively. However, no breaching of the prostate capsule is observed, and the surgical margins are clear.",
             # Finnish (non-censored)
-            "Näytteenä prostatektomiaresekaatti, josta tehty kuusi makroleikettä ja normaalit mikroskooppileikkeet. Sekä apexista että basiksesta otetuista leikkeistä löytyy adenokarsinoomaa. Apexin pitkittäinen leike näyttää mikroksooppisesti rauhasten yhteensulautumista sopien parhaiten Gleason 4+4 luokkaan, kun taas basiksessa lähinnä luokkaa 3+4. Näiden malignien näytteiden fokusten koot n. 8mm ja 5mm. Ei kuitenkaan havaita kapselista uloskasvua, ja marginaalit ovat puhtaat.",
+            "Näytteenä prostatektomiaresekaatti, josta tehty kuusi makroleikettä ja normaalit mikroskooppileikkeet. Sekä apexista että basiksesta otetuista leikkeistä löytyy adenokarsinoomaa. Apexin pitkittäinen leike näyttää mikroskooppisesti rauhasten yhteensulautumista sopien parhaiten Gleason 3+4 luokkaan, kun taas basiksessa lähinnä luokkaa 4+4. Näiden malignien näytteiden fokusten koot n. 8mm ja 5mm. Ei kuitenkaan havaita kapselista uloskasvua, ja marginaalit ovat puhtaat.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["yes|kyllä|ja", "^4\\+4=8$"]
+            ["RP", "yes|kyllä|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
