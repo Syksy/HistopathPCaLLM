@@ -2700,14 +2700,22 @@ prompts = [
 
 # Statement handling
 def getMaxInputIndex():
-    return len(statements)
+    return 24
+
+def getMaxInputLength():
+    #return len(statements)
+    return 25
 
 def getArrayInputIndex():
     return list(range(25))
 
 # Prompt handling
 
+
 def getMaxPromptIndex():
+    return len(prompts)-1
+
+def getMaxPromptLength():
     return len(prompts)
 
 def getArrayPromptIndex():
@@ -2718,3 +2726,7 @@ def getArrayPromptIndex():
 def getQuery(promptIndex : int, inputIndex : int, lang : int, cens : int) -> str:
     # TODO: Add sanity checking to indices
     return prompts[promptIndex][lang] + "\n\n" + statements[inputIndex][cens][lang]
+
+# Get greppable correct answer per question
+def getInputAnswer(inputIndex: int, cens: int, questionIndex: int) -> str:
+    return statements[inputIndex][cens][3][questionIndex]
