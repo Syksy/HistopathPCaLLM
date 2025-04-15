@@ -541,7 +541,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "The presented case has gone through a multitude of complementary diseases in the pelvic region with accompanying interventions, which have affected cell morphology also in the prostatic region. The obtained prostate tissue samples are divided into six main sets ranging from apex, middle, and basis region; shifting the samples longitudinally or latitudinally reveals that examination of possible adenocarcinoma is impossible due to the therapies given in the region, as the prostate tissue samples have been highly affected. Even in the hypothetical scenario if e.g. lower level Gleason (such as 3+4) could be found, the patient's overall disease burden is heavily influenced to lean toward prioritizing the other on-going treatments. In the scenario that the patient's overall situation allows it, assessment of whether the prostate capsule is fully intact would be a priority, after cell differentation staging. Prostatic region ought to be independently investigated and re-sampled, once the recovery period allows it.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -556,9 +556,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Prostate chippings total approx 19g, of which 10g have been put to histology. Fibromuscular stroma is prevalent along with carpet-like poorly differentiated growth in the stroma. Nuclei are enlargened, varying in size, and nucleolus are clearly visible. Roughly half of the area of the shavings contain tumor-like tissue, with the most common Gleason grading as 5 and second most common as 4.",
             # Finnish (non-censored)
-            "Prostatalastuja yhteensä noin 19g, josta laitettu 10g histologiaan. Näkyy paljon fibromuskulaaria stroomaa ja mattomaista pahanlaatuista kasvua stroomassa. Tumat suurentuneet, kooltaan vaihtelevat ja tumajyväset erottuvat selvästi. Noin puolet lastujen pinta-alasta kasvainkudosta, jossa Gleason luokituksessa eniten tasoa 5 ja toiseksi eniten tasoa 4.",
+            "Prostatalastuja yhteensä noin 19g, josta laitettu 10g histologiaan. Näkyy paljon fibromuskulaaria stroomaa ja mattomaista huonosti erilaistunutta kasvua stroomassa. Tumat suurentuneet, kooltaan vaihtelevat ja tumajyväset erottuvat selvästi. Noin puolet lastujen pinta-alasta kasvainkudosta, jossa Gleason luokituksessa eniten tasoa 5 ja toiseksi eniten tasoa 4.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
@@ -567,7 +567,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "The extracted prostate material totals several fragments 3/5g up to 8mm a piece, of which about half been put to histology. Although stromal tissue and carpet-like growth can be observed, the nuclei are dissolved and technical noise confounds assessment of cell differentation patterns. Roughly half of the area covered on glasses contain too noisy material and assert that additional QC ought to be conducted even on the material that could be microscopically inspected. After consulting QC, the material will be revisited.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -582,9 +582,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "A container of prostate thick needle biopsies from both side is inspected, with the left side fragments 10 and 7mm in length and right side 15 and 10mm. Chronic inflammation can be seen systematically across the material. Left side fragments exhibit mainly low grade differentation of carcinoma tissue structures, firstly comprising of Gleason score 3 and secondly of score 4. Furthermore, neural bundles appear surrounded by cancerous growth. The fragmented samples from the right side do not exhibit signs of malignancies.",
             # Finnish (non-censored)
-            "Tutkittavana purkillinen prostatan paksuneulanäytteitä molemmilta puolilta, joista vasemman puolen fragmentit pituudeltaan 10 ja 7mm ja oikean puolen 15 ja 10mm. Kroonista tulehdusta nähdään systemaattisesti. Vasemman puolen fragmenteissa näkyy lähinnä matalalle erilaistunutta karsinoomasolukkoa, josta Gleason kasvutapaa 3 pääsääntöisesti ja toiseksi eniten tapaa 4. Lisäksi hermojen ja suonien ympärillä kasvustoa. Oikean puolen fragmentit taas eivät näytä malignilta.",
+            "Tutkittavana purkillinen prostatan paksuneulanäytteitä molemmilta puolilta, joista vasemman puolen fragmentit pituudeltaan 10 ja 7mm ja oikean puolen 15 ja 10mm. Kroonista tulehdusta nähdään systemaattisesti. Vasemman puolen fragmenteissa näkyy lähinnä matalalle erilaistunutta karsinoomasolukkoa, josta Gleason kasvutapaa 3 pääsääntöisesti ja toiseksi eniten tapaa 4. Lisäksi hermojen ympärillä syöpäkasvustoa. Oikean puolen fragmentit taas eivät näytä malignilta.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
@@ -593,7 +593,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "A container of prostate tissue sampling material was inspected, with fragmentation to lengths 10 and 7mm in sample material originating from the left side and 15 and 10mm from the right side. Chronic inflammation can be seen systematically across the material. Fragments exhibit abnormally wide range of cell differentation types. Assigning a Gleason to the wide range of cell architectures proves to be exceptionally difficult, and proof-checking ought to be conducted that the material truly originates from prostate and the conservation of samples has not been contaminated by e.g. bacterial agent. As it is, the highly fragmented and varying samples from both sides cannot be assessed for malignancies and need to be reprocessed.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -608,7 +608,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Sections from a prostatectomy preparate are processed for further investigation (4 macro sections and the usual microscopic sections), which present an adenocarcinoma spanning from the mid section to the basis. Presents mainly differentation stage 4 (60%). The second most common stage 5 (approx 30% proportion) represents the poorly differentiated tumor component. Tertiary grade with the least area, class 3, is diminishingly small. The samples do not appear suggest capsule breach or positive margins. CONCLUSION: Gleason-score sum 9, grade group 5.",
             # Finnish (non-censored)
             "Näytteeksi saadusta prostatektomiapreparaastista käynnistetyistä leikkeistä (4 makroleikettä ja tavanomaiset mikroskooppileikkeet) todetaan keskivaiheilta basikseen asti ulottuvaa adenokarsinoomamuutosta. Edustaa pääosin erilaistumisluokkaa 4 (60%). Toiseksi yleisin luokka 5 (n. 30% osuus) edustava huonosti erilaistunut kasvainkomponentti. Tertiäärinen vähäisin luokka 3 erittäin pieni. Näytteessä ei tule esiin kapselin läpikasvua tai positiveja marginaaleja. YHTEENVETO: Gleason-pistesumma on 9, grade group 5.",
             # Swedish (non-censored)
@@ -619,7 +619,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Parts of a prepared sample set are taken for further investigation (multiple macro sections and microscopic runs). The selected subset of samples cover area spanning from the mid section to the basis. Based on the ultrasound report and palpation, however, the main region of interest would've been located in the apex - a prior incomplete report of sampled apex had reported potential Gleason 3 findings. CONCLUSION: The sample is to be reprocessed with a focus on the apex, in order to validate the initial suspicions.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -634,7 +634,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The sample consists of comfirmatory set of approx. 10g of turp-chippings, of which about half are run via 6 tissue casettes. In over 50% of the chippings present melding of grandular acinus classified as Gleason 4 -class tumor growth. Some degree of chronically inflammated tissue is also present. SUMMARY: Formerly benignly classified sample with a malignant suspicion had its chippings re-evaluated, now resulting in sum 8 adenocarcinoma.",
             # Finnish (non-censored)
             "Näytteenä on varmistuksena ajettavaksi n. 10g turp-lastuja, joista noin puolet käynnistetään 6:een kudoskasettiin. Lastuissa havaitaan >50%:ssa yhteensulaneina asinuksina kasvavaa Gleason 4 -luokan tuumorikasvua. Jonkin verran havaitaan myös kroonistunutta tulehdussolukkoa. YHTEENVETO: Aiemmin benigniksi luokiteltu mutta malignin epäilyksen jättänyt höyläysnäyte arvioidaan uusiksi siis pistesumman 8 adenokarsinoomaksi.",
             # Swedish (non-censored)
@@ -645,7 +645,7 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "The samples consisted of multiple sets of patients, from whom biopsies, radical prostatectomies or shavings had been available post-benign diagnosis. The examined material was intended to illustrate inter-observed variation and to train the interns in low grade scoring settings; in around 1/4 of the cases, the benign material was upgraded to either Gleason 3+3 or at most 3+4 thanks to advancements in imaging. The re-evaluation of the cases showed no upgrading to GG 3 or above. SUMMARY: Teaching material of multiple patients were inspected by interns and then verified by senior histopathologists, resulting in few cases that upgraded to e.g. Gleason 6. Due to the long time since the sample material was gathered (>15y), the exercise was not intended for actual clinical guidance.",
             # Finnish (censored)
             "",
             # Swedish (censored)
@@ -2703,7 +2703,7 @@ def getMaxInputIndex():
     return len(statements)
 
 def getArrayInputIndex():
-    return list(range(20))
+    return list(range(25))
 
 # Prompt handling
 
