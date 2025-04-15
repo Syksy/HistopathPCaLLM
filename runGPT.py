@@ -33,7 +33,9 @@ try:
         "gpt-4o-2024-11-20",
         # "gpt-4o-mini-2024-07-18",
         # "o1-mini-2024-09-12",
-        # "o1-2024-12-17"
+        #"o1-2024-12-17"
+        "gpt-4.1-nano-2025-04-14",
+        "gpt-4.1-2025-04-14"
     ]:
         # Prompts to iterate across
         for promptIndex in data.getArrayPromptIndex():

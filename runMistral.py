@@ -1,4 +1,4 @@
-# OpenAI's package is used for Grok
+# Mistral package used
 from mistralai import Mistral
 # Other packages
 import time

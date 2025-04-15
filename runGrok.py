@@ -83,9 +83,6 @@ try:
                                                     }
                                                 ],
                                                 model=modelname,
-                                                # Do not allow GPT the extra information in response_format parameter
-                                                # Fair comparison would expect the LLM to infer it from the statement
-                                                #response_format={"type": "json_object"},
                                                 temperature=temperature,
                                             )
                                         endTime = time.time()
