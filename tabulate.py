@@ -1,0 +1,226 @@
+# Tabulate and collect results in a suitable format across all output files
+# Use numpy multidimensional arrays
+import os
+import data
+import numpy as np
+from dotenv import load_dotenv
+load_dotenv()
+
+# Working directory for project taken from env vars
+os.chdir(os.environ.get("ROOT_DIR"))
+
+# Allow debug output
+debug = False
+# Allow progress report output
+progress = True
+
+modelnames = [
+    # Claudes
+    # Haiku
+    "claude-3-5-haiku-20241022",
+    # Sonnet(s)
+    "claude-3-5-sonnet-20240620",
+    "claude-3-5-sonnet-20241022",
+    "claude-3-7-sonnet-20250219",
+    # Geminis
+    "gemini-2.0-flash-001",
+    "gemini-2.0-flash-lite-001",
+    "gemini-1.5-pro-002"
+    # OpenAI / GPTs
+    "gpt-4o-2024-05-13",
+    "gpt-4o-2024-08-06",
+    "gpt-4o-2024-11-20",
+    #"o1-2024-12-17",
+    "gpt-4.1-nano-2025-04-14",
+    "gpt-4.1-2025-04-14",
+    # Grok
+    "grok-3-beta",
+    "grok-2-1212",
+    # Replicate runs
+    "meta-llama-4-maverick-instruct",
+    "meta-llama-4-scout-instruct",
+    "deepseek-ai-deepseek-r1",
+    # Mistral
+    "mistral-large-2411"
+]
+
+# Full response returned by LLM
+full = np.chararray(
+    shape=(
+        # Censored False/True
+        2,
+        # Seed False/True
+        2,
+        # 3 repeats
+        3,
+        # Number of tested models
+        len(modelnames),
+        # Maximum number of run prompt variation wrapping the statement
+        data.getMaxPromptLength(),
+        # Maximum number of statements
+        data.getMaxInputLength(),
+        # Number of languages (0 = English, 1 = Finnish, 2 = Swedish)
+        #3
+        1
+    ),
+    itemsize=2000
+)
+# Character output returned by LLM
+output = np.chararray(
+    shape=(
+        # Censored False/True
+        2,
+        # Seed False/True
+        2,
+        # 3 repeats
+        3,
+        # Number of tested models
+        len(modelnames),
+        # Maximum number of run prompt variation wrapping the statement
+        data.getMaxPromptLength(),
+        # Maximum number of statements
+        data.getMaxInputLength(),
+        # Number of languages (0 = English, 1 = Finnish, 2 = Swedish)
+        #3
+        1
+    ),
+    itemsize=1000
+)
+# Runtime (seconds with decimals)
+runtimes = np.ndarray(
+    shape=(
+        # Censored False/True
+        2,
+        # Seed False/True
+        2,
+        # 3 repeats
+        3,
+        # Number of tested models
+        len(modelnames),
+        # Maximum number of run prompt variation wrapping the statement
+        data.getMaxPromptLength(),
+        # Maximum number of statements
+        data.getMaxInputLength(),
+        # Number of languages (0 = English, 1 = Finnish, 2 = Swedish)
+        #3
+        1
+    ),
+    dtype='f'
+)
+
+
+# Signal containing statement (0) or censored (1)
+for cens in range(2):
+    # Some models allowed adding RNG seeding for reproducibility
+    for seed in range(2):
+        # Iterate over models
+        for modelIndex in range(len(modelnames)):
+            # Iterate over prompts
+            for promptIndex in data.getArrayPromptIndex():
+                # Iterate over inputs
+                for inputIndex in data.getArrayInputIndex():
+                    # Iterate over replicates
+                    for rep in range(3):
+                        # Iterate across languages (0 = English, 1 = Finnish, 2 = Swedish)
+                        for langIndex in [0]:
+                            # String name for seed True/False
+                            seedname = str([False, True][seed])
+                            # Construct file name
+                            filename = ("out\\HistopathPCaLLM_" + modelnames[modelIndex]
+                                        + "_prompt" + str(promptIndex)
+                                        + "_input" + str(inputIndex)
+                                        + "_lang" + str(langIndex)
+                                        + "_cens" + str(cens)
+                                        + "_seed" + str(seed)
+                                        #+ "_temp" + str(temperature)
+                                        + "_temp" + str(0.0)
+                                        + "_rep" + str(rep)
+                                        )
+
+                            if progress:
+                                print("Processing filename " + filename)
+                            if os.path.isfile(filename + ".out"):
+                                file = open(filename + ".out", 'r', encoding="utf-8")
+                                lines = file.readlines()
+                                # Full output prior to any potential parsing
+                                full[cens, seed, rep, modelIndex, promptIndex, inputIndex, langIndex] = "".join(lines).strip().encode("utf-8")
+
+                                start = 0
+                                end = len(lines)
+                                # Sanitize; extract {JSON} part from  ...```json {JSON} -- ```...
+                                # or ... ``` {JSON} ```
+                                for i in range(len(lines)):
+                                    if lines[i].strip() == "```json" or lines[i].strip() == "```" \
+                                            or lines[i].strip() == "[```json]" or lines[i].strip() == "[":
+                                        start = i+1
+                                        break
+                                    # Alternatively there may be comments pre/post a proper { <json> } content, limit to that
+                                    elif lines[i].strip() == "{":
+                                        start = i
+                                        break
+                                # The ending to ``` sequence if one was detected; starting sequence from prior start point
+                                for j in range(start, len(lines)):
+                                    if lines[j].strip() == "```" or lines[j].strip() == "]":
+                                        end = j
+                                        break
+                                    # Alternatively there may be comments pre/post a proper { <json> } content, limit to that
+                                    elif lines[j].strip() == "}":
+                                        end = j+1
+                                        break
+                                # Prune end if we try to grab a null line at the end
+                                if end > len(lines):
+                                    end = len(lines)-1
+                                # Grab the JSON part
+                                lines = lines[start:end]
+                                lines = "".join(lines).strip()
+                                file.close()
+                            else:
+                                #print("Could not find: " + filename)
+                                lines = "<NA>"
+
+                            if debug:
+                                print("-- Found output content:\n" + lines + "\n--\n")
+                                print("Finished rep " + str(rep) + " modelIndex " + str(modelIndex) + " promptIndex "
+                                  + str(promptIndex) + " inputIndex " + str(inputIndex) + " lang " + str(langIndex) +
+                                  + " seed " + str(seedname))
+
+                            output[cens, seed, rep, modelIndex, promptIndex, inputIndex, langIndex] = lines.encode("utf-8")
+                            if os.path.isfile(filename + ".time"):
+                                file = open(filename + ".time", 'r', encoding="utf-8")
+                                lines = file.readlines()
+                                lines = "".join(lines).strip()
+                                file.close()
+                            else:
+                                # If there is an error reading the runtime, the value is parsed as "-1 seconds"
+                                lines = 'nan'
+                            if debug:
+                                print("-- Found runtime content:\n" + lines + "\n--\n")
+                            try:
+                                runtimes[cens, seed, rep, modelIndex, promptIndex, inputIndex, langIndex] = float(lines.encode("utf-8"))
+                            except ValueError as e:
+                                # Numeric conversion error for runtimes (likely empty file); marking errors as -1
+                                runtimes[cens, seed, rep, modelIndex, promptIndex, inputIndex, langIndex] = float('nan')
+
+if progress:
+    print("\n\nExample full: \n")
+    print(output[0,0,0,0,0,0].decode("utf-8"))
+    print("\n\nExample sanitized output: \n")
+    print(output[0,0,0,0,0,0].decode("utf-8"))
+    print("\n\nExample runtime: \n")
+    print(runtimes[0,0,0,0,0,0])
+    print("\n\nDimensions and shape of output: \n")
+    print(str(output.ndim) + "\n")
+    print(str(output.shape) + "\n")
+
+# Write out the full 6-dim np char array as binary file
+file = open("npydata\\full.npy", 'wb')
+np.save(file=file, arr=full)
+file.close()
+# Write out the sanitized 6-dim np char array as binary file
+file = open("npydata\\output.npy", 'wb')
+np.save(file=file, arr=output)
+file.close()
+# Write out runtimes floats as a binary file
+file = open("npydata\\runtimes.npy", 'wb')
+np.save(file=file, arr=runtimes)
+file.close()
