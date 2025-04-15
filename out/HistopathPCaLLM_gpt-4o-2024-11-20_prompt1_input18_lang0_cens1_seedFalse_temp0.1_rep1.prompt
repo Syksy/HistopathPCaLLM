@@ -1,0 +1,17 @@
+Your task is to produce structured data from free format text. Raw data will be provided in the end of these instructions. These statements are prostate cancer histopathological statements. You should act as a data structuring algorithm. Return the structured answers in valid JSON format. Please note that only the results from the most severe lesion should be returned, and the structured result should not consist of nested structures. Provide answers to the following three structured fields: 
+ 1. What is the original sample type (allowed values: "biopsy", "RP", "TURP" or "NA"). 
+ 2. Were there malignant tumor findings (allowed values: "yes", "no" or "NA"). 
+ 3. What is the reported Gleason grade (allowed values preferably "major+minor=sum" in the form of whole numbers for malignant statements or "NA" for benign statements). 
+
+ For example, the statement "Adenocarcinoma is detected in the prostate biopsy with Gleason grades 4 and 3, resulting in a sum of 4+3=7." should be structured in JSON format as follows: 
+
+ {
+ "Sampletype": "biopsy",
+ "Malignancy": "yes",
+ "Gleason": "4+3=7" 
+}
+
+ Apply the above questions to the following statement: 
+
+
+Sample material obtained through standard prostate related procedures are processed in 12 tissue batches. In the sample material, a small fraction appears to stand out. The region of interest seems to form normal cell architecture, but a small fraction would require further inspection (less than 5%). The smaller portion that warrants further investigation as it might contain a small subset of material ISUP GG 1 or above, but the suspicious focus right now is too small to properly assign a grade group. On the other hand, >95% of material appears benign on preliminary inspection.

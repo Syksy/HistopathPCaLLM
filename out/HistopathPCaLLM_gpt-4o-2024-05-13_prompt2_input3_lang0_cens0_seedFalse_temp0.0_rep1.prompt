@@ -1,0 +1,24 @@
+Your task is to produce structured data from free format text. Raw data will be provided in the end of these instructions. These statements are prostate cancer histopathological statements. You should act as a data structuring algorithm. Return the structured answers in valid JSON format. Please note that only the results from the most severe lesion should be returned, and the structured result should not consist of nested structures. Provide answers to the following three structured fields: 
+ 1. What is the original sample type (allowed values: "biopsy", "RP", "TURP" or "NA"). 
+ 2. Were there malignant tumor findings (allowed values: "yes", "no" or "NA"). 
+ 3. What is the reported Gleason grade (allowed values preferably "major+minor=sum" in the form of whole numbers for malignant statements or "NA" for benign statements). 
+
+ For example, the statement "Adenocarcinoma is detected in the prostate biopsy with Gleason grades 4 and 3, resulting in a sum of 4+3=7." is a valid histopathological statement and should therefore be structured in JSON format as follows: 
+
+ {
+ "Sampletype": "biopsy",
+  "Malignancy": "yes",
+ "Gleason": "4+3=7" 
+} 
+ In contrast, the statement "fatty 100 that tumour led no 37 previous atypical 153 pt3a cores maximum malignancy. 8mm aggressive 60 11mm group value 257 invasion from lot 38mm latest both it moderate gleason. Deposit before total focus included 12mm however, 10 gland distance 20 length active tumor prior underwent 80 clear 18, but relatively adipose 95 undergone 95 second 18mm dominant could contour residual glands 4+3 gg. All fat 67 included score grading revision multifocal minimal core obturator remain 9mm tertiary both 95 seen original radical. maximum tissue seminal 28mm confirmed 08000 node mid positivity 8mm are failure phenotype apex routine do small urothelial internal these" is not a valid histopathological statement and should therefore be structured in JSON format as follows: 
+
+ {
+ "Sampletype": "NA",
+ "Malignancy": "NA",
+ "Gleason": "NA" 
+}
+
+ Apply the above questions to the following statement: 
+
+
+Sample consists of 12.3g of prostate chippings. The material is started on one casette. In histologial inspection, spotted chronic inflammation is apparently, and the material gives an overall impression of stromal hyperplasia. Nothing indicating malignancy is found.
