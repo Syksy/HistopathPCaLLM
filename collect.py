@@ -36,17 +36,17 @@ def getConcordanceCaseinsensitive(rep0 : str, rep1 : str, rep2 : str) -> bool:
 # That is, checking that the JSON returned contains the same value in each field across triplicates
 def getConcordanceContent(rep0: str, rep1: str, rep2: str) -> bool:
     # If even one of the triplicates cannot be parsed to JSON then the JSON content is not concordant
-    if ~getJSONParseability(rep0) or ~getJSONParseability(rep1) or ~getJSONParseability(rep2):
+    if (not getJSONParseability(rep0)) or (not getJSONParseability(rep1)) or (not getJSONParseability(rep2)):
         return False
     rep0json = list(json.loads(rep0).values())
     rep1json = list(json.loads(rep1).values())
     rep2json = list(json.loads(rep2).values())
     # Correct length ought to be 3 values
-    if ~(len(rep0json) == 3) or ~(len(rep1json) == 3) or ~(len(rep2json) == 3):
+    if (not (len(rep0json) == 3)) or (not (len(rep1json) == 3)) or (not (len(rep2json) == 3)):
         return False
     # Checking that contents match within index
     for index in range(3):
-        if ~(rep0json[index] == rep1json[index]) or ~(rep1json[index] == rep2json[index]):
+        if (not (rep0json[index] == rep1json[index])) or (not (rep1json[index] == rep2json[index])):
             return False
     # All comparisons were concordant; returning True
     return True
@@ -94,7 +94,7 @@ def getJSONParseability(text: str) -> bool:
 
 # Test if all in the triplicates can be parsed into proper JSON
 def getJSONParseAll(rep0: str, rep1: str, rep2: str):
-    if ~getJSONParseability(rep0) or ~getJSONParseability(rep1) or ~getJSONParseability(rep2):
+    if (not getJSONParseability(rep0)) or (not getJSONParseability(rep1)) or (not getJSONParseability(rep2)):
         return False
     else:
         return True
