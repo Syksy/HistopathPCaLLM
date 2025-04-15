@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a histopathology report related to prostate cancer. The three fields to focus on are original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the original sample type. The allowed values are biopsy, RP (which stands for radical prostatectomy), TURP (transurethral resection of the prostate), or NA. Looking at the provided text, the first line mentions "prostatetectomy preparate." I think that's a typo and should be "prostatectomy." A prostatectomy specimen would typically come from a radical prostatectomy, so the sample type here is RP. That answers the first question.
+
+Next, checking for malignant tumor findings. The text says "tumorous growth" and specifically mentions "Gleason 7-stage carcinoma." Carcinoma is a malignant tumor, so the answer here is "yes."
+
+For the Gleason grade, the format should be "major+minor=sum." The report states "Gleason 7-stage carcinoma, with the larger portion of score 3 approx 60%." Wait, Gleason scores are determined by adding the primary (most common) and secondary (next most common) grades. If the larger portion is score 3, that would be the primary grade. But since the total is 7, the secondary grade must be 4 (3+4=7). However, the way it's phrased here is a bit confusing. The user wants the format as major+minor=sum. So the Gleason grade should be "3+4=7".
+
+I need to make sure there's no nested structures in the JSON. The user specified only the most severe lesion, which in this case is the Gleason 7. The sample type is RP, malignant is yes, and Gleason is 3+4=7. All values are present, so no NAs needed here.
+</think>
+
+```json
+{
+  "original_sample_type": "RP",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "3+4=7"
+}
+```

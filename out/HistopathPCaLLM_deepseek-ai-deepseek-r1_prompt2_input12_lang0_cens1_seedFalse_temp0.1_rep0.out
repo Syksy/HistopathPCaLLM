@@ -1,0 +1,21 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a given histopathological statement. The fields needed are Sampletype, Malignancy, and Gleason. Let me start by reading the input text carefully.
+
+The input statement says: "The obtained sample consists of prostate cancer tissue and has been started in eight batches. In histological examination, majority of the sample material appeared to at least originate from the prostate, but high resolution images are currently in the digipathology queue."
+
+First, Sampletype. The allowed values are biopsy, RP, TURP, or NA. The text mentions "obtained sample" and "prostate cancer tissue," but there's no specific mention of the procedure type like biopsy, radical prostatectomy (RP), or transurethral resection of the prostate (TURP). So I can't determine the sample type here. So Sampletype should be NA.
+
+Next, Malignancy. The statement explicitly says "prostate cancer tissue," which indicates malignancy. So Malignancy should be "yes."
+
+Gleason grade. The text doesn't mention any Gleason scores or grades. Even though it's a malignant case, without specific numbers like 3+4=7, we can't provide a Gleason value. So Gleason is NA.
+
+Putting it all together: Sampletype is NA because the procedure isn't specified, Malignancy is yes because cancer is present, and Gleason is NA because no grades are reported. The example given in the instructions shows that even if malignancy is present, if Gleason isn't mentioned, it's NA. So the JSON should reflect that.
+</think>
+
+```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "yes",
+  "Gleason": "NA"
+}
+```

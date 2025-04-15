@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a histopathological report related to prostate cancer. The three fields to focus on are original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the original sample type. The allowed values are biopsy, RP (radical prostatectomy), TURP (transurethral resection of the prostate), or NA. Looking at the provided text, the samples are mentioned as "prepared samples" processed through standard procedures. The report talks about different parts of the prostate (right side, left side, samples A-D, etc.), but there's no explicit mention of how the sample was obtained. Terms like biopsy, RP, or TURP aren't present. So I think the answer here is NA because the sample type isn't specified.
+
+Next, malignant tumor findings. The options are yes, no, or NA. The text mentions "differentiation stages Gleason between 3 to 5 are at all present or if the material is fully healthy." The Gleason score is typically used to grade prostate cancer, with higher scores indicating more aggressive tumors. However, the report states that the assessment (including whether the material is fully healthy) is pending and will be part of a future consensus after the resident candidates' review. Since the presence of malignancy isn't confirmed yet and the report is preliminary, the answer here should be NA. It's not explicitly stated as yes or no.
+
+Lastly, the Gleason grade. The preferred format is "major+minor=sum" if malignant. But since the malignancy isn't confirmed (previous answer is NA), the Gleason grade should also be NA. Even though the report mentions Gleason scores between 3 to 5, it's part of a pending assessment. The actual reported grade isn't provided here; it's part of what needs to be determined. So we can't extract a valid Gleason score from this text.
+
+Putting it all together: sample type NA, malignant findings NA, Gleason grade NA. Need to make sure there's no nested structures in the JSON and only the most severe lesion is considered. Since the report is preliminary and no conclusive findings are stated, all fields default to NA.
+</think>
+
+```json
+{
+  "original_sample_type": "NA",
+  "malignant_tumor_findings": "NA",
+  "reported_gleason_grade": "NA"
+}
+```

@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this query step by step. The user wants me to extract structured data from a histopathological report related to prostate cancer. The goal is to convert the free text into a JSON format with three specific fields.
+
+First, I need to determine the original sample type. The allowed values are "biopsy", "RP" (radical prostatectomy), "TURP" (transurethral resection of the prostate), or "NA". Looking at the provided statement: "electrosection shavings from the prostate". Electrosection shavings are typically associated with TURP procedures. So the sample type here is TURP.
+
+Next, checking for malignant tumor findings. The options are "yes", "no", or "NA". The report states that the majority of the sample is classified as benign. Since there's no mention of malignancy, the answer here should be "no".
+
+For the Gleason grade, the preferred format is "major+minor=sum" if malignant, otherwise "NA". Since the sample is benign, there's no Gleason grade reported. So this field should be "NA".
+
+I also need to ensure that only the most severe lesion's results are used, but in this case, there's only benign tissue mentioned. No nested structures in the JSON. So the final JSON should have the three fields with the determined values.
+</think>
+
+```json
+{
+  "original_sample_type": "TURP",
+  "malignant_tumor_findings": "no",
+  "reported_gleason_grade": "NA"
+}
+```

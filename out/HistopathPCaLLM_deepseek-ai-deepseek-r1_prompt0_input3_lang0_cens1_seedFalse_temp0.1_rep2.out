@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a histopathological statement related to prostate cancer. The three fields to focus on are original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the original sample type. The allowed values are biopsy, RP (which I know stands for radical prostatectomy), TURP (transurethral resection of the prostate), or NA. Looking at the provided statement: "The primary sample contains over a dozen grams of prostate material, which is done in a single run." Hmm, the mention of "single run" and "prostate material" doesn't clearly specify the procedure type. Biopsy samples are usually smaller, while RP and TURP are surgical procedures. Since there's no explicit mention like "TURP specimen" or "biopsy cores," I might have to go with NA here because it's not clear. 
+
+Next, malignant tumor findings. The options are yes, no, or NA. The statement says there's some inflammation but burn artifacts prevent detailed examination. The conclusion is "nothing conclusive may be derived." Since the examination was inconclusive due to artifacts, there's no mention of malignancy. So, the answer here should be NA because we can't confirm either presence or absence.
+
+Lastly, Gleason grade. The preferred format is "major+minor=sum" if malignant, otherwise NA. Since the malignancy isn't confirmed (it's NA in the previous field), the Gleason grade should also be NA. Even if there were a mention, without conclusive malignant findings, Gleason wouldn't apply.
+
+So putting it all together: sample type NA, malignant NA, Gleason NA. Need to make sure the JSON is valid and not nested. Let me double-check the original text for any clues I might have missed. The sample mentions "prostate material" but no procedure type. The artifacts prevented examination, so no malignancy conclusion. Yep, looks right.
+</think>
+
+```json
+{
+  "original_sample_type": "NA",
+  "malignant_tumor_findings": "NA",
+  "reported_gleason_grade": "NA"
+}
+```

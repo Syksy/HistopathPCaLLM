@@ -1,0 +1,21 @@
+<think>
+Okay, let's tackle this step by step. The user wants structured data from the provided prostate cancer histopathological statement. The output needs to be in JSON with three specific fields: original sample type, presence of malignant tumor, and reported Gleason grade.
+
+First, the original sample type. The allowed values are biopsy, RP (which stands for radical prostatectomy), TURP (transurethral resection of the prostate), or NA. Looking at the statement, it starts with "Prostatectomy preparate was run..." So prostatectomy refers to RP. That's straightforward. So the first answer should be "RP".
+
+Next, whether there were malignant findings. The allowed values are yes, no, or NA. The text mentions "invasive tumor tissue" and "malignant focus". Both indicate malignancy. So the answer here is "yes".
+
+Third, the Gleason grade. The preferred format is "major+minor=sum" as whole numbers. The statement says "Gleason grading 4+3". So that's 4+3=7. The user wants it in the format "4+3=7". Since this is a malignant case, we report that. If it were benign, we'd put NA.
+
+Now, checking the note that only the most severe lesion's results should be returned. The Gleason 4+3 is the main one mentioned, and there's no higher grade mentioned. High-grade PIN is noted but that's separate from the tumor's Gleason score. So we stick with 4+3=7.
+
+No nested structures allowed in JSON, so just a flat structure. Let me make sure all the values fit the allowed options. Sample type is RP, malignant is yes, Gleason is 4+3=7. That's all valid. No issues here. So the JSON should look like the example provided.
+</think>
+
+```json
+{
+  "original_sample_type": "RP",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "4+3=7"
+}
+```

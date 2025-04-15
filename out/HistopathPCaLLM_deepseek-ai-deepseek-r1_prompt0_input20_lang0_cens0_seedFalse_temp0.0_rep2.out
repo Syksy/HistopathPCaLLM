@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants structured data from the provided medical text. The three fields to extract are original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the original sample type. The text mentions "prostatectomy resection." I know that RP stands for radical prostatectomy, so the answer here should be "RP". The allowed values are biopsy, RP, TURP, or NA. So that's straightforward.
+
+Next, malignant tumor findings. The sample mentions "adenocarcinoma," which is a type of malignant tumor. There are two areas with adenocarcinoma, so the answer here is "yes". The allowed values are yes, no, or NA. Definitely yes here.
+
+Third, the Gleason grade. The text says "Gleason 3+4" in the apex and "4+4" in the basis. The instruction says to take the most severe lesion. Between 3+4 (sum 7) and 4+4 (sum 8), 4+4 is more severe. So the Gleason should be "4+4=8". The format should be major+minor=sum as whole numbers. So that's correct.
+
+Need to make sure there's no nested structures in the JSON. The keys are straightforward. Also, check that all values are correctly formatted. No issues here. The answer should be valid JSON with those three fields.
+</think>
+
+```json
+{
+  "original_sample_type": "RP",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "4+4=8"
+}
+```

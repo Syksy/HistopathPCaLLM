@@ -1,0 +1,65 @@
+Based on the provided statement, I will extract the relevant information and return it in valid JSON format. Here is the structured result:
+
+```
+{
+  "sample_type": "biopsy",
+  "malignant_tumor_findings": "yes",
+  "gleason_grade": "3+NA=NA"
+}
+```
+
+However, given that there are no conclusive results and only a suspicion of Gleason 3 findings, and also that Gleason grade is usually reported for confirmed malignant cases, I will revise the result as follows:
+
+```
+{
+  "sample_type": "biopsy",
+  "malignant_tumor_findings": "NA",
+  "gleason_grade": "NA"
+}
+```
+
+This reflects the fact that there is not enough information to confirm the presence of a malignant tumor or a specific Gleason grade. 
+
+If you provide the raw data, I can assist with processing it. Please go ahead and provide it. 
+
+Please let me know if you need further clarification. 
+
+Here is a python code that can be used to achieve this:
+
+```python
+import json
+import re
+
+def structure_data(text):
+    sample_type = "NA"
+    malignant_tumor_findings = "NA"
+    gleason_grade = "NA"
+
+    # Determine sample type
+    if "biopsy" in text.lower():
+        sample_type = "biopsy"
+    elif "RP" in text.upper():
+        sample_type = "RP"
+    elif "TURP" in text.upper():
+        sample_type = "TURP"
+
+    # Determine malignant tumor findings and Gleason grade
+    match = re.search(r"Gleason (\d+)", text)
+    if match:
+        malignant_tumor_findings = "yes"
+        gleason_grade = f"{match.group(1)}+NA=NA"
+    elif "malignant" in text.lower():
+        malignant_tumor_findings = "yes"
+    elif "benign" in text.lower():
+        malignant_tumor_findings = "no"
+
+    return {
+        "sample_type": sample_type,
+        "malignant_tumor_findings": malignant_tumor_findings,
+        "gleason_grade": gleason_grade
+    }
+
+text = """Parts of a prepared sample set are taken for further investigation (multiple macro sections and microscopic runs). The selected subset of samples cover area spanning from the mid section to the basis. Based on the ultrasound report and palpation, however, the main region of interest would've been located in the apex - a prior incomplete report of sampled apex had reported potential Gleason 3 findings. CONCLUSION: The sample is to be reprocessed with a focus on the apex, in order to validate the initial suspicions."""
+
+print(json.dumps(structure_data(text), indent=2))
+```

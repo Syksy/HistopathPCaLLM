@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a given medical text related to prostate cancer. The three fields to focus on are Sampletype, Malignancy, and Gleason.
+
+First, the original sample type. The allowed values are biopsy, RP (which stands for radical prostatectomy), TURP (transurethral resection of the prostate), or NA. Looking at the provided text: "The primary sample contains over a dozen grams of prostate material, which is done in a single run." The term "primary sample" is a bit vague. It mentions "prostate material" but doesn't specify the procedure. There's no mention of biopsy, RP, or TURP. So I think Sampletype should be NA here.
+
+Next, malignancy. The text says "some inflammation is apparent, but burn artefacts prevent detailed examination... nothing conclusive may be derived." Since the examination was inconclusive due to burn artifacts, there's no clear evidence of malignant tumor findings. The allowed values are yes, no, or NA. Since they couldn't determine conclusively, Malignancy should be NA.
+
+For Gleason grade, the example shows that if there's a malignant finding, we report it as major+minor=sum. However, in this case, since malignancy isn't confirmed and the exam was inconclusive, there's no Gleason grade reported. So Gleason should be NA.
+
+Putting it all together, the JSON should have all fields as NA because the sample type isn't specified, malignancy isn't determined, and no Gleason grade is mentioned.
+</think>
+
+```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

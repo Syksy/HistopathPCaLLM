@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a histopathological report related to prostate cancer. The three fields to focus on are original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the original sample type. The allowed values are biopsy, RP (radical prostatectomy), TURP (transurethral resection of the prostate), or NA. Looking at the provided statement: "The primary sample contains over a dozen grams of prostate material, which is done in a single run." The mention of "single run" isn't specific. Biopsy samples are usually smaller, while RP and TURP are surgical procedures. TURP is typically for removing tissue when there's an obstruction, but the text doesn't specify the procedure. Since it's not clear, maybe the sample type is NA here. But wait, "over a dozen grams" – that's 12+ grams. A biopsy is usually a few grams. RP specimens can be larger, like 30-50 grams. TURP might vary but could be in the range of 5-20 grams. Hmm, maybe TURP? But the report doesn't explicitly state the procedure. The user might expect NA if it's not specified. So original sample type is NA.
+
+Next, malignant tumor findings. The statement says "some inflammation is apparent, but burn artefacts prevent detailed examination... nothing conclusive may be derived." Since the examination was inconclusive due to artifacts, there's no mention of malignancy. So the answer here is "no" because they didn't find any malignant tumors, or is it "NA"? Wait, allowed values are yes, no, or NA. If the report can't determine due to artifacts, maybe it's NA. But the question is "Were there malignant tumor findings?" If they couldn't find anything conclusive, then the presence isn't confirmed. So maybe "no" isn't right. Alternatively, if the report doesn't state any malignancy, but the examination was hindered, perhaps the answer is NA. Because they can't confirm either way. So malignant findings would be NA.
+
+Third, Gleason grade. Since there's no mention of malignancy and the exam was inconclusive, the Gleason grade should be NA. They didn't report any grades because they couldn't assess properly.
+
+So putting it all together: sample type NA, malignant NA, Gleason NA. But wait, the instructions say to take results from the most severe lesion. However, in this case, the report says nothing conclusive due to burn artifacts. So there's no lesion reported. Hence, all fields would be NA.
+</think>
+
+```json
+{
+  "original_sample_type": "NA",
+  "malignant_tumor_findings": "NA",
+  "reported_gleason_grade": "NA"
+}
+```

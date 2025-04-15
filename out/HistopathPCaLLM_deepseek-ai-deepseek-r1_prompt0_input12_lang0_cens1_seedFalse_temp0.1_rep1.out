@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a given medical text related to prostate cancer. The three fields to focus on are original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the original sample type. The allowed values are biopsy, RP (which stands for Radical Prostatectomy), TURP (Transurethral Resection of the Prostate), or NA. Looking at the provided statement: "The obtained sample consists of prostate cancer tissue and has been started in eight batches." There's no mention of how the sample was obtained. It just says it's prostate cancer tissue. So the sample type isn't specified here. Therefore, the answer should be NA for the first field.
+
+Next, checking for malignant tumor findings. The statement explicitly mentions "prostate cancer tissue." Cancer is malignant by definition, so the answer here is definitely "yes."
+
+Third, the Gleason grade. The user wants it in "major+minor=sum" format if malignant, otherwise NA. The text doesn't mention any Gleason scores or grades. It talks about histological examination but doesn't provide specifics on grading. So even though there's a malignant finding, the Gleason grade isn't reported here. Hence, the answer should be NA for the third field.
+
+I need to make sure that only the most severe lesion is considered, but since there's only one mentioned (prostate cancer tissue), that's straightforward. Also, the JSON shouldn't have nested structures. So the final JSON should have the three keys with the determined values.
+</think>
+
+```json
+{
+  "original_sample_type": "NA",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "NA"
+}
+```

@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a histopathology report. The three fields to focus on are original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the sample type. The report mentions "12 representative needle biopsies." The allowed values are biopsy, RP (radical prostatectomy), TURP (transurethral resection of the prostate), or NA. Needle biopsies clearly fall under "biopsy," so that's the first answer.
+
+Next, malignant findings. The conclusion states "only benign-like growth is observed." Since there's no mention of malignancy, the answer here should be "no."
+
+For Gleason grade, the instructions say to use "major+minor=sum" if malignant, otherwise "NA." Since the tumor is benign, Gleason isn't applicable. So "NA" for the third field.
+
+I need to make sure there's no nested JSON and only the most severe lesion is considered. Since the report is benign, there's no severity to consider beyond that. All answers should be straightforward.
+</think>
+
+```json
+{
+  "original_sample_type": "biopsy",
+  "malignant_tumor_findings": "no",
+  "reported_gleason_grade": "NA"
+}
+```

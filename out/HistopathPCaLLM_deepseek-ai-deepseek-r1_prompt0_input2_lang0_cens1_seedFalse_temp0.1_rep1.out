@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants structured data from the given prostate cancer histopathological statement. The three fields to focus on are original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the original sample type. The allowed values are biopsy, RP (radical prostatectomy), TURP (transurethral resection of the prostate), or NA. Looking at the statement, it mentions the sample is from an "autopsy specimen." Since autopsy isn't one of the allowed options, the answer here should be NA.
+
+Next, malignant tumor findings. The options are yes, no, or NA. The summary mentions "potential adenocarcinoma or other malignant changes," but it says they can't reliably infer further findings due to inflammation and age-related changes. So there's a mention of possible malignancy, but it's not confirmed. The instructions say to use "NA" if it's uncertain or not confirmed. So here, the answer should be NA.
+
+Lastly, Gleason grade. The format should be "major+minor=sum" if malignant, otherwise NA. Since the malignancy isn't confirmed (we put NA for the previous question), the Gleason grade should also be NA. Even if there was a mention of adenocarcinoma, without a specific Gleason score provided, we can't assume it. The report doesn't list any numbers for grades, so definitely NA.
+
+Putting it all together, the JSON should have NA for all three fields. Need to make sure there's no nesting and only the most severe lesion is considered. Since the sample is from autopsy and the findings are inconclusive, all answers remain NA.
+</think>
+
+```json
+{
+  "original_sample_type": "NA",
+  "malignant_tumor_findings": "NA",
+  "reported_gleason_grade": "NA"
+}
+```

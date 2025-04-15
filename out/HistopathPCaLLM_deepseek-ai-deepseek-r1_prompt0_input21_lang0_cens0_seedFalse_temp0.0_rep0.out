@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a histopathology report related to prostate cancer. The three fields to focus on are the original sample type, presence of malignant tumor, and the reported Gleason grade.
+
+First, the sample type. The allowed values are biopsy, RP (radical prostatectomy), TURP (transurethral resection of the prostate), or NA. The given statement mentions "Prostate chippings" and "shavings." I recall that "TURP" typically refers to tissue obtained via transurethral resection, which often results in chippings or shavings. So the sample type here is likely TURP.
+
+Next, determining if there's a malignant tumor. The report describes "poorly differentiated growth," which is a term often associated with malignancy. Additionally, it mentions "tumor-like tissue" and discusses Gleason grades, which are used to classify prostate cancer. The presence of Gleason grading (5 and 4) strongly indicates malignancy. So the answer here should be "yes."
+
+For the Gleason grade, the system requires the format "major+minor=sum." The text states the most common is 5 and the second most is 4. In Gleason scoring, the primary (major) grade is listed first, followed by the secondary (minor), so it would be 5+4=9. Since this is a malignant case, we report the sum as "5+4=9."
+
+I need to ensure that only the most severe lesion is considered. The report mentions the most common Gleason as 5 and second as 4, which gives the highest possible sum here. No nested structures in the JSON, so straightforward key-value pairs. Double-checking allowed values and making sure there's no NA unless necessary. All fields here have valid entries.
+</think>
+
+```json
+{
+  "original_sample_type": "TURP",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "5+4=9"
+}
+```

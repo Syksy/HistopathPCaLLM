@@ -1,0 +1,27 @@
+<think>
+Okay, let's tackle this step by step. The user wants structured data from the provided prostate cancer histopathological statement. The three fields to extract are: original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the original sample type. The statement mentions "prostatectomy preparate," so I need to map that to the allowed values. "Prostatectomy" typically refers to a radical prostatectomy (RP), so the answer here should be "RP".
+
+Next, malignant tumor findings. The text clearly states "adenocarcinoma," which is a malignant tumor. So the answer is "yes".
+
+For the Gleason grade, the conclusion states "Gleason-score sum 9, grade group 5." The required format is "major+minor=sum". The main components are grades 4 and 5. The major is the higher grade, which is 5 (since 60% is grade 4 and 30% is grade 5? Wait, no. Wait, Gleason scoring takes the most predominant pattern as the first number and the next most predominant as the second. But in the text, it says "mainly differentiation stage 4 (60%)", then second most common stage 5 (30%). So major is 4, minor is 5, sum 9. But the conclusion says sum 9. So the correct format would be 4+5=9. However, the user wants "major+minor=sum" as whole numbers. So the answer should be "4+5=9".
+
+Wait, but sometimes when there's a tertiary pattern, the highest grade is considered. But the user instruction says to take the most severe lesion. The conclusion here says Gleason sum 9, grade group 5, which aligns with 4+5=9. So the answer is "4+5=9".
+
+So putting it all together:
+
+1. Original sample type: RP
+2. Malignant: yes
+3. Gleason: 4+5=9
+
+I need to make sure the JSON is valid, no nested structures, and only the most severe lesion is considered. The tertiary grade 3 is mentioned but it's the least area, so we ignore that. The answer should be the highest sum from the conclusion.
+</think>
+
+```json
+{
+  "original_sample_type": "RP",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "4+5=9"
+}
+```

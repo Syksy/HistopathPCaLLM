@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a histopathological report related to prostate cancer. The three fields to focus on are original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the original sample type. The allowed values are biopsy, RP (radical prostatectomy), TURP (transurethral resection of the prostate), or NA. Looking at the provided statement: "The primary sample contains over a dozen grams of prostate material, which is done in a single run." Hmm, the mention of "single run" isn't immediately clear. Biopsy samples are usually smaller, while RP and TURP are surgical procedures. TURP is typically for removing tissue when there's an obstruction, but the sample size here is "over a dozen grams," which is quite substantial. RP usually refers to the entire prostate being removed, which can weigh around 30-40 grams on average. A dozen grams (12+) might be more in line with a TURP, which can remove significant tissue but not the whole prostate. However, the report doesn't explicitly mention the procedure type. Since it's not clearly stated, maybe the answer here is NA because the sample type isn't specified directly in the text.
+
+Next, malignant tumor findings. The statement says there's some inflammation but burn artefacts prevent detailed examination. They conclude nothing conclusive can be derived. So, since the examination was hindered and no malignancy was found (but also not ruled out definitively), the answer here should be "no" because there's no mention of malignancy. Wait, but the allowed values are yes, no, or NA. If the report is inconclusive due to artefacts, maybe the answer should be NA instead of no. Because "no" would imply they checked and found no malignancy, but here they couldn't examine properly. So, the presence of malignancy can't be determined, hence NA.
+
+Third, Gleason grade. Since there's no mention of any tumor or malignancy, and the exam was inconclusive, the Gleason grade would be NA. Even if there were some suspicion, without conclusive evidence, it can't be reported. The Gleason score is only applicable if malignancy is confirmed, which isn't the case here.
+
+So putting it all together: sample type NA (since not specified), malignant findings NA (inconclusive), Gleason NA.
+</think>
+
+```json
+{
+  "original_sample_type": "NA",
+  "malignant_tumor_findings": "NA",
+  "reported_gleason_grade": "NA"
+}
+```

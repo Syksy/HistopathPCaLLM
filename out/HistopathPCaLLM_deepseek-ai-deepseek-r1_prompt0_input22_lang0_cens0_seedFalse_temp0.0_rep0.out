@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a histopathology report. The three fields to focus on are original sample type, presence of malignant tumor, and the reported Gleason grade.
+
+First, the sample type. The raw data mentions "prostate thick needle biopsies." The allowed values are biopsy, RP (radical prostatectomy), TURP (transurethral resection of the prostate), or NA. Since it's explicitly stated as needle biopsies, the answer here should be "biopsy."
+
+Next, malignant tumor findings. The left side has carcinoma (which is malignant), and the right side doesn't. The instructions say to take the most severe lesion, so even though the right side is benign, the left is malignant. So the answer is "yes."
+
+For Gleason grade, the left side has Gleason score 3 and 4. The user wants "major+minor=sum" as whole numbers. The major is the higher grade, which is 4, and minor is 3. So 4+3=7. The format should be "4+3=7."
+
+I need to make sure there's no nesting in the JSON. Also, check that all values are correctly mapped. No typos, and the allowed values are respected. Let me double-check each part again. Sample type is definitely biopsy. Malignant is yes. Gleason is correctly calculated. Alright, that should be it.
+</think>
+
+```json
+{
+  "original_sample_type": "biopsy",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "4+3=7"
+}
+```

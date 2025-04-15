@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a histopathological report related to prostate cancer. The three fields to focus on are original sample type, presence of malignant tumor, and reported Gleason grade.
+
+First, the original sample type. The allowed values are biopsy, RP (which stands for radical prostatectomy), TURP (transurethral resection of the prostate), or NA. Looking at the provided statement: "Samples consist of very fragmented parts of the original prostatic operation material." The term "prostatic operation material" is a bit vague. It mentions the material is fragmented and run in three batches. But there's no specific mention of biopsy, RP, or TURP. Since the exact type isn't specified, I should go with NA here.
+
+Next, malignant tumor findings. The options are yes, no, or NA. The report states that "relatively normal prostate tissue structures are observed," but most of the sample can't be inspected due to burn artifacts. The conclusion is inconclusive, and re-examination is suggested. Since there's no mention of malignancy and the results are inconclusive, the answer here should be NA. It's not confirmed as yes or no because the artifacts prevented proper examination.
+
+Lastly, the Gleason grade. The preferred format is major+minor=sum as whole numbers, or NA if benign. Since the report doesn't mention any tumor findings (it's inconclusive), there's no Gleason score provided. Therefore, this should be NA.
+
+I need to make sure that only the most severe lesion's results are considered, but in this case, there's no mention of any lesions. The structured JSON shouldn't have nested structures. So putting it all together, the JSON should have sample_type as NA, malignant_tumor as NA, and gleason_grade as NA.
+</think>
+
+```json
+{
+  "sample_type": "NA",
+  "malignant_tumor": "NA",
+  "gleason_grade": "NA"
+}
+```

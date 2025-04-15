@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this problem step by step. The user wants me to extract structured data from a given medical text about prostate cancer. The output needs to be in JSON format with three specific fields. Let me break down each part.
+
+First, the original sample type. The allowed values are "biopsy", "RP", "TURP", or "NA". Looking at the sample statement: "Sample consists of 12.3g of prostate chippings." I remember that TURP stands for Transurethral Resection of the Prostate, which typically results in chippings. Biopsy samples are usually smaller pieces, and RP (radical prostatectomy) is the entire prostate. So here, the sample type should be TURP.
+
+Next, malignant tumor findings. The options are "yes", "no", or "NA". The text says, "Nothing indicating malignancy is found." So the answer here is "no".
+
+Third, the Gleason grade. The format should be "major+minor=sum" if malignant, otherwise "NA". Since malignancy is not found, the Gleason grade should be "NA".
+
+I need to make sure I'm only considering the most severe lesion, but in this case, there's no malignancy, so that's straightforward. Also, the JSON shouldn't have nested structures. Let me double-check each field to confirm. Sample type TURP, malignancy no, Gleason NA. That all fits. Alright, time to structure the JSON.
+</think>
+
+```json
+{
+  "original_sample_type": "TURP",
+  "malignant_tumor_findings": "no",
+  "reported_gleason_grade": "NA"
+}
+```

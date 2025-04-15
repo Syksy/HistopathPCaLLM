@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants structured data from the given medical text. The three fields to extract are original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the original sample type. The text mentions "Sample 3 contains radical prostatectomy preparate." Radical prostatectomy is abbreviated as RP, so that's the sample type. The allowed values are biopsy, RP, TURP, or NA. So answer here is RP.
+
+Next, malignant tumor findings. The third sample has tumor tissue described as invasive with glandular structures. Also, the lymph nodes are free (0/6), but the main sample (prostatectomy) has malignant findings. So the answer is yes.
+
+For Gleason grade, the highest identified is 4+3=7. The user wants major+minor=sum as whole numbers. So it should be "4+3=7". Even though there's a lower grade 3 at 30%, the highest is 4+3=7. High-grade PIN is noted but doesn't affect the Gleason score here.
+
+Check if any nested structures are avoided. The JSON should be flat. Allowed values are correct. No NA needed here since all info is present. Make sure to return only the most severe lesion's results. The main tumor in sample 3 is the most severe, so that's the one to use.
+</think>
+
+```json
+{
+  "original_sample_type": "RP",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "4+3=7"
+}
+```

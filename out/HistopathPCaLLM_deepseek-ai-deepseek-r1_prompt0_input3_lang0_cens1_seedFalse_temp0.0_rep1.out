@@ -1,0 +1,23 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a histopathological report related to prostate cancer. The three fields to focus on are original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the original sample type. The allowed values are biopsy, RP (radical prostatectomy), TURP (transurethral resection of the prostate), or NA. Looking at the provided statement: "The primary sample contains over a dozen grams of prostate material, which is done in a single run." Hmm, the mention of "single run" and the amount (dozen grams) makes me think. Biopsy samples are usually smaller, while RP and TURP are surgical procedures. TURP typically removes prostate tissue in cases of BPH, but the amount here might be more than usual. However, the exact procedure isn't explicitly stated. The term "primary sample" is vague. Since there's no clear indication of biopsy, RP, or TURP, I should go with NA here.
+
+Next, malignant tumor findings. The options are yes, no, or NA. The report says "some inflammation is apparent, but burn artefacts prevent detailed examination... nothing conclusive may be derived." Since the examination was hindered and no conclusive evidence of malignancy is found, but there's no explicit mention of malignancy, the answer here should be "no" because if they couldn't examine properly, they can't confirm malignancy. Wait, but the allowed values are yes, no, or NA. If the report says nothing conclusive, maybe NA is better. But the question is "Were there malignant tumor findings?" If they couldn't determine due to artefacts, then technically the findings are inconclusive, so the answer would be NA. But the user instructions say to return "no" for benign. Wait, the statement mentions inflammation but no tumor. However, the key is that the examination was prevented, so they can't confirm presence or absence. So maybe NA is correct here. But I need to check if the absence of findings due to artefacts counts as "no" or NA. Since the report says "nothing conclusive may be derived," it's better to put NA because they can't determine it.
+
+Third, Gleason grade. The format should be "major+minor=sum" if malignant, else NA. Since the malignant finding is NA (as per previous step), the Gleason grade should be NA. Even if there was a mention, if malignancy isn't confirmed, Gleason isn't applicable.
+
+So putting it all together:
+
+1. Original sample type: NA (since the procedure isn't specified)
+2. Malignant tumor findings: NA (inconclusive due to artefacts)
+3. Gleason grade: NA (no malignancy found or confirmed)
+</think>
+
+```json
+{
+  "original_sample_type": "NA",
+  "malignant_tumor_findings": "NA",
+  "reported_gleason_grade": "NA"
+}
+```

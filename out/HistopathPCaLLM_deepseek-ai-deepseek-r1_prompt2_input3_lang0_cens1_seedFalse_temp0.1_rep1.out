@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this problem step by step. The user wants me to extract structured data from a given histopathological statement related to prostate cancer. The output needs to be in JSON format with three specific fields: Sampletype, Malignancy, and Gleason. The allowed values are specified, so I need to make sure I adhere to those.
+
+First, I need to determine the original sample type. The allowed values are "biopsy", "RP", "TURP", or "NA". Looking at the provided statement: "The primary sample contains over a dozen grams of prostate material, which is done in a single run." The mention of "primary sample" and "prostate material" doesn't clearly specify the sample type. Terms like biopsy, RP (radical prostatectomy), or TURP (transurethral resection of the prostate) aren't present here. So, the sample type isn't identifiable from the text. Therefore, Sampletype should be "NA".
+
+Next, checking for malignant tumor findings. The allowed values are "yes", "no", or "NA". The statement says, "some inflammation is apparent, but burn artefacts prevent detailed examination... nothing conclusive may be derived." There's no mention of malignancy detected. Since the examination was inconclusive due to burn artefacts, we can't confirm the presence or absence of a malignant tumor. So, Malignancy should be "NA".
+
+Lastly, the Gleason grade. The preferred format is "major+minor=sum" if malignant, otherwise "NA". Since the malignancy status is "NA" (inconclusive), there's no Gleason grade reported here. The text doesn't mention any Gleason scores. Thus, Gleason should be "NA".
+
+Putting it all together, the JSON should have all fields as "NA" because the statement doesn't provide conclusive information on any of the required aspects. I need to ensure there's no nesting in the JSON and that only the most severe lesion is considered, but in this case, there's no lesion described. The example given for an invalid statement also results in all "NA" values, which aligns with this scenario.
+</think>
+
+```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

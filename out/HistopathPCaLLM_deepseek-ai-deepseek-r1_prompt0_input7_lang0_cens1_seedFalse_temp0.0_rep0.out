@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants structured data from the given prostate cancer histopathological statement. The output needs to be in JSON with three specific fields.
+
+First, the original sample type. The allowed values are biopsy, RP (radical prostatectomy), TURP (transurethral resection of the prostate), or NA. Looking at the statement, it mentions "prostate sample material" but doesn't specify the method. Terms like "routinely collected" might suggest a biopsy, but since it's not explicitly stated, I should go with NA here.
+
+Next, whether there were malignant tumor findings. The options are yes, no, or NA. The text mentions "atypical structures and morphological changes" but says "no definite conclusions could be drawn." Since it's uncertain, the answer here should be no, as there's no confirmation of malignancy. If it were malignant, they would have concluded it, but the lack of definite conclusions points to no.
+
+Third, the Gleason grade. The format should be "major+minor=sum" if malignant, otherwise NA. Since the findings were inconclusive and no malignancy was confirmed, the Gleason grade should be NA.
+
+I need to make sure only the most severe lesion is considered. The statement mentions one sample with a point of interest but it's too small to draw conclusions, so the rest are normal. Hence, the most severe is the inconclusive one, which isn't malignant. So the structured JSON should reflect all three answers as NA, no, and NA respectively.
+</think>
+
+```json
+{
+  "original_sample_type": "NA",
+  "malignant_tumor_findings": "no",
+  "reported_gleason_grade": "NA"
+}
+```

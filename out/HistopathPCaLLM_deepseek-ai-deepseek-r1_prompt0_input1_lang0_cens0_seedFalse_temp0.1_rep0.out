@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a medical text about prostate cancer. The input is a histopathological statement, and I need to output JSON with three specific fields.
+
+First, the original sample type. The allowed values are biopsy, RP, TURP, or NA. Looking at the provided text: "12 representative needle biopsies are being inspected..." So the sample type is definitely biopsy. That's straightforward.
+
+Next, whether there were malignant tumor findings. The options are yes, no, or NA. The text says, "The conclusion is that only benign-like growth is observed." Since they mention benign, that means no malignancy. So the answer here is "no".
+
+Third, the Gleason grade. The format should be major+minor=sum if malignant, otherwise NA. Since the findings are benign, there's no Gleason grade reported. So this field should be "NA".
+
+I need to make sure the JSON is valid and doesn't have nested structures. Also, only the most severe lesion's results are considered, but in this case, there's only benign findings. So all three fields are covered. Let me double-check each part again to be sure. Sample type: biopsy. Malignant: no. Gleason: NA. Yep, that's correct.
+</think>
+
+```json
+{
+  "original_sample_type": "biopsy",
+  "malignant_tumor_findings": "no",
+  "reported_gleason_grade": "NA"
+}
+```

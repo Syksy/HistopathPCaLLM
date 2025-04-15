@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this problem step by step. The user wants me to extract structured data from a given histopathological statement related to prostate cancer. The output needs to be in JSON format with three fields: Sampletype, Malignancy, and Gleason. The allowed values are specified, and I need to make sure I only consider the most severe lesion mentioned.
+
+First, I need to determine the original sample type. The allowed values are biopsy, RP (which stands for radical prostatectomy), TURP (transurethral resection of the prostate), or NA if not mentioned. Looking at the provided statement: "The primary sample contains over a dozen grams of prostate material, which is done in a single run." The term "primary sample" is a bit vague. The mention of "prostate material" doesn't clearly indicate the procedure type. Biopsy, RP, or TURP are specific procedures. Since the text doesn't specify any of these, the sample type should be NA.
+
+Next, checking for malignant tumor findings. The allowed values are yes, no, or NA. The statement says, "some inflammation is apparent, but burn artefacts prevent detailed examination... nothing conclusive may be derived." There's no mention of any tumor, malignant or benign. Since the examination was inconclusive due to burn artefacts, we can't confirm the presence or absence of malignancy. So Malignancy should be NA.
+
+Lastly, the Gleason grade. The format should be "major+minor=sum" if malignant, otherwise NA. Since there's no mention of malignancy, and the examination was inconclusive, there's no Gleason grade reported. Therefore, Gleason is NA.
+
+Putting it all together, the JSON should have all fields as NA because the sample type isn't specified, malignancy isn't determined, and Gleason isn't mentioned. The example given for an inconclusive statement also results in all NAs, which matches this scenario.
+</think>
+
+```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

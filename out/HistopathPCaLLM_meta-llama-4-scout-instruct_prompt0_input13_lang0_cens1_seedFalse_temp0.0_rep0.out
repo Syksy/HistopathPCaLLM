@@ -1,0 +1,64 @@
+Based on the provided statement, I will extract the relevant information and return it in valid JSON format. Here is the structured result:
+
+```
+{
+  "sample_type": "biopsy",
+  "malignant_tumor_findings": "no",
+  "gleason_grade": "NA"
+}
+```
+
+Here's a brief explanation of my reasoning:
+
+1. The sample type is likely a biopsy, as the statement mentions "samples have been taken from typical locations in the prostate" and "sample B".
+2. There are no clear indications of malignant tumor findings, as the statement only mentions "irregularities" and "suspicious patterns" that require further inspection and verification. Therefore, I have classified it as "no" malignant tumor findings.
+3. Since there are no confirmed malignant tumor findings, the Gleason grade is not applicable, and I have classified it as "NA". 
+
+Please let me know if this is correct or if I should proceed with the raw data provided. I will be happy to help with that as well. 
+
+Also, please provide the raw data, I will be happy to help with that as well. 
+
+Let me know if I can help with anything else. 
+
+Please go ahead and provide the next statement if you have one. 
+
+Here is a python code that can help with similar conversions 
+
+```python
+import re
+import json
+
+def structure_data(statement):
+    sample_type = "NA"
+    malignant_tumor_findings = "no"
+    gleason_grade = "NA"
+
+    if "biopsy" in statement.lower():
+        sample_type = "biopsy"
+    elif "RP" in statement.upper():
+        sample_type = "RP"
+    elif "TURP" in statement.upper():
+        sample_type = "TURP"
+
+    if "malignant" in statement.lower() or "cancer" in statement.lower():
+        malignant_tumor_findings = "yes"
+    elif "benign" in statement.lower():
+        malignant_tumor_findings = "no"
+
+    match = re.search(r'gleason (\d+)\+(\d+)=(\d+)', statement, re.IGNORECASE)
+    if match:
+        gleason_grade = f"{match.group(1)}+{match.group(2)}={match.group(3)}"
+
+    if malignant_tumor_findings == "no":
+        gleason_grade = "NA"
+
+    return {
+        "sample_type": sample_type,
+        "malignant_tumor_findings": malignant_tumor_findings,
+        "gleason_grade": gleason_grade
+    }
+
+statement = "The samples have been taken from typical locations in the prostate, totalling in a bit more total sample material originating from the right side in comparison with the left. In sample B some irregularities are observed, reaching differentiation patterns that warrant further inspection by a colleague. This suspicious pattern includes enough material for inspection and assessment from the left side, but at this time further verification is needed via consultation. Rest of the samples seem to exhibit rather ordinary patterns, and there are no out of the ordinary inflammation either."
+
+print(json.dumps(structure_data(statement)))
+```

@@ -1,0 +1,21 @@
+<think>
+Okay, let's tackle this problem step by step. The user wants me to extract structured data from a histopathological report related to prostate cancer. The goal is to convert the free-text statement into a JSON format with three specific fields.
+
+First, I need to determine the original sample type. The allowed values are "biopsy", "RP" (radical prostatectomy), "TURP" (transurethral resection of the prostate), or "NA". Looking at the provided statement: "Samples consist of total 4g shaving chips, which are run via three tissue casettes." The term "shaving chips" is commonly associated with TURP procedures, where tissue is shaved off. So, the sample type here is likely "TURP".
+
+Next, assessing if there were malignant tumor findings. The allowed values are "yes", "no", or "NA". The report mentions "relatively normal prostate glandular structures" and "findings hint at the specimen presenting with benign prostate hyperplasia." Benign hyperplasia is non-cancerous, so the malignancy here would be "no".
+
+For the Gleason grade, the requirement is to provide a "major+minor=sum" format if malignant, otherwise "NA". Since the findings are benign, the Gleason grade should be "NA".
+
+I need to ensure that only the most severe lesion's results are considered. In this case, there's no mention of malignancy or multiple lesions, so the benign finding is the only one. Also, the JSON shouldn't have nested structures, so each field is a top-level key.
+
+Double-checking the terms: "shaving chips" confirms TURP, "benign" confirms no malignancy, and thus Gleason is NA. All seems to align. No conflicting information in the statement. The burn artifact might obscure details, but the conclusion is still benign.
+</think>
+
+```json
+{
+  "original_sample_type": "TURP",
+  "malignant_tumor_findings": "no",
+  "reported_gleason_grade": "NA"
+}
+```

@@ -1,0 +1,21 @@
+<think>
+Okay, let's tackle this problem step by step. The user wants me to extract structured data from a given medical text related to prostate cancer. The output needs to be in JSON format with three specific fields. Let me break down each requirement.
+
+First, the original sample type. The allowed values are "biopsy", "RP", "TURP", or "NA". Looking at the provided statement: "The obtained sample consists of prostate cancer tissue and has been started in eight batches." The text mentions the sample is obtained but doesn't specify the method. Terms like biopsy, radical prostatectomy (RP), or transurethral resection of the prostate (TURP) aren't present. So I should put "NA" here since there's no explicit information.
+
+Next, whether there were malignant tumor findings. The allowed values are "yes", "no", or "NA". The statement starts with "The obtained sample consists of prostate cancer tissue..." Prostate cancer is malignant by definition, so this should be "yes".
+
+Third, the reported Gleason grade. The preferred format is "major+minor=sum" as whole numbers or "NA" if benign. Since the sample is malignant, we need to check for Gleason grades. The given text doesn't mention any Gleason scores or grades. It talks about histological examination and high-resolution images being queued, but no specific grades are provided. Therefore, this field should be "NA" because the information isn't present.
+
+Also, the user specified to only include results from the most severe lesion and avoid nested structures. Since there's only one lesion mentioned (prostate cancer tissue) and no conflicting information, that's straightforward.
+
+Putting it all together, the JSON should have "NA" for sample type, "yes" for malignancy, and "NA" for Gleason grade. I need to make sure the JSON is valid with proper quotes and structure.
+</think>
+
+```json
+{
+  "original_sample_type": "NA",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "NA"
+}
+```

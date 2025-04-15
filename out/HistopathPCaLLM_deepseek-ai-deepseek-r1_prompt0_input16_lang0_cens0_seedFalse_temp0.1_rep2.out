@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants structured data from the provided prostate cancer histopathological statement. The three fields to extract are original sample type, malignant tumor findings, and Gleason grade.
+
+First, the original sample type. The statement mentions "three fusion biopsies from a suspicious focus in the prostate." Biopsy is one of the allowed values, so that's straightforward. The answer here should be "biopsy."
+
+Next, checking for malignant tumor findings. The text says "approximately half contains carcinoma focuses." Carcinoma is a malignant tumor, so the answer here is "yes."
+
+For the Gleason grade, the report states "finding of score 7 comes from 15mm length, with architecture 3 covering approx 2/3 and architecture 4 approx 1/3." The Gleason score is typically the sum of the primary and secondary grades. Here, the primary is 3 (since it's covering 2/3) and secondary is 4 (1/3), so 3+4=7. The required format is "major+minor=sum," so "3+4=7."
+
+Need to make sure there's no nesting in the JSON and only the most severe lesion is considered. The example provided uses the highest score mentioned, which is 7, so that's correct. All other values are "NA" if not applicable, but here all fields have valid entries. Double-checking allowed values and formatting to ensure compliance.
+</think>
+
+```json
+{
+  "original_sample_type": "biopsy",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "3+4=7"
+}
+```
