@@ -25,7 +25,7 @@ modelnames = [
     # Geminis
     "gemini-2.0-flash-001",
     "gemini-2.0-flash-lite-001",
-    "gemini-1.5-pro-002"
+    "gemini-1.5-pro-002",
     # OpenAI / GPTs
     "gpt-4o-2024-05-13",
     "gpt-4o-2024-08-06",
@@ -108,11 +108,14 @@ runtimes = np.ndarray(
     dtype='f'
 )
 
+filesSuccess = 0
+filesFail = 0
 
 # Signal containing statement (0) or censored (1)
 for cens in range(2):
     # Some models allowed adding RNG seeding for reproducibility
-    for seed in range(2):
+    #for seed in range(2):
+    for seed in [0]:
         # Iterate over models
         for modelIndex in range(len(modelnames)):
             # Iterate over prompts
@@ -131,14 +134,14 @@ for cens in range(2):
                                         + "_input" + str(inputIndex)
                                         + "_lang" + str(langIndex)
                                         + "_cens" + str(cens)
-                                        + "_seed" + str(seed)
+                                        + "_seed" + str(seedname)
                                         #+ "_temp" + str(temperature)
                                         + "_temp" + str(0.0)
                                         + "_rep" + str(rep)
                                         )
 
-                            if progress:
-                                print("Processing filename " + filename)
+                            #if progress:
+                                #print("Processing filename " + filename)
                             if os.path.isfile(filename + ".out"):
                                 file = open(filename + ".out", 'r', encoding="utf-8")
                                 lines = file.readlines()
@@ -174,8 +177,10 @@ for cens in range(2):
                                 lines = lines[start:end]
                                 lines = "".join(lines).strip()
                                 file.close()
+                                filesSuccess = filesSuccess + 1
                             else:
-                                #print("Could not find: " + filename)
+                                print("Could not find: " + filename)
+                                filesFail = filesFail + 1
                                 lines = "<NA>"
 
                             if debug:
@@ -211,7 +216,8 @@ if progress:
     print("\n\nDimensions and shape of output: \n")
     print(str(output.ndim) + "\n")
     print(str(output.shape) + "\n")
-
+    print("Number of successfully processed filenames:" + str(filesSuccess))
+    print("Number of unsuccessfully processed filenames:" + str(filesFail))
 # Write out the full 6-dim np char array as binary file
 file = open("npydata\\full.npy", 'wb')
 np.save(file=file, arr=full)

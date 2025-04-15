@@ -138,18 +138,18 @@ modelnames = [
 ]
 
 # Binary full output save
-full = np.load("data\\full.npy")
+full = np.load("npydata\\full.npy")
 # Binary output save
-output = np.load("data\\output.npy")
+output = np.load("npydata\\output.npy")
 # Binary runtimes save
-runtimes = np.load("data\\runtimes.npy")
+runtimes = np.load("npydata\\runtimes.npy")
 # Example JSON output
 print(output[0,0,0,0,0,0,0].decode("utf-8"))
 # Example runtimes
 print(runtimes[0,0,0,0,0,0,0])
 
-summary = pd.DataFrame({'model': [], 'promptIndex': [], 'inputIndex': [], 'promptLang': [],
-                        'censoption': [], 'seedoption': [],
+summary = pd.DataFrame({'censoption': [], 'model': [], 'promptIndex': [], 'inputIndex': [], 'promptLang': [],
+                        'seedoption': [],
                         'concordanceExact': [], 'concordanceCaseinsensitive': [], 'concordanceContent': [],
                         'maxCharDiff': [], 'maxRuntimeDiff': [],
                         'medianRuntime': [], 'parseable1': [], 'parseable2': [], 'parseable3': [], 'parseable': [],
@@ -265,5 +265,6 @@ for cens in [0, 1]:
                             correct1 & correct2 & correct3 # If all 3 queries were correct
                         ]
 
+print("Finished collecting")
 print(summary)
 summary.to_csv('summary.tsv', sep="\t")

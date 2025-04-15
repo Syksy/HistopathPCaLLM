@@ -432,7 +432,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["^3\\+4=7$"]
+            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
