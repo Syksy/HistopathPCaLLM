@@ -1,0 +1,329 @@
+---
+title: "HistopathPCaLLM summary"
+author: "T. D. Laajala"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Libraryes
+```{r libs}
+library(dplyr)
+```
+
+# Data
+
+```{r summaryread}
+summary <- read.table("summary.tsv", header=TRUE, row.names=1, sep="\t")
+```
+
+```{r summaries}
+dim(summary)
+head(summary)
+tail(summary)
+table(summary$model)
+```
+
+# English
+
+```{r subsets}
+dat_p0 <- summary %>% filter(promptIndex == 0)
+dat_p1 <- summary %>% filter(promptIndex == 1)
+dat_p2 <- summary %>% filter(promptIndex == 2)
+
+dat_p0_cens0 <- summary %>% filter(promptIndex == 0) %>% filter(censoption == 0)
+dat_p0_cens1 <- summary %>% filter(promptIndex == 0) %>% filter(censoption == 1)
+dat_p1_cens0 <- summary %>% filter(promptIndex == 1) %>% filter(censoption == 0)
+dat_p1_cens1 <- summary %>% filter(promptIndex == 1) %>% filter(censoption == 1)
+dat_p2_cens0 <- summary %>% filter(promptIndex == 2) %>% filter(censoption == 0)
+dat_p2_cens1 <- summary %>% filter(promptIndex == 2) %>% filter(censoption == 1)
+```
+
+```{r subset_eng}
+dat_eng <- summary %>% filter(lang == 0)
+dat_eng_prompt0 <- summary %>% filter(lang == 0) %>% filter(promptIndex == 0)
+dat_eng_prompt0_cens0 <- dat_eng_prompt0 %>% filter(censoption == 0)
+dat_eng_prompt0_cens1 <- dat_eng_prompt0 %>% filter(censoption == 1)
+dat_eng_prompt1 <- summary %>% filter(lang == 0) %>% filter(promptIndex == 1)
+dat_eng_prompt1_cens0 <- dat_eng_prompt1 %>% filter(censoption == 0)
+dat_eng_prompt1_cens1 <- dat_eng_prompt1 %>% filter(censoption == 1)
+dat_eng_prompt2 <- summary %>% filter(lang == 0) %>% filter(promptIndex == 2)
+dat_eng_prompt2_cens0 <- dat_eng_prompt2 %>% filter(censoption == 0)
+dat_eng_prompt2_cens1 <- dat_eng_prompt2 %>% filter(censoption == 1)
+```
+
+## Prompt 0 (zero shot)
+
+### F-score and Accuracy
+
+```{r prompt0eng}
+tmp1 <- do.call("rbind", by(dat_eng_prompt0_cens0, INDICES=dat_eng_prompt0_cens0$model, FUN=\(x){
+	c(
+		TP = sum(x$allCorrect == "True"),
+		FN = sum(x$allCorrect == "False")
+	)
+}))
+#tmp1
+tmp2 <- do.call("rbind", by(dat_eng_prompt0_cens1, INDICES=dat_eng_prompt0_cens0$model, FUN=\(x){
+	c(
+		FP = sum(x$allCorrect == "False"),
+		TN = sum(x$allCorrect == "True")
+	)
+}))
+#tmp2
+
+tmp <- as.data.frame(cbind(tmp1, tmp2))
+tmp[,"F_score"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(2*x["TP"])/((2*x["TP"]) + x["FP"] + x["FN"])
+})
+tmp[,"Accuracy"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(x["TP"] + x["TN"])/(x["FP"] + x["FN"] + x["TP"] + x["TN"])
+})
+p0eng <- tmp
+p0eng
+```
+
+### Runtimes
+
+### Consistency
+
+## Prompt 1 (one shot)
+
+### F-score and Accuracy
+
+```{r prompt1eng}
+tmp1 <- do.call("rbind", by(dat_eng_prompt1_cens0, INDICES=dat_eng_prompt1_cens0$model, FUN=\(x){
+	c(
+		TP = sum(x$allCorrect == "True"),
+		FN = sum(x$allCorrect == "False")
+	)
+}))
+#tmp1
+tmp2 <- do.call("rbind", by(dat_eng_prompt1_cens1, INDICES=dat_eng_prompt1_cens1$model, FUN=\(x){
+	c(
+		FP = sum(x$allCorrect == "False"),
+		TN = sum(x$allCorrect == "True")
+	)
+}))
+#tmp2
+
+tmp <- as.data.frame(cbind(tmp1, tmp2))
+tmp[,"F_score"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(2*x["TP"])/((2*x["TP"]) + x["FP"] + x["FN"])
+})
+tmp[,"Accuracy"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(x["TP"] + x["TN"])/(x["FP"] + x["FN"] + x["TP"] + x["TN"])
+})
+p1eng <- tmp
+p1eng
+```
+
+### Runtimes
+
+### Consistency
+
+## Prompt 2 (few shot)
+
+### F-score and Accuracy
+
+```{r prompt2eng}
+tmp1 <- do.call("rbind", by(dat_eng_prompt2_cens0, INDICES=dat_eng_prompt2_cens0$model, FUN=\(x){
+	c(
+		TP = sum(x$allCorrect == "True"),
+		FN = sum(x$allCorrect == "False")
+	)
+}))
+#tmp1
+tmp2 <- do.call("rbind", by(dat_eng_prompt2_cens1, INDICES=dat_eng_prompt2_cens1$model, FUN=\(x){
+	c(
+		FP = sum(x$allCorrect == "False"),
+		TN = sum(x$allCorrect == "True")
+	)
+}))
+#tmp2
+
+tmp <- as.data.frame(cbind(tmp1, tmp2))
+tmp[,"F_score"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(2*x["TP"])/((2*x["TP"]) + x["FP"] + x["FN"])
+})
+tmp[,"Accuracy"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(x["TP"] + x["TN"])/(x["FP"] + x["FN"] + x["TP"] + x["TN"])
+})
+p2eng <- tmp
+p2eng
+
+quantile(p2eng[,"F_score"], probs=c(0.25, 0.5, 0.75))
+```
+
+### Runtimes
+
+### Consistency
+
+# Finnish
+
+```{r subset_fin}
+dat_fin <- summary %>% filter(lang == 1)
+dat_fin_prompt0 <- summary %>% filter(lang == 1) %>% filter(promptIndex == 0)
+dat_fin_prompt0_cens0 <- dat_fin_prompt0 %>% filter(censoption == 0)
+dat_fin_prompt0_cens1 <- dat_fin_prompt0 %>% filter(censoption == 1)
+dat_fin_prompt1 <- summary %>% filter(lang == 1) %>% filter(promptIndex == 1)
+dat_fin_prompt1_cens0 <- dat_fin_prompt1 %>% filter(censoption == 0)
+dat_fin_prompt1_cens1 <- dat_fin_prompt1 %>% filter(censoption == 1)
+dat_fin_prompt2 <- summary %>% filter(lang == 1) %>% filter(promptIndex == 2)
+dat_fin_prompt2_cens0 <- dat_fin_prompt2 %>% filter(censoption == 0)
+dat_fin_prompt2_cens1 <- dat_fin_prompt2 %>% filter(censoption == 1)
+```
+
+
+## Prompt 0 (zero shot)
+
+### F-score and Accuracy
+
+```{r prompt0fin}
+tmp1 <- do.call("rbind", by(dat_fin_prompt0_cens0, INDICES=dat_fin_prompt0_cens0$model, FUN=\(x){
+	c(
+		TP = sum(x$allCorrect == "True"),
+		FN = sum(x$allCorrect == "False")
+	)
+}))
+#tmp1
+tmp2 <- do.call("rbind", by(dat_fin_prompt0_cens1, INDICES=dat_fin_prompt0_cens1$model, FUN=\(x){
+	c(
+		FP = sum(x$allCorrect == "False"),
+		TN = sum(x$allCorrect == "True")
+	)
+}))
+#tmp2
+
+tmp <- as.data.frame(cbind(tmp1, tmp2))
+tmp[,"F_score"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(2*x["TP"])/((2*x["TP"]) + x["FP"] + x["FN"])
+})
+tmp[,"Accuracy"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(x["TP"] + x["TN"])/(x["FP"] + x["FN"] + x["TP"] + x["TN"])
+})
+p0fin <- tmp
+p0fin
+```
+
+
+## Prompt 1 (one shot)
+
+### F-score and Accuracy
+
+```{r prompt1fin}
+tmp1 <- do.call("rbind", by(dat_fin_prompt1_cens0, INDICES=dat_fin_prompt1_cens0$model, FUN=\(x){
+	c(
+		TP = sum(x$allCorrect == "True"),
+		FN = sum(x$allCorrect == "False")
+	)
+}))
+#tmp1
+tmp2 <- do.call("rbind", by(dat_fin_prompt1_cens1, INDICES=dat_fin_prompt1_cens1$model, FUN=\(x){
+	c(
+		FP = sum(x$allCorrect == "False"),
+		TN = sum(x$allCorrect == "True")
+	)
+}))
+#tmp2
+
+tmp <- as.data.frame(cbind(tmp1, tmp2))
+tmp[,"F_score"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(2*x["TP"])/((2*x["TP"]) + x["FP"] + x["FN"])
+})
+tmp[,"Accuracy"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(x["TP"] + x["TN"])/(x["FP"] + x["FN"] + x["TP"] + x["TN"])
+})
+p1fin <- tmp
+p1fin
+```
+
+## Prompt 2 (few shot)
+
+### F-score and Accuracy
+
+```{r prompt2fin}
+tmp1 <- do.call("rbind", by(dat_fin_prompt2_cens0, INDICES=dat_fin_prompt2_cens0$model, FUN=\(x){
+	c(
+		TP = sum(x$allCorrect == "True"),
+		FN = sum(x$allCorrect == "False")
+	)
+}))
+#tmp1
+tmp2 <- do.call("rbind", by(dat_fin_prompt2_cens1, INDICES=dat_fin_prompt2_cens1$model, FUN=\(x){
+	c(
+		FP = sum(x$allCorrect == "False"),
+		TN = sum(x$allCorrect == "True")
+	)
+}))
+#tmp2
+
+tmp <- as.data.frame(cbind(tmp1, tmp2))
+tmp[,"F_score"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(2*x["TP"])/((2*x["TP"]) + x["FP"] + x["FN"])
+})
+tmp[,"Accuracy"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(x["TP"] + x["TN"])/(x["FP"] + x["FN"] + x["TP"] + x["TN"])
+})
+p2fin <- tmp
+p2fin
+
+quantile(p2fin[,"F_score"], probs=c(0.25, 0.5, 0.75))
+```
+
+# Combined
+
+## Prompt 2 (few shot)
+
+### F-score and Accuracy
+
+```{r prompt2both}
+tmp1 <- do.call("rbind", by(dat_p2_cens0, INDICES=dat_p2_cens0$model, FUN=\(x){
+	c(
+		TP = sum(x$allCorrect == "True"),
+		FN = sum(x$allCorrect == "False"),
+		TimeCens0 = median(x$medianRuntime)
+	)
+}))
+#tmp1
+tmp2 <- do.call("rbind", by(dat_p2_cens1, INDICES=dat_p2_cens1$model, FUN=\(x){
+	c(
+		FP = sum(x$allCorrect == "False"),
+		TN = sum(x$allCorrect == "True"),
+		TimeCens1 = median(x$medianRuntime)
+	)
+}))
+tmp3 <- do.call("rbind", by(dat_p2, INDICES=dat_p2$model, FUN=\(x){
+	c(
+		TimeAll = median(x$medianRuntime),
+		CondordanceExactProp = sum(x$concordanceExact == "True") / nrow(x)
+	)
+}))
+
+
+tmp <- as.data.frame(cbind(tmp1, tmp2, tmp3))
+tmp[,"F_score"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(2*x["TP"])/((2*x["TP"]) + x["FP"] + x["FN"])
+})
+tmp[,"Accuracy"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(x["TP"] + x["TN"])/(x["FP"] + x["FN"] + x["TP"] + x["TN"])
+})
+p2both <- tmp
+p2both
+
+quantile(p2both[,"F_score"], probs=c(0.25, 0.5, 0.75))
+
+cor(p2both[,"TimeAll"], p2both[,"F_score"], method="pearson")
+cor.test(p2both[,"TimeAll"], p2both[,"F_score"], method="pearson")
+```
+
+
+
+# Session info
+
+```{r session}
+sessionInfo()
+```
