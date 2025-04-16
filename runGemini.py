@@ -45,6 +45,7 @@ try:
             #"gemini-2.5-pro-preview-03-25",
             "gemini-2.0-flash-001",
             "gemini-2.0-flash-lite-001",
+            "gemini-1.5-pro-001",
             "gemini-1.5-pro-002"
         ]:
         # Prompts to iterate across
@@ -52,7 +53,7 @@ try:
             # Input statements
             for inputIndex in data.getArrayInputIndex():
                 # Iterate across languages (0 = English, 1 = Finnish, ...)
-                for lang in [0]:
+                for lang in [0, 1]:
                     # Non-censored (value 0) or censored (1) version of the input statements
                     for cens in [0, 1]:
                         # Seed settings
@@ -120,7 +121,8 @@ try:
                                         #if retries < 10:
                                         #f.write(response.text)
                                         f.write(response.choices[0].message.content)
-                                        #f.close()
+                                        print("\nOutput:\n" + response.choices[0].message.content)
+                                        f.close()
                                         # Record wall clock time for the API call (seconds with enough decimals)
                                         f = open(filename + ".time", 'w', encoding="utf-8")
                                         f.write(str(endTime - startTime))
@@ -131,6 +133,6 @@ try:
                                         f.close()
                                         # Handle console output and sleep before next API call
                                         print("\n\n")
-                                        time.sleep(31)
+                                        time.sleep(3)
 except ValueError as e:
     print("Error: " + e)

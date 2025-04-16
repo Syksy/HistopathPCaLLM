@@ -32,7 +32,7 @@ try:
             # Input statements
             for inputIndex in data.getArrayInputIndex():
                 # Iterate across languages (0 = English, 1 = Finnish, ...)
-                for lang in [0]:
+                for lang in [0, 1]:
                     # Non-censored (value 0) or censored (1) version of the input statements
                     for cens in [0, 1]:
                         # Seed settings
