@@ -1,0 +1,17 @@
+Analysoin annetun histopatologisen lausunnon ja pyrin tuottamaan rakenteista dataa JSON-formaatissa.
+
+Lausunnossa mainitaan, että näytemateriaali on saatu standardien eturauhasproseduurien yhteydessä, mutta ei suoranaisesti kerro, minkä tyyppinen proseduuri on kyseessä. Kuitenkin, koska lausunto viittaa "eturauhasproseduureihin" yleisesti, eikä suoranaisesti mainitse "biopsia" tai "radikaaliprostatetomiaa" (RP), eikä "TURP" (Transurethral resection of the prostate), joudun tukeutumaan kontekstiin. Lausunnossa ei ole selkeästi mainittu näytteen tyyppiä, joten se tulkitaan "NA":ksi.
+
+Lausunnossa mainitaan, että pieni osa näytteestä vaatii tarkempaa tutkimusta, koska se saattaa sisältää pahanlaatuista materiaalia (ISUP GG 1 tai korkeampaa), mutta suspaktiivinen fokus on liian pieni luotettavan gradeerauksen tekemiseksi. Tämä viittaa siihen, että on epäilty pahanlaatuisuutta, mutta se ei ole varmaa. Kuitenkin, koska on maininta siitä, että yli 95% materiaalista näyttää benigniltä ja vain pieni osa on suspekti, ja koska varsinainen pahanlaatuisuuden vahvistus puuttuu, tulkitsen tämän "ei" pahanlaatuiseksi löydökseksi, koska lausunto ei suoranaisesti vahvista pahanlaatuisuutta.
+
+Gleason-luokkaa ei ole määritetty, koska suspekti fokus on liian pieni luotettavan gradeerauksen tekemiseksi. Tästä syystä, Gleason-luokka on "NA".
+
+Tuloksena on siis seuraava JSON-rakenteinen vastaus:
+
+```
+{
+  "Sampletype": "NA",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

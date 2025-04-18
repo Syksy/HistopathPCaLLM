@@ -1,0 +1,17 @@
+Analysoin annetun histopatologisen lausunnon ja pyrin tuottamaan rakenteista dataa JSON-formaatissa.
+
+Lausunnossa mainitaan "prostatan kudosnäytteitä", mutta ei suoranaisesti kerrota näytteen tyypistä (biopsy, RP, TURP). Lausunnossa kuitenkin puhutaan "fragmentoitumista" ja "systemaattisesti koko materiaalin läpi" tehdyistä havainnoista, mikä viittaa biopsiatyypin näytteeseen. Kuitenkin, koska tekstissä ei suoranaisesti mainita näytteen tyyppiä, on varmaa vastausta vaikea antaa. Tässä tapauksessa "Sampletype" kentän arvo on "biopsy", koska se on todennäköisin vaihtoehto, mutta on hyvä huomata, että se ei ole varma.
+
+Lausunnossa mainitaan "Kroonista tulehdusta havaitaan", mutta ei suoranaisesti mainita pahanlaatuisia löydöksiä. Tekstissä puhutaan "epätavallisen laajaa skaalaa solujen erilaistumistyyppejä" ja että Gleason-luokan määrittäminen olisi vaikeaa, mikä viittaa siihen, että löydökset eivät ole selvästi hyvänlaatuisia. Kuitenkin, koska pahanlaatuisuutta ei suoranaisesti mainita, on "Malignancy" kentän arvo "NA", koska varmuutta ei ole.
+
+Gleason-luokkaa ei ole määritetty lausunnossa, koska näytteet "eivät sovellu luokitteluun" ja ne "tulee prosessoida uudelleen". Tästä syystä "Gleason" kentän arvo on "NA".
+
+Rakenteellinen vastaus JSON-formaatissa on:
+
+```
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

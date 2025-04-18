@@ -1,0 +1,17 @@
+Analysoin annettua histopatologista lausuntoa ja pyrin tuottamaan rakenteista dataa JSON-formaatissa.
+
+Lausunnossa mainitaan "prostatanäytteet" ja "logistiikkavirheestä", mikä viittaa siihen, että näytteet ovat peräisin prostatasta, mutta ei suoraan ilmoita näytteen tyyppiä. Kuitenkin, ei ole suoraa mainintaa siitä, että näytteet olisivat olleet "biopsy", "RP" tai "TURP". Tästä syystä, näytteen alkuperäinen tyyppi on luokiteltava "NA":ksi, koska se ei ole selvästi määritelty.
+
+Lausunnossa mainitaan "normaalia basaalisolukkoa havaittiin prostatasolukkomateriaalissa", mikä viittaa siihen, että näytteessä ei ollut pahanlaatuisia löydöksiä. Vaikka onkin maininta "erikoisen näköisiä muotoja", jotka viittaisivat värjäysten epäonnistumiseen, ei ole suoraa näyttöä pahanlaatuisuudesta. Siksi, "Malignancy" kentän arvo on "ei".
+
+Gleason-luokkaa ei mainita lausunnoissa, ja koska näytteet eivät olleet pahanlaatuisia, Gleason-luokan ilmoittaminen ei ole tarpeen. Tästä syystä, "Gleason" kentän arvo on "NA".
+
+Rakenteellinen vastaus JSON-formaatissa on:
+
+```
+{
+  "Sampletype": "NA",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

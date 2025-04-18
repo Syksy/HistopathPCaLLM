@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this. The user wants me to extract structured data from a histopathology report of prostate cancer. The three fields to focus on are Sampletype, Malignancy, and Gleason. 
+
+First, Sampletype. The options are biopsy, RP, TURP, or NA. Looking at the input text: "Prostatetomiapreparaatti" translates to prostatectomy specimen. RP stands for radical prostatectomy, so the sample type here should be RP.
+
+Next, Malignancy. The report mentions "useampi selkeä fokus" which are clear foci, and terms like "Gleason luokka 4" and "kasvain infiltroi" (tumor infiltrating) indicate malignancy. So the answer here is "kyllä" (yes).
+
+For Gleason, the report states "vallitseva Gleason luokka on 4 ja mukana myös jonkin verran luokkaa 3". The primary pattern is 4 and secondary is 3, so the sum is 4+3=7. The format should be "major+minor=sum", so "4+3=7".
+
+I need to make sure there are no nested structures and only the worst lesion is considered. The apex and seminal vesicles are clean, but the main findings are in the base, which is the worst here. Also, perineural invasion and capsular infiltration support malignancy. All criteria seem met. The JSON should follow the example given.
+</think>
+
+```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+3=7"
+}
+```

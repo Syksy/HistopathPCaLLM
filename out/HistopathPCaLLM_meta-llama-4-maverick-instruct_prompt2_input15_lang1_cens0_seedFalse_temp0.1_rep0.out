@@ -1,0 +1,18 @@
+Analysoin annetun histopatologisen lausunnon ja pyrin tuottamaan rakenteista dataa JSON-formaatissa.
+
+Lausunto: "Katsottavaksi tullut yhteensä noin 5g edestä prostatan höylälastuja, joista kaikki käyty läpi. Potilas ollut suspekti aiemmin kohonneen PSA:n takia. Skoopilla katsoen lähes kaikissa nähdään adenokarsinoomaa, edustavin Gleason 4:ää ja sen eri variantteja joten pistesumma 8."
+
+1. Näytteen alkuperäinen tyyppi: Lausunnossa mainitaan "prostatan höylälastuja", mikä viittaa TURP (Transurethral Resection of the Prostate) -näytteeseen. Tästä syystä näytteen alkuperäinen tyyppi on "TURP".
+
+2. Pahanlaatuiset löydökset: Lausunnossa mainitaan "adenokarsinoomaa", mikä on pahanlaatuinen löydös. Tästä syystä vastaus on "kyllä".
+
+3. Gleason-luokka: Lausunnossa mainitaan "Gleason 4:ää ja sen eri variantteja joten pistesumma 8." Koska Gleason-luokan summa on 8 ja yksi komponentti on 4, voidaan olettaa, että toinen komponentti on myös 4, jolloin Gleason-luokka on "4+4=8".
+
+JSON-vastaus:
+```json
+{
+  "Sampletype": "TURP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+4=8"
+}
+```

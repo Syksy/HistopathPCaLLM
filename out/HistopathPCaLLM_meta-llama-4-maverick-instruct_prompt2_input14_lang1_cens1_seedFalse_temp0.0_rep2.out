@@ -1,0 +1,17 @@
+Analysoin annetun histopatologisen lausunnon ja pyrin tuottamaan rakenteista dataa JSON-formaatissa.
+
+Lausunnossa ei mainita suoraan näytteen tyyppiä, mutta se viittaa siihen, että näyte on osa potilaan prostatakudosta, joka on käsitelty kaseteilla. Lausunnossa ei ole suoraa mainintaa siitä, että kyseessä olisi "biopsy", "RP" (radikaaliprostatektomia) tai "TURP" (transurethral resection of the prostate). Kuitenkin, koska se mainitsee "kattavan katsauksen potilaan prostatakudokseen" ja "näytemateriaali, jonka alkuperäissijainti on prostatan kapselin reuna-alueella", se viittaa enemmän radikaaliprostatektomiaan (RP) kuin biopsiin tai TURP:iin. Koska emme voi olla varmoja, mutta se viittaa enemmän prostatektomiaan, paras arvaus on "RP".
+
+Lausunnossa mainitaan "erikoisia kasvurakenteita" ja viitataan mahdolliseen kasvainongelmaan, mutta se ei suoranaisesti vahvista pahanlaatuisia löydöksiä. Kuitenkin, se mainitsee, että "kattavampi histopatologinen tarkastelu on siten perusteltua", mikä viittaa siihen, että on epäilty pahanlaatuisuutta. Lausunnossa viitataan myös aiemmin käsiteltyyn potilaaseen, jolla oli Gleason 7 luokitus, mikä viittaa siihen, että nykyisessä tapauksessa on ainakin epäilty pahanlaatuisuutta. Tästä syystä "Malignancy" kentän arvoksi tulisi asettaa "NA", koska lausunto ei suoranaisesti vahvista pahanlaatuisuutta, mutta se ei myöskään sulje sitä pois. Kuitenkin, koska on viitteitä mahdollisesta pahanlaatuisuudesta ja keskeneräisestä arvioinnista, "NA" on sopivin vastaus.
+
+Gleason-luokkaa ei ole suoranaisesti mainittu lausunnossa. Se viittaa aiemmin käsiteltyyn potilaaseen, jolla oli Gleason 7 luokitus, mutta se ei anna Gleason-luokkaa nykyiselle näytteelle. Tästä syystä "Gleason" kentän arvoksi tulisi asettaa "NA".
+
+Rakenteellinen vastaus JSON-formaatissa on:
+
+```
+{
+  "Sampletype": "RP",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

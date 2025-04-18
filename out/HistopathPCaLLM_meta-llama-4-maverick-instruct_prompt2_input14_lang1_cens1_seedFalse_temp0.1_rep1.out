@@ -1,0 +1,19 @@
+Analysoin annetun histopatologisen lausunnon ja pyrin muuttamaan sen rakenteelliseksi dataksi JSON-formaatissa.
+
+Lausunnon analyysi:
+
+1. Näytteen alkuperäinen tyyppi: Lausunnossa mainitaan "potilaan prostatakudokseen" ja "näytteenotto", mutta ei suoranaisesti kerrota, onko kyseessä "biopsy", "RP", "TURP" vai jokin muu. Kuitenkin maininta "kattavampi näytteenotto" viittaa siihen, että kyseessä ei ole radikaaliprostatetomia (RP) tai TURP. Lausunnossa ei ole selkeästi mainittu näytteen tyyppiä, joten se tulkitaan "NA":ksi, koska se ei suoranaisesti vastaa annettuja vaihtoehtoja.
+
+2. Pahanlaatuiset löydökset: Lausunnossa mainitaan "erikoisia kasvurakenteita" ja viitataan mahdolliseen "keski-graduksen GG löydökseen", mikä viittaa siihen, että näytteessä saattaa olla pahanlaatuisia löydöksiä. Kuitenkin lausunnossa ei suoranaisesti vahvisteta pahanlaatuisuutta, ja se mainitsee, että histologisten piirteiden arviointi jätetään tulevaan kokoukseen. Tästä syystä voidaan tulkita, että pahanlaatuisuutta ei ole vahvistettu, mutta se ei ole myöskään poissuljettu. Koska lausunnossa ei ole suoraa mainintaa pahanlaatuisuudesta, tulkitsen tämän "NA":ksi.
+
+3. Gleason-luokka: Lausunnossa mainitaan, että aiemmin hoidetulla potilaalla oli Gleason 7 luokitus, mutta tämä ei koske nykyistä näytettä. Nykyisestä näytteestä ei raportoida Gleason-luokkaa. Tästä syystä Gleason-luokka on "NA".
+
+Rakenteellinen JSON-vastaus:
+
+```
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

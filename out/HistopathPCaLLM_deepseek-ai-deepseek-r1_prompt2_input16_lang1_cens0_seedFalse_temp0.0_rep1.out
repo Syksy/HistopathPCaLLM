@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this. The user wants me to parse a Finnish histopathology report for prostate cancer and extract three specific pieces of information into a structured JSON format. Let me go through each of the required fields step by step.
+
+First, the sample type. The allowed values are biopsy, RP, TURP, or NA. The input text starts with "Tutkittavana kolme fuusiobiopsiaa prostatan suspektista fokuksesta." The word "fuusiobiopsiaa" translates to fusion biopsy, which is a type of biopsy. So the sample type here should be "biopsy".
+
+Next, malignancy. The options are kyllä (yes), ei (no), or NA. The report mentions "karsinoomafokuksia" which means carcinoma foci. Carcinoma is malignant, so malignancy should be "kyllä".
+
+Now, the Gleason score. The format should be major+minor=sum as integers. The text says "Yhteenvetona löydös score 7 yhteensä 15mm matkalta, jossa 3 arkkitehtuuri n. 2/3 ja 4 arkkitehtuuri n. 1/3 karsinooman osasta." This translates to a score of 7, with grade 3 architecture in about 2/3 and grade 4 in 1/3. The major component is the higher grade, which is 4, and minor is 3. So 4+3=7. The Gleason should be "4+3=7".
+
+I need to make sure there are no nested structures and only the worst lesion is considered. The example provided uses the highest grades mentioned, which aligns with the given instructions. The sample type is clearly biopsy, malignancy is confirmed, and the Gleason score is correctly formatted. All other details in the report don't affect these three fields, so the JSON should be straightforward.
+</think>
+
+```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "kyllä",
+  "Gleason": "4+3=7"
+}
+```

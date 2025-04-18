@@ -1,0 +1,19 @@
+Analysoin annetun histopatologisen lausunnon ja pyrin tuottamaan rakenteista dataa JSON-formaatissa.
+
+Lausunto: "Prostatalastuja yhteensä noin 19g, josta laitettu 10g histologiaan. Näkyy paljon fibromuskulaaria stroomaa ja mattomaista huonosti erilaistunutta kasvua stroomassa. Tumat suurentuneet, kooltaan vaihtelevat ja tumajyväset erottuvat selvästi. Noin puolet lastujen pinta-alasta kasvainkudosta, jossa Gleason luokituksessa eniten tasoa 5 ja toiseksi eniten tasoa 4."
+
+1. Näytteen alkuperäinen tyyppi: Lausunnossa mainitaan "Prostatalastuja", mikä viittaa siihen, että näyte on saatu joko biopsialla tai TURP-leikkauksella. Koska mainitaan "lastuja" ja niiden paino grammoina, se viittaa enemmän TURP-toimenpiteeseen, jossa poistetaan suurempi määrä kudosta. Tästä syystä näytteen alkuperäinen tyyppi on todennäköisesti "TURP".
+
+2. Pahanlaatuiset löydökset: Lausunnossa mainitaan "kasvainkudosta" ja kuvataan pahanlaatuiselle kasvaimelle tyypillisiä piirteitä, kuten tumien suurentuminen ja tumajyvästen erottuminen. Tästä voidaan päätellä, että näytteessä oli pahanlaatuisia löydöksiä, joten vastaus on "kyllä".
+
+3. Gleason-luokka: Lausunnossa mainitaan, että Gleason luokituksessa eniten oli tasoa 5 ja toiseksi eniten tasoa 4. Tästä voidaan johtaa Gleason-luokka muodossa "major+minor=sum", eli "5+4=9".
+
+Rakenteellinen vastaus JSON-formaatissa:
+
+```
+{
+  "Sampletype": "TURP",
+  "Malignancy": "kyllä",
+  "Gleason": "5+4=9"
+}
+```
