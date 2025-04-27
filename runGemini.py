@@ -42,7 +42,7 @@ os.chdir(os.environ.get("ROOT_DIR") + "out\\")
 
 try:
     for modelname in [
-            #"gemini-2.5-pro-preview-03-25",
+            "gemini-2.5-pro-exp-03-25",
             "gemini-2.0-flash-001",
             "gemini-2.0-flash-lite-001",
             "gemini-1.5-pro-001",
