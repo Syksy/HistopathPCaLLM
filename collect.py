@@ -114,6 +114,7 @@ modelnames = [
     "claude-3-5-sonnet-20241022",
     "claude-3-7-sonnet-20250219",
     # Geminis
+    "gemini-2.5-pro-preview-03-25",
     "gemini-2.0-flash-001",
     "gemini-2.0-flash-lite-001",
     "gemini-1.5-pro-001",
