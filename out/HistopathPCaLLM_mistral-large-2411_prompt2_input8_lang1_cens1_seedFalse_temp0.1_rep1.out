@@ -1,0 +1,28 @@
+Tarkastellaan annettua lausuntoa ja rakenteistetaan se JSON-formaattiin.
+
+Lausunto:
+
+```
+Numeroidut näytteet 1 ja 2 sisältävät ei-primääristä solukkoa (useampaa segmenttia molemmissa), vaihtelevissa määrin. Näyte 3 sisältää suurimman osan nyt tutkittavasta prostatasolukosta, ja se ajetaan normaalin rutiiniprotokollan mukaisesti. Kolmannen näytteen tutkiminen paljastaa mahdollisesti kiinnostavia ominaisuuksia, ja histologiset ominaisuudet havainnoillistavat vaihtelevia kasvupatterneja. Kiinnostavin osuus kattaa n. 10% kolmannesta näytteestä. Immunologinen aktiviteetti on erittäin ilmeistä ja normaaleja tulehdukseen liittyviä muutoksia epäillään. Korkein tunnistettu Gleason luokka näyttää puuttuvan, sillä taulukossa on merkattuna ? ja ? major ja minor kohtiin; ilmeisesti matalempi grade kattoi n. 10% näytteestä, mutta itse graden arvo puuttuu, mahdollisesti kirjausvirhe. Epäilykset PIN-muutoksista diskussoitiin tapaamisessa konsensuksen saavuttamiseksi erilaisista vaihtoehdoista. Numeroilla 1 ja 2 ajetut näytteet todettiin olevan maligniteeteista vapaita.
+```
+
+Rakenteistetaan tämä lausunto JSON-formaattiin:
+
+1. **Mikä on näytteen alkuperäinen tyyppi (sallitut arvot "biopsy", "RP", "TURP" tai "NA")?**
+   - Lausunnossa ei mainita suoraan näytteen alkuperäistä tyyppiä, joten tämä on "NA".
+
+2. **Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot "kyllä", "ei" tai "NA")?**
+   - Lausunnossa mainitaan, että näytteet 1 ja 2 ovat maligniteeteista vapaita, mutta näytteessä 3 on kiinnostavia ominaisuuksia. Koska ei ole selvää, onko näytteessä pahanlaatuisia löydöksiä, tämä on "NA".
+
+3. **Mikä oli raportoitu Gleason-luokka (sallitut arvot "major+minor=sum" muodossa kokonaislukuina pahanlaatuisille löydöksille ja "NA" hyvänlaatuisille löydöksille)?**
+   - Lausunnossa mainitaan, että Gleason-luokka puuttuu (merkattu ? ja ? major ja minor kohtiin). Tämä on "NA".
+
+Rakenteistettu JSON-formaatti:
+
+```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

@@ -1,0 +1,17 @@
+Tehtävänäsi on tuottaa rakenteista dataa vapaamuotoisesta tekstistä. Raakadata annetaan näiden ohjeiden lopuksi. Prosessoitavat syötteet ovat eturauhassyövän histopatologisia lausuntoja. Sinun tulee toimia kuin dataa rakenteistava algoritmi. Palauta rakenteelliset vastaukset syntaksia noudattavassa JSON-formaatissa. Ota huomioon että vain pahimman leesion tulokset tulisi palauttaa eikä rakenteinen tulos saisi koostua sisäkkäisistä rakenteista. Anna vastaukset seuraaviin kolmeen rakenteelliseen kenttään: 
+ 1. Mikä on näytteen alkuperäinen tyyppi (sallitut arvot "biopsy", "RP", "TURP" tai "NA"). 
+ 2. Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot "kyllä", "ei" tai "NA"). 
+ 3. Mikä oli raportoitu Gleason-luokka (sallitut arvot "major+minor=sum" muodossa kokonaislukuina pahanlaatuisille löydöksille ja "NA" hyvänlaatuisille löydöksille). 
+
+ Esimerkiksi lausunto "Prostata biopsiasta havaitaan adenokarsinoomaa Gleason luokilla 4 ja 3, joten summa 4+3=7." kuuluisi rakenteistaa JSON-formaattiin tavalla: 
+
+ {
+ "Sampletype": "biopsy",
+  "Malignancy": "kyllä",
+ "Gleason": "4+3=7" 
+}
+
+ Sovella yllä olevia kysymyksiä tähän seuraavaan lausuntoon: 
+
+
+Pyydetyt prostatanäytteet saapuivat kahdeksassa erillisessä erässä johtuen logistiikkavirheestä, mikä teki näytemateriaalin yhdistämisestä hankalaa. Toisaalta, alustavassa tutkinnassa normaalia basaalisolukkoa havaittiin prostatasolukkomateriaalissa. Instituutin käyttämässä kokeellisessa immunologisten värjäysten paneeleissa kahdessa viimeisestä näytteessä tuli esiin selviä patterneja, varmistaen että paneeli toimii. Erikoisen näköisiä muotoja havaittiin aiemmissa näytteissä, mitkä viittaisivat siihen että värjäykset epäonnistuivat, joten lopullista varmuutta paneelin luotettavuudesta ei saavutettu. Johtopäätös: Epäilys immunopaneelin värjäysten epäonnistumisesta joissain näytteistä, joskin suurin osa materiaalista näytti muodostavan odotettuja patterneja.

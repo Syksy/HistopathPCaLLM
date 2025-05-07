@@ -1,0 +1,27 @@
+Analyysin perusteella annettu lausunto ei viittaa suoraan näytteen tyyppiin, mutta maininta "prostatasolukkoa" ja eri osien kuten "basis, apex ja keskiosa" tutkimisesta viittaa radikaaliprostatetomiaan (RP), joka on yksi sallituista näytetyypeistä.
+
+Lausunnossa mainitaan, että mikroskooppisesti havaitaan prostatasolukkoa, joka "vaikuttaa muodostavan putkimaisia rakenteita vaihtelevilla erilaistumisasteilla". Tämä voi viitata pahanlaatuisuuteen, mutta varsinainen pahanlaatuisuuden toteaminen ei ole yksiselitteistä. Kuitenkin, koska mainitaan Gleason pisteytyksen komponentteja (arvot 4 ja 3), se viittaa siihen, että näytteessä on pahanlaatuisia löydöksiä, vaikka tarkkaa luotettavaa pisteytystä ei voida antaa.
+
+Gleason-luokka mainitaan (arvot 4 ja 3), mutta huomautetaan, että luotettavaa tarkastelua ei voida tehdä, koska vain noin 5% materiaalista tutkittiin. Kuitenkin, koska nämä arvot on mainittu, ne voidaan tulkita Gleason-luokaksi.
+
+Täten, rakenteistettu tulos JSON-formaatissa olisi:
+
+```
+{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+3=7"
+}
+```
+
+Tämä perustuu oletukseen, että vaikka Gleason-luokan tarkastelu ei ole luotettavaa, annetut arvot ovat relevantteja. Jos lausuntoa tulkitaan tiukasti, epäluotettavuus voisi johtaa "NA" arvoon Gleason-luokalle. Kuitenkin, koska pahanlaatuisuus on ilmeinen ja Gleason-arvot on mainittu, yllä oleva tulkinta on annettu. 
+
+Huomaa, että näytteen tyypin määrittely "RP":ksi perustuu epäsuoriin viitteisiin eikä suoraan mainintaan. Jos teksti ei ole riittävän selkeä, olisi turvallisempaa palauttaa "NA" näytetyypille. Tällöin vaihtoehtoinen vastaus voisi olla:
+
+```
+{
+  "Sampletype": "NA",
+  "Malignancy": "kyllä",
+  "Gleason": "4+3=7"
+}
+```

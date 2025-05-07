@@ -1,0 +1,25 @@
+Analysoin annetun histopatologisen lausunnon ja pyrin muuttamaan sen rakenteelliseksi dataksi JSON-formaatissa.
+
+Lausunnon analyysi:
+
+1. Näytteen alkuperäinen tyyppi: Lausunnossa mainitaan, että näytekappale on alun perin verrattain laajentuneesta prostatasta, ja että sekä apexista että basiksesta otetut näytteet prosessoidaan. Tämä viittaa siihen, että näyte on otettu radikaaliprostatetomiassa (RP). 
+
+   - "Sampletype": "RP"
+
+2. Pahanlaatuiset löydökset: Lausunnossa mainitaan, että erilaisia soluarkkitehtuureja havaitaan makrojen välissä, ja että epäilty suurempi summa referoidaan kollegalle jatkotutkimuksia varten. Tämä viittaa siihen, että näytteessä on pahanlaatuisia löydöksiä, vaikka niiden luokittelu Gleasonin mukaan ei olekaan varmaa.
+
+   - "Malignancy": "kyllä"
+
+3. Gleason-luokka: Lausunnossa mainitaan, että suurempaa ja pienempää Gleason luokkaa ei pysty luotettavasti määrittelemään, eikä summaa ole ilmoitettu.
+
+   - "Gleason": "NA"
+
+Koska Gleason-luokkaa ei ole määritelty, vaikka pahanlaatuisuutta epäillään, noudatan ohjeita ja annan rakenteelliset vastaukset seuraavassa JSON-formaatissa:
+
+```
+{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "NA"
+}
+```

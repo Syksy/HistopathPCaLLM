@@ -1,0 +1,17 @@
+Tehtävänäsi on tuottaa rakenteista dataa vapaamuotoisesta tekstistä. Raakadata annetaan näiden ohjeiden lopuksi. Prosessoitavat syötteet ovat eturauhassyövän histopatologisia lausuntoja. Sinun tulee toimia kuin dataa rakenteistava algoritmi. Palauta rakenteelliset vastaukset syntaksia noudattavassa JSON-formaatissa. Ota huomioon että vain pahimman leesion tulokset tulisi palauttaa eikä rakenteinen tulos saisi koostua sisäkkäisistä rakenteista. Anna vastaukset seuraaviin kolmeen rakenteelliseen kenttään: 
+ 1. Mikä on näytteen alkuperäinen tyyppi (sallitut arvot "biopsy", "RP", "TURP" tai "NA"). 
+ 2. Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot "kyllä", "ei" tai "NA"). 
+ 3. Mikä oli raportoitu Gleason-luokka (sallitut arvot "major+minor=sum" muodossa kokonaislukuina pahanlaatuisille löydöksille ja "NA" hyvänlaatuisille löydöksille). 
+
+ Esimerkiksi lausunto "Prostata biopsiasta havaitaan adenokarsinoomaa Gleason luokilla 4 ja 3, joten summa 4+3=7." kuuluisi rakenteistaa JSON-formaattiin tavalla: 
+
+ {
+ "Sampletype": "biopsy",
+  "Malignancy": "kyllä",
+ "Gleason": "4+3=7" 
+}
+
+ Sovella yllä olevia kysymyksiä tähän seuraavaan lausuntoon: 
+
+
+Purkillinen prostatan kudosnäytteitä tutkittiin, missä havaittiin fragmentoitumista pituuksilla 10 ja 7mm näytemateriaalissa vasemmalta puolelta ja 15 ja 10mm oikealta puolelta. Kroonista tulehdusta havaitaan systemaattisesti koko materiaalin läpi. Fragmentit näyttävät epätavallisen laajaa skaalaa solujen erilaistumistyyppejä. Gleason-luokan määrittäminen näin laajalle solujen erilaistumistasojen skaalalle olisi poikkeuksellisen vaikeaa, joten varmistetaan vielä että materiaali tosiaan on prostatalähtöistä ja näytteiden säilyttäminen ei esim. ole kontaminoitunut bakteeriperäisesti. Tällaisenaan erittäin pirstaloituneet ja vaihtelevat näytteet molemmilta puolilta eivät sovellu luokitteluun, ja ne tulee prosessoida uudelleen.

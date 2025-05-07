@@ -16,15 +16,15 @@ progress = True
 
 modelnames = [
     # Claudes
-    # Haiku
     "claude-3-5-haiku-20241022",
-    # Sonnet(s)
     "claude-3-5-sonnet-20240620",
     "claude-3-5-sonnet-20241022",
     "claude-3-7-sonnet-20250219",
     # Geminis
+    "gemini-2.5-pro-preview-03-25",
     "gemini-2.0-flash-001",
     "gemini-2.0-flash-lite-001",
+    "gemini-1.5-pro-001",
     "gemini-1.5-pro-002",
     # OpenAI / GPTs
     "gpt-4o-2024-05-13",
@@ -32,6 +32,7 @@ modelnames = [
     "gpt-4o-2024-11-20",
     #"o1-2024-12-17",
     "gpt-4.1-nano-2025-04-14",
+    "gpt-4.1-mini-2025-04-14",
     "gpt-4.1-2025-04-14",
     # Grok
     "grok-3-beta",
@@ -61,7 +62,7 @@ full = np.chararray(
         data.getMaxInputLength(),
         # Number of languages (0 = English, 1 = Finnish, 2 = Swedish)
         #3
-        1
+        2
     ),
     itemsize=2000
 )
@@ -82,7 +83,7 @@ output = np.chararray(
         data.getMaxInputLength(),
         # Number of languages (0 = English, 1 = Finnish, 2 = Swedish)
         #3
-        1
+        2
     ),
     itemsize=1000
 )
@@ -103,7 +104,7 @@ runtimes = np.ndarray(
         data.getMaxInputLength(),
         # Number of languages (0 = English, 1 = Finnish, 2 = Swedish)
         #3
-        1
+        2
     ),
     dtype='f'
 )
@@ -125,7 +126,7 @@ for cens in range(2):
                     # Iterate over replicates
                     for rep in range(3):
                         # Iterate across languages (0 = English, 1 = Finnish, 2 = Swedish)
-                        for langIndex in [0]:
+                        for langIndex in [0, 1]:
                             # String name for seed True/False
                             seedname = str([False, True][seed])
                             # Construct file name

@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this. The user wants me to parse a Finnish histopathology report on prostate cancer and extract three specific pieces of information into a structured JSON format. Let's go step by step.
+
+First, the sample type. The allowed values are "biopsy", "RP", "TURP", or "NA". The example given was "biopsy" when the text mentioned "Prostata biopsiasta". Looking at the current input: the sample is described as "erittäin fragmentoituneista osista alkuperäistä prostata-käsittelymateriaalia" which translates to very fragmented parts of original prostate treatment material. There's no mention of biopsy, RP (radical prostatectomy), or TURP (transurethral resection of the prostate). So the sample type isn't specified here. Therefore, "Sampletype" should be "NA".
+
+Next, malignancy. The options are "kyllä", "ei", or "NA". The text says "valtaosaa näytemateriaalista ei voida tutkia riittävän tarkasti johtuen vahvasta polttoartefaktasta" meaning most of the sample can't be examined properly due to burn artifacts. It also mentions "Tulokset ovat siten epäselvät" (results are unclear). There's no mention of adenocarcinoma or malignancy. So we can't confirm presence or absence. Hence, "Malignancy" is "NA".
+
+Finally, Gleason score. The format is "major+minor=sum" if malignant, else "NA". Since malignancy isn't confirmed, Gleason should be "NA".
+
+Putting it all together, all three fields are "NA" because the report is inconclusive due to technical issues and doesn't provide clear evidence of malignancy or sample type.
+</think>
+
+```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

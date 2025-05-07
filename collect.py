@@ -36,17 +36,17 @@ def getConcordanceCaseinsensitive(rep0 : str, rep1 : str, rep2 : str) -> bool:
 # That is, checking that the JSON returned contains the same value in each field across triplicates
 def getConcordanceContent(rep0: str, rep1: str, rep2: str) -> bool:
     # If even one of the triplicates cannot be parsed to JSON then the JSON content is not concordant
-    if ~getJSONParseability(rep0) or ~getJSONParseability(rep1) or ~getJSONParseability(rep2):
+    if (not getJSONParseability(rep0)) or (not getJSONParseability(rep1)) or (not getJSONParseability(rep2)):
         return False
     rep0json = list(json.loads(rep0).values())
     rep1json = list(json.loads(rep1).values())
     rep2json = list(json.loads(rep2).values())
     # Correct length ought to be 3 values
-    if ~(len(rep0json) == 3) or ~(len(rep1json) == 3) or ~(len(rep2json) == 3):
+    if (not (len(rep0json) == 3)) or (not (len(rep1json) == 3)) or (not (len(rep2json) == 3)):
         return False
     # Checking that contents match within index
     for index in range(3):
-        if ~(rep0json[index] == rep1json[index]) or ~(rep1json[index] == rep2json[index]):
+        if (not (rep0json[index] == rep1json[index])) or (not (rep1json[index] == rep2json[index])):
             return False
     # All comparisons were concordant; returning True
     return True
@@ -94,7 +94,7 @@ def getJSONParseability(text: str) -> bool:
 
 # Test if all in the triplicates can be parsed into proper JSON
 def getJSONParseAll(rep0: str, rep1: str, rep2: str):
-    if ~getJSONParseability(rep0) or ~getJSONParseability(rep1) or ~getJSONParseability(rep2):
+    if (not getJSONParseability(rep0)) or (not getJSONParseability(rep1)) or (not getJSONParseability(rep2)):
         return False
     else:
         return True
@@ -109,22 +109,23 @@ debug = False
 # Names of explored models
 modelnames = [
     # Claudes
-    # Haiku
     "claude-3-5-haiku-20241022",
-    # Sonnet(s)
     "claude-3-5-sonnet-20240620",
     "claude-3-5-sonnet-20241022",
     "claude-3-7-sonnet-20250219",
     # Geminis
+    "gemini-2.5-pro-preview-03-25",
     "gemini-2.0-flash-001",
     "gemini-2.0-flash-lite-001",
-    "gemini-1.5-pro-002"
+    "gemini-1.5-pro-001",
+    "gemini-1.5-pro-002",
     # OpenAI / GPTs
     "gpt-4o-2024-05-13",
     "gpt-4o-2024-08-06",
     "gpt-4o-2024-11-20",
     #"o1-2024-12-17",
     "gpt-4.1-nano-2025-04-14",
+    "gpt-4.1-mini-2025-04-14",
     "gpt-4.1-2025-04-14",
     # Grok
     "grok-3-beta",
@@ -148,7 +149,7 @@ print(output[0,0,0,0,0,0,0].decode("utf-8"))
 # Example runtimes
 print(runtimes[0,0,0,0,0,0,0])
 
-summary = pd.DataFrame({'censoption': [], 'model': [], 'promptIndex': [], 'inputIndex': [], 'promptLang': [],
+summary = pd.DataFrame({'censoption': [], 'model': [], 'promptIndex': [], 'inputIndex': [], 'lang': [],
                         'seedoption': [],
                         'concordanceExact': [], 'concordanceCaseinsensitive': [], 'concordanceContent': [],
                         'maxCharDiff': [], 'maxRuntimeDiff': [],
@@ -170,7 +171,7 @@ for cens in [0, 1]:
     for modelIndex in range(len(modelnames)):
         for promptIndex in range(data.getMaxPromptLength()):
             for inputIndex in range(data.getMaxInputLength()):
-                for lang in [0]:
+                for lang in [0, 1]:
                     # Select seed variants based on if it was allowed (GPT and Llama families)
                     #if bool(re.search("gpt|llama", modelnames[modelIndex], re.IGNORECASE)):
                     #    seeds = range(2)
@@ -197,17 +198,23 @@ for cens in [0, 1]:
                             print("\n")
                             time.sleep(1)
 
-                        full1 = full[cens, seedoption, 0, modelIndex, promptIndex, inputIndex, lang].decode("utf-8")
-                        full2 = full[cens, seedoption, 1, modelIndex, promptIndex, inputIndex, lang].decode("utf-8")
-                        full3 = full[cens, seedoption, 2, modelIndex, promptIndex, inputIndex, lang].decode("utf-8")
-                        output1 = output[cens, seedoption, 0, modelIndex, promptIndex, inputIndex, lang].decode("utf-8")
-                        output2 = output[cens, seedoption, 1, modelIndex, promptIndex, inputIndex, lang].decode("utf-8")
-                        output3 = output[cens, seedoption, 2, modelIndex, promptIndex, inputIndex, lang].decode("utf-8")
-                        runtime1 = runtimes[cens, seedoption, 0, modelIndex, promptIndex, inputIndex, lang]
-                        runtime2 = runtimes[cens, seedoption, 1, modelIndex, promptIndex, inputIndex, lang]
-                        runtime3 = runtimes[cens, seedoption, 2, modelIndex, promptIndex, inputIndex, lang]
-                        parseable = (getJSONParseability(output1) and getJSONParseability(output2) and
-                                     getJSONParseability(output3))
+                        try:
+                            full1 = full[cens, seedoption, 0, modelIndex, promptIndex, inputIndex, lang].decode("utf-8")
+                            full2 = full[cens, seedoption, 1, modelIndex, promptIndex, inputIndex, lang].decode("utf-8")
+                            full3 = full[cens, seedoption, 2, modelIndex, promptIndex, inputIndex, lang].decode("utf-8")
+                            output1 = output[cens, seedoption, 0, modelIndex, promptIndex, inputIndex, lang].decode("utf-8")
+                            output2 = output[cens, seedoption, 1, modelIndex, promptIndex, inputIndex, lang].decode("utf-8")
+                            output3 = output[cens, seedoption, 2, modelIndex, promptIndex, inputIndex, lang].decode("utf-8")
+                            runtime1 = runtimes[cens, seedoption, 0, modelIndex, promptIndex, inputIndex, lang]
+                            runtime2 = runtimes[cens, seedoption, 1, modelIndex, promptIndex, inputIndex, lang]
+                            runtime3 = runtimes[cens, seedoption, 2, modelIndex, promptIndex, inputIndex, lang]
+                            parseable = (getJSONParseability(output1) and getJSONParseability(output2) and
+                                         getJSONParseability(output3))
+                        except ValueError as e:
+                            print("Error processing at:\ncens" + str(cens) + "\nseedoption" + str(seedoption) +
+                                  "\nmodelIndex" + str(modelIndex) + "\npromptIndex" + str(promptIndex) +
+                                  "\ninputIndex" + str(inputIndex) + "\nlang" + str(lang))
+                            parseable = False
 
                         answer1 = "NA"
                         answer2 = "NA"

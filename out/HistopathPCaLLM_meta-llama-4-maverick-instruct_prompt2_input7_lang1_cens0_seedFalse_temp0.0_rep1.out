@@ -1,0 +1,19 @@
+Analysoin annetun histopatologisen lausunnon ja pyrin tuottamaan rakenteista dataa JSON-formaatissa.
+
+Lausunto: "Kaseteissa normaalin tavan mukaan otetut prostatabiopsiat, kokonaispituus n. 150mm. Näytteessä 1B oikeasta basiksesta hyppää esiin fokus, jossa pieniä rauhasrakenteita, missä tuma-atypiaa ja morfologinen löydös saattaisi vastata adenokarsinoomaa. Löydös on niin niukka että jää suspensio-asteelle, eikä selvää adenokarsinoomaa löydetä. Muissa näytteissä havaitaan vain normaalia rauhaskudosta. /Lauri Lääkäri, Meilahti, 11.11.2011"
+
+1. Näytteen alkuperäinen tyyppi: Lausunnossa mainitaan "prostatabiopsiat", joten näytteen tyyppi on "biopsy".
+
+2. Pahanlaatuiset löydökset: Lausunnossa mainitaan, että löydös "saattaisi vastata adenokarsinoomaa", mutta se "jää suspensio-asteelle, eikä selvää adenokarsinoomaa löydetä". Tästä voidaan päätellä, että näytteessä ei ole varmistettu pahanlaatuisia löydöksiä, joten arvo on "ei".
+
+3. Gleason-luokka: Koska näytteessä ei ole varmistettu pahanlaatuisia löydöksiä, Gleason-luokkaa ei ole määritetty. Tästä syystä arvo on "NA".
+
+JSON-formaatissa vastaus on:
+
+```
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

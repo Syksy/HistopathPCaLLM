@@ -1,0 +1,23 @@
+Tarkastellaan annettua lausuntoa ja rakenteistetaan se JSON-formaattiin.
+
+Lausunto:
+"Näytemateriaalia tuli yhteensä runsaasti, josta suurin osa käynnistettiin useammassa erässä. Histologisessa tarkastelussa havaitaan prostatakudosta, mutta päättelyä solujen atypiasta, maligniteetista, tai karsinoomasta ei voida tehdä. Vähän nähtävissä läiskittäistä tulehdusta. Materiaalista ei voida vetää johtopäätöstä sopisiko se pelkästään epäiltyyn hyvänlaatuiseen hyperplasiaan."
+
+1. Mikä on näytteen alkuperäinen tyyppi (sallitut arvot "biopsy", "RP", "TURP" tai "NA").
+   - Lausunnossa ei mainita näytteen tyyppiä, joten arvo on "NA".
+
+2. Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot "kyllä", "ei" tai "NA").
+   - Lausunnossa ei voida tehdä päättelyä maligniteetista, joten arvo on "NA".
+
+3. Mikä oli raportoitu Gleason-luokka (sallitut arvot "major+minor=sum" muodossa kokonaislukuina pahanlaatuisille löydöksille ja "NA" hyvänlaatuisille löydöksille).
+   - Koska maligniteettiä ei voida päätellä, Gleason-luokka on "NA".
+
+Rakenteinen vastaus JSON-formaatissa:
+
+```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

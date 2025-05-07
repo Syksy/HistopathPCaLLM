@@ -1,0 +1,22 @@
+Analysoin annetun histopatologisen lausunnon ja pyrin tuottamaan rakenteista dataa JSON-formaatissa.
+
+Lausunto: "Näytteet koostuvat erittäin fragmentoituneista osista alkuperäistä prostata-käsittelymateriaalia. Vaikkakin materiaali on pirstaloitunutta, se ajetaan kolmessa erillisessä erässä. Mikroskooppisesti nähdään verrattain normaalia prostatasolukkoa, mutta valtaosaa näytemateriaalista ei voida tutkia riittävän tarkasti johtuen vahvasta polttoartefaktasta. Tulokset ovat siten epäselvät, ja johtuen teknisistä ongelmista materiaalin uudelleentarkastelua suositellaan vahvasti."
+
+1. Mikä on näytteen alkuperäinen tyyppi?
+Lausunnossa mainitaan "alkuperäistä prostata-käsittelymateriaalia", mutta ei suoranaisesti kerrota, onko kyseessä "biopsy", "RP", "TURP" vai jokin muu. Koska ei ole selvää mainintaa näistä, mutta mainitaan "alkuperäistä prostata-käsittelymateriaalia", joka voisi viitata radikaaliprostatetomiaan (RP), mutta koska se ei ole varmaa, tulos on "NA".
+
+2. Oliko näytteessä pahanlaatuisia löydöksiä?
+Lausunnossa mainitaan "verrattain normaalia prostatasolukkoa" ja että valtaosaa materiaalista ei voida tutkia "johtuen vahvasta polttoartefaktasta". Ei ole suoraa mainintaa pahanlaatuisista löydöksistä, ja tulokset ovat "epäselvät". Täten "Malignancy" on "NA".
+
+3. Mikä oli raportoitu Gleason-luokka?
+Lausunnossa ei mainita Gleason-luokkaa, ja koska tulokset ovat epäselvät eikä pahanlaatuisuutta ole vahvistettu, "Gleason" on "NA".
+
+Täten rakenteistettu vastaus JSON-formaatissa on:
+
+```
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```
