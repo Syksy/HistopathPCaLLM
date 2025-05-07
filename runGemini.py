@@ -59,7 +59,8 @@ try:
                         # for seed in [False, True]:
                         for seed in [False]:
                             # Temperature-parameter values
-                            for temperature in [0.0, 0.1]:
+                            #for temperature in [0.0, 0.1]:
+                            for temperature in [0.0]:
                                 # Run everything as triplicates
                                 for rep in range(3):
                                     # Construct file name
@@ -131,6 +132,6 @@ try:
                                         f.close()
                                         # Handle console output and sleep before next API call
                                         print("\n\n")
-                                        time.sleep(31)
+                                        time.sleep(2)
 except ValueError as e:
     print("Error: " + e)
