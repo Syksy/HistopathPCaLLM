@@ -11,7 +11,7 @@
 
 <meta name="author" content="T. D. Laajala" />
 
-<meta name="date" content="2025-04-16" />
+<meta name="date" content="2025-04-28" />
 
 <title>HistopathPCaLLM summary</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">HistopathPCaLLM summary</h1>
 <h4 class="author">T. D. Laajala</h4>
-<h4 class="date">2025-04-16</h4>
+<h4 class="date">2025-04-28</h4>
 
 </div>
 
@@ -373,7 +373,7 @@ display: none;
 <h1>Data</h1>
 <pre class="r"><code>summary &lt;- read.table(&quot;summary.tsv&quot;, header=TRUE, row.names=1, sep=&quot;\t&quot;)</code></pre>
 <pre class="r"><code>dim(summary)</code></pre>
-<pre><code>## [1] 6000   23</code></pre>
+<pre><code>## [1] 6300   23</code></pre>
 <pre class="r"><code>head(summary)</code></pre>
 <pre><code>##   censoption                     model promptIndex inputIndex lang seedoption
 ## 0          0 claude-3-5-haiku-20241022           0          0    0      False
@@ -405,33 +405,33 @@ display: none;
 ## 5      RP      ei    &lt;NA&gt;     True     True     True       True</code></pre>
 <pre class="r"><code>tail(summary)</code></pre>
 <pre><code>##      censoption              model promptIndex inputIndex lang seedoption
-## 5994          1 mistral-large-2411           2         22    0      False
-## 5995          1 mistral-large-2411           2         22    1      False
-## 5996          1 mistral-large-2411           2         23    0      False
-## 5997          1 mistral-large-2411           2         23    1      False
-## 5998          1 mistral-large-2411           2         24    0      False
-## 5999          1 mistral-large-2411           2         24    1      False
+## 6294          1 mistral-large-2411           2         22    0      False
+## 6295          1 mistral-large-2411           2         22    1      False
+## 6296          1 mistral-large-2411           2         23    0      False
+## 6297          1 mistral-large-2411           2         23    1      False
+## 6298          1 mistral-large-2411           2         24    0      False
+## 6299          1 mistral-large-2411           2         24    1      False
 ##      concordanceExact concordanceCaseinsensitive concordanceContent maxCharDiff
-## 5994            False                      False               True          75
-## 5995            False                      False               True          42
-## 5996            False                      False               True           6
-## 5997            False                      False               True         239
-## 5998            False                      False               True          85
-## 5999            False                      False               True          12
+## 6294            False                      False               True          75
+## 6295            False                      False               True          42
+## 6296            False                      False               True           6
+## 6297            False                      False               True         239
+## 6298            False                      False               True          85
+## 6299            False                      False               True          12
 ##      maxRuntimeDiff medianRuntime parseable1 parseable2 parseable3 parseable
-## 5994      5.2787333      3.042854       True       True       True      True
-## 5995      4.0452595      3.653190       True       True       True      True
-## 5996      1.1848693      2.675047       True       True       True      True
-## 5997      4.4536896      1.402506       True       True       True      True
-## 5998      0.8530767      3.760904       True       True       True      True
-## 5999      3.3081603      6.611371       True       True       True      True
+## 6294      5.2787333      3.042854       True       True       True      True
+## 6295      4.0452595      3.653190       True       True       True      True
+## 6296      1.1848693      2.675047       True       True       True      True
+## 6297      4.4536896      1.402506       True       True       True      True
+## 6298      0.8530767      3.760904       True       True       True      True
+## 6299      3.3081603      6.611371       True       True       True      True
 ##      answer1 answer2 answer3 correct1 correct2 correct3 allCorrect
-## 5994    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
-## 5995    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
-## 5996    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
-## 5997    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
-## 5998    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
-## 5999    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True</code></pre>
+## 6294    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
+## 6295    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
+## 6296    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
+## 6297    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
+## 6298    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
+## 6299    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True</code></pre>
 <pre class="r"><code>table(summary$model)</code></pre>
 <pre><code>## 
 ##      claude-3-5-haiku-20241022     claude-3-5-sonnet-20240620 
@@ -442,18 +442,20 @@ display: none;
 ##                            300                            300 
 ##             gemini-1.5-pro-002           gemini-2.0-flash-001 
 ##                            300                            300 
-##      gemini-2.0-flash-lite-001             gpt-4.1-2025-04-14 
+##      gemini-2.0-flash-lite-001   gemini-2.5-pro-preview-03-25 
 ##                            300                            300 
-##        gpt-4.1-mini-2025-04-14        gpt-4.1-nano-2025-04-14 
+##             gpt-4.1-2025-04-14        gpt-4.1-mini-2025-04-14 
 ##                            300                            300 
-##              gpt-4o-2024-05-13              gpt-4o-2024-08-06 
+##        gpt-4.1-nano-2025-04-14              gpt-4o-2024-05-13 
 ##                            300                            300 
-##              gpt-4o-2024-11-20                    grok-2-1212 
+##              gpt-4o-2024-08-06              gpt-4o-2024-11-20 
 ##                            300                            300 
-##                    grok-3-beta meta-llama-4-maverick-instruct 
+##                    grok-2-1212                    grok-3-beta 
 ##                            300                            300 
-##    meta-llama-4-scout-instruct             mistral-large-2411 
-##                            300                            300</code></pre>
+## meta-llama-4-maverick-instruct    meta-llama-4-scout-instruct 
+##                            300                            300 
+##             mistral-large-2411 
+##                            300</code></pre>
 </div>
 <div id="english" class="section level1">
 <h1>English</h1>
@@ -515,6 +517,7 @@ p0eng</code></pre>
 ## gemini-1.5-pro-002             22  3 25  0 0.6111111     0.44
 ## gemini-2.0-flash-001           24  1 21  4 0.6857143     0.56
 ## gemini-2.0-flash-lite-001      19  6 23  2 0.5671642     0.42
+## gemini-2.5-pro-preview-03-25   24  1 14 11 0.7619048     0.70
 ## gpt-4.1-2025-04-14             24  1 17  8 0.7272727     0.64
 ## gpt-4.1-mini-2025-04-14        20  5 14 11 0.6779661     0.62
 ## gpt-4.1-nano-2025-04-14        14 11 23  2 0.4516129     0.32
@@ -572,6 +575,7 @@ p1eng</code></pre>
 ## gemini-1.5-pro-002             19  6 20  5 0.5937500     0.48
 ## gemini-2.0-flash-001           23  2 18  7 0.6969697     0.60
 ## gemini-2.0-flash-lite-001      20  5 22  3 0.5970149     0.46
+## gemini-2.5-pro-preview-03-25   22  3 11 14 0.7586207     0.72
 ## gpt-4.1-2025-04-14             24  1 14 11 0.7619048     0.70
 ## gpt-4.1-mini-2025-04-14        22  3 13 12 0.7333333     0.68
 ## gpt-4.1-nano-2025-04-14        11 14 20  5 0.3928571     0.32
@@ -629,6 +633,7 @@ p2eng</code></pre>
 ## gemini-1.5-pro-002             20  5 20  5 0.6153846     0.50
 ## gemini-2.0-flash-001           24  1  8 17 0.8421053     0.82
 ## gemini-2.0-flash-lite-001      18  7 21  4 0.5625000     0.44
+## gemini-2.5-pro-preview-03-25   23  2 13 12 0.7540984     0.70
 ## gpt-4.1-2025-04-14             24  1  7 18 0.8571429     0.84
 ## gpt-4.1-mini-2025-04-14        19  6  9 16 0.7169811     0.70
 ## gpt-4.1-nano-2025-04-14        14 11 21  4 0.4666667     0.36
@@ -642,7 +647,7 @@ p2eng</code></pre>
 ## mistral-large-2411             23  2  5 20 0.8679245     0.86</code></pre>
 <pre class="r"><code>quantile(p2eng[,&quot;F_score&quot;], probs=c(0.25, 0.5, 0.75))</code></pre>
 <pre><code>##       25%       50%       75% 
-## 0.6950549 0.7580645 0.8598383</code></pre>
+## 0.7076923 0.7540984 0.8571429</code></pre>
 </div>
 <div id="runtimes-2" class="section level3">
 <h3>Runtimes</h3>
@@ -702,6 +707,7 @@ p0fin</code></pre>
 ## gemini-1.5-pro-002             20  5 25  0 0.5714286     0.40
 ## gemini-2.0-flash-001           23  2 25  0 0.6301370     0.46
 ## gemini-2.0-flash-lite-001      20  5 22  3 0.5970149     0.46
+## gemini-2.5-pro-preview-03-25   24  1 18  7 0.7164179     0.62
 ## gpt-4.1-2025-04-14             24  1 17  8 0.7272727     0.64
 ## gpt-4.1-mini-2025-04-14        18  7 14 11 0.6315789     0.58
 ## gpt-4.1-nano-2025-04-14        10 15 22  3 0.3508772     0.26
@@ -753,6 +759,7 @@ p1fin</code></pre>
 ## gemini-1.5-pro-002             18  7 22  3 0.5538462     0.42
 ## gemini-2.0-flash-001           23  2 25  0 0.6301370     0.46
 ## gemini-2.0-flash-lite-001      22  3 22  3 0.6376812     0.50
+## gemini-2.5-pro-preview-03-25   24  1 13 12 0.7741935     0.72
 ## gpt-4.1-2025-04-14             24  1  9 16 0.8275862     0.80
 ## gpt-4.1-mini-2025-04-14        19  6  6 19 0.7600000     0.76
 ## gpt-4.1-nano-2025-04-14        10 15 25  0 0.3333333     0.20
@@ -804,6 +811,7 @@ p2fin</code></pre>
 ## gemini-1.5-pro-002             21  4 20  5 0.6363636     0.52
 ## gemini-2.0-flash-001           20  5 22  3 0.5970149     0.46
 ## gemini-2.0-flash-lite-001      20  5 13 12 0.6896552     0.64
+## gemini-2.5-pro-preview-03-25   24  1 11 14 0.8000000     0.76
 ## gpt-4.1-2025-04-14             24  1  4 21 0.9056604     0.90
 ## gpt-4.1-mini-2025-04-14        19  6  7 18 0.7450980     0.74
 ## gpt-4.1-nano-2025-04-14        11 14 24  1 0.3666667     0.24
@@ -817,7 +825,7 @@ p2fin</code></pre>
 ## mistral-large-2411             18  7  5 20 0.7500000     0.76</code></pre>
 <pre class="r"><code>quantile(p2fin[,&quot;F_score&quot;], probs=c(0.25, 0.5, 0.75))</code></pre>
 <pre><code>##       25%       50%       75% 
-## 0.6893725 0.7500000 0.7991071</code></pre>
+## 0.6896552 0.7500000 0.8000000</code></pre>
 </div>
 </div>
 </div>
@@ -869,6 +877,7 @@ p2both</code></pre>
 ## gemini-1.5-pro-002             41  9 2.3279384 40 10  2.3300721  2.3279384
 ## gemini-2.0-flash-001           44  6 0.5622825 30 20  0.5705006  0.5652040
 ## gemini-2.0-flash-lite-001      38 12 0.5819998 34 16  0.5660004  0.5781634
+## gemini-2.5-pro-preview-03-25   47  3 4.8655953 24 26  8.0630163  6.3053017
 ## gpt-4.1-2025-04-14             48  2 1.3074993 11 39  1.2642293  1.2772715
 ## gpt-4.1-mini-2025-04-14        38 12 0.7882733 16 34  0.7420026  0.7685439
 ## gpt-4.1-nano-2025-04-14        25 25 0.7523391 45  5  0.8004931  0.7855745
@@ -890,6 +899,7 @@ p2both</code></pre>
 ## gemini-1.5-pro-002                             0.96 0.6259542     0.51
 ## gemini-2.0-flash-001                           0.81 0.7096774     0.64
 ## gemini-2.0-flash-lite-001                      0.84 0.6229508     0.54
+## gemini-2.5-pro-preview-03-25                   0.86 0.7768595     0.73
 ## gpt-4.1-2025-04-14                             0.87 0.8807339     0.87
 ## gpt-4.1-mini-2025-04-14                        0.69 0.7307692     0.72
 ## gpt-4.1-nano-2025-04-14                        0.94 0.4166667     0.30
@@ -903,21 +913,21 @@ p2both</code></pre>
 ## mistral-large-2411                             0.19 0.8118812     0.81</code></pre>
 <pre class="r"><code>quantile(p2both[,&quot;F_score&quot;], probs=c(0.25, 0.5, 0.75))</code></pre>
 <pre><code>##       25%       50%       75% 
-## 0.6981215 0.7490842 0.8206226</code></pre>
+## 0.6984127 0.7521368 0.8118812</code></pre>
 <pre class="r"><code>cor(p2both[,&quot;TimeAll&quot;], p2both[,&quot;F_score&quot;], method=&quot;pearson&quot;)</code></pre>
-<pre><code>## [1] -0.08192084</code></pre>
+<pre><code>## [1] -0.06664566</code></pre>
 <pre class="r"><code>cor.test(p2both[,&quot;TimeAll&quot;], p2both[,&quot;F_score&quot;], method=&quot;pearson&quot;)</code></pre>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
 ## data:  p2both[, &quot;TimeAll&quot;] and p2both[, &quot;F_score&quot;]
-## t = -0.34873, df = 18, p-value = 0.7313
+## t = -0.29115, df = 19, p-value = 0.7741
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
-##  -0.5060948  0.3741640
+##  -0.4843963  0.3758545
 ## sample estimates:
 ##         cor 
-## -0.08192084</code></pre>
+## -0.06664566</code></pre>
 </div>
 </div>
 </div>

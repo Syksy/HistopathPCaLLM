@@ -23,6 +23,7 @@ os.chdir(os.environ.get("ROOT_DIR") + "out\\")
 
 try:
     for modelname in [
+        "gpt-4o-2025-03-26",
         "gpt-4o-2024-05-13",
         "gpt-4o-2024-08-06",
         "gpt-4o-2024-11-20",
