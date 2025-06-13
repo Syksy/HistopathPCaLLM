@@ -671,9 +671,9 @@ statements = [
         # Censored
         [
             # English (censored)
-            "Sample (1) contains multi-faceted tissue sample shapes, with measurable dimensions 0, 0.5, 1mm. In the only measurable plane, approximately all of it could be ",
+            "Sample (1) contains multi-faceted tissue sample shapes, with measurable dimensions 0, 0.5, 1mm. In the only measurable plane, approximately all of it could be assessed in respect to its Gleason differentiation patterns, but due to differing views this case will be discussed at next uro-meeting. Sample (2) consistent of fragmented tissue material where differentiation could not be assessed. Sample (3) contained two locations of non-representative tissue material. Samples (1) and (2) were initially thought to contain PIN-changes, but these were later retracted as an unreliable conclusion. Thus, conclusion based on above samples (1-3) is that presence or absence of prostate adenocarcinoma cannot be reliable verified.",
             # Finnish (censored)
-            "",
+            "Näyte (1) sisältää monitahoisia solunäytemuotoja, joiden mitattavissa olevat dimensiot 0, 0.5, 1mm. Ainoassa mitattavissa olevassa tasossa suurin piirtein kaikki pystyttiin arvioimaan Gleason erilaistumispatterniensa suhteen, mutta näkemyseroista johtuen tämä tapaus arvioidaan seuraavassa uro-miitissä. Näyte (2) sisälsi pirstaloitunutta solukkomateriaalia, missä erilaistumista ei pystytty arvioimaan. Näyte (3) sisälsi kaksi lokaatiota ei-edustavaa solumateriaalia. Näytteissä (1) ja (2) ajateltiin alun perin sisältävän PIN-muutoksia, mutta tämä myöhemmin peruttiin epäluotettavana johtopäätöksenä. Joten, johtopäätös yllä olevista näytteistä (1-3) on, että prostatan adenokarsinooma -löydöstä ei voida luotettavasti vahvistaa tai kumota.",
             # Swedish (censored)
             "",
             # Correct answers (censored)
@@ -2700,14 +2700,14 @@ prompts = [
 
 # Statement handling
 def getMaxInputIndex():
-    return 24
+    return 25
 
 def getMaxInputLength():
     #return len(statements)
-    return 25
+    return 26
 
 def getArrayInputIndex():
-    return list(range(25))
+    return list(range(26))
 
 # Prompt handling
 
