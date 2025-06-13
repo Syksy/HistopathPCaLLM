@@ -686,7 +686,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The studied specimen is a prostatectomy preparate, which is started according to the routine with right side in green and left side in yellow dye. Apex in samples A-C, two macrosections toward basis D-E, F-G basis and H-I two samples of seminal vehicles. Histological inspection reveals a widely spread tumor, which spans all the way from apex to basis. In parts of the apex samples it reaches also the border of the margins resulting in small positive margins. Largest tumor focus is on the basis side, where the dominant Gleason is class 3 and class 4 differentation is almost as prevalent. No signs of intrusive growth through the capsule is observed.",
             # Finnish (non-censored)
             "Tutkittavana on prostatektomiapreparaatti, joka käynnistetään normaalilla kaavalla oikea lohko vihreällä ja vasen lohko keltaisella värjäten. Apex näytteisiin A-C, kaksi makroleikettä kohti basista D-E, F-G basis ja H-I kaksi näytettä seminaalivehikkeleistä. Histologiassa nähdään laaja kasvain, joka ulottuu apexista basikseen asti. Osassa apex-näytteitä ulottuu myös reunan merkattuun rajaan ja tulee pienet positiiviset reunamarginaalit. Suurin kasvainfokus on basiksen puolella, missä vallitseva Gleason luokka 3, ja luokan 4 erilaistumista melkein yhtä paljon. Ei havaita kuitenkaan kasvaimen läpikasvua kapselin ulkopuolelle.",
             # Swedish (non-censored)
@@ -697,9 +697,9 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "The studied material originates from the prostate, and is processed according to the usual processing procedures and markings. Samples are marked with indices A-C for material attributed to apex and indices D-F for sources closer to basis. Histological inspection reveals that the material from apex and basis is very difficult to assess, due to recent radiation therapy. Clinical notes mention possible \'Gleason sum 7\'; however, it is unclear if this is GG 2 or 3 and if the 7 sum was indeed verified. Due to the recent RT the histopathology cannot be reasonably used to assess treatment trajectory, and instead assessing spread through the capsule, nearby lymph nodes, or distant mets should be prioritized.",
             # Finnish (censored)
-            "",
+            "Tutkittu materiaali on prostatasta, ja prosessoidaan normaalien käsittelyproseduurien ja -merkintöjen mukaan. Näytteet merkataan indeksen A-C osasta joka on apexin suuntaan ja indeksein D-F basiksen läheisille paikoille. Histologisessa tarkastelussa paljastuu että materiaali apexista ja basiksesta on erittäin hankalaa arvioida, johtuen hiljattain tehdysta sädeterapiasta. Kliinikan merkinnöissä mainitaan mahdollinen \'Gleason summa 7\'; toisaalta, on epäselvää onko tämä GG 2 vai 3 ja vahvistettiinko 7 summa-arvo. Johtuen hiljattain tehdystä RT:stä histopatologiaa ei voida luotettavasti tehdä hoitotrajektorin arvioimiseksi, ja sen sijaan kapselin läpikasvun, läheisten imusolmukkeiden, ja distaalien mets-pesäkkeiden tutkimista tulisi priorisoida.",
             # Swedish (censored)
             "",
             # Correct answers (censored)
@@ -2700,14 +2700,14 @@ prompts = [
 
 # Statement handling
 def getMaxInputIndex():
-    return 25
+    return 26
 
 def getMaxInputLength():
     #return len(statements)
-    return 26
+    return 27
 
 def getArrayInputIndex():
-    return list(range(26))
+    return list(range(27))
 
 # Prompt handling
 
