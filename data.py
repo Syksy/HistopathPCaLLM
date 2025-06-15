@@ -2700,14 +2700,14 @@ prompts = [
 
 # Statement handling
 def getMaxInputIndex():
-    return 26
+    return 27
 
 def getMaxInputLength():
     #return len(statements)
-    return 27
+    return 28
 
 def getArrayInputIndex():
-    return list(range(27))
+    return list(range(28))
 
 # Prompt handling
 
