@@ -712,7 +712,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Total 13g of shavings were run on eight casettes. Carcinoma was histologically detected in blocks F & G, where the growth pattern was Gleason 3+3=6.",
             # Finnish (non-censored)
             "Yhteensä 13g edestä höyläyslastuja ajettiin kahdeksalla kasetilla. Karsinoomaa todettiin histologisesti blokeissa F & G, joiden kasvutapa oli Gleason 3+3=6.",
             # Swedish (non-censored)
@@ -723,9 +723,9 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Total dozen grams of source prostate tissue was run in eight batches. Histological inspection verified prostatic tissue material present in samples indexed F and G, but the growth patterns in the rest of the samples did not follow normal prostate tumor differentiation, although debatably Gleason score 3 could maybe be seen in small quantities.",
             # Finnish (censored)
-            "",
+            "Yhteensä tusinam grammaa prostatasta lähtöisin oelvaa kudosmateriaalia ajettiin kahdeksassa erässä. Histologinen tarkastelu varmisti prostatakudoksen näytteissä indekseillä F ja G, mutta kasvutavat lopuissa näytteistä ei noudattanut normaaleja prostatasyövän erilaistumista, tosin juuri ja juuri väitetysti Gleason pisteytystä 3 olisi voinut ehkä havaita pienin määrin.",
             # Swedish (censored)
             "",
             # Correct answers (censored)
