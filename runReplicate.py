@@ -17,7 +17,8 @@ try:
     for modelname in [
         "meta/llama-4-maverick-instruct",
         "meta/llama-4-scout-instruct",
-        "deepseek-ai/deepseek-r1"
+        "deepseek-ai/deepseek-r1",
+        "deepseek-ai/deepseek-v3"
     ]:
         # Prompts to iterate across
         for promptIndex in data.getArrayPromptIndex():
