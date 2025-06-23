@@ -738,7 +738,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Examination consists of six biopsy cylinders that had been taken due to elevated PSA. Focus #1 on the front of left side exhibits 5mm length of poorly differentiated atypical grandular structure. This appears to be adenocarcinoma, with Gleason classification 4+4=8. Focus #2 on the middle of the left side also exhibits 10mm length of adenocarcinoma tissue, with Gleason point sum 4+3=7 and grade 4 proportion approx 80%. Focus 3# on the middle section on the right side also contains a finding with grades 4 and 3 with proportions approx. 70:30%, thus sum 7 (3+4). In the rest of the samples mostly hyperplastic changes are seen in the epithelial cells. As a summary, the highest grade malignant finding was in focus 1 with point sum 8.",
             # Finnish (non-censored)
             "Tutkittavana kuusi biopsialieriötä otettuna kohonneen PSA:n takia. Pesäke 1. vasemmalta edestä, nähdään 5mm matkalla huonosti erilaistunutta atyyppista rauhasrakennetta. Kyseessä adenokarsinooma, jossa Gleason luokitus 4+4=8. Pesäke 2. vasemmalta keskeltä noin 10mm matkalla nähdään myös karsinoomakudosta, jossa Gleasonin pistesumma 4+3=7 ja graduksen 4 osuus n. 80%. Pesäkkeessä 3. oikealta keskeltä myös löydös jossa gradusten 3 ja 4 suhde n. 70:30%, joten summa 7 (3+4). Lopuissa näytteistä lähinnä epiteelissä hyperplastisia muutoksia. Yhteenvetona korkeimman graden maligni löydös pesäkkeessä 1 pistesummalla 8.",
             # Swedish (non-censored)
@@ -749,9 +749,9 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Examination consists of six different sites of interest, inspected due to the elevated PSA status of the patient. Region of interest #1 on the front left side has some atypical growth patterns. This appears to be originally prostate tissue, with unclear differentiation staging. Region of interest #2 on the middle of the left side also has some tissue with odd growth patterns, where 80% of the inspected tissue exhibits some possible pre-malignant changes. Region of interest #3 on the middle section on the right side also contains some findings that ought to be further inspected, and the material is sent to pathologist XYZ for further evaluation. Some hyperlastic changes are seen in general in the epithelial cells across RoIs. As a summary, the annotated regions of interest did warrant further inspection.",
             # Finnish (censored)
-            "",
+            "Tutkimusmateriaali koostuu kuudesta kiinnostavasta alueesta, mitkä tutkitaan potilaan kohonneen PSA-statuksen takia. Kiinnostava alue (RoI) #1 edessä vasemmalla sisältää joitain atyyppisia kasvupatterneja. Tämä vaikuttaa olevan alun perin eturauhassolukkoa, mutta epäselvällä erilaistumisasteilla. RoI #2 keskellä vasemmalla puolella sisältää myös kudosta outojen kasvurakenteiden kanssa, missä 80% tutkitusta materiaalista sisältää mahdollisesti esi-maligniteettisia muutoksia. RoI #3 etuosassa oikealla sisältää myös löydöksiä joita tulisi tutkia tarkemmin, ja materiaali lähetetään patologille XYZ jatkotutkimuksia varten. Jonkin verran hyperplastisia muutoksia nähdään ylipäätänsä epiteelisolukossa kaikkien RoI-alueiden yli. Yhteenvetona, annotoidut kandidaatit kiinnostaviksi alueiksi olivat jatkotutkimusten arvoisia.",
             # Swedish (censored)
             "",
             # Correct answers (censored)
@@ -2700,14 +2700,14 @@ prompts = [
 
 # Statement handling
 def getMaxInputIndex():
-    return 27
+    return 28
 
 def getMaxInputLength():
     #return len(statements)
-    return 28
+    return 29
 
 def getArrayInputIndex():
-    return list(range(28))
+    return list(range(29))
 
 # Prompt handling
 
