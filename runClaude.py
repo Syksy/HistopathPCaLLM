@@ -11,21 +11,20 @@ load_dotenv()
 # Working directory for project taken from env vars
 os.chdir(os.environ.get("ROOT_DIR") + "out\\")
 
-client = anthropic.Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_TOKEN"),
-)
-
 # Latest models taken from https://docs.anthropic.com/en/docs/resources/model-deprecations#model-status
 # Loop while there is still combinations left to run (i.e. overloaded error or similar, sleep it off)
 while True:
     try:
         for modelname in [
-            # Haiku
+            # Claude 3.5 Haiku
             "claude-3-5-haiku-20241022",
-            # Sonnet(s)
+            # Claude 3.5/3.7 Sonnets
             "claude-3-5-sonnet-20240620",
             "claude-3-5-sonnet-20241022",
             "claude-3-7-sonnet-20250219",
+            # Claude 4s
+            "claude-sonnet-4-20250514",
+            "claude-opus-4-20250514"
         ]:
             # Prompts to iterate across
             for promptIndex in data.getArrayPromptIndex():
@@ -39,9 +38,14 @@ while True:
                             #for seed in [False, True]:
                             for seed in [False]:
                                 # Temperature-parameter values
-                                for temperature in [0.0, 0.1]:
+                                #for temperature in [0.0, 0.1]:
+                                for temperature in [0.0]:
                                     # Run everything as triplicates
                                     for rep in range(3):
+                                        # Client
+                                        client = anthropic.Anthropic(
+                                            api_key=os.environ.get("ANTHROPIC_API_TOKEN"),
+                                        )
                                         # Construct file name
                                         filename = ("HistopathPCaLLM_" + modelname
                                                     + "_prompt" + str(promptIndex)
@@ -77,6 +81,7 @@ while True:
                                                 ]
                                             )
                                             endTime = time.time()
+                                            print(message.content[0].text)
                                             response = "".join(message.content[0].text)
                                             # Write output to a suitable file, output
                                             f = open(filename + ".out", 'w', encoding="utf-8")
@@ -98,6 +103,6 @@ while True:
     except anthropic.InternalServerError as e:
         print("Error: " + str(e))
         time.sleep(120)
-    except ValueError as e:
+    except Exception as e:
         print("Error: " + str(e))
         time.sleep(120)
