@@ -13,7 +13,7 @@ statements = [
             # English (non-censored)
             "Chipping samples totaled approx 30g, of which 20g were started in six blocks. In histological examination benign prostate tissue was observed, with no atypia, malignancies, or carcinoma. Some spot-like inflammation can be observed. The finding thus fits the suspected benign prostate hyperplasia.",
             # Finnish (non-censored)
-            "Höyläyslastuja tuli yhteensä noin 30g, joista noin 20g käynnistettiin kuudessa blokissa. Histologisessa tarkastelussa havaitaan hyvänlaatuista prostatakudosta, missä ei atypiaa, malignia, tai karsinoomaa näy. Vähän nähtävissä läiskittäistä tulehdusta. Löydös sopii siis epäiltyyn hyvänlaatuiseen hyperplasiaan.", "TURP", "no|ei|nej", "^NA$",
+            "Höyläyslastuja tuli yhteensä noin 30g, joista noin 20g käynnistettiin kuudessa blokissa. Histologisessa tarkastelussa havaitaan hyvänlaatuista prostatakudosta, missä ei atypiaa, malignia, tai karsinoomaa näy. Vähän nähtävissä läiskittäistä tulehdusta. Löydös sopii siis epäiltyyn hyvänlaatuiseen hyperplasiaan.",
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
@@ -764,7 +764,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Prostate was obtained as a fresh sample specimen, with weight approx 40g. Samples were taken as follows: closest to apex A - left lobe, B - right lobe, and from the next plane C - left lobe, D - right lobe, and highermost plane E - left lobe, F- right lobe. From the left lobe casettes A and C invasive adenocarcinoma is observed, which has penetrated the capsule and perineural invasion is also present. Tumor cells form both poorly differentiated as well fused grandular structures; mostly grade 4 differentiation pattern is observed, with the smaller portion as grade 4. Tumor diameter is larger than 2 cm. SUMMARY: Score sum 7 finding in the left side sections.",
             # Finnish (non-censored)
             "Tuorenäytteenä saatu prostata, jonka paino on n. 40g. Näytteet otettu seuraavasti: lähinnä apexia A - vasen lohko, B - oikea lohko ja seuraavasta tasosta C - vasen lohko, D - oikea lohko, ja ylin taso E - vasen lohko, F- oikea lohko. Vasemman lohkon kaseteista A ja C havaitaan invasoivaa adenokarsinoomaa, joka on läpäissyt kapselin ja esiintyy myös perineuraalista invaasiota. Tuumorisolut muodostavat sekä huonosti erilaistuneita että yhteenkasvavia rauhasrakenteita muodostaen; nähdään eniten luokan 4 erilaistumista, ja pienempi luokka 3. Tuumorin läpimitta ylittää 2 cm. YHTEENVETO: Pistesumman 7 löydös vasemman puolen leikkeistä.",
             # Swedish (non-censored)
@@ -775,9 +775,9 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Fresh prostate tissue material was obtained, with material amount fitting the original sample collection request. Samples were taken as follows: A - left lower, B - right lower, and then C - left middle, D - right middle, and then E - left higher, F - right higher. From sample indices A and C non-prostatic tissue is observed, which suggests that the sampling procedure had something that was contaminated. Capsule penetration, perineural invasion, or differentiation stages of tumor cells cannot be assessed, as these samples A and C were of particular interest. Colleague had requested particularly the assessment of potential poor differentiation and possible fusing grandular structure observations arising from the said samples, which remains to be re-examined in further sampling. SUMMARY: Score sum determination was not possible, samples A and C to be re-examined.",
             # Finnish (censored)
-            "",
+            "Tuore prostatakudos materiaali saatiin, jossa materiaalin määrä sopi alkuperäiseen näytepyyntöön. Näytteet otettiin seuraavasti: A - vasen alhaalta, B - oikea alhaalta, ja sitten C - vasen keskeltä, D - oikea keskeltä, ja sitten E - vasen ylhäältä, F - oikea ylhäältä. Näytteistä indekseillä A ja C havaittiin kudosta joka ei ollut prostatasta, mikä viittaa siiten että näytteenottoproseduurissa jotain oli kontaminoinut. Kapselin läpäisyä, perineuraalista invaasiota, tai tuumorisolujen erilaistumisasteita ei pystytty arvioimaan, koska nämä näytteet A ja C olivat varsinaisen kiinnostuksen kotheena. Kollega oli erityiseti pyytänyt juuri näistä näytteistä mahdollisen huonosti erilaistumisen ja rauhasten yhteensulautumisen arviointia, mikä jää tehtäväksi uusinta-ajoissa uusitun näytteenoton jälkeen. YHTEENVETO: Pistesumman määrittäminen ei ollut mahdollista, näytteet A ja C tutkitaan uudelleen.",
             # Swedish (censored)
             "",
             # Correct answers (censored)
@@ -2700,14 +2700,14 @@ prompts = [
 
 # Statement handling
 def getMaxInputIndex():
-    return 28
+    return 29
 
 def getMaxInputLength():
     #return len(statements)
-    return 29
+    return 30
 
 def getArrayInputIndex():
-    return list(range(29))
+    return list(range(30))
 
 # Prompt handling
 
