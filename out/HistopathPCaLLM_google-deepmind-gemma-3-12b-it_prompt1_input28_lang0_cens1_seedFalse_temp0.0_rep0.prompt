@@ -1,0 +1,17 @@
+Your task is to produce structured data from free format text. Raw data will be provided in the end of these instructions. These statements are prostate cancer histopathological statements. You should act as a data structuring algorithm. Return the structured answers in valid JSON format. Please note that only the results from the most severe lesion should be returned, and the structured result should not consist of nested structures. Provide answers to the following three structured fields: 
+ 1. What is the original sample type (allowed values: "biopsy", "RP", "TURP" or "NA"). 
+ 2. Were there malignant tumor findings (allowed values: "yes", "no" or "NA"). 
+ 3. What is the reported Gleason grade (allowed values preferably "major+minor=sum" in the form of whole numbers for malignant statements or "NA" for benign statements). 
+
+ For example, the statement "Adenocarcinoma is detected in the prostate biopsy with Gleason grades 4 and 3, resulting in a sum of 4+3=7." should be structured in JSON format as follows: 
+
+ {
+ "Sampletype": "biopsy",
+ "Malignancy": "yes",
+ "Gleason": "4+3=7" 
+}
+
+ Apply the above questions to the following statement: 
+
+
+Examination consists of six different sites of interest, inspected due to the elevated PSA status of the patient. Region of interest #1 on the front left side has some atypical growth patterns. This appears to be originally prostate tissue, with unclear differentiation staging. Region of interest #2 on the middle of the left side also has some tissue with odd growth patterns, where 80% of the inspected tissue exhibits some possible pre-malignant changes. Region of interest #3 on the middle section on the right side also contains some findings that ought to be further inspected, and the material is sent to pathologist XYZ for further evaluation. Some hyperlastic changes are seen in general in the epithelial cells across RoIs. As a summary, the annotated regions of interest did warrant further inspection.

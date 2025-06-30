@@ -1,0 +1,19 @@
+Looking at this histopathological statement, I need to extract the three required fields:
+
+1. **Sample type**: The statement mentions "prostate tissue processed as per routine for the specific sample type" but doesn't explicitly state whether it's a biopsy, RP (radical prostatectomy), or TURP. Since the specific type is not mentioned, this should be "NA".
+
+2. **Malignant tumor findings**: The statement describes:
+   - Samples 1-3: Either unrepresentative or benign
+   - Sample 4: Contains "cell architectures that may differ from normal prostate tissue" but it's explicitly stated as "uncertain whether the tissue material has been mixed with non-prostate tissue or if this is truly abnormal prostate tissue (possibly malignant)"
+   
+   Since there's uncertainty and no definitive malignant diagnosis, this should be "no".
+
+3. **Gleason grade**: No Gleason grading is mentioned in the statement, and since there are no confirmed malignant findings, this should be "NA".
+
+```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}
+```

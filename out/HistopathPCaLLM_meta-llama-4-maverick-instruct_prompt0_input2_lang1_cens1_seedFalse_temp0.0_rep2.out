@@ -1,42 +1,16 @@
-Tässä on annettu esimerkkirakenne, jota voit noudattaa. Odotan tekstidataa, jota vastaan algoritmia.
-
-Kun saat tekstidatan, voin aloittaa sen prosessoinnin.
-
-
-Olettaen, että tekstidata on saatavilla, tässä on esimerkki siitä, miltä JSON-vastaus voisi näyttää:
+Vastaus annettuun histopatologiseen lausuntoon on seuraava JSON-formaatissa:
 
 ```json
 {
-  "NaytteidenTyyppi": "RP",
-  "PahanlaatuisetLoydokset": "kylla",
-  "GleasonLuokka": "4+5=9"
+  "Naytteentyyppi": "NA",
+  "PahanlaatuisiaLoydoksia": "NA",
+  "GleasonLuokka": "NA"
 }
 ```
 
-Itse tekstidataa odotellessa voin kuvata yleisesti, miten voisin lähestyä ongelmaa:
+Perustelut vastaukselle:
+1. **Näytteen alkuperäinen tyyppi**: Lausunnossa mainitaan, että näyte on saatu ruumiinavauksesta, mutta se ei suoraan vastaa annettuja kategorioita ("biopsy", "RP", "TURP"). Tästä syystä luokittelu näytteen tyypin suhteen on "NA", koska se ei sovi yhteenkään annetuista vaihtoehdoista.
 
-1. **Näytteen tyyppi**: Etsisin avainsanoja kuten "biopsy", "radical prostatectomy (RP)", "TURP" lausunnosta. Jos mikään näistä ei ole mainittu, merkitsisin "NA".
+2. **Pahanlaatuisia löydöksiä**: Lausunnossa mainitaan mahdollinen adenokarsinooma tai muut malignit muutokset, mutta lopullista diagnoosia ei ole tehty. Koska lausunto ei suoranaisesti vahvista pahanlaatuisia löydöksiä, eikä se myöskään sulje niitä pois, on luokittelu "NA", koska varmuutta ei ole.
 
-2. **Pahanlaatuiset löydökset**: Tarkastelisin, mainitaanko lausunnossa syöpä tai pahanlaatuisuus. Jos löytyy, merkitsisin "kyllä", jos ei, "ei". Jos tietoa ei ole saatavilla, merkitsisin "NA".
-
-3. **Gleason-luokka**: Etsisin Gleason-luokkaa koskevaa tietoa. Jos lausunnossa mainitaan Gleason-luokka pahanlaatuiselle löydökselle, merkitsisin sen muodossa "major+minor=sum". Jos löydös on hyvänlaatuinen, merkitsisin "NA".
-
-Odotan tekstidataa, jota voin prosessoida näiden ohjeiden mukaisesti. 
-
-Anna tekstidata. 
-
-(Tässä kohtaa odotan varsinaista tekstidataa, jota vastaan algoritmia.) 
-
-Esimerkkinä lausunto: 
-
-"Potilaalta otettiin radical prostatectomy (RP) näyte, jossa havaittiin pahanlaatuisia löydöksiä. Gleason-luokka oli 4+5=9." 
-
-Tällöin JSON-vastaus olisi:
-
-```json
-{
-  "NaytteidenTyyppi": "RP",
-  "PahanlaatuisetLoydokset": "kylla",
-  "GleasonLuokka": "4+5=9"
-}
-```
+3. **Gleason-luokka**: Koska lausunnossa ei ole vahvistettu pahanlaatuista löydöstä, Gleason-luokka on "NA". Gleason-luokkaa käytetään pahanlaatuisille eturauhassyövälle, ja sen määrittäminen edellyttää pahanlaatuisen diagnoosin varmistumista.

@@ -1,0 +1,17 @@
+Analysoin annetun histopatologisen lausunnon ja pyrin muuttamaan sen rakenteelliseksi dataksi JSON-formaatissa.
+
+Lausunnossa mainitaan, että tutkimusmateriaali koostuu kuudesta kiinnostavasta alueesta, jotka tutkitaan potilaan kohonneen PSA-statuksen takia. Lausunnossa kuvataan eri kiinnostavien alueiden (RoI) löydöksiä, mutta ei mainita suoraan näytteen tyyppiä. Kuitenkin maininta "tutkimusmateriaali koostuu kuudesta kiinnostavasta alueesta" ja "kaikkien RoI-alueiden yli" viittaa siihen, että kyseessä on biopsiamateriaali. Tästä syystä näytteen tyypiksi voidaan päätellä "biopsy".
+
+Lausunnossa mainitaan atyyppisiä kasvupatterneja ja outoja kasvurakenteita, jotka saattavat olla esi-maligniteettisia muutoksia. Kuitenkin lausunnossa ei suoraan mainita pahanlaatuisia löydöksiä, vaan pikemminkin suositellaan jatkotutkimuksia. Tästä syystä maligniteetin osalta on vaikea tehdä varmaa päätelmää, mutta koska ei ole suoraa mainintaa pahanlaatuisuudesta, voidaan olettaa, että maligniteetti ei ole varmistunut. Näin ollen maligniteetiksi voidaan merkitä "ei".
+
+Gleason-luokkaa ei mainita lainkaan lausunnossa, mikä viittaa siihen, että pahanlaatuista löydöstä ei ole tehty tai se ei ole varmistunut. Tästä syystä Gleason-luokaksi voidaan merkitä "NA".
+
+Rakenteellinen data JSON-formaatissa:
+
+```
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

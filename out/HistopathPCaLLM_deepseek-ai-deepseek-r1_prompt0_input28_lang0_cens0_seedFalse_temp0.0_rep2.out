@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this. The user wants me to extract structured data from a medical text about prostate cancer. The three fields to focus on are original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the sample type. The text mentions "six biopsy cylinders" taken because of elevated PSA. So the original sample type should be "biopsy". That's straightforward.
+
+Next, malignant tumor findings. The report talks about adenocarcinoma in multiple foci, which is a type of malignant tumor. So the answer here is "yes".
+
+Now, the Gleason grade. The instruction says to take the most severe lesion. The highest grade mentioned is in Focus #1 with Gleason 4+4=8. Even though other foci have lower sums like 7, the highest is 8. So the format should be "4+4=8".
+
+I need to make sure the JSON is valid, no nested structures. Check allowed values: sample type is "biopsy", malignant is "yes", Gleason is "4+4=8". All correct. No NA needed here since all info is present. Double-check the text to confirm there's no mention of RP or TURP, and that the highest Gleason is indeed 8. Yep, looks good.
+</think>
+
+```json
+{
+  "original_sample_type": "biopsy",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "4+4=8"
+}
+```

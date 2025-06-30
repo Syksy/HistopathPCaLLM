@@ -1,0 +1,17 @@
+Looking at this histopathological statement, I need to extract the three required fields:
+
+1. **Sample type**: The statement mentions "standard prostate related procedures" and "12 tissue batches" which suggests a biopsy procedure (multiple tissue samples/cores are typical for prostate biopsies).
+
+2. **Malignancy**: The statement indicates that >95% appears benign and there's only a "small fraction" (<5%) that might contain suspicious material. The pathologist cannot definitively identify malignancy - they mention it "might contain" ISUP GG 1 or above but the focus is "too small to properly assign a grade group." This represents an inconclusive/atypical finding rather than a definitive malignancy.
+
+3. **Gleason grade**: No Gleason grade can be assigned as the suspicious focus is "too small to properly assign a grade group."
+
+Since the findings are inconclusive and no definitive malignancy is identified, this should be structured as:
+
+```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}
+```

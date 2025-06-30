@@ -1,0 +1,19 @@
+Analysoin annetun histopatologisen lausunnon ja pyrin tuottamaan rakenteista dataa JSON-formaatissa.
+
+Lausunto: "Yhteensä tusinam grammaa prostatasta lähtöisin oelvaa kudosmateriaalia ajettiin kahdeksassa erässä. Histologinen tarkastelu varmisti prostatakudoksen näytteissä indekseillä F ja G, mutta kasvutavat lopuissa näytteistä ei noudattanut normaaleja prostatasyövän erilaistumista, tosin juuri ja juuri väitetysti Gleason pisteytystä 3 olisi voinut ehkä havaita pienin määrin."
+
+1. Näytteen alkuperäinen tyyppi: Lausunnossa mainitaan "prostatasta lähtöisin olevaa kudosmateriaalia", mutta ei suoranaisesti kerrota, onko kyseessä "biopsy", "RP", "TURP" tai jokin muu. Kyseessä voisi olla "RP" (radikaaliprostatetomia), koska mainitaan "yhteensä tusinam grammaa prostatasta", mikä viittaa suurempaan määrään kudosnäytettä. Kuitenkin, koska se ei ole varmaa, tulkitsen tämän kentän arvoksi "NA" varovaisuuden vuoksi.
+
+2. Pahanlaatuiset löydökset: Lausunnossa mainitaan, että "kasvutavat lopuissa näytteistä ei noudattanut normaaleja prostatasyövän erilaistumista", mikä viittaa siihen, että näytteessä ei ollut selvästi pahanlaatuisia löydöksiä. Vaikka mainitaan "Gleason pisteytystä 3 olisi voinut ehkä havaita pienin määrin", se ei ole varmaa ja viittaa ennemmin hyvänlaatuiseen tai epävarmaan löydökseen. Tulkitsen tämän kentän arvoksi "ei".
+
+3. Gleason-luokka: Koska lausunnossa mainittu Gleason pisteytys on epävarma ("voinut ehkä havaita pienin määrin") ja ei ole selvää, että kyseessä olisi pahanlaatuinen löydös, tulkitsen tämän kentän arvoksi "NA".
+
+Rakenteellinen vastaus JSON-formaatissa:
+
+```
+{
+  "Sampletype": "NA",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

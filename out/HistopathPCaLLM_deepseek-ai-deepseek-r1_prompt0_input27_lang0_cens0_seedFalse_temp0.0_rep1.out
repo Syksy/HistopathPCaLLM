@@ -1,0 +1,21 @@
+<think>
+Okay, let's tackle this problem step by step. The user wants me to extract structured data from a histopathological report related to prostate cancer. The goal is to create a JSON with three specific fields: original sample type, presence of malignant tumor, and the reported Gleason grade.
+
+First, I need to determine the original sample type. The allowed values are "biopsy", "RP" (radical prostatectomy), "TURP" (transurethral resection of the prostate), or "NA". Looking at the provided statement: "Total 13g of shavings were run on eight cassettes." The term "shavings" often refers to TURP specimens, which are obtained by shaving off tissue from the prostate. So, the sample type here is likely "TURP".
+
+Next, check for malignant tumor findings. The report states, "Carcinoma was histologically detected in blocks F & G." Since carcinoma is a type of malignant tumor, the answer here should be "yes".
+
+For the Gleason grade, the text mentions "growth pattern was Gleason 3+3=6". The required format is "major+minor=sum", which in this case is 3+3=6. Even though the sum is 6, which is considered low-grade, the instruction specifies to report it as "major+minor=sum" in whole numbers. So, the value should be "3+3=6".
+
+I also need to ensure that only the most severe lesion is considered. Since there's only one lesion mentioned (Gleason 3+3=6), that's straightforward. No nested structures in the JSON, just flat key-value pairs.
+
+Double-checking everything: sample type is TURP, malignancy is yes, Gleason is 3+3=6. All values fit the allowed categories. No ambiguities here. The JSON should be valid, so making sure the keys are correctly named and the values are strings as specified.
+</think>
+
+```json
+{
+  "original_sample_type": "TURP",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "3+3=6"
+}
+```

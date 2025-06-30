@@ -1,0 +1,23 @@
+Tarkastellaan annettua lausuntoa ja rakenteistetaan se JSON-formaattiin.
+
+Lausunto:
+"Yhteensä tusinam grammaa prostatasta lähtöisin oelvaa kudosmateriaalia ajettiin kahdeksassa erässä. Histologinen tarkastelu varmisti prostatakudoksen näytteissä indekseillä F ja G, mutta kasvutavat lopuissa näytteistä ei noudattanut normaaleja prostatasyövän erilaistumista, tosin juuri ja juuri väitetysti Gleason pisteytystä 3 olisi voinut ehkä havaita pienin määrin."
+
+1. Mikä on näytteen alkuperäinen tyyppi (sallitut arvot "biopsy", "RP", "TURP" tai "NA").
+   - Lausunnossa ei mainita näytteen alkuperäistä tyyppiä selkeästi, joten tämä on "NA".
+
+2. Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot "kyllä", "ei" tai "NA").
+   - Lausunnossa ei mainita selkeästi pahanlaatuista löydöstä, joten tämä on "NA".
+
+3. Mikä oli raportoitu Gleason-luokka (sallitut arvot "major+minor=sum" muodossa kokonaislukuina pahanlaatuisille löydöksille ja "NA" hyvänlaatuisille löydöksille).
+   - Lausunnossa mainitaan Gleason pisteytys 3, mutta se ei ole selkeästi raportoitu "major+minor=sum" muodossa, joten tämä on "NA".
+
+Rakenteellinen vastaus JSON-formaatissa:
+
+```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

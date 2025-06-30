@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants me to extract structured data from a histopathology report. The three fields to focus on are original sample type, presence of malignant tumor, and Gleason grade.
+
+First, the sample type. The allowed values are biopsy, RP (radical prostatectomy), TURP (transurethral resection of the prostate), or NA. The report starts with "Prostate was obtained as a fresh sample specimen, with weight approx 40g." The term "obtained as a fresh sample" might indicate a surgical specimen. Since RP involves removing the entire prostate, and the weight here is 40g, which is typical for a prostate, this is likely an RP specimen. So the first answer should be "RP".
+
+Next, malignant tumor findings. The text mentions "invasive adenocarcinoma" which is a malignant tumor. It also notes penetration of the capsule and perineural invasion, both signs of malignancy. So the answer here is "yes".
+
+For the Gleason grade, the summary states "Score sum 7". The usual format is major + minor = sum. The main text says "mostly grade 4 differentiation... smaller portion as grade 4". Wait, that's both grade 4? But the sum is 7. Maybe there's a typo. If both are 4, sum would be 8. But the summary says 7. Perhaps the major is 4 and minor is 3, making 4+3=7. The main text might have a mistake. Since the summary is explicit, I should go with 4+3=7. So the Gleason grade is "4+3=7".
+
+Need to make sure there's no nested structures in the JSON. All values should be straightforward. Check for any other possible sample types, but RP fits best. Malignant is definitely yes. Gleason from the summary. So the final JSON should have those values.
+</think>
+
+```json
+{
+  "original_sample_type": "RP",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "4+3=7"
+}
+```

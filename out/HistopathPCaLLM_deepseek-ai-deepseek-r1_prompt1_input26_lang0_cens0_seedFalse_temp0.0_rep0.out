@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. First, I need to parse the user's query and the provided medical statement to extract the required information. The user wants structured data in JSON format with three fields: Sampletype, Malignancy, and Gleason.
+
+Starting with the first field, Sampletype. The allowed values are biopsy, RP (which stands for radical prostatectomy), TURP, or NA. The given statement mentions "prostatectomy preparate," which refers to a specimen from a prostatectomy. Since prostatectomy is typically RP, the Sampletype should be "RP."
+
+Next, Malignancy. The statement says there's a "widely spread tumor," which clearly indicates malignancy. So the value here is "yes."
+
+For the Gleason grade, the example provided uses the format "major+minor=sum." The text states that the dominant Gleason is class 3 and class 4 differentiation is almost as prevalent. So the major pattern is 4, minor is 3, summing to 7. Therefore, the Gleason should be "4+3=7."
+
+I need to ensure that only the most severe lesion is considered. The largest tumor focus is on the basis side with Gleason 4 and 3, which is the highest grade mentioned. There's no mention of a higher grade elsewhere. Also, check that the JSON is valid without nested structures. All values are correctly mapped, so the final JSON should be as specified.
+</think>
+
+```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "yes",
+  "Gleason": "4+3=7"
+}
+```

@@ -1,35 +1,7 @@
-Ymmärretty. Odotan lausuntotekstiä prosessoitavaksi. Kun annat tekstin, sovellan siihen ohjeiden mukaisia sääntöjä ja palautan tulokset JSON-muodossa.
-
-**Esimerkki siitä, miten toimisin (jos teksti annettaisiin):**
-
-Oletetaan, että annat seuraavan tekstin:
-
-```
-PAD 12345/2023
-
-Kliininen kysymys: St.p. Eturauhasen biopsiat 1/2023, jolloin todettu adenoCa G3+4=7. Nyt RP-preparaatti. PSA 11.2 ug/l.
-
-Makroskooppinen kuvaus: Saatu koko eturauhanen, paino 55g. Apex ja basis merkitty.
-
-Mikroskooppinen kuvaus: Eturauhasessa laajalti adenokarsinoomaa. Kasvain infiltroi molemmissa lohkoissa. Pahin Gleasonin luokka on 4+3=7. Kasvain tunkeutuu kapselin läpi fokaalisesti oikealla posteriorisesti. Ei siemenrakkula invaasiota. Leikkausmarginaalit ovat negatiiviset.
-
-Diagnoosi: Adenocarcinoma prostatae. Gleason 4+3=7. pT3a N0 M0.
-```
-
-**Prosessi:**
-
-1.  **`sample_type`**: Tekstissä mainitaan "RP-preparaatti". Tämä vastaa "RP" (Radical Prostatectomy).
-2.  **`malignancy`**: Diagnoosi on "Adenocarcinoma prostatae", mikä on pahanlaatuinen löydös. Vastaus on "kyllä".
-3.  **`gleason_score`**: Tekstissä mainitaan Gleasonin luokat 3+4=7 (aiemmasta biopsiasta) ja 4+3=7 (nykyisestä RP-preparaatista). Ohjeen mukaan pahin löydös raportoidaan. RP-preparaatin löydös on relevantti tälle näytteelle, ja siinä mainitaan "Pahin Gleasonin luokka on 4+3=7". Vastaus on "4+3=7".
-
-**Palautettava JSON:**
-
 ```json
 {
-  "sample_type": "RP",
-  "malignancy": "kyllä",
-  "gleason_score": "4+3=7"
+  "alkuperainen_tyyppi": "NA",
+  "pahanlaatuisia_loydoksia": "NA",
+  "gleason_luokka": "NA"
 }
 ```
-
-**Anna nyt lausuntoteksti, jonka haluat minun prosessoivan.**
