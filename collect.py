@@ -51,6 +51,11 @@ def getConcordanceContent(rep0: str, rep1: str, rep2: str) -> bool:
     # All comparisons were concordant; returning True
     return True
 
+
+# Return maximum character count different across triplicates
+def getMedianCharCount(rep0 : str, rep1 : str, rep2 : str) -> int:
+    return sorted([len(rep0), len(rep1), len(rep2)])[1]
+
 # Return maximum character count different across triplicates
 def getMaxCharDiff(rep0 : str, rep1 : str, rep2 : str) -> int:
     return max(abs(len(rep0)-len(rep1)), abs(len(rep0)-len(rep2)), abs(len(rep1)-len(rep2)))
@@ -161,7 +166,7 @@ print(runtimes[0,0,0,0,0,0,0])
 summary = pd.DataFrame({'censoption': [], 'model': [], 'promptIndex': [], 'inputIndex': [], 'lang': [],
                         'seedoption': [],
                         'concordanceExact': [], 'concordanceCaseinsensitive': [], 'concordanceContent': [],
-                        'maxCharDiff': [], 'maxRuntimeDiff': [],
+                        'medianCharCount': [], 'maxCharDiff': [], 'maxRuntimeDiff': [],
                         'medianRuntime': [], 'parseable1': [], 'parseable2': [], 'parseable3': [], 'parseable': [],
                         'answer1': [], 'answer2': [], 'answer3': [], #'consensusAnswer': [],
                         'correct1': [], 'correct2': [], 'correct3': [], 'allCorrect': []
@@ -266,6 +271,7 @@ for cens in [0, 1]:
                             getConcordanceExact(full1, full2, full3),
                             getConcordanceCaseinsensitive(full1, full2, full3),
                             getConcordanceContent(output1, output2, output3),
+                            getMedianCharCount(full1, full2, full3),
                             getMaxCharDiff(full1, full2, full3),
                             getMaxRuntimeDiff(runtime1, runtime2, runtime3),
                             getMedianRuntime(runtime1, runtime2, runtime3),
