@@ -14,23 +14,27 @@ debug = False
 # Allow progress report output
 progress = True
 
+# Names of explored models
 modelnames = [
     # Claudes
     "claude-3-5-haiku-20241022",
     "claude-3-5-sonnet-20240620",
     "claude-3-5-sonnet-20241022",
     "claude-3-7-sonnet-20250219",
+    "claude-sonnet-4-20250514",
+    "claude-opus-4-20250514",
     # Geminis
     "gemini-2.5-pro-preview-03-25",
+    "gemini-2.5-pro-preview-06-05",
+    "gemini-2.5-pro-preview-05-06",
     "gemini-2.0-flash-001",
     "gemini-2.0-flash-lite-001",
-    "gemini-1.5-pro-001",
-    "gemini-1.5-pro-002",
+    #"gemini-1.5-pro-001",
+    #"gemini-1.5-pro-002",
     # OpenAI / GPTs
     "gpt-4o-2024-05-13",
     "gpt-4o-2024-08-06",
     "gpt-4o-2024-11-20",
-    #"o1-2024-12-17",
     "gpt-4.1-nano-2025-04-14",
     "gpt-4.1-mini-2025-04-14",
     "gpt-4.1-2025-04-14",
@@ -41,8 +45,14 @@ modelnames = [
     "meta-llama-4-maverick-instruct",
     "meta-llama-4-scout-instruct",
     "deepseek-ai-deepseek-r1",
+    "deepseek-ai-deepseek-v3",
+    "google-deepmind-gemma-3-4b-it",
+    "google-deepmind-gemma-3-12b-it",
+    "google-deepmind-gemma-3-27b-it",
     # Mistral
-    "mistral-large-2411"
+    "mistral-large-2411",
+    "mistral-medium-2505",
+    "mistral-small-2503",
 ]
 
 # Full response returned by LLM
