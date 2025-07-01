@@ -146,7 +146,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+5=9$"]
+            ["RP", "yes|kyll|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -224,7 +224,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["RP", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -302,7 +302,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["RP", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -354,7 +354,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+5=9$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -380,7 +380,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["RP", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -406,7 +406,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^4\\+4=8$"]
+            ["TURP", "yes|kyll|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -432,7 +432,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -458,7 +458,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["RP", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -484,7 +484,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["TURP", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -510,7 +510,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -536,7 +536,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+4=8$"]
+            ["RP", "yes|kyll|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -562,7 +562,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^5\\+4=9$"]
+            ["TURP", "yes|kyll|ja", "^5\\+4=9$"]
         ],
         # Censored
         [
@@ -588,7 +588,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+4=7"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^3\\+4=7"]
         ],
         # Censored
         [
@@ -614,7 +614,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+5=9$"]
+            ["RP", "yes|kyll|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -640,7 +640,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^4\\+4=8$"]
+            ["TURP", "yes|kyll|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -666,7 +666,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -692,7 +692,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["RP", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -718,7 +718,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^3\\+3=6$"]
+            ["TURP", "yes|kyll|ja", "^3\\+3=6$"]
         ],
         # Censored
         [
@@ -744,7 +744,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["yes|kyllä|ja", "^4\\+4=8$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -770,7 +770,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["RP", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -796,7 +796,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["TURP", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -822,7 +822,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+5=9$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -848,7 +848,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+4=8$"]
+            ["RP", "yes|kyll|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -874,7 +874,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["RP", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -1030,7 +1030,7 @@ statements = [
             # Swedish (non-censored)
             "Undersöks prostatektomipreparat som väger 85g. Från preparatet tas 7 makrosnitt och den övriga vävnden igångsätts enlight normal rutin. I de mikroskopiska snitten hittas tumör i tre foci. På detta område ses även positiv marginal på ett cirka 1,5mm stort område. Hittas både Gleason 3 (vanligaste) och 4 differentiering i dessa foci, sammanlagna Gleason är sålunda 7. Ses ingen penetrativ växt genom kapseln ej heller infiltration av seminalvesiklar.",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["RP", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1108,7 +1108,7 @@ statements = [
             # Swedish (non-censored)
             "Prostatektomipreparatet undersöks ca 80g. Ses nästan enbart Gleason 4 differentiering, mestadels till en liten del fusionerade körtlar. Liten komponent av Gleason 3. Sammanfattningt: poängsumma blir 7 (4+3).",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["RP", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -1186,7 +1186,7 @@ statements = [
             # Swedish (non-censored)
             "Som prov är total prostatektomipreparat (vikt 70g), processerad enligt rutin. Makroklipp av mitten E, F ja G formeras en sammanflytande tumorvävnads fokus (storlek ca 3x2x1mm). I fokus mest av körtelstrukturer separerades, men en del bildar sammanflytande körtelkanaler (klasser 3+4). Seminalvesiklar i klipp O och P är rena. Gleason 4 vävnad invaderas perineuralt. Marginals är negativ, och kapseln är intakt. Ingen metastasis observeras i regionära lymfknutor.",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["RP", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1264,7 +1264,7 @@ statements = [
             # Swedish (non-censored)
             "Undersöks prostataresekat som väger 100g. Prov prepareras enligt normal rutin, så att apex ligger i kassetterna A-D och basis i kassetterna E-H. Seminalvesiklarna i kassetterna I & J. Histologiskt hittas adenokarcinoma i två första makrosnitten av basis. Tumören förekommer i den vänster loben dorsalt. Kapselinvasion och perineuralväxt observeras. Seminalvesiklarna och apex är rena. I första hittade tumorfocus vanligaste Gleason är 4 och nästvanligaste 3. Den andra focus har Gleason 5 (>80% representering) med liten del Gleason 4. SAMMANFATNING: I resekat hittade alltså en Gleason 9 tumör.",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^5\\+4=9$"]
+            ["RP", "yes|kyll|ja", "^5\\+4=9$"]
         ],
         # Censored
         [
@@ -1290,7 +1290,7 @@ statements = [
             # Swedish (non-censored)
             "Resten av hyvligns-spånen från prostata undersöks, ytterligare 90 spånor på 8 glas. Av dessa finns det carcinom i 5 spånor. Den vanligaste Gleason klassen är 3 och den nästvanligaste Gleason klassen 4.",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["TURP", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1316,7 +1316,7 @@ statements = [
             # Swedish (non-censored)
             "Högra nålbiopsier konstateras 8/12mm Gleason 3+4 på glas 1A och den andra biopsin normalt 12mm. På 1B finns bara 1/12mm och 3/10mm 3+3 differentiering. På vänstra sidan glasen 2A och 2B ses där man enbart hittar benign prostatavävnad. Epitelet är tvåradigt, ingen atypi ses. 3+4 arkitektur är cirka 60% Gleason 3. Gleason 4 växt är delvis kribriform.",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1342,7 +1342,7 @@ statements = [
             # Swedish (non-censored)
             "Som prov föreligger ett radikal prostatektomipreparat. Makrosektioner tas i apex-bas riktning för kasetter A-F. Saknat och förstört urotel på ytan ses på grund av neoadjuvanta behandlingar. Inflammatorisk reaktion av lymfocyter i bindväv och muskelskikt. Mikroskopiskt ses tumorvävnaden som några fokus av olika storlekar. Invaderar huvudakligen och bildar separata och variabelt formade körtelkanaler. Bildar körtelkanaler som går över i varandra på några ställen. Adenikarcinom finns i båda loberna omfattas ca 20% av helt ytan. Dominerande Gleason-klassen är 4, den näst vanligaste är klass 5 (klass 5 är ca 10% av ytan). Lymfkörtlar på båda sidor är rena. Det finns en positiv marginal på 2mm i apex.",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+5=9$"]
+            ["RP", "yes|kyll|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -1368,7 +1368,7 @@ statements = [
             # Swedish (non-censored)
             "Som prov föreligger spån från prostatahyvling, väger cirka 10,5g efer fixation. Material i gångsätts i sammanlagt tio kasetter, vilket är ungefär en tredjedel av helt materialet. Vid histologin ses till stora delar benign prostatahyperplasi, men det finns litet suspicion också. Man ses både fusionerande kribriforma körtlar och skillt stående körtlar. Det finns både Gleason 3 och 4 -differentiering. Klassen 4 är litet vanligare. I resten av spånen ses kronisk inflammation och urotelmetaplasi i körtel gångarna.",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["TURP", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -1394,7 +1394,7 @@ statements = [
             # Swedish (non-censored)
             "Sammanlagt 10 biopsier och små vävnadsfragment. I fem av biopsierna hittas cancer, mest i vänster lob. Man ser förutom perineural invasion också växt av carcinomvävnad i fettvävnad. Cancern har sålunda spritt sig untanför kapseln. I prov 5 är det lilla fokuset med Gleason 4 differentiering och resterande delen är Gleason 3 (poängsum 7). Resten av fokus hittas i prov 3 or 4 med endast Gleason-klass 4, resultat är sum 8.",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -1420,7 +1420,7 @@ statements = [
             # Swedish (non-censored)
             "Radikal prostatektomi undersöks (orig prostata väger 78g): i A-C avsnitt från apex från höger till vänster, D-J makroklipp från apex till basis, K-M från basis från höger till vänster, N-O baser av seminalvehikeln. Mikroskopiskt ses tumorvävnaden i båda sidor, som invaderar bildar sammanflytande körtelkanaler. Tumorvävnaden sticker ut genom vänstra centrala delen av kapseln. I basisklipp ses ca 5 mm av positiv marginal. Adenocarsinom andels ca 25% av snitten yta. Dominerande differentiering klass 4, mindre del av klass 3.",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["RP", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -1446,7 +1446,7 @@ statements = [
             # Swedish (non-censored)
             "Hela hyvlingsmaterial väger 5,7 gram och av detta material har tagits ca 4 gram som prov i 8 kasetter. I mikroskopin ses att största delen är dåligt differentierad prostatakancer Gleason 5, med en liten komponent av Gleason 4. Ses också atrofiska körtlar och fläckvis lindrig inflammation.",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^5\\+4=7$"]
+            ["TURP", "yes|kyll|ja", "^5\\+4=7$"]
         ],
         # Censored
         [
@@ -1472,7 +1472,7 @@ statements = [
             # Swedish (non-censored)
             "Som prov 1 - 6 ses representiva systembiopsier från höger och vänster lob. Längden 1-6: 6 + 6 + 10 + 11 + 7 + 5mm av material. I alla tre biopsier 1-3 från vänster sidan hittas karcinon, där den vanligaste Gleason-klassen är 3. 4-6 hittas endast benign prostatavävnad. SAMMANFATTNING: Poängsum 3+3=6 på vänster sida, kancern andel av snittens yta 20%.",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+3=6$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^3\\+3=6$"]
         ],
         # Censored
         [
@@ -1498,7 +1498,7 @@ statements = [
             # Swedish (non-censored)
             "Prostatektomipreparat startas enlight normal protokol. Histologiskt ses mest benign hyperplastisk prostatavävnad. Kronisk inflammation observeras en helt del i stroma. Tumorvävnad hittas i höger apex, mestadels ca 3x5 mm fokus. Körtelstrukturer separeras huvudsakligen (Gleason klass 3, >70%), men en liten del formeras sammanflytande körtlar (klass 4, ca 5-10% yta). Andelen av tertiär Gleason klass 5 är praktiskt oansenlig (<1%).",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["RP", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1524,7 +1524,7 @@ statements = [
             # Swedish (non-censored)
             "20 gram av prostataspån undersöks, material har igångsatts i tre kassetter. Kvar i burken blir cirka 7g. Histologiskt ses i snittena A till C prostatacancer där det finns tumorvävnad i cirka 40% av materialet. Vanligaste differentiering är Gleason 3 (>50%). Näst vanligaste komponent klass 4 andel är cirka 20% och ses som fusionerade körtlar. Observeras också fläckvis kronisk inflammation och något atrofiska acinusstrukturer.",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["TURP", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1550,7 +1550,7 @@ statements = [
             # Swedish (non-censored)
             "Prov nr. 1 och 2 föreligger repsentativa biopsier från höger och vänster lob. Totala längds är cirka 60 + 60 mm. Från vänster lob ses ett litet fokus med cancer, enbart Gleason 3 differentiering. I andra biopsier kommer ingen tumörvävnad fram. Carcinom finns totalt på 10 mm längd. Ses kribiforma strukturer och kronisk inflammation.",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+3=6$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^3\\+3=6$"]
         ],
         # Censored
         [
@@ -1576,7 +1576,7 @@ statements = [
             # Swedish (non-censored)
             "Prostatektomiopererad preparatet är 6/7/4 cm i storlek och väger 75g. Det prepareras i 8 makrokasetter A-H (researchprov i A & B, apex C-E och basis F-H) och 4 vanliga kasetter I-L. Histologiskt observeras i båda lob anterioriskt växt karcinom. Dessa förändringar repsenterar ett prostatakarcinom till största delen bestående av Gleason typ 4, men ca 10% av vävnaden är av Gleason typ 5. Tumorvävnaden har också drag av duktal karcinom. Ingen neuralinvasion eller positiv marginal hittas. Seminalvehikeln är rena och kapsulen är intakt. Inga metastaser hittas i lymfknutarna.",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+5=9$"]
+            ["RP", "yes|kyll|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -1602,7 +1602,7 @@ statements = [
             # Swedish (non-censored)
             "Materialet är formalinfixerade spånar, helt vikt ca 15g. Av dessa igångsätts material i sex kassetter, so att över hälften av spånorna undersökts. Vid histologin ses tumorvävnad nästan i hälften av spånorna och sålunda ugör umören cirka 35% av vävnadens yta. Tumören är tämligen dåligt differentierad. Det också kommer fram litet kribriforma körtlar. Ses närmast Gleason 4 differentiering, mindre andel av Gleason 5. Påängsumman blir sålades 9.",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^4\\+5=9$"]
+            ["TURP", "yes|kyll|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -1628,7 +1628,7 @@ statements = [
             # Swedish (non-censored)
             "Prov 1 till 6 föreligger representativa biopsier från höger och vänster lob. Från höger basis ses ett litet fokus ca 0.7mm stort med prostatadenocarcinom. Från vänster mittdel finns et annat fokus med cancer, detta fokus är ca 1mm stort. I dom andra biopsierna finns fläckvis mängd kronisk inflammation men inget karcinom. Cancerfynd i höger och vänster prov med Gleasonpoängsumma 6 (3+3).",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+3=6$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^3\\+3=6$"]
         ],
         # Censored
         [
@@ -1654,7 +1654,7 @@ statements = [
             # Swedish (non-censored)
             "PROSTATEKTOMIREPORT \n\n Vikt: 80gr \n Antal tumorfoci: 3 \n Tumörens andel: 10% \n Den vanligaste Gleason klassen: 4 \n Den nästvanligaste Gleason klassen: 4 \n Gleason summa: 8 \n Positiv marginal: 1mm \n Penetration genom kapsel: Nej \n Invasion till seminalvesikel: Nej \n Lymfknutar, höger: 0/3 \n Lymfknutar, vänster: 0/2 \n\n MER INFO \n\n Från preparatet har tagit 6 makrosnitt enligt normal rutin. Mikroskopiskt snitten hittas tumör i tre foci. Mest av tumorvävnaden i närheten av posteriora apex. Nära foci hittas positiv marginal på ett ca 1mm stort omrode. Vävnadsbit är 4x2x1,5mm i storlek. I lymfknutar 0/3+0/2 ses ingen metastasering. Kapseln ses ut normalt, samma för seminalvesiklar.",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+4=8$"]
+            ["RP", "yes|kyll|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -1680,7 +1680,7 @@ statements = [
             # Swedish (non-censored)
             "YTTERLIGARE KONSULTATION: Olle Svensson och Anna Andersson har konsulterats på grund av några osäkra fynd vid ett gemensamt möte. Cellerna hade visat mycket atrofisk och kanske atypiskt pattern, men det finns också en hel del brännartefakter på det histologiska glaset. Basal cellstrukturer kan också ses. OS & AA bekräftar att vävnadsspånor tagna nära urotelcellerna visar just differentieringsgrad 4 (dominerande) och grad 3, med även tertiär grad 5. Så, uppdateras patientens tidigare relativt osäkra diagnosis (3+3) till medelhög adenokarcinom (nu Grade Group 3, tidigare GG 1). Kontakt tas med patienten.",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["TURP", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -1706,7 +1706,7 @@ statements = [
             # Swedish (non-censored)
             "Patient har haft en rutin mässigsystematisk biopsi, där man endast hittade ett minimalt fokus med 3+3=6 Gleason. Inlendingsvis ledde det till aktiv uppföljning. Patienten har dock utvecklat symptom och PSA har börjat stiga (senaste värdet redan >100), varför ett par riktade biopsier har utförts efter imaging. I den första biopsin var det ett tekniskt misslyckande med snitten, men i den andra hittades ett stort fokus på nästan 10mm med huvudsakligen tillväxtmönster 4. Patienten har redan påbörjat strålbehandling, därför morfologiska cellförändringar försvårar tolkningen. Det verkar starkt som att det näst vanligaste tillväxtmönster är 5. Fynden bekräftar misstanken att den tidigare Gleason sum 6 inte fångade de mest aggressiva fokus. Behandlingsplanen har redan uppdaterats baserat på de nya fynden.",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+5=9$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -1732,7 +1732,7 @@ statements = [
             # Swedish (non-censored)
             "UPPDATERING: Ursprungligen undersöktes en radikal prostatektomi, där fem lymfkörtlar undersöktes i prov 1 och åtta i prov 2. Medianlängden var 3 cm och den längsta 5 cm. Dessutom finns det seminalvehiklar i prov 3 och 4. I den ursprungliga multifokala adenokarcinomen i prostatan fanns tillväxt av Gleason 4+4 särskilt i basis område, samt 3+3, 3+4, och, 4+3. De lymfkörtlar som nu har undersökts vidare är rena i prov 1 (0/5) och likaså i prov 2 (0/8), där endast normalt cellmaterial observeras. De undersökta seminalvehiklar (prover 3 och 4) är också rena, så fynden är benigna. Det konstateras således att kancern inte verkar ha lokalt metastaserat (status N0). Fynden från makrosnitten av den ursprungliga primärprostatavävnaden kvarstår. De lymfkörtlar och seminalvehiklar som nu undersökts är alltså rena.",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+4=8$"]
+            ["RP", "yes|kyll|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -1758,7 +1758,7 @@ statements = [
             # Swedish (non-censored)
             "Samtliga insända vävnadsbitar utgörs av prostatakörtelvävnad i form av chippings, med en sammanlagd vikt på 12 gram. Vävnaden är gråvit med områden av fastare konsistens.Vävnadsbitarna uppvisar histologiska tecken på adenocarcinom med blandad arkitektur. Enligt Gleason-systemet graderas tumören som 3+4=7. Höggradiga tumörkörtlar (Gleason 4) utgör mindre än 50 % av den totala tumörytan. Ingen perineural invasion observeras. Benign hyperplasi och områden med kronisk inflammation (prostatit) ses i omgivande körtelvävnad. Fynden är förenliga med prostatacancer av medelhög risk. Vidare klinisk korrelation och eventuell kompletterande utredning rekommenderas.",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["TURP", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -1914,7 +1914,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^3\\+3=6$"]
+            ["RP", "yes|kyll|ja", "^3\\+3=6$"]
         ],
         # Censored
         [
@@ -1992,7 +1992,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["RP", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -2070,7 +2070,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["RP", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -2122,7 +2122,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -2148,7 +2148,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+4=8$"]
+            ["RP", "yes|kyll|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -2174,7 +2174,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["TURP", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -2200,7 +2200,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+3=6$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^3\\+3=6$"]
         ],
         # Censored
         [
@@ -2226,7 +2226,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+5=9$"]
+            ["RP", "yes|kyll|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -2252,7 +2252,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^4\\+3=6$"]
+            ["TURP", "yes|kyll|ja", "^4\\+3=6$"]
         ],
         # Censored
         [
@@ -2278,7 +2278,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^3\\+4=7$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^3\\+4=7$"]
         ],
         # Censored
         [
@@ -2304,7 +2304,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^3\\+5=8$"]
+            ["RP", "yes|kyll|ja", "^3\\+5=8$"]
         ],
         # Censored
         [
@@ -2330,7 +2330,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^5\\+5=10$"]
+            ["TURP", "yes|kyll|ja", "^5\\+5=10$"]
         ],
         # Censored
         [
@@ -2356,7 +2356,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+4=8$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -2382,7 +2382,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^5\\+3=8$"]
+            ["RP", "yes|kyll|ja", "^5\\+3=8$"]
         ],
         # Censored
         [
@@ -2408,7 +2408,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^4\\+5=9$"]
+            ["TURP", "yes|kyll|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -2434,7 +2434,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^4\\+5=9$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -2460,7 +2460,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["RP", "yes|kyll|ja", "^4\\+3=7$"]
         ],
         # Censored
         [
@@ -2486,7 +2486,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^3\\+5=8$"]
+            ["TURP", "yes|kyll|ja", "^3\\+5=8$"]
         ],
         # Censored
         [
@@ -2512,7 +2512,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["biopsy|biopsi", "yes|kyllä|ja", "^5\\+5=10$"]
+            ["biopsy|biopsi", "yes|kyll|ja", "^5\\+5=10$"]
         ],
         # Censored
         [
@@ -2538,7 +2538,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^5\\+5=10$"]
+            ["RP", "yes|kyll|ja", "^5\\+5=10$"]
         ],
         # Censored
         [
@@ -2590,7 +2590,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["biopsy", "yes|kyllä|ja", "^4\\+5=9$"]
+            ["biopsy", "yes|kyll|ja", "^4\\+5=9$"]
         ],
         # Censored
         [
@@ -2616,7 +2616,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["RP", "yes|kyllä|ja", "^4\\+4=8$"]
+            ["RP", "yes|kyll|ja", "^4\\+4=8$"]
         ],
         # Censored
         [
@@ -2642,7 +2642,7 @@ statements = [
             # Swedish (non-censored)
             "",
             # Correct answers (non-censored)
-            ["TURP", "yes|kyllä|ja", "^4\\+3=7$"]
+            ["TURP", "yes|kyll|ja", "^4\\+3=7$"]
         ],
             # Censored
         [
