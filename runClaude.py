@@ -81,8 +81,11 @@ while True:
                                                 ]
                                             )
                                             endTime = time.time()
-                                            print(message.content[0].text)
-                                            response = "".join(message.content[0].text)
+                                            # Claude sometimes refused to answer, citing Usage Policy
+                                            if len(message.content) == 0 and message.stop_reason == "refusal":
+                                                response = "Refusal to answer"
+                                            else:
+                                                response = "".join(message.content[0].text)
                                             # Write output to a suitable file, output
                                             f = open(filename + ".out", 'w', encoding="utf-8")
                                             f.write(response)

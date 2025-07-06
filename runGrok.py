@@ -71,7 +71,7 @@ while True:
                                                     ],
                                                     model=modelname,
                                                     temperature=temperature,
-                                                    # Test fixed seed runs on Grok
+                                                    # Test fixed seed runs
                                                     seed=1
                                                 )
                                             else:

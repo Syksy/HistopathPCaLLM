@@ -1,0 +1,170 @@
+---
+title: "HistopathPCaLLM summary"
+author: "T. D. Laajala"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Libraryes
+```{r libs}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+```
+
+# Data
+
+```{r summaryread}
+summary <- read.table("summary.tsv", header=TRUE, row.names=1, sep="\t")
+```
+
+```{r summaries}
+dim(summary)
+head(summary)
+tail(summary)
+table(summary$model)
+```
+
+## Convenience functions
+
+```{r}
+modeltabs <- function(x, correctField = "allCorrect", censoringField = "censoption", modelField = "model", fields=c("TP", "FN", "TN", "FP", "Sens", "Spec", "F_score"), decimals=3){
+	w <- which(x[,censoringField] == 0)
+	tmp_cens0 <- do.call("rbind", by(x[w,], INDICES=x[w,modelField], FUN=\(z){
+	c(
+		TP = sum(z[,correctField] == "True"),
+		FN = sum(z[,correctField] == "False"),
+		medianCens0MedianRuntime = median(z[,"medianRuntime"]),
+		#medianCens0MaxRuntime = median(z[,"maxRuntime"]),
+		medianCens0MedianCharCount = median(z[,"medianCharCount"])
+	)
+	}))
+	w <- which(x[,censoringField] == 1)
+	tmp_cens1 <- do.call("rbind", by(x[w,], INDICES=x[w,modelField], FUN=\(z){
+	c(
+		TN = sum(z[,correctField] == "True"),
+		FP = sum(z[,correctField] == "False"),
+		medianCens1MedianRuntime = median(z[,"medianRuntime"]),
+		#medianCens1MaxRuntime = median(z[,"maxRuntime"]),
+		medianCens1MedianCharCount = median(z[,"medianCharCount"])
+	)
+	}))
+	tmp <- as.data.frame(cbind(tmp_cens0, tmp_cens1))
+	tmpnew <- do.call("rbind", by(x, INDICES=x[,modelField], FUN=\(z){
+	c(
+		medianRuntimeAll = median(z[,"medianRuntime"]),
+		medianCharCountAll = median(z[,"medianCharCount"])
+	)
+	}))
+	tmp <- as.data.frame(cbind(tmp, tmpnew))
+	#print(tmp)
+	tmp[,"Sens"] <- apply(tmp, MARGIN=1, FUN=\(z){
+		round((z["TP"])/(z["TP"] + z["FN"]), decimals)
+	})
+	tmp[,"Spec"] <- apply(tmp, MARGIN=1, FUN=\(z){
+		round((z["TN"])/(z["TN"] + z["FP"]), decimals)
+	})
+	tmp[,"F_score"] <- apply(tmp, MARGIN=1, FUN=\(z){
+		round((2*z["TP"])/((2*z["TP"]) + z["FP"] + z["FN"]), decimals)
+	})
+	tmp[,"Accuracy"] <- apply(tmp, MARGIN=1, FUN=\(z){
+		round((z["TP"] + z["TN"])/(z["FP"] + z["FN"] + z["TP"] + z["TN"]), decimals)
+	})
+	tmp[,fields]
+}
+```
+
+# English
+
+## Few-shot prompt
+
+### Question 1 (Sample type)
+
+```{r}
+#df <- modeltabs(summary %>% filter(lang == 0 & promptIndex == 2 & seedoption == "False"), correctField = "correct1")
+#kable(df, "html") %>% kable_styling(full_width = F)
+```
+
+### Question 2 (Malignancy)
+
+```{r}
+#df <- modeltabs(summary %>% filter(lang == 0 & promptIndex == 2 & seedoption == "False"), correctField = "correct2")
+#kable(df, "html") %>% kable_styling(full_width = F)
+```
+
+### Question 3 (Gleason)
+
+```{r}
+#df <- modeltabs(summary %>% filter(lang == 0 & promptIndex == 2 & seedoption == "False"), correctField = "correct3")
+#kable(df, "html") %>% kable_styling(full_width = F)
+```
+
+### Across all answers
+
+```{r}
+df <- modeltabs(summary %>% filter(lang == 0 & promptIndex == 2 & seedoption == "False"))
+knitr::kable(df) %>% column_spec(1, width = "6cm") %>% column_spec(2:ncol(df), width = "70px") %>% column_spec(ncol(df)+1, width = "100px") %>% row_spec(0, bold = TRUE, extra_css = "border-bottom: 3px solid black;") %>% row_spec(1:nrow(df), extra_css = "border-bottom: 1px solid lightgrey;")
+```
+
+# Finnish
+
+### Question 1 (Sample type)
+
+```{r}
+#df <- modeltabs(summary %>% filter(lang == 1 & promptIndex == 2 & seedoption == "False"), correctField = "correct1")
+#kable(df, "html") %>% kable_styling(full_width = F)
+```
+
+### Question 2 (Malignancy)
+
+```{r}
+#df <- modeltabs(summary %>% filter(lang == 1 & promptIndex == 2 & seedoption == "False"), correctField = "correct2")
+#kable(df, "html") %>% kable_styling(full_width = F)
+```
+
+### Question 3 (Gleason)
+
+```{r}
+#df <- modeltabs(summary %>% filter(lang == 1 & promptIndex == 2 & seedoption == "False"), correctField = "correct3")
+#kable(df, "html") %>% kable_styling(full_width = F)
+```
+
+### Across all answers
+
+```{r}
+df <- modeltabs(summary %>% filter(lang == 1 & promptIndex == 2 & seedoption == "False"))
+knitr::kable(df) %>% column_spec(1, width = "6cm") %>% column_spec(2:ncol(df), width = "70px") %>% column_spec(ncol(df)+1, width = "100px") %>% row_spec(0, bold = TRUE, extra_css = "border-bottom: 3px solid black;") %>% row_spec(1:nrow(df), extra_css = "border-bottom: 1px solid lightgrey;")
+```
+
+### F-score vs. runtime
+
+```{r, fig.width = 5, fig.height = 4}
+#df <- modeltabs(summary %>% filter(lang == 1 & promptIndex == 2 & seedoption == "False"), fields=c("TP", "FN", "TN", "FP", "Sens", "Spec", "F_score", "medianRuntimeAll", "medianCharCountAll"))
+# Combine both English + Finnish
+df <- modeltabs(summary %>% filter(lang == 1 & promptIndex == 2 & seedoption == "False"), fields=c("TP", "FN", "TN", "FP", "Sens", "Spec", "F_score", "medianRuntimeAll", "medianCharCountAll"))
+
+df[,"Type"] <- ifelse(grepl("claude|gpt|mistral-large|mistral-medium|gemini|grok", rownames(df), ignore.case = TRUE), "Proprietary", "Open")
+df[,"TypePch"] <- ifelse(grepl("claude|gpt|mistral-large|mistral-medium|gemini|grok", rownames(df), ignore.case = TRUE), 16, 15)
+
+print(df)
+
+par(mar=c(4,4,1,1))
+
+plot(as.numeric(df[,"F_score"]), as.numeric(df[,"medianRuntimeAll"]), xlab="F-score (log-scale)", ylab="Median runtime (seconds, log-scale)", pch=df[,"TypePch"], log="xy")
+legend("topleft", pch=c(16,15), legend=c("Proprietary", "Open"))
+```
+
+
+# Combined
+
+
+
+# Session info
+
+```{r session}
+sessionInfo()
+```

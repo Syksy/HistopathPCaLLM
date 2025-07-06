@@ -18,9 +18,7 @@ while True:
     try:
         for modelname in [
             "mistral-large-2411",
-            #"magistral-medium-2506",
             "mistral-medium-2505",
-            #"magistral-small-2506",
             "mistral-small-2503"
         ]:
             # Prompts to iterate across
@@ -71,7 +69,7 @@ while True:
                                                     ],
                                                     model=modelname,
                                                     temperature=temperature,
-                                                    # Test fixed seed runs on Grok
+                                                    # Test fixed seed runs
                                                     seed=1
                                                 )
                                             else:
@@ -102,7 +100,7 @@ while True:
                                             f.close()
                                             # Handle console output and sleep before next API call
                                             print("\n\n")
-                                            time.sleep(11) # Sleep a second
+                                            time.sleep(5) # Sleep a bit
         break
     except Exception as e:
         print("Error: " + str(e))

@@ -32,8 +32,6 @@ while True:
                 "gemini-2.0-flash-lite-001",
                 #"gemini-1.5-pro-001",
                 #"gemini-1.5-pro-002"
-                #"google/medgemma-4b-it",
-                #"google/medgemma-27b-text-it"
         ]:
             # Prompts to iterate across
             for promptIndex in data.getArrayPromptIndex():
@@ -129,5 +127,5 @@ while True:
                                             time.sleep(2)
         break
     except Exception as e:
-        print("Error: " + e)
+        print("Error: " + str(e))
         time.sleep(120)
