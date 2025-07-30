@@ -790,7 +790,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "APPENDIX, ADDITIONAL CONSULTATION: John Doe and Jane Doe were consulted at a joint meeting, due to some uncertainties regarding the findings. Cells had shown a lot of atrophy and possibly some atypical patterns, but the notable amount of burn artefacts on the histological slides made interpretation difficult. Basal cell structures were also observed. JD & JD both confirmed that the samples taken from chippings near the urothelial cells do show a diffentiation of grade 4 (most common pattern) and secondary pattern grade 3, with tertiary pattern grade 5. The relatively uncertain diagnosis (3+3) from the patient from before should be updated to moderate-high grade adenocarcinoma (Grade Group 3 after revision, prior GG 1). The patient should be contacted to discuss further options.",
             # Finnish (non-censored)
             "LISÄKONSULTAATIO: Matti Meikäläistä ja Maija Meikäläistä konsultoitu epävarmojen löydösten vuoksi yhteistapaamisessa. Soluissa paljon atrofiaa ja ehkä atypiaa, jonkin verran lasilla polttoartefaktaa, mutta nähdään myös basaalia. MM & MM varmistavat että ureteelisolujen läheltä saaduista lastuista löytyy todelle erilaistumisluokkaa 4 (vallitseva) ja luokkaa 3, tertiäärinen 5. Siten potilaan aiempi suhteellisen epävarma diagnoosi (3+3) päivitetään keskitasoiseksi adenokarsonoomaksi (nyt siis Grade Group 3, aiempi GG 1) ja otetaan yhteyttä potilaaseen.",
             # Swedish (non-censored)
@@ -801,9 +801,9 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "APPENDIX, ADDITIONAL CONSULTATION: John Doe and Jane Doe were consulted at a joint meeting, due to some uncertainties regarding the findings. Originally, atypical findings were suspected in the cells, but JD & JD could not confirm or deny the suspicions. The earlier uncertain diagnosis of the patient could therefore not be determined, defining their status requires further examination. The patient must be contacted.",
             # Finnish (censored)
-            "",
+            "LISÄKONSULTAATIO: Matti Meikäläistä ja Maija Meikäläistä konsultoitu epävarmojen löydösten vuoksi yhteistapaamisessa. Soluissa oltiin alun perin epäilty poikkeavia löydöksiä, mutta MM & MM eivät pystyneet varmistamaan tai hylkäämään epäilyjä. Kudosnäytteen tulkinta haastavaa iästä johtuvien muutosten takia. Potilaan aiempaa epävarmaa diagnoosia ei siis pystytty määrittämään, statuksen selvittäminen vaatii jatkotutkimuksia. Potilaaseen oltava yhteydessä.",
             # Swedish (censored)
             "",
             # Correct answers (censored)
@@ -816,7 +816,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The patient had undergone routine systematic biopsy, where only a minimal focus with Gleason 3+3=6 was found. This led to active surveillance. However, the patient has since developed active symptons, and PSA levels have elevated rapidly (latest value already >100). This led to two targeted biopsies done using imaging for guidance. In the first targeted biopsy there was a technical failure resulting in loss of the material, but the second targeted biopsy hit a large focus of almost 10mm with primary differentiation pattern 4. The patient had already started radiotherapy, which made interpretation of the cell morphological changes difficult. However, it would strongly appear that the second most common differentiation pattern is 5. The novel findings confirm that the previous Gleason sum 6 did not capture the most aggressive tumor characteristics. The patient treatment plan has already been updated based on the new findings.",
             # Finnish (non-censored)
             "Potilas on käynyt rutiineissa systeemibiopsiossa, joissa kuitenkin vain aivan minimaalinen fokus 3+3=6 Gleason löydöstä ja johtanut aluksi aktiiviseurantaan. Potilas kuitenkin oireillut ja PSA lähtenyt nousuun (viimeisin arvo jo >100), joten kuvantamisen jälkeen on tehty pari targetoitua biopsiaa. Toisessa biopsiapalassa tekninen epäonnistuminen leikkeissä, mutta toisesta löytyykin melkein 10mm matkalta laaja fokus, jossa pääosin kasvutapaa 4. Potilas ehtinyt aloittaa jo sädehoidon, ja morfologiset solumuutokset vaikeuttavat tulkintaa. Vaikuttaa vahvasti kuitenkin että toiseksi yleisin kasvutapa 5. Löydös vahvistaa epäilyn että aiempi Gleason summa 6 ei sattunut osumaan pahimman laatuisiin fokuksiin, ja hoitosuunnitelmaa on jo päivitetty uuden löydöksen perusteella.",
             # Swedish (non-censored)
@@ -827,9 +827,9 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Patient undergone routine check due to suspicious symptoms. Symptoms had increased, so after imaging necessary samples were taken. A clear technical failure in the first sample. Other samples contain suspicious findings, but they encompass only 5 % ot the original samples. Patient has other treatments regarding unrelated diagnosis, it is unclear if these could have had effect on the suspicious findings. Interpretation of tissue proved difficult, additional samples and treatment planning needed.",
             # Finnish (censored)
-            "",
+            "Potilas käynyt rutiinitarkastuksissa epäilyttävien oireiden takia. Oireet ovat lisääntyneet, joten kuvantamisen jälkeen otettiin tarvittavat näytteet. Veriarvoissa epäilyttäviä löydöksiä. Ensimmäisessä näytteessä selvä tekninen epäonnistuminen. Muissa näytteissä havaitaan epäilyttäviä löydöksiä, jotka kattavat näytteestä kuitenkin vain 5 %. Potilaalla on muihin sairauksiin liittyviä hoitoja meneillään, epäselvää ovatko ne johtaneet kummallisuuksiin kudoksessa. Kudoksen tulkinta vaikeaa, vaatii lisänäytteenottoa ja hoitosuunnitelman tarkastelua.",
             # Swedish (censored)
             "",
             # Correct answers (censored)
@@ -842,7 +842,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "UPDATE: The patient originally underwent a radical prostatectomy, during which five lymph nodes were examined in sample 1 and eight lymph nodes in sample 2. The median length was 3 cm and the longest 5 cm. Additionally, seminal vesicles were processed in samples 3 and 4. In the original multifocal adenocarcinoma of the prostate, Gleason 4+4 pattern was observed particularly in the base of the prostate, along with 3+3, 3+4, and 4+3 patterns. The lymph nodes examined were clear in sample 1 (0/5) as well as in sample 2 (0/8), with only normal benign cell material observed. The examined seminal vesicles (samples 3 and 4) are also clear of cancer, so the findings are benign. Therefore, it is concluded that the cancer has not metastasized locally (status N0). The findings from the macroscopic sections of the original primary prostate tissue remain. In summary, the lymph nodes and seminal vesicles examined were clear.",
             # Finnish (non-censored)
             "PÄIVITYS: Alun perin ollut radikaali prostatektomia tutkittavana, josta sittemmin otettu erilleen näytteeseen 1 viisi ja näytteeseen 2 kahdeksan imusolmuketta. Näiden imusolmukkeiden mediaanipituus oli 3cm ja pisin 5cm. Lisäksi näytteissä 3 ja 4 on tutkittava seminaalivehikkelit. Alkuperäisestä multifokaalista adenokarsinoomasta itse prostatassa oli erityisesti basiksestä löytynyt gleason 4+4 tason kasvua, myös 3+3, 3+4 ja 4+3. Nyt lisätutkimuksena saadut imusolmukkeet ovat näytteessä 1 puhtaat (0/5) ja samoin näytteessä 2 (0/8), havaitaan vaan normaalia solukkoa. Tutkittavat seminaalivehikkelit (näytteet 3 ja 4) ovat myös puhtaat, joten löydökset benignejä. Todetaan siis että tauti ei vaikuta levinneen lokaalisti (status N0). Alkuperäisen prostatan primäärinäytteen makroleikkeiden löydökset jäävät siis voimaan. Nyt tutkitut imusolmukkeet ja seminaalivehikkelit siis puhtaita.",
             # Swedish (non-censored)
@@ -853,9 +853,9 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "UPDATE: The patient's samples are in different batches. The median length was 3cm and longest was 5cm. The samples are from different locations. The examination results are different from one sample to other. The findings from the macroscopic sections of the original primary prostate tissue remain.  In summary, the lymph nodes and seminal vesicles examined were clear.",
             # Finnish (censored)
-            "",
+            "PÄIVITYS: Potilaan näytteet eri erissä. Mediaanpituus oli 3cm ja pisin 5cm. Näytteet otettu eri lokaatioista. Tutkimustulokset eroavat näytteestä toiseen. Löydökset makroskooppisista sektioista alkuperäisestä prostatakudoksesta jäävät voimaan. Yhteenvetona, imusolmukkeet ja seminaalivesikkelit puhtaat.",
             # Swedish (censored)
             "",
             # Correct answers (censored)
@@ -868,7 +868,7 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Radical prostatectomy preparate started normally according to protocol. On the edges of the capsule, growth pattern varies by Gleason types 3+4/4+3. Tumor has penetrated the capsule (estimate T3b). View specific information from the additional details of the report. One finding (1/4, N1) in lymph nodes in processed macro sections. No malignant findings in seminal vehicles.",
             # Finnish (non-censored)
             "Radikaalipostatetoktomian preparaatti on käynnistetty normaalisti protokollan mukaisesti. Kapselin reuna-alueella kasvutapa vaihtelee Gleason tyypeittäin 3+4/4+3, ja tuumori on läpäissyt kapselia (arvio T3b). Katso tarkemmat raportin lisätiedot yksityiskohdista. Makroleikkeissä ajetuissa imusolmukkeissa yksi löydös (1/4, N1) mutta seminaalivehikkeleissä ei maligneja löydöksiä.",
             # Swedish (non-censored)
@@ -879,9 +879,9 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Collected samples are processed normally according to protocol. Pathological findings vary, possibly due to different sampling locations. View specific information from additional details of the reports. Possibly abnormal findings in lymph nodes in processed samples. No malignant findings in seminal vehicles. ",
             # Finnish (censored)
-            "",
+            "Kerätyt näytteet prosessoitu normaaliprotokollan mukaisesti. Patologiset löydökset vaihtelevat ja sijaitsevat eri lokaatioissa. Katso tarkemmat raportin lisätiedot yksityiskohdista. Epänormaalit löydökset imusolmukkeista prosessoiduissa makroleikkeissä. Ei maligneja löydöksiä seminaalivesikkeleissä.",
             # Swedish (censored)
             "",
             # Correct answers (censored)
@@ -894,9 +894,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The presented sample is a resection weighing 7.5gr, which has been prepared into six tissue casettes weighing total 7gr. Histologically glands can be seen very close to each other, partial cribriform structures noted. Findings do not indicate prostatic adenocarcinoma. Hyperplastic prostate tissue with chronic inflammation seen, but no malignities.",
             # Finnish (non-censored)
-            "",
+            "7.5gr resekaattia josta valmistettu 7gr kuudeksi kudoskasetiksi. Histologisesti nähdään, että rauhaset ovat hyvin lähellä toisiaan ja muodostavat osittain cribriform rakenteita. Mitkään löydökset eivät viittaa eturauhasadenokarsinoomaan. Nähdään hyperplastista prostatakudosta, jossa kroonista inflammaatiota, mutta ei mitään malignia.",
             # Swedish (non-censored)
             "7,5gr elektroresekat av vilket preparerats 7 g i sex vävnadkassetter. Histologiskt ses att körtlarna är mycket nära varanda, och delvis silformade strukturer. Fyndet är inte förenligt med prosta adenokarcinoma. Man ses mest hyperplastisk prostatavävnad med kronisk inflammation, men inget malignt.",
             # Correct answers (non-censored)
@@ -905,9 +905,9 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "The presented sample is weighing 7.5gr, which has been prepared into six tissue casettes weighing total 7gr. Histologically can be seen that glands are very close to each other, partial cribriform structures noted. Findings do not indicate prostatic. Hyperplastic prostate tissue with chronic inflammation seen.",
             # Finnish (censored)
-            "",
+            "Näyte painaa 7.5gr, joka on valmisteltu kuudelle kudoskasetille kokonaispainoltaan 7gr. Histologiseseti nähdään, että rauhaset ovat hyvin lähellä toisiaan, osittain cribriform kasvua. Löydökset eivät viittaa eturauhasen. Hyperplastista eturauhaskudosta kroonisella inflammaatiolla nähdään.",
             # Swedish (censored)
             "",
             # Correct answers (censored)
@@ -2700,14 +2700,14 @@ prompts = [
 
 # Statement handling
 def getMaxInputIndex():
-    return 29
+    return 34
 
 def getMaxInputLength():
     #return len(statements)
-    return 30
+    return 35
 
 def getArrayInputIndex():
-    return list(range(30))
+    return list(range(35))
 
 # Prompt handling
 
