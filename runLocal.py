@@ -239,5 +239,6 @@ for modelname in [
                                     # Handle console output
                                     print("\n\n")
     # Clear GPU memory
-    del pipe
+    del tokenizer
+    del model
     torch.cuda.empty_cache()
