@@ -920,9 +920,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Samples 1-6 are representative prostate biopsies from left and right lobe. One site on the left side shows small high-grade PIN-changes. No perineural invasion. Some tissue formations on the right that represent hyperplasia. No signs of carcinoma.",
             # Finnish (non-censored)
-            "",
+            "Näytteenä 1-6 on edustavat biopsiat oikeasta ja vasemmasta lohkosta. Yhdessä paikassa vasemmalla puolella näkyy pieniä korkean asteen PIN-muutoksia. Ei nähdä perineuraalista invaasiota. Oikealla puolella joitakin kudosrakenteita, jotka edustavat hyperplasiaa. Ei merkkejä karsinoomasta.",
             # Swedish (non-censored)
             "Som prov 1-6 föreligger representativa biopsier från höger och vänster lob. På ett ställe ses lite high-grade PIN-förändring på vänster sidan. Observeras ingen perineural invasion. På höger sidan finns några vävnadsstrukturer som representerar hyperplasi. Något karcinom kommer inte fram.",
             # Correct answers (non-censored)
@@ -931,11 +931,11 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Samples are from left and right lobe. One site on the left side shows small high-grade PIN-changes. No perineural invasion. Some tissue formations on the right that represent hyperplasia. Mixed findings can be abserved.",
             # Finnish (censored)
-            "",
+            "Näytteet vasemmasta ja oikeasta lohkosta. Eräällä alueella vasemmalla puolella nähdään pieniä korkea-asteisia PIN-muutoksia. Ei perineuraalia invaasiota. Joitakin kudosmuodostelmia oikealla, jotka viittaavat hyperplasiaan. Sekalaisia löydöksiä havaittu.",
             # Swedish (censored)
-            "",
+            "Prov från vänster och höger lob. På ett ställe ses lite high-grade PIN-förändringar. Ingen perineural invasion. Några vävnadsstrukturer på höger sida som tyder på hyperplasi. Upptäcks diverse fynd.",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -946,9 +946,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The preparate weighs 80gr, sized approx 7 x 6 x 5 cm. Prepared 8 macro casettes and 5 regular cassettes. Macroscopically can be seen nodular hyperplasia, microscopically epithelial hyperplasia. No signs of malignity or inflammation.",
             # Finnish (non-censored)
-            "",
+            "Preparaatti painaa 80 grammaa ja on kooltaan noin 7 x 6 x 5 cm. Valmistettiin 8 makrokasettia ja 5 tavallista kasettia. Makroskooppisesti nähdään kyhmyistä hyperplasiaa, mikroskooppistesti nähdään epiteelin hyperplasiaa. Maligniteettia tai inflammaatiota ei löydy.",
             # Swedish (non-censored)
             "Preparatet väger 80 gram och är ca 7 x 6 x 5 cm i storlek, prepareras i 8 makrokasetter och 5 vanliga kasetter. Makroskopiskt ses nodulär hyperplasi, och mikroskopiskt föreligger epitelial hyperplasi. Malignitet eller inflammation kommer inte fram.",
             # Correct answers (non-censored)
@@ -957,11 +957,11 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Sample size and weight is normal. Prepared 8 macro casettes and 5 regular cassettes. Macroscopically can be seen nodular hyperplasia, microscopically epithelial hyperplasia, but was not assessed reliably.",
             # Finnish (censored)
-            "",
+            "Näytteen paino ja koko tyypilliset. Valmistettiin 8 makrokasettia ja 5 normaalia kasettia. Makroskooppisesti tutkittaessa näytteistä löydettiin nodulaarista hyperplasiaa, mikroskooppisesti epiteelin hyperplasiaa, mutta ei kyetty luotettavasti arvioimaan.",
             # Swedish (censored)
-            "",
+            "Vikt och storlek av preparat typisk. Preparerades 8 makrokasetter och 5 vanliga kasetter. Makroskopiskt ses nodulär hyperplasi, mikroskopiskt epitelial hyperplasi, men kunde inte bedömas tillförlitligt.",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -972,9 +972,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "7g of electrosection chippings as preparate. Histological examination reveals prostate tissue with partial nodular gland components. Minor inflammation in typical places. Findings indicate hyperplasia.",
             # Finnish (non-censored)
-            "",
+            "Preparaattina 7g elektrosektiolastuja. Histologisesti nähtään prostatakudosta, jossa osittain lisääntyneitä kyhmyisiä rauhaskomponentteja. Paikoittain vähäistä inflammaatiota kuten tavallisesti. Löydös siis hyperplasia.",
             # Swedish (non-censored)
             "Som preparat föreligger 7 g elektrosektionsspånor. Histologiskt ses prostatavävnad med delvis nodulart prolifererad körtelkomponent. Ställvis ses lindrig inflammation. Som fynd en hyperplasi.",
             # Correct answers (non-censored)
@@ -983,11 +983,11 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Less than half of the total sample material preparated. Histological examination reveals prostate tissue with partial nodular glandcomponents. Minor inflammation in places. Further examination was not possible at this time, and samples are going to be examined further next week.",
             # Finnish (censored)
-            "",
+            "Alle puolet mahdollisesta näytemateriaalista valmisteltuna. Histologisessa tarkastelussa nähdään eturauhaskudosta, jossa osittain nodulaarisia rauhaskomponentteja. Paikoittain vähäistä inflammaatiota. Tarkempi tarkastelu ei ollut nyt mahdollista, näytteet tutkitaan tarkemmin ensi viikolla.",
             # Swedish (censored)
-            "",
+            "Mindre än hälften av det möjliga provmaterialet preparerat. Histologiskt ses prostatavävnad med delvis nodulart kortelkomponent. Stellvis ses lindrig inflammation. Noggrannare undervisning var inte möjlig nu, preparat examineras bättre nästa vecka.",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -998,9 +998,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Representative needle biopsies as samples. Total length approx 111 mm. In histological examination, hyperplastic prostate tissue with chronic inflammation was found. No suspected malignity.",
             # Finnish (non-censored)
-            "",
+            "Tutkittavana edustavia neulabiopsioita. Biopsioiden kokonaispituus on noin 111 mm. Histologisesti nähdään hyperplastista prostatakudosta, jossa kroonista inflammaatiota. Ei epäiltyä maligniteettia.",
             # Swedish (non-censored)
             "Representativa nålbiopsier undersöks. Biopsiernas totala längds är cirka 111 mm. Histologiskt ses hyperplastisk prostatavävnad med kronisk inflammation. Något malignsuspekt kommer inte fram.",
             # Correct answers (non-censored)
@@ -1009,11 +1009,11 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Representative samples are collected. Total measurements provided in millimeters. In histological examination, some finding including hyperplastic prostate tissue with chronic inflammation was found.",
             # Finnish (censored)
-            "",
+            "Tutkittavana edustavia kudosnäytteitä, joiden kokonaismitta annettuna millimetreissä. Histologisesti nähdään muun muassa hyperplastista prostatakudosta, jossa kroonista inflammaatiota.",
             # Swedish (censored)
-            "",
+            "Representativa vävnadprov undersöks vars totalmåttet angivet i millimeter. Histologiskt ses bland annat hyperplastisk prostatavävnad med kronisk inflammation.",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -1024,9 +1024,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "A prostatectomy preparate under investigation weighing 85 g. 7 macrosections extracted, remaining tissue run according to normal routine. Microscopic sections reveal a tumor with 3 foci. In these areas a positive marginal was seen in an area of approx 1.5mm. Found Gleason 3 (major) and 4 differentiation stages in these foci, therefore Gleason grade is 7. No penetrative growth through the capsule or seminal vesicle invasion.",
             # Finnish (non-censored)
-            "",
+            "Tutkittavana prostatektomiapreparaatti, paino 85 g. Preparaatista otetaan 7 makroleikettä, muu kudos käynnistetty normaalin rutiinin mukaisesti. Mikroskooppisissa leikkeissä löydetään kasvain, jolla kolme fokusta. Näillä alueilla nähdään positiivinen marginaali noin 1.5mm suuruiselta alueelta. Löydetään sekä Gleason 3 (major) että 4 erilaistumisasteella näissä fokuksissa, siten Gleason grade 7. Ei näy penetratiivista kasvua kapselin läpi eikä seminaalivesikkelien invaasiota.",
             # Swedish (non-censored)
             "Undersöks prostatektomipreparat som väger 85g. Från preparatet tas 7 makrosnitt och den övriga vävnden igångsätts enlight normal rutin. I de mikroskopiska snitten hittas tumör i tre foci. På detta område ses även positiv marginal på ett cirka 1,5mm stort område. Hittas både Gleason 3 (vanligaste) och 4 differentiering i dessa foci, sammanlagna Gleason är sålunda 7. Ses ingen penetrativ växt genom kapseln ej heller infiltration av seminalvesiklar.",
             # Correct answers (non-censored)
@@ -1035,11 +1035,11 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Sample under examination has size of 20. Some slices extracted, remaining tissue run according to normal routine. Microscopic inspection conducted at 3 locations. But it is not clear whether there is benign hyperplasia or malignant findings. Gleason score cannot be assessed at this point.",
             # Finnish (censored)
-            "",
+            "Tutkittavana näyte, jonka koko 20. Kudoksesta otetaan muutamia leikkeitä, jäljelle jäävä kudos tutkitaan normaaliprotokollan mukaisesti. Mikroskooppisia tutkimuksia suoritettu 3:ssa paikassa, mutta ei selvyyttä onko näkyvillä hyvänlaatuista hyperplasiaa tai jotain malignia. Gleason scorea ei pystytty määrittämään.",
             # Swedish (censored)
-            "",
+            "Undersöks prov vars storlek är 20. Från provmaterialet tas snitt och den övriga vävnaden igångsätts enligt normal rutin. Mikroskopiskt undersöks 3 ställen, men det är omöjligt att fastställa om det rör sig om benign hyperplasi eller någonting malign. Man kunde inte bestämmä Gleason score.",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -1050,9 +1050,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "The shaving material weighs approx 8.9g, approx 5g set on eight casettes. Histological examination reveals hyperplastic prostate tissue with chronic inflammation. No atypical or invasive epithelial growth. SUMMARY: Benign prostate hyperplasia",
             # Finnish (non-censored)
-            "",
+            "Höyläysmateriaali painaa noin 8.9g ja noin 5 g laitettu kahdeksalle kasetille. Histologisesti nähdään hyperplastista prostatakudosta, jossa kroonista inflammaatiota. Atypiaa tai invasiivista kasvavaa epiteelia ei näy. YHTEENVETO: Hyvänlaatuinen eturauhashyperplasia",
             # Swedish (non-censored)
             "Hyvlingmaterialet väger cirka 8,9 gram och ca 5 g har satts i åtta kasetter. Histologiskt ses hyperplastisk prostatavävnad med kroniskt inflammation. Atypi eller infiltrativt växande epitel kommer inte fram. SAMMANFATNING: Godartad prostatahyperplasi.",
             # Correct answers (non-censored)
@@ -1061,11 +1061,11 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Examined material weights 8.9, approx 8 casettes are used. Histological examination reveals at least hyperplastic prostate and ...... At least inflammation, but possibly something else. Further examination is needed.",
             # Finnish (censored)
-            "",
+            "8.9g materiaalista tutkitaan noin 8 kasetillista. Histologinen tarkastelu paljastaa ainakin hyperplasiaa eturauhasessa ja ...... Ainakin inflammaatiota, mutta mahdollisesti jotain muutakin. Vaatii jatkotutkimuksia.",
             # Swedish (censored)
-            "",
+            "8.9g av material igångsatts i cirka 8 kasetter. Histologisk undervisning avslöjar åtminstone hyperplasi i prostata och ...... Åtminstone inflammation, möjligen också nångonting andra. Krävs ytterligare undersökning.",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -2700,11 +2700,11 @@ prompts = [
 
 # Statement handling
 def getMaxInputIndex():
-    return 34
+    return 40
 
 def getMaxInputLength():
     #return len(statements)
-    return 35
+    return 41
 
 def getArrayInputIndex():
     return list(range(35))
