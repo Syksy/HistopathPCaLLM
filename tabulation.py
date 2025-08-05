@@ -174,7 +174,8 @@ for cens in range(2):
                                         break
                                 # The ending to ``` sequence if one was detected; starting sequence from prior start point
                                 for j in range(start, len(lines)):
-                                    if lines[j].strip() == "```" or lines[j].strip() == "]":
+                                    if lines[j].strip() == "```" or lines[j].strip() == "]" \
+                                            or lines[j].strip() == "```<end_of_turn>":
                                         end = j
                                         break
                                     # Alternatively there may be comments pre/post a proper { <json> } content, limit to that
