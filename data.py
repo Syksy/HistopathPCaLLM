@@ -2707,7 +2707,7 @@ def getMaxInputLength():
     return 41
 
 def getArrayInputIndex():
-    return list(range(35))
+    return list(range(41))
 
 # Prompt handling
 
