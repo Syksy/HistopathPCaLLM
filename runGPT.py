@@ -23,7 +23,10 @@ while True:
             "gpt-4o-2024-11-20",
             "gpt-4.1-nano-2025-04-14",
             "gpt-4.1-mini-2025-04-14",
-            "gpt-4.1-2025-04-14"
+            "gpt-4.1-2025-04-14",
+            "gpt-5-2025-08-07", # No snapshot(?) for gpt-5 as response to curl https://api.openai.com/v1/models -H ...
+            "gpt-5-mini-2025-08-07",
+            "gpt-5-nano-2025-08-07",
         ]:
             # Prompts to iterate across
             for promptIndex in data.getArrayPromptIndex():
