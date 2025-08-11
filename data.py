@@ -1076,9 +1076,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Samples 1-6 are representative systematic biopsies from the right and left lobe. Sample 3 (left apex) shows little chronic inflammation. Left side also shows in samples 1 and 2 atrophied glands with remaining chronic inflammation. No signs of prostate cancer in the material.",
             # Finnish (non-censored)
-            "",
+            "Näytteet 1-6 ovat edustavia systemaattisia biopsioita oikeasta ja vasemmasta lohkosta. Näytteessä 3 (vasen apex) näkyy vähän kroonista inflammaatiota. Vasemmalla puolella nähdään myös näytteissä 1 ja 2 atrofioituneita rauhasia, joissa vielä jäljellä kroonista inflammaatiota. Eturauhassyöpää ei ilmene materiaalista.",
             # Swedish (non-censored)
             "Som prov 1-6 föreligger representiva systematic biopsier från höger och vänster lob. I prov 3 (vänster apex) finns lite kronisk inflammation. Ses också på vänster sidan prov 1 och 2 att det finns ett antal atrofiska körtlar stillvis lindrig kronisk inflammation. Ingen prostatacancer kommer inte fram i detta material.",
             # Correct answers (non-censored)
@@ -1087,9 +1087,9 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Samples are collected from left and right lobes of prostate. One sample showed little chronic inflammation, two samples showed atrophied glands and chronic inflammation. Hard to determine whether there is any cancer related changes or not.",
             # Finnish (censored)
-            "",
+            "Näytteet kerätty vasemmasta ja oikeasta lohkosta eturauhasesta. Yhdessä näytteessä vähän kroonista inflammaatiota, kahdessa näytteessä atrofioituneita rauhasia ja kroonista inflammaatiota. Vaikea sanoa, onko näytteessä syöpään liittyviä muutoksia.",
             # Swedish (censored)
             "",
             # Correct answers (censored)
@@ -1102,9 +1102,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Prostatectomy preparate weighing approx 80g invastigated. Almost exclusively seen Gleason grade 4 differentiation, mostly in a small part of combined glands. Small amount of Gleason 3. Summary: score 7 (4+3).",
             # Finnish (non-censored)
-            "",
+            "Prostatektomiapreparaattia tutkitaan n. 80g. Nähdään lähes yksinomaan Gleason 4 asteen erilaistumista, enimmäkseen pienessä osassa yhdistyneitä rauhasia. Pieni määrä Gleason 3. Yhteenveto: pistesumma 7 (4+3).",
             # Swedish (non-censored)
             "Prostatektomipreparatet undersöks ca 80g. Ses nästan enbart Gleason 4 differentiering, mestadels till en liten del fusionerade körtlar. Liten komponent av Gleason 3. Sammanfattningt: poängsumma blir 7 (4+3).",
             # Correct answers (non-censored)
@@ -1113,11 +1113,11 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Prostate sample weighing app 8? is prepared. Mixed findings can be observed in small parts. However, whether it is cancer or inflammation cannot be determined.",
             # Finnish (censored)
-            "",
+            "Valmistellaan prostatanäyte, jonka paino noin 8?. Sekalaisia löydöksiä löydetään pieniltä alueilta. Ei kuitenkaan voida määrittää onko syöpää vai inflammaatiota.",
             # Swedish (censored)
-            "",
+            "Prepareras prostataprov som väger cirka 8?. Diverse fynd från en liten område. Det kan dock inte bestämmas om fynd är cancer eller inflammation.",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -1128,9 +1128,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Approx 30g prostate chippings as samples. Material run in cassettes A-H, about 15g left in the jar. Only ordinary prostate tissue seen. Isolated atrophied glands visible, but no signs of prostatic adenocarcinoma in the material.",
             # Finnish (non-censored)
-            "",
+            "Näytteenä noin 30g prostatalastuja. Materiaali ajettiin kaseteissa A-H, purkissa jäljellä noin 15g. Näkyy tavallista prostatakudosta. Yksittäisiä atrofiouituneita rauhasia näkyy, mutta mitään eturauhasadenokarsinoomaan viittaavaa ei tule materiaalissa esiin.",
             # Swedish (non-censored)
             "Som prov föreligger ca 30 g prostataspån. Materialet satts i kasetter A till H, kvar i burken circa 15 g. Ses vanlig prostatavävnad med mörtlar. Ses några enstaka atrofiska körtlar men något prostata adenocacinom kommer inte fram i detta material.",
             # Correct answers (non-censored)
@@ -1139,11 +1139,11 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Approx 30g prostate samples. Material is placed in cassettes and in the jar. Mostly ordinary prostate tissue seen. Isolated atrophied glands visible, but no decision regarding cancerous changes can be reached.",
             # Finnish (censored)
-            "",
+            "Noin 30g prostatanäytteitä. Materiaali asetettu kaseteille ja purkkiin. Enimmäkseen nähdään prostatakudosta. Yksittäisiä atrofioituneita rauhasia nähtävillä, ei päästä johtopäätöksiin syöpään liittyvistä muutoksista.",
             # Swedish (censored)
-            "",
+            "Cirka 30g prostataprov. Material satts i kasetter och burken. Ses mest vanlig prostatavävnad. Enstaka atrofierad körtlar synlig, men man kan inte dra slutsats av cancerrelaterad förändringar.",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -1154,9 +1154,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Representative prostate biopsies according to standard routine. Normally structured prostate tissue with varying gland sizes seen under microscope. Little chronic inflamation and in some places atrophy. Nothing suspicious. Summary: Earlier biopsies showed prostate cancer, but now no tumor tissue can be seen.",
             # Finnish (non-censored)
-            "",
+            "Edustavia prostatabiopsiota normaalimallin mukaan. Mikroskoopilla nähdään normaalirakenteista eturauhaskudosta varioivalla rauhaskoolla. Vähän kroonista inflammaatiota ja joissain paikoissa nähdään vähän atrofiaa. Ei mitään epäilyttävää. Kertaus: AIemmissa biopsioissa kyllä löydetty prostatasyöpää, mutta nyt ei nähdä ollenkaan kasvainkudosta.",
             # Swedish (non-censored)
             "Representiva prostatabiopsier enligt normal mönster. I mikroskopin ses normalstrukturerad prostatavävnad med varierande körtelstorlek. Lite kronisk inflammation och på några ställen ses lite atrofi. Ingenting suspekt. Sammanfatning: I tidigare biopsi har man ju hittat prostatakancer, men nu hittas alltså ingen tumörvävnad.",
             # Correct answers (non-censored)
@@ -1165,11 +1165,11 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Representative prostate samples according to standard routine. Normally structured prostate tissue with varying gland size seen under microscope. Little chronic inflamation and in some places atrophy. Nothing can be concluded regarding malignant changes. Note: Earlier biopsies reported prostate cancer.",
             # Finnish (censored)
-            "",
+            "Edustavia prostatanäytteitä standardirutiinin mukaisesti. Mikroskoopilla nähdään normaalirakenteista eturauhaskudosta vaihtelevalla rauhaskoolla. Vähän kroonista inflammaatiota ja paikoitellen atrofiaa. Maligneihin muutoksiin liittyen ei voida päätellä mitään. Huom: Aiemmissa biopsioissa raportoitiin eturauhassyöpää.",
             # Swedish (censored)
-            "",
+            "Representativa prostataprov enligt normal mönster. I mikroskopin ses normalstrukturerad prostatavävnad med varierande körtelstorlek. Lite kronisk inflammatio och på några ställen ses lite atrofi. Man kan dra ingen slutsats av malign förändringar. Obs: I tidigare biopsier rapporterarades prostatacancer.",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -1180,9 +1180,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "A whole prostatectomy preparate as sample (weight 70g), processed according to routine. Macrosections from the middle (E, F, G) form a fusing tumor tissue focus (size approx 3x2x1mm). In focus, most of gland structures separated, but some build converging gland canals (classes 3+4). Seminal vesicles in sections O and P are clean. Perineural invasion seen, tissue gleason 3. Negative marginals, capsel intact. No metastases seen in lymph nodes in the area.",
             # Finnish (non-censored)
-            "",
+            "Näytteenä kokonainen prostatektomiapreparaatti (paino 70g), prosessoitu rutiinin mukaisesti. Makroleikkeisiin keskeltä E, F ja G muodostunut yhtenevä kasvainkudoksen fokus (koko noin 3x2x1 mm). Fokuksessa suurin osa rauhasista erillisia, mutta osa rakentaa yhteneviä rauhaskanavia (luokat 3+4). Seminaalivesikkelit leikkeissä O ja P ovat puhtaat. Perineuraalista invaasiota, kudoksen gleason 3. Marginaalit negatiiviset, kapseli ehjä. Alueen imusolmukkeissa ei nähty metastaaseja.",
             # Swedish (non-censored)
             "Som prov är total prostatektomipreparat (vikt 70g), processerad enligt rutin. Makroklipp av mitten E, F ja G formeras en sammanflytande tumorvävnads fokus (storlek ca 3x2x1mm). I fokus mest av körtelstrukturer separerades, men en del bildar sammanflytande körtelkanaler (klasser 3+4). Seminalvesiklar i klipp O och P är rena. Gleason 4 vävnad invaderas perineuralt. Marginals är negativ, och kapseln är intakt. Ingen metastasis observeras i regionära lymfknutor.",
             # Correct answers (non-censored)
@@ -1191,11 +1191,11 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "A suspect prostate sample, processed according to the routine. Sample material from the middle (E, F, G) form a fusing tissue focus (size approx 3x2x1mm). In focus, most of gland structures and canals are separated. Seminal vesicles in sections O and P are clean. Negative marginals, capsel intact. No metastases seen in lymph nodes in the area. However, the structure is unclear and not able to detect. Further inspection is needed.",
             # Finnish (censored)
-            "",
+            "Suspekti prostatanäyte, prosessoitu rutiinin mukaisesti. Näytemateriaali keskeltä (E, F, G) muodostaa yhtenevän kudosfokuksen (koko noin 3x2x1mm). Fokuksessa suurin osa rauhasrakenteista ja kanavista erillään. Seminaalivesikkelit leikkeissä O ja P puhtaat. Negatiiviset marginaalit, kapseli ehjä. Ei metastaaseja alueen imusolmukkeissa. Kuitenkin rakenne epäselvä ja vaikeatulkintainen. Tarkempaa tarkastelua vaaditaan.",
             # Swedish (censored)
-            "",
+            "Suspekt prostataprov processerad enligt rutin. Materialet av mitten (E, F, G) formerar en sammanflytande vävnadfokus (storlek ungefär 3x2x1mm). I fokus mest av körtelstrukturer och kanaler separerar. Seminalvesiklar i klipp O och P rena. Negativa marginaler, kapsel hel. Ingen metastas i områdes lymfkörtlar. Dock struktur oklar och svår att tolka. Krävar noggrannare undersökning.",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -1206,9 +1206,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Shaved prostate chippings with total tissue weight around 20 gr. Material was set on eight cassettes, smaller portion of material was run. Regular prostate tissue with glands seen under microscope. Some gland findings coincide with basal cell hyperplasia. No signs of prostate cancer in the material.",
             # Finnish (non-censored)
-            "",
+            "Höylättyjen eturauhaslastujen kudosmateriaalin kokonaispaino noin 20 gr. Materiaali asetettiin kahdeksalle kasetille, pienempi osa materiaalista käynnistettiin. Mikroskoopilla nähdään säännöllistä prostatakudosta rauhasineen. Nähdään joitakin rauhasia, joista tehdyt löydökset vastaavat basaalisolujen hyperplasiaa. Ei löydetä eturauhassyöpää materiaalista.",
             # Swedish (non-censored)
             "Hela hyvlingsprostataspån vävnadsmaterialet väger ca 60gr. Materialet sätts i åtta kasetter i gång en mindre del av materialet. I mikroskopin ses regelbunden prostatavävnad med körtlar. Ses även några körtlar där fyndet passar in på basalcells hyperplasi. Ingen prostatacancer kommer inte fram i detta materialet.",
             # Correct answers (non-censored)
@@ -1217,11 +1217,11 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Prostate material total size around 2x. Material was set on cassettes, smaller portion of material was run. Regular prostate tissue with glands seen under microscope. Some glands seen, findings which might coincide with basal cell hyperplasia. Not able to assess whether there is cancer related changes or not.",
             # Finnish (censored)
-            "",
+            "Eturauhasmateriaalin yhteiskoko noin 2x. Materiaali asetettu kaseteille, pienempi osa materiaalista ajettiin. Mikroskoopilla nähdään tavallista eturauhaskudosta rauhasineen. Joitakin rauhasia, joista basaalisoluhyperplasiaan ehkä viittaavia löydöksiä. Ei voitu määrittää, onko syöpään liittyviä muutoksia vai ei.",
             # Swedish (censored)
-            "",
+            "Prostatamaterials total storlek är cirka 2x. Materialet sätts i kasetter, en mindre del av materialet igång. I mikroskopin ses regelbunden prostatavävnad med körtlar. Några körtlar med fynd som kanske tyder på basalcells hyperplasi. Kunde inte bestämmas finns det cancerrelaterad förändringar.",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -1232,22 +1232,22 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Examined three biopsies from the right and three from the left. Total length of biopsies is roughly 3+4=7 cm. On the left, normal prostate epithelium but in places a little lymfocytic accumulation that would indicate slight chronic inflammation. No malign findings on the left or the right.",
             # Finnish (non-censored)
-            "",
+            "Tutkitaan kolme biopsiapalaa oikealta ja kolme palaa vasemmalta. Biopsioiden kokonaispituus on noin 3+4=7 cm. Vasemmalla puolella nähdään normaalia prostataepiteeliä mutta paikoittain vähän lymfosyyttien kertymää, joka viittaisi lievään krooniseen inflammaatioon. Ei maligneja löydöksiä vasemmalla eikä oikealla puolella.",
             # Swedish (non-censored)
-            "Undersöks tre stycken biopsier från höger och tre stycker från vänster. Totala längden av biopsierna är cirka 30+40=70 mm. På vänster sidan ses normalt prostataepitel men ställvis litet lymfocytansamlingar förenliga med lindrig kronisk inflammation. Några maligna förändringar hittas inte från vänster eller höger sidan.",
+            "Undersöks tre stycken biopsier från höger och tre stycker från vänster. Totala längden av biopsierna är cirka 3+4=7 cm. På vänster sidan ses normalt prostataepitel men ställvis litet lymfocytansamlingar förenliga med lindrig kronisk inflammation. Några maligna förändringar hittas inte från vänster eller höger sidan.",
             # Correct answers (non-censored)
             ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
             # English (censored)
-            "",
+            "Examined sample material from the right and the left. Total amount of prostatic material is approx 30+40=70. On the left, normal prostate epithelium but in places a bit of lymphocytic accumulation that would indicate chronic inflammation. Not able to determine whether there is malign findings on the left or the right.",
             # Finnish (censored)
-            "",
+            "Tutkitaan näytemateriaalia oikealta ja vasemmalta. Eturauhasmateriaalin kokonaismäärä on noin 30+40=70. Vasemmalla normaalia eturauhasepiteeliä, mutta paikoittain vähän lymfosyyttistä kertymää joka viittaisi krooniseen tulehdukseen. Ei voida määrittää onko maligneja löydöksiä vasemmalla tai oikealla.",
             # Swedish (censored)
-            "",
+            "Undersöks materialet från höger och vänster. Totala längden är cirka 30+40=70. På vänster sidan ses normalt prostataepitel men ställvis litet lymfocytansamlingar som skulle tala för kronisk inflammation. Kan inte bestämmas om det finns malign fynd på vänster eller höger. ",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -2700,14 +2700,14 @@ prompts = [
 
 # Statement handling
 def getMaxInputIndex():
-    return 40
+    return 47
 
 def getMaxInputLength():
     #return len(statements)
-    return 41
+    return 48
 
 def getArrayInputIndex():
-    return list(range(41))
+    return list(range(48))
 
 # Prompt handling
 
