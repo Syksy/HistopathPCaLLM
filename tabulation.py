@@ -3,6 +3,7 @@
 import os
 import data
 import numpy as np
+import re
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -151,8 +152,6 @@ for cens in range(2):
                                         + "_rep" + str(rep)
                                         )
 
-                            #if progress:
-                                #print("Processing filename " + filename)
                             if os.path.isfile(filename + ".out"):
                                 file = open(filename + ".out", 'r', encoding="utf-8")
                                 lines = file.readlines()
@@ -165,7 +164,8 @@ for cens in range(2):
                                 # or ... ``` {JSON} ```
                                 for i in range(len(lines)):
                                     if lines[i].strip() == "```json" or lines[i].strip() == "```" \
-                                            or lines[i].strip() == "[```json]" or lines[i].strip() == "[":
+                                            or lines[i].strip() == "[```json]" or lines[i].strip() == "[" \
+                                            or re.search(r"```json$", lines[i].strip()): # Allow ending to ANYTHING```json as a re-prefix (mainly for GPT-OSS)
                                         start = i+1
                                         break
                                     # Alternatively there may be comments pre/post a proper { <json> } content, limit to that
