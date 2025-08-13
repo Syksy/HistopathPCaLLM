@@ -1258,22 +1258,22 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Examining prostate resection weighing 100g. Sample prepared accourding to routine, apex on cassettes A-C, middle D-E, and base on cassettes F-H. Seminal vesicles on cassettes I & J. Histologically found adenocarcinoma in two first basis macro sections. Tumor location left dorsal lobe. Capsule invasion and perineural growth observed. Seminal vesicles and apex clean. First discovered tumor focus' most common Gleason is 4, next common 3. In second focus, Gleason 5 (>80%) representation, with small portion of Gleason 4. SUMMARY: Gleason 9 tumor found in the resection.",
             # Finnish (non-censored)
-            "",
+            "Tutkitaan prostataresekaatti, paino 100g. Näyte valmistellaan normirutiinin mukaisesti niin, että apex kaseteilla A-C, keskiosa D-E, ja basis kaseteilla F-H. Seminaalivesikkelit kaseteilla I & J. Histologisesti löydetään adenokarsinooma kahdessa ensimmäisessä basiksen makroleikkeessä. Kasvaimen sijainti vasen dorsaalinen lohko. Kapselin invaasio ja perineuraalista kasvua havaittavissa. Seminaalivesikkelit ja apex puhtaat. Ensin löydetyssä kasvainfokuksessa yleisin Gleason on 4 ja seuraavaksi yleisin 3. Toisessa fokuksessa Gleason 5 (>80% edustus), jossa myös pieni osa Gleason 4. YHTEENVETO: Resekaatissa löydettiin siis Gleason 9 kasvain.",
             # Swedish (non-censored)
-            "Undersöks prostataresekat som väger 100g. Prov prepareras enligt normal rutin, så att apex ligger i kassetterna A-D och basis i kassetterna E-H. Seminalvesiklarna i kassetterna I & J. Histologiskt hittas adenokarcinoma i två första makrosnitten av basis. Tumören förekommer i den vänster loben dorsalt. Kapselinvasion och perineuralväxt observeras. Seminalvesiklarna och apex är rena. I första hittade tumorfocus vanligaste Gleason är 4 och nästvanligaste 3. Den andra focus har Gleason 5 (>80% representering) med liten del Gleason 4. SAMMANFATNING: I resekat hittade alltså en Gleason 9 tumör.",
+            "Undersöks prostataresekat som väger 100g. Prov prepareras enligt normal rutin, så att apex ligger i kassetterna A-C, middeldel D-E, och basis i kassetterna F-H. Seminalvesiklarna i kassetterna I & J. Histologiskt hittas adenokarcinoma i två första makrosnitten av basis. Tumören förekommer i den vänster loben dorsalt. Kapselinvasion och perineuralväxt observeras. Seminalvesiklarna och apex är rena. I första hittade tumorfocus vanligaste Gleason är 4 och nästvanligaste 3. Den andra focus har Gleason 5 (>80% representering) med liten del Gleason 4. SAMMANFATNING: I resekat hittade alltså en Gleason 9 tumör.",
             # Correct answers (non-censored)
             ["RP", "yes|kyll|ja", "^5\\+4=9$"]
         ],
         # Censored
         [
             # English (censored)
-            "",
+            "Investigating in URO-101 course prostate sample material obtained from multiple autopsies with total size approx 100(?). Samples prepared according to standard routine, with apex, middle, base and seminal vesicles placed separately on cassettes. Some exemplifying histological changes are seen in two sections left dorsal lobe. Seminal vesicles are all clean. Unable to determine the pattern changes for individuals, but interesting patterns are shown for educational purposes. SUMMARY: Some interesting findings, but due to the nature of the demonstration this is not used to derive differentiation scores (i.e. Gleason 1-5). ",
             # Finnish (censored)
-            "",
+            "Tutkitaan useasta ruumiinavauksesta saatua eturauhasmateriaalia kurssilla URO-101, yhteensä koko noin 100(?). Näytteet valmisteltu rutiinin mukaan siten, että apex, keskiosa, basis ja seminaalivesikkelit kaseteilla. Joitakin esimerkinomaisia histologisia muutoksia kahdessa alueessa vasemmassa dorsaalisessa lohkossa. Seminaalivesikkelit ovat puhtaat. Ei kyetä erittelemään erilaistumismuutoksia yksilöille, mutta kiinnostavia trendejä havainnoillistetaan opetusmielessä. YHTEENVETO: Joitakin kiinnostavia löydöksiä havaittu, mutta esimerkinomaisen demonstraation luonteen vuoksi näitä ei käytetä määrittämään erilaistumisasteita (esim. Gleason 1-5).",
             # Swedish (censored)
-            "",
+            "Undersöks prostatamaterial erhållet från flera obduktioner inom kursen URO-101, totalt storlek cirka 100(?). Materialet prepareras enligt rutin, så att apex, mittdel, basis och seminalvesiklar ligger i olika kasetter. Några histologiska förändringar i två områder i den vänster lob dorsaliskt, Seminalvesiklar är rena. Differentierings förändringar kan inte särskiljas på individnivå, men intressanta trender illutreras i undervisningssyfte. SAMMANFATTNING: Några intressanta fynd observerats, men på grund av den demonstrations karaktären används dessa inte för att dra slutsatser på differentieringsgrader (t.ex. Gleason 1-5).",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -1284,9 +1284,9 @@ statements = [
         # Non-censored
         [
             # English (non-censored)
-            "",
+            "Investigated rest of the prostate chippings, remaining 90 shavings on 8 glasses. Of these, 5 shavings contained carcinoma. Most common Gleason class is 3, second most common Gleason class is 4.",
             # Finnish (non-censored)
-            "",
+            "Tutkitaan loput eturauhasen höyläyslastuista, vielä 90 lastua 8:lla lasilla. Näistä 5:ssä lastussa löydettiin karsinooma. Tavallisin Gleason luokka on 3, seuraavaksi yleisin Gleason luokka 4.",
             # Swedish (non-censored)
             "Resten av hyvligns-spånen från prostata undersöks, ytterligare 90 spånor på 8 glas. Av dessa finns det carcinom i 5 spånor. Den vanligaste Gleason klassen är 3 och den nästvanligaste Gleason klassen 4.",
             # Correct answers (non-censored)
@@ -1295,11 +1295,11 @@ statements = [
         # Censored
         [
             # English (censored)
-            "",
+            "Investigated rest of the prostate samples on 8 glasses. Of these, fifth glass contained some changes that warrant further investigation. At this time, assessing the findings further is not possibile due to the technical limitations.",
             # Finnish (censored)
-            "",
+            "Tutkittiin loput prostatanäytteistä 8:lla lasilla. Näistä viidennessä lasissa nähtiin joitakin muutoksia, jotka kaipaavat jatkotutkimuksia. Juuri nyt löydösten arviointi ei ole mahdollista teknisten rajoitusten takia.",
             # Swedish (censored)
-            "",
+            "Resten av prostataprov undersöks på 8 glas. Av dessa finns några förändring i femte glas, som kräver vidare utredning. Just nu kan inte dras slutsats på grund av tekniska begränsningar.",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
