@@ -38,8 +38,8 @@ except ImportError:
     torch.backends.cudnn.enabled = False
 
 # Download model snapshot(s) if needed
-if True:
-    # Login to HuggingFace to gain access to gated medgemma/gemmas/Qwen
+if False:
+    # Login to HuggingFace to gain access to gated (Med)Gemma/gemmas/Qwen
     print("Logging in to HuggingFace...")
     login(token=os.environ.get("HUGGINGFACE_API_KEY"))
     print("Logged in to HuggingFace.")
@@ -56,10 +56,8 @@ if True:
         "Qwen/Qwen3-14B",
         "Qwen/Qwen3-30B-A3B",
         "Qwen/Qwen3-32B",
-        "Qwen/Qwen3-235B-A22B-Thinking-2507",
-        "Qwen/Qwen3-235B-A22B-Instruct-2507",
         "openai/gpt-oss-20b",
-        #"openai/gpt-oss-120b"
+        "openai/gpt-oss-120b"
     ]:
         print("Downloading model snapshot for " + model)
         snapshot_download(
@@ -81,13 +79,14 @@ for modelname in [
         # "image-text-to-text",
         task="text-generation",
         model=modelname,
-        torch_dtype=torch.bfloat16,
-        #torch_dtype="auto",
-        device="cuda",
-        #device_map="auto"
+        #torch_dtype=torch.bfloat16,
+        torch_dtype="auto",
+        #device="cuda",
+        device_map="auto"
     )
     # Prompts to iterate across
     for promptIndex in data.getArrayPromptIndex():
+    #for promptIndex in [2, 1, 0]:
         # Input statements
         for inputIndex in data.getArrayInputIndex():
             # Iterate across languages (0 = English, 1 = Finnish, ...)
@@ -153,7 +152,7 @@ for modelname in [
 
 # Test running through GPT-OSSes locally
 for modelname in [
-    "openai/gpt-oss-20b",
+    #"openai/gpt-oss-20b",
     #"openai/gpt-oss-120b"
 ]:
     print("Creating pipeline...")
@@ -167,7 +166,8 @@ for modelname in [
         device_map="auto"
     )
     # Prompts to iterate across
-    for promptIndex in data.getArrayPromptIndex():
+    #for promptIndex in data.getArrayPromptIndex():
+    for promptIndex in [2, 1, 0]:
         # Input statements
         for inputIndex in data.getArrayInputIndex():
             # Iterate across languages (0 = English, 1 = Finnish, ...)
@@ -229,15 +229,13 @@ for modelname in [
     del pipe
     torch.cuda.empty_cache()
 
-# Test running through qwens locally
+# Test running through Qwens locally
 for modelname in [
-    "Qwen/Qwen3-4B",
-    "Qwen/Qwen3-8B",
-    "Qwen/Qwen3-14B",
+    #"Qwen/Qwen3-4B",
+    #"Qwen/Qwen3-8B",
+    #"Qwen/Qwen3-14B",
     "Qwen/Qwen3-30B-A3B",
-    "Qwen/Qwen3-32B",
-    "Qwen/Qwen3-235B-A22B-Thinking-2507",
-    "Qwen/Qwen3-235B-A22B-Instruct-2507"
+    "Qwen/Qwen3-32B"
 ]:
     print("Loading tokenizer and model...")
     # load the tokenizer and the model
@@ -248,7 +246,8 @@ for modelname in [
         device_map="auto"
     )
     # Prompts to iterate across
-    for promptIndex in data.getArrayPromptIndex():
+    #for promptIndex in data.getArrayPromptIndex():
+    for promptIndex in [2, 1, 0]:
         # Input statements
         for inputIndex in data.getArrayInputIndex():
             # Iterate across languages (0 = English, 1 = Finnish, ...)
