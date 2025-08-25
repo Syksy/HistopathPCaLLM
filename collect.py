@@ -113,14 +113,14 @@ debug = False
 
 # Names of explored models
 modelnames = [
-    # Claudes
+    # Claudes (Anthropic AI)
     "claude-3-5-haiku-20241022",
     "claude-3-5-sonnet-20240620",
     "claude-3-5-sonnet-20241022",
     "claude-3-7-sonnet-20250219",
     "claude-sonnet-4-20250514",
     "claude-opus-4-20250514",
-    # Geminis
+    # Geminis (Google)
     "gemini-2.5-pro-preview-03-25",
     "gemini-2.5-pro-preview-06-05",
     "gemini-2.5-pro-preview-05-06",
@@ -128,21 +128,24 @@ modelnames = [
     "gemini-2.0-flash-lite-001",
     #"gemini-1.5-pro-001",
     #"gemini-1.5-pro-002",
-    # OpenAI / GPTs
+    # GPTs (OpenAI)
     "gpt-4o-2024-05-13",
     "gpt-4o-2024-08-06",
     "gpt-4o-2024-11-20",
     "gpt-4.1-nano-2025-04-14",
     "gpt-4.1-mini-2025-04-14",
     "gpt-4.1-2025-04-14",
-    # Grok
+    # Grok 8xAI)
     "grok-3-beta",
     "grok-2-1212",
     # Replicate runs
+    # Llamas
     "meta-llama-4-maverick-instruct",
     "meta-llama-4-scout-instruct",
+    # DeepSeek
     "deepseek-ai-deepseek-r1",
     "deepseek-ai-deepseek-v3",
+    # Gemmas (non-local deployment)
     "google-deepmind-gemma-3-4b-it",
     "google-deepmind-gemma-3-12b-it",
     "google-deepmind-gemma-3-27b-it",
@@ -150,7 +153,24 @@ modelnames = [
     "mistral-large-2411",
     "mistral-medium-2505",
     "mistral-small-2503",
+    # Local models run on a RTX 5090 setup
+    # Gemmas
+    "google/gemma-3-4b-it",
+    "google/gemma-3-12b-it",
+    "google/gemma-3-27b-it",
+    # MedGemmas (fine-tuned Gemmas that focus on biomedical data)
+    "google/medgemma-4b-it",
+    "google/medgemma-27b-it",
+    # GPT-OSSes (OpenAI)
+    "openai/gpt-oss-20b",
+    # Qwens (Alibaba)
+    "Qwen/Qwen3-4B",
+    "Qwen/Qwen3-8B",
+    "Qwen/Qwen3-14B",
+    "Qwen/Qwen3-30B-A3B",
 ]
+# Model name sanitization to avoid potentially difficult characters
+modelnames = list(map(lambda x: re.sub("/", "-", x), modelnames))
 
 # Binary full output save
 full = np.load("npydata\\full.npy")
