@@ -187,7 +187,19 @@ summary = pd.DataFrame({'censoption': [], 'model': [], 'promptIndex': [], 'input
                         'seedoption': [],
                         'concordanceExact': [], 'concordanceCaseinsensitive': [], 'concordanceContent': [],
                         'medianCharCount': [], 'maxCharDiff': [], 'maxRuntimeDiff': [],
-                        'medianRuntime': [], 'parseable1': [], 'parseable2': [], 'parseable3': [], 'parseable': [],
+                        'medianRuntime': [],
+                        # Triplicate level
+                        'parseable1': [], 'parseable2': [], 'parseable3': [],
+                        # Answer as str
+                        'answer1rep0': [], 'answer2rep0': [], 'answer3rep0': [],
+                        'answer1rep1': [], 'answer2rep1': [], 'answer3rep1': [],
+                        'answer1rep2': [], 'answer2rep2': [], 'answer3rep2': [],
+                        # Correctness as bool
+                        'correct1rep0': [], 'correct2rep0': [], 'correct3rep0': [],
+                        'correct1rep1': [], 'correct2rep1': [], 'correct3rep1': [],
+                        'correct1rep2': [], 'correct2rep2': [], 'correct3rep2': [],
+                        # Consensus level
+                        'parseable': [],
                         'answer1': [], 'answer2': [], 'answer3': [], #'consensusAnswer': [],
                         'correct1': [], 'correct2': [], 'correct3': [], 'allCorrect': []
                         })
@@ -279,6 +291,37 @@ for cens in [0, 1]:
                         correct1 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 0)), str(answer1), re.IGNORECASE))
                         correct2 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 1)), str(answer2), re.IGNORECASE))
                         correct3 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 2)), str(answer3), re.IGNORECASE))
+                        # Extract individual answers and use RegEx to check against the correct answer
+                        answer1rep0 = answer1rep1 = answer1rep2 = "<NA>"
+                        answer2rep0 = answer2rep1 = answer2rep2 = "<NA>"
+                        answer3rep0 = answer3rep1 = answer3rep2 = "<NA>"
+                        correct1rep0 = correct1rep1 = correct1rep2 = "<NA>"
+                        correct2rep0 = correct2rep1 = correct2rep2 = "<NA>"
+                        correct3rep0 = correct3rep1 = correct3rep2 = "<NA>"
+                        if getJSONParseability(output1):
+                            vals = list(json.loads(output1).values())
+                            answer1rep0 = str(vals[0])
+                            answer2rep0 = str(vals[1])
+                            answer3rep0 = str(vals[2])
+                            correct1rep0 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 0)), answer1rep0, re.IGNORECASE))
+                            correct2rep0 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 1)), answer2rep0, re.IGNORECASE))
+                            correct3rep0 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 2)), answer3rep0, re.IGNORECASE))
+                        if getJSONParseability(output2):
+                            vals = list(json.loads(output2).values())
+                            answer1rep1 = str(vals[0])
+                            answer2rep1 = str(vals[1])
+                            answer3rep1 = str(vals[2])
+                            correct1rep1 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 0)), answer1rep1, re.IGNORECASE))
+                            correct2rep1 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 1)), answer2rep1, re.IGNORECASE))
+                            correct3rep1 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 2)), answer3rep1, re.IGNORECASE))
+                        if getJSONParseability(output3):
+                            vals = list(json.loads(output3).values())
+                            answer1rep2 = str(vals[0])
+                            answer2rep2 = str(vals[1])
+                            answer3rep2 = str(vals[2])
+                            correct1rep2 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 0)), answer1rep2, re.IGNORECASE))
+                            correct2rep2 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 1)), answer2rep2, re.IGNORECASE))
+                            correct3rep2 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 2)), answer3rep2, re.IGNORECASE))
 
                         # Append the outcome from the triplicates
                         summary.loc[len(summary.index)] = [
@@ -295,9 +338,19 @@ for cens in [0, 1]:
                             getMaxCharDiff(full1, full2, full3),
                             getMaxRuntimeDiff(runtime1, runtime2, runtime3),
                             getMedianRuntime(runtime1, runtime2, runtime3),
+                            # Reporting all in the triplicate
                             getJSONParseability(output1),
                             getJSONParseability(output2),
                             getJSONParseability(output3),
+                            # Answers as str
+                            answer1rep0, answer2rep0, answer3rep0,
+                            answer1rep1, answer2rep1, answer3rep1,
+                            answer1rep2, answer2rep2, answer3rep2,
+                            # Correctness as bool
+                            correct1rep0, correct2rep0, correct3rep0,
+                            correct1rep1, correct2rep1, correct3rep1,
+                            correct1rep2, correct2rep2, correct3rep2,
+                            # Consensus answers
                             parseable, # If all triplicates could be parsed to JSON correctly
                             answer1, # Consensus answer to the first query ("Sample type")
                             answer2, # Consensus answer to the first query ("Is it malignant")
