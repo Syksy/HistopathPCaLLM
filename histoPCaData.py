@@ -2722,10 +2722,13 @@ def getArrayPromptIndex():
     return list(range(len(prompts)))
 
 # Whole content fetching; combines prompt + statement (in correct language & censoring status)
-
 def getQuery(promptIndex : int, inputIndex : int, lang : int, cens : int) -> str:
     # TODO: Add sanity checking to indices
     return prompts[promptIndex][lang] + "\n\n" + statements[inputIndex][cens][lang]
+
+# Return just the statement without the structuring prompt prefix
+def getStatement(inputIndex : int, lang : int, cens : int) -> str:
+    return statements[inputIndex][cens][lang]
 
 # Get greppable correct answer per question
 def getInputAnswer(inputIndex: int, cens: int, questionIndex: int) -> str:
