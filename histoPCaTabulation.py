@@ -1,7 +1,7 @@
 # Tabulate and collect results in a suitable format across all output files
 # Use numpy multidimensional arrays
 import os
-import data
+import histoPCaData
 import numpy as np
 import re
 from dotenv import load_dotenv
@@ -59,9 +59,10 @@ modelnames = [
     "mistral-small-2503",
     # Local models run on a RTX 5090 setup
     # Gemmas
-    "google/gemma-3-4b-it",
-    "google/gemma-3-12b-it",
-    "google/gemma-3-27b-it",
+    # Comment out; run on Replicate
+    #"google/gemma-3-4b-it",
+    #"google/gemma-3-12b-it",
+    #"google/gemma-3-27b-it",
     # MedGemmas (fine-tuned Gemmas that focus on biomedical data)
     "google/medgemma-4b-it",
     "google/medgemma-27b-it",

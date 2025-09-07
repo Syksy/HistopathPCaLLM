@@ -1,7 +1,7 @@
 import anthropic
 import os
 
-import data
+import histoPCaData
 import time
 
 # Environmental variables
@@ -24,7 +24,9 @@ while True:
             "claude-3-7-sonnet-20250219",
             # Claude 4s
             "claude-sonnet-4-20250514",
-            "claude-opus-4-20250514"
+            "claude-opus-4-20250514",
+            # Claude 4.1s
+            "claude-opus-4-1-20250805",
         ]:
             # Prompts to iterate across
             for promptIndex in data.getArrayPromptIndex():

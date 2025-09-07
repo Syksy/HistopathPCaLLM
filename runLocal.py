@@ -5,7 +5,7 @@ import torch
 from huggingface_hub import login
 from huggingface_hub import snapshot_download
 # Generic imports
-import data
+import histoPCaData
 import time
 import re
 import os
@@ -152,7 +152,7 @@ for modelname in [
 
 # Test running through GPT-OSSes locally
 for modelname in [
-    #"openai/gpt-oss-20b",
+    "openai/gpt-oss-20b",
     #"openai/gpt-oss-120b"
 ]:
     print("Creating pipeline...")
@@ -234,8 +234,8 @@ for modelname in [
     #"Qwen/Qwen3-4B",
     #"Qwen/Qwen3-8B",
     #"Qwen/Qwen3-14B",
-    "Qwen/Qwen3-30B-A3B",
-    "Qwen/Qwen3-32B"
+    #"Qwen/Qwen3-30B-A3B",
+    #"Qwen/Qwen3-32B"
 ]:
     print("Loading tokenizer and model...")
     # load the tokenizer and the model

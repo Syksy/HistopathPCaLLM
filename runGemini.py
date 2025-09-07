@@ -9,7 +9,7 @@
 import os
 #from google import genai
 #import google.generativeai as genai
-import data
+import histoPCaData
 import time
 #import vertexai
 #from vertexai.generative_models import GenerativeModel, GenerationConfig, HarmCategory, HarmBlockThreshold, FinishReason

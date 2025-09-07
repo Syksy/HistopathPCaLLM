@@ -6,7 +6,7 @@ import re
 import pandas as pd
 import time
 # Histopath data and prompts
-import data
+import histoPCaData
 
 # .env vars load
 from dotenv import load_dotenv
@@ -271,9 +271,9 @@ for cens in [0, 1]:
                             if dat.__class__ == dict:
                                 vals = list(dat.values())
                                 if len(vals) == 3:
-                                    answer1 = vals[0]
-                                    answer2 = vals[1]
-                                    answer3 = vals[2]
+                                    answer1 = str(vals[0])
+                                    answer2 = str(vals[1])
+                                    answer3 = str(vals[2])
                                 else:
                                     answer1 = "wrong length"
                                     answer2 = "wrong length"
@@ -298,8 +298,10 @@ for cens in [0, 1]:
                         correct1rep0 = correct1rep1 = correct1rep2 = "<NA>"
                         correct2rep0 = correct2rep1 = correct2rep2 = "<NA>"
                         correct3rep0 = correct3rep1 = correct3rep2 = "<NA>"
+                        dat = vals = "<NA>"
                         if getJSONParseability(output1):
-                            vals = list(json.loads(output1).values())
+                            dat = json.loads(output1)
+                            vals = list(dat.values())
                             answer1rep0 = str(vals[0])
                             answer2rep0 = str(vals[1])
                             answer3rep0 = str(vals[2])
@@ -307,7 +309,8 @@ for cens in [0, 1]:
                             correct2rep0 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 1)), answer2rep0, re.IGNORECASE))
                             correct3rep0 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 2)), answer3rep0, re.IGNORECASE))
                         if getJSONParseability(output2):
-                            vals = list(json.loads(output2).values())
+                            dat = json.loads(output2)
+                            vals = list(dat.values())
                             answer1rep1 = str(vals[0])
                             answer2rep1 = str(vals[1])
                             answer3rep1 = str(vals[2])
@@ -315,7 +318,8 @@ for cens in [0, 1]:
                             correct2rep1 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 1)), answer2rep1, re.IGNORECASE))
                             correct3rep1 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 2)), answer3rep1, re.IGNORECASE))
                         if getJSONParseability(output3):
-                            vals = list(json.loads(output3).values())
+                            dat = json.loads(output3)
+                            vals = list(dat.values())
                             answer1rep2 = str(vals[0])
                             answer2rep2 = str(vals[1])
                             answer3rep2 = str(vals[2])

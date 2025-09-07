@@ -15,7 +15,7 @@ statements = [
             # Finnish (non-censored)
             "Höyläyslastuja tuli yhteensä noin 30g, joista noin 20g käynnistettiin kuudessa blokissa. Histologisessa tarkastelussa havaitaan hyvänlaatuista prostatakudosta, missä ei atypiaa, malignia, tai karsinoomaa näy. Vähän nähtävissä läiskittäistä tulehdusta. Löydös sopii siis epäiltyyn hyvänlaatuiseen hyperplasiaan.",
             # Swedish (non-censored)
-            "",
+            "Hyvlingspånar fåtts totalt cirka 30g, varav 20g har igångsatts i sex block. Under histologiskt examination upptäcks benign prostatavävnad. Ses ingen atypi, malignitet eller karcinoma. Ses liten fläckvis inflammation. Fynden passar med misstanken av benign hyperplasi.",
             # Correct answers (non-censored)
             ["TURP", "no|ei|nej", "^NA$"]
         ],
@@ -26,7 +26,7 @@ statements = [
             # Finnish (censored)
             "Näytemateriaalia tuli yhteensä runsaasti, josta suurin osa käynnistettiin useammassa erässä. Histologisessa tarkastelussa havaitaan prostatakudosta, mutta päättelyä solujen atypiasta, maligniteetista, tai karsinoomasta ei voida tehdä. Vähän nähtävissä läiskittäistä tulehdusta. Materiaalista ei voida vetää johtopäätöstä sopisiko se pelkästään epäiltyyn hyvänlaatuiseen hyperplasiaan.",
             # Swedish (censored)
-            "",
+            "Mycket av provmaterial utverkas, varav mest igångsatts i flera sats. Vid histologisk analys ses prostatavävnad, men ingen slutsats av cellers atypi, malignitet eller carcinoma kan inte göras. Ses liten fläckvis inflammation. På grund av materialen kan inte dras slutsats om passar det enbart med misstänkt benign hyperplasi.",
             # Correct answers
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -40,18 +40,18 @@ statements = [
             # Finnish (non-censored)
             "Tutkittavana 12 edustavaa neulabiopsiaa prostatan tyyppipaikoista. Näytteiden yhteispituus on noin 150mm. Nähdään normaaleja rauhasrakenteita ja jonkin verran aaltoilevaa hyperplastisen kaltaista epiteeliä. Lopputulos on siis lähinnä benignin oloista kasvua. Lääk. Heikki Histopatologi",
             # Swedish (non-censored)
-            "",
+            "Undersöks 12 represetantive nålbiopsier från typiska ställen. Total längd av provar är cirka 150mm. Ses normala körtelstrukturer och några vågig hyperplastiskt likande epitel. Resultat år mestadels benignliknande växt. Läkare Hans Histopatolog",
             # Correct answers (non-censored)
             ["biopsy|biopsi", "no|ei|nej", "^NA$"]
         ],
         # Censored
         [
             # English (censored)
-            "Representative prostate cancer samples from standard locations are being inspected. Total amount of sample material is sufficient. Mostly normal cell architectures are observed along with a focus on inspecting epithelial cell characteristics. However, the final results appear inconclusive, highly subjective due to technical artefacts, and additional inspection is required regarding malignancy and potentially clinically significant Gleason findings. MD, John Doe.",
+            "Representative prostate cancer samples from standard locations are being inspected. Total amount of sample material is sufficient. Mostly normal cell architectures are observed e.g. grandular and wave-like epithelial structures. Interpretation of the results is still underway and full report will be ready in the following days. MD, John Doe.",
             # Finnish (censored)
             "Tutkittavana edustavaa prostatakudosta sovituista paikoista. Näytteiden yhteismäärä on riittävä. Nähdään mm. rauhasrakenteita ja jonkin verran aaltoilevaa epiteeliä. Loppupäätelmä on vielä kesken ja valmistuu lähipäivinä. Lääk. Heikki Histopatologi",
             # Swedish (censored)
-            "",
+            "Undersöks representativa prostatavävnad från bestämd ställerna. Total mängd av prov är tillräcklig. Ses bland annat körtelstrukturer och några vågig epitel. Slutsats är ännu i vardande och blir färdig snart. Läkare Hans Histopatolog",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]
@@ -66,7 +66,7 @@ statements = [
             # Finnish (non-censored)
             "Näytteenä on radikaali prostatektomianäyte, jonka paino 44g. Ulkomitat ovat noin 5*4*3 cm ilman vesikkeleitä. Otetaan kolme makroleikettä ja rutiinin mukaiset mikroleikkeet. Kyseessä on tutkimuskäyttöön saatu autopsianäyte. Tehdään dorsaalisesti musta merkkiväri, oikea lohko keltainen, ja vasen lohko vihreä. Mikroskooppisesti kaikissa makroleikkeissä sekä apeksin ja basiksen pitkittäin otetuista näytteistä nähdään lähinnä normaalia kasvustoa. Jonkin verran havaitaan atrofiaa ja läikittäistä tulehdusta, sekä korkeintaan hyperplasiaan viittaavaa kasvua. Varmistetaan että resektiopinnat ovat puhtaat, kapselissa ei havaita mitään poikkeavaa, ja seminaaleissa ei kasvainkudosta. YHTEENVETO: Prostatassa korkeintaan lievä-asteista tulehdusta ja tyypillisiä ikäpohjaisia muutoksia.",
             # Swedish (non-censored)
-            "",
+            "Radikal prostatektomiprov undersöks som väger 44g. Yttre måt är ca 5*4*3 cm utan seminalvesiklar. Tas tre makrosnitter, och enligt rutin mikrosnitter. Original prov var ett obduktion prov avsedd för forskning. Svart märkfärg applicerad dorsaliskt, höger sektion gul och vänster sektion grön. Vid mikroskopiskt examination ses att alla längsgående makrosnitter både från apex och basis presenterar normal, benign växt. Upptäckas en del atrofi och fläckvis inflammation, tillsammans med växt suggestiv av hyperplasi. Resektion ytor bekräftad rena, ingen annorlunda växt i kapseln och seminalvesiklar ser ut rena av tumör växt. SAMMANFATTNING: Prostatavävnad innehållar som mest lindrig inflammation och typisk åldersrelaterad förändringar.",
             # Correct answers (non-censored)
             ["RP", "no|ei|nej", "^NA$"]
         ],
@@ -77,7 +77,7 @@ statements = [
             # Finnish (censored)
             "Tuorenäyte on saatu tutkimuskäyttöön luovutetusta ruumiinavauksesta. Näytteen eri dimensiot ovat riittävät isot, jotta tilataan useampia makro/mikrosektioita. Värjätään tavallisilla markkeriväreillä näytemateriaalin eri ominaisuuksien tutkimiseksi. Mikroskooppisessa tarkastelussa sektioissa näkyy erilaisia solujen kasvutyyppejä. Jonkin verran atrofiaa ja tulehdusta nähdään materiaalissa. Pidemmälle ei johtopäätöksiä voida vetää, johtuen tulehdukseen ja ikään johtuvien muutosten vallitsemisesta näytteissä. YHTEENVETO: Lisätutkimuskia ja näytteiden uusinta-ajoja tarvitaan, koska nykyiset näytteet ovat vain rajallisesti käytettävissä mahdollisen adenokarsinooman tai muiden malignien muutosten arvioinnisa muutoin normaalissa kudoksessa, jossa havaitaan tulehdusta ja ikä-pohjaisia muutoksia.",
             # Swedish (censored)
-            "",
+            "Fräschprov har fåtts från obduktion överlämnade till forskningsbruk. Dimensioner av prov är tillräcklig för inspektion av materialen, frän vilken beställas flera makro- och mikrosnitt. Standard markörfärg tillsattes för att undersöka olika egenskaper av provmaterial. Mikroskopisk inspektion av snitten avslöjas olika typer av cell växt. Någon atrofi och inflammation observeras i materialet. Man kan inte dra vidare slutsats, eftersom inflammation och åldersrelaterade förändringar dominerar i prov. SAMMANFATTNING: Ytterligare undersökning och omprovtagning kan användas för bedömning av ett eventuellt adenokarcinom eller andra maligna förändringar i övrigt normal vävnad, där inflammation och åldersrelaterade förändringar påvisas.",
             # Correct answers (censored)
             ["^NA$", "^NA$", "^NA$"]
         ]

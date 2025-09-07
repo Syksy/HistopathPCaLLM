@@ -6,7 +6,7 @@ import time
 import os
 import re
 # Load the synthetic data and prompts
-import data
+import histoPCaData
 
 # API key load
 from dotenv import load_dotenv
@@ -18,8 +18,9 @@ os.chdir(os.environ.get("ROOT_DIR") + "out\\")
 while True:
     try:
         for modelname in [
+            "grok-4-0709",
             "grok-3-beta",
-            "grok-2-1212"
+            #"grok-2-1212"
         ]:
             # Prompts to iterate across
             for promptIndex in data.getArrayPromptIndex():

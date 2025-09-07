@@ -5,7 +5,7 @@ import time
 import os
 import re
 # Load the synthetic data and prompts
-import data
+import histoPCaData
 
 # API key load
 from dotenv import load_dotenv
