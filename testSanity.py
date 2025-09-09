@@ -6,11 +6,8 @@ import re
 import replicate
 # Import synthetic data and prompts
 import histoPCaData
-# Testing schema
-import json
-from jsonschema import validate, ValidationError
 
-# API key load
+# API key load, root directory etc
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -18,20 +15,32 @@ load_dotenv()
 os.chdir(os.path.join(os.environ.get("ROOT_DIR"), "sanity"))
 
 # Prompt to use as sanity checking whether there's signal or not
-prompt = "You will be provided by a statement, which is a prostate cancer histopathology statement in English, Finnish, or Swedish. You should assess whether the statement is informative in that it provides enough expert information to reliably assess what was the origin of the sample (biopsy, turp treatment, radical prostatectomy, or some other sample origin), whether there is a malignant finding in the statement (consider Gleason 3+3=6 and above to be malignant), and if malignancy can be reliable assessed, if its Gleason can be inferred (in format major+minor=sum).\n\nAssess the following statement:\n\'"
+prompt = ("You should act as a prostate cancer histopathologist, who will examine validity of the provided statements. You will be provided by a prostate cancer histopathology statement, which is in English, Finnish, or Swedish. You should assess whether the statement is informative or not; if it is informative, it contains information of what is the sample type (such as biopsies, turp, or radical prostatectomy), and whether there were malignant findings (e.g. prostate adenocarcinoma) or just verified benign findings (note that discrepancies and inconclusiveness do not indicate benign status of the examination). If the statement indicates that the finding is malignant, it should also contain the information for Gleason, such as major, minor and sum scores, or a valid way of inferring these.\nYour answer should contain the following six sections, preceded with the characters # and number, where the parts between < and > should be filled:\n"
+          "#1: <Whether sample type can be assessed; valid options are Yes, No, Partially, Not applicable>\n"
+          "#2: <Verbal explanation to your assessment of section #1>\n"
+          "#3: <Whether malignancy of findings can be assessed: valid options are Yes, No, Partially, Not applicable>\n"
+          "#4: <Verbal explanation to your assessment of section #3>\n"
+          "#5: <Whether Gleason in format major+minor=sum can be assessed: valid options are Yes, No, Partially, Not applicable>\n"
+          "#6: <Verbal explanation to your assessment of section #5>\n"
+          "#7: <Whether the grammar and level of understanding are appropriate to e.g. a layman, but do notice that some non-standard grammar may be used in the domain: valid options are Appropriate, Minor mistakes, Major mistakes, Incomprehensible>"
+          "#8: <Verbal explanation to your assessment of section #7, which may include correction suggestions>"
+          "\n\nAssess the following statement and give your answers primarily in English, regardless of the original language:\n\n\'")
+# Use an assisting system prompt
+system_prompt = "You are an expert histopathologist, who will critically review provided statements on their informativeness. Pay attention to returning the answers in the specified format to the user. Avoid unnecessary verbosity or extra line changes."
 
 while True:
     try:
-        for modelname in [
-            "moonshotai/kimi-k2-instruct",
-            "openai/o1",
-        ]:
+        # Input statements
+        for inputIndex in histoPCaData.getArrayInputIndex():
             # Iterate across languages (0 = English, 1 = Finnish, 2 = Swedish)
             for lang in [0, 1, 2]:
-                # Input statements
-                for inputIndex in histoPCaData.getArrayInputIndex():
-                    # Non-censored (value 0) or censored (1) version of the input statements
-                    for cens in [0, 1]:
+                # Non-censored (value 0) or censored (1) version of the input statements
+                for cens in [0, 1]:
+                    # Iterate across models to use for sanity checking
+                    for modelname in [
+                        "moonshotai/kimi-k2-instruct",
+                        "openai/o1",
+                    ]:
                         # Construct filename
                         filename = ("SanityCheck_" + re.sub("/", "-", modelname)
                                     + "_input" + str(inputIndex)
@@ -43,20 +52,22 @@ while True:
                         # Some statements are still missing from e.g. lang == 2, omitting these empty strings
                         # Also check the file does not already exist
                         if not statement == "" and not os.path.isfile(os.path.realpath(filename + ".check")):
+                            print("\nRun for file " + filename + "\n\n")
                             out = ""
                             # Instructions provided in the prompt followed by the statement to be sanity checked
                             query = prompt + statement + '\''
-                            print("Query going in:\n\n" + query)
+                            print("\nQuery going in:\n\n" + query)
                             f = open(filename + ".check", 'w', encoding="utf-8")
                             for iterator in replicate.run(
                                     modelname,
                                     input={
-                                        "prompt": query
+                                        "prompt": query,
+                                        "system_prompt": system_prompt
                                     }
                             ):
                                 out = out + "".join(iterator)
                                 print("".join(iterator), end="", file=f)
-                            print("Output:\n\n" + out)
+                            print("\nOutput:\n\n" + out)
         break
     except Exception as e:
         print("Error: " + str(e))
