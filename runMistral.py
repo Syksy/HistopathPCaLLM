@@ -22,9 +22,9 @@ while True:
             "mistral-small-2503"
         ]:
             # Prompts to iterate across
-            for promptIndex in data.getArrayPromptIndex():
+            for promptIndex in histoPCaData.getArrayPromptIndex():
                 # Input statements
-                for inputIndex in data.getArrayInputIndex():
+                for inputIndex in histoPCaData.getArrayInputIndex():
                     # Iterate across languages (0 = English, 1 = Finnish, ...)
                     for lang in [0, 1]:
                         # Non-censored (value 0) or censored (1) version of the input statements
@@ -53,7 +53,7 @@ while True:
                                         if not os.path.isfile(os.path.realpath(filename + ".out")):
                                             print("Running \n" + filename + "\n")
                                             # Construct the prompt + statement query to send
-                                            query = data.getQuery(promptIndex, inputIndex, lang, cens)
+                                            query = histoPCaData.getQuery(promptIndex, inputIndex, lang, cens)
                                             print("With query: \n" + query + "\n")
                                             startTime = time.time()
                                             # Run the actual prompt itself

@@ -79,16 +79,16 @@ for modelname in [
         # "image-text-to-text",
         task="text-generation",
         model=modelname,
-        #torch_dtype=torch.bfloat16,
-        torch_dtype="auto",
-        #device="cuda",
-        device_map="auto"
+        torch_dtype=torch.bfloat16,
+        #torch_dtype="auto",
+        device_map="cuda",
+        #device_map="auto"
     )
     # Prompts to iterate across
     for promptIndex in data.getArrayPromptIndex():
     #for promptIndex in [2, 1, 0]:
         # Input statements
-        for inputIndex in data.getArrayInputIndex():
+        for inputIndex in histoPCaData.getArrayInputIndex():
             # Iterate across languages (0 = English, 1 = Finnish, ...)
             for lang in [0, 1]:
                 # Non-censored (value 0) or censored (1) version of the input statements
@@ -115,7 +115,7 @@ for modelname in [
                                 if not os.path.isfile(os.path.realpath(filename + ".out")):
                                     print("Running \n" + filename + "\n")
                                     # Construct the prompt + statement query to send
-                                    query = data.getQuery(promptIndex, inputIndex, lang, cens)
+                                    query = histoPCaData.getQuery(promptIndex, inputIndex, lang, cens)
                                     print("With query: \n" + query + "\n")
                                     startTime = time.time()
 
@@ -152,7 +152,7 @@ for modelname in [
 
 # Test running through GPT-OSSes locally
 for modelname in [
-    "openai/gpt-oss-20b",
+    #"openai/gpt-oss-20b",
     #"openai/gpt-oss-120b"
 ]:
     print("Creating pipeline...")
@@ -160,16 +160,16 @@ for modelname in [
         # "image-text-to-text",
         task="text-generation",
         model=modelname,
-        #torch_dtype=torch.bfloat16,
-        torch_dtype="auto",
-        #device="cuda",
-        device_map="auto"
+        torch_dtype=torch.bfloat16,
+        #torch_dtype="auto",
+        device_map="cuda",
+        #device_map="auto"
     )
     # Prompts to iterate across
     #for promptIndex in data.getArrayPromptIndex():
     for promptIndex in [2, 1, 0]:
         # Input statements
-        for inputIndex in data.getArrayInputIndex():
+        for inputIndex in histoPCaData.getArrayInputIndex():
             # Iterate across languages (0 = English, 1 = Finnish, ...)
             for lang in [0, 1]:
                 # Non-censored (value 0) or censored (1) version of the input statements
@@ -196,7 +196,7 @@ for modelname in [
                                 if not os.path.isfile(os.path.realpath(filename + ".out")):
                                     print("Running \n" + filename + "\n")
                                     # Construct the prompt + statement query to send
-                                    query = data.getQuery(promptIndex, inputIndex, lang, cens)
+                                    query = histoPCaData.getQuery(promptIndex, inputIndex, lang, cens)
                                     print("With query: \n" + query + "\n")
                                     startTime = time.time()
 
@@ -235,21 +235,23 @@ for modelname in [
     #"Qwen/Qwen3-8B",
     #"Qwen/Qwen3-14B",
     #"Qwen/Qwen3-30B-A3B",
-    #"Qwen/Qwen3-32B"
+    "Qwen/Qwen3-32B"
 ]:
     print("Loading tokenizer and model...")
     # load the tokenizer and the model
     tokenizer = AutoTokenizer.from_pretrained(modelname)
     model = AutoModelForCausalLM.from_pretrained(
         modelname,
-        torch_dtype="auto",
-        device_map="auto"
+        torch_dtype=torch.bfloat16,
+        #torch_dtype="auto",
+        device_map="cuda",
+        #device_map="auto"
     )
     # Prompts to iterate across
     #for promptIndex in data.getArrayPromptIndex():
     for promptIndex in [2, 1, 0]:
         # Input statements
-        for inputIndex in data.getArrayInputIndex():
+        for inputIndex in histoPCaData.getArrayInputIndex():
             # Iterate across languages (0 = English, 1 = Finnish, ...)
             for lang in [0, 1]:
                 # Non-censored (value 0) or censored (1) version of the input statements
@@ -276,7 +278,7 @@ for modelname in [
                                 if not os.path.isfile(os.path.realpath(filename + ".out")):
                                     print("Running \n" + filename + "\n")
                                     # Construct the prompt + statement query to send
-                                    query = data.getQuery(promptIndex, inputIndex, lang, cens)
+                                    query = histoPCaData.getQuery(promptIndex, inputIndex, lang, cens)
                                     print("With query: \n" + query + "\n")
                                     startTime = time.time()
 

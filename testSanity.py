@@ -28,6 +28,7 @@ prompt = ("You should act as a prostate cancer histopathologist, who will examin
 # Use an assisting system prompt
 system_prompt = "You are an expert histopathologist, who will critically review provided statements on their informativeness. Pay attention to returning the answers in the specified format to the user. Avoid unnecessary verbosity or extra line changes."
 
+# Iterate across the models and combinations
 while True:
     try:
         # Input statements
@@ -72,3 +73,5 @@ while True:
     except Exception as e:
         print("Error: " + str(e))
         time.sleep(120)
+
+# Collect results into a pandas, and pop out a tsv

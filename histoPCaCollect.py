@@ -215,8 +215,8 @@ print(str(runtimes.shape) + "\n")
 
 for cens in [0, 1]:
     for modelIndex in range(len(modelnames)):
-        for promptIndex in range(data.getMaxPromptLength()):
-            for inputIndex in range(data.getMaxInputLength()):
+        for promptIndex in range(histoPCaData.getMaxPromptLength()):
+            for inputIndex in range(histoPCaData.getMaxInputLength()):
                 for lang in [0, 1]:
                     # Select seed variants based on if it was allowed (GPT and Llama families)
                     #if bool(re.search("gpt|llama", modelnames[modelIndex], re.IGNORECASE)):
@@ -288,9 +288,9 @@ for cens in [0, 1]:
                             answer3 = "cannot parse"
 
                         # Correct answer to the presented questions, regular expression format
-                        correct1 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 0)), str(answer1), re.IGNORECASE))
-                        correct2 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 1)), str(answer2), re.IGNORECASE))
-                        correct3 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 2)), str(answer3), re.IGNORECASE))
+                        correct1 = bool(re.search(str(histoPCaData.getInputAnswer(inputIndex, cens, 0)), str(answer1), re.IGNORECASE))
+                        correct2 = bool(re.search(str(histoPCaData.getInputAnswer(inputIndex, cens, 1)), str(answer2), re.IGNORECASE))
+                        correct3 = bool(re.search(str(histoPCaData.getInputAnswer(inputIndex, cens, 2)), str(answer3), re.IGNORECASE))
                         # Extract individual answers and use RegEx to check against the correct answer
                         answer1rep0 = answer1rep1 = answer1rep2 = "<NA>"
                         answer2rep0 = answer2rep1 = answer2rep2 = "<NA>"
@@ -305,27 +305,27 @@ for cens in [0, 1]:
                             answer1rep0 = str(vals[0])
                             answer2rep0 = str(vals[1])
                             answer3rep0 = str(vals[2])
-                            correct1rep0 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 0)), answer1rep0, re.IGNORECASE))
-                            correct2rep0 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 1)), answer2rep0, re.IGNORECASE))
-                            correct3rep0 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 2)), answer3rep0, re.IGNORECASE))
+                            correct1rep0 = bool(re.search(str(histoPCaData.getInputAnswer(inputIndex, cens, 0)), answer1rep0, re.IGNORECASE))
+                            correct2rep0 = bool(re.search(str(histoPCaData.getInputAnswer(inputIndex, cens, 1)), answer2rep0, re.IGNORECASE))
+                            correct3rep0 = bool(re.search(str(histoPCaData.getInputAnswer(inputIndex, cens, 2)), answer3rep0, re.IGNORECASE))
                         if getJSONParseability(output2):
                             dat = json.loads(output2)
                             vals = list(dat.values())
                             answer1rep1 = str(vals[0])
                             answer2rep1 = str(vals[1])
                             answer3rep1 = str(vals[2])
-                            correct1rep1 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 0)), answer1rep1, re.IGNORECASE))
-                            correct2rep1 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 1)), answer2rep1, re.IGNORECASE))
-                            correct3rep1 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 2)), answer3rep1, re.IGNORECASE))
+                            correct1rep1 = bool(re.search(str(histoPCaData.getInputAnswer(inputIndex, cens, 0)), answer1rep1, re.IGNORECASE))
+                            correct2rep1 = bool(re.search(str(histoPCaData.getInputAnswer(inputIndex, cens, 1)), answer2rep1, re.IGNORECASE))
+                            correct3rep1 = bool(re.search(str(histoPCaData.getInputAnswer(inputIndex, cens, 2)), answer3rep1, re.IGNORECASE))
                         if getJSONParseability(output3):
                             dat = json.loads(output3)
                             vals = list(dat.values())
                             answer1rep2 = str(vals[0])
                             answer2rep2 = str(vals[1])
                             answer3rep2 = str(vals[2])
-                            correct1rep2 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 0)), answer1rep2, re.IGNORECASE))
-                            correct2rep2 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 1)), answer2rep2, re.IGNORECASE))
-                            correct3rep2 = bool(re.search(str(data.getInputAnswer(inputIndex, cens, 2)), answer3rep2, re.IGNORECASE))
+                            correct1rep2 = bool(re.search(str(histoPCaData.getInputAnswer(inputIndex, cens, 0)), answer1rep2, re.IGNORECASE))
+                            correct2rep2 = bool(re.search(str(histoPCaData.getInputAnswer(inputIndex, cens, 1)), answer2rep2, re.IGNORECASE))
+                            correct3rep2 = bool(re.search(str(histoPCaData.getInputAnswer(inputIndex, cens, 2)), answer3rep2, re.IGNORECASE))
 
                         # Append the outcome from the triplicates
                         summary.loc[len(summary.index)] = [

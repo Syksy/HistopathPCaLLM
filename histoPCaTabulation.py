@@ -89,9 +89,9 @@ full = np.chararray(
         # Number of tested models
         len(modelnames),
         # Maximum number of run prompt variation wrapping the statement
-        data.getMaxPromptLength(),
+        histoPCaData.getMaxPromptLength(),
         # Maximum number of statements
-        data.getMaxInputLength(),
+        histoPCaData.getMaxInputLength(),
         # Number of languages (0 = English, 1 = Finnish, 2 = Swedish)
         #3
         2
@@ -110,9 +110,9 @@ output = np.chararray(
         # Number of tested models
         len(modelnames),
         # Maximum number of run prompt variation wrapping the statement
-        data.getMaxPromptLength(),
+        histoPCaData.getMaxPromptLength(),
         # Maximum number of statements
-        data.getMaxInputLength(),
+        histoPCaData.getMaxInputLength(),
         # Number of languages (0 = English, 1 = Finnish, 2 = Swedish)
         #3
         2
@@ -131,9 +131,9 @@ runtimes = np.ndarray(
         # Number of tested models
         len(modelnames),
         # Maximum number of run prompt variation wrapping the statement
-        data.getMaxPromptLength(),
+        histoPCaData.getMaxPromptLength(),
         # Maximum number of statements
-        data.getMaxInputLength(),
+        histoPCaData.getMaxInputLength(),
         # Number of languages (0 = English, 1 = Finnish, 2 = Swedish)
         #3
         2
@@ -152,9 +152,9 @@ for cens in range(2):
         # Iterate over models
         for modelIndex in range(len(modelnames)):
             # Iterate over prompts
-            for promptIndex in data.getArrayPromptIndex():
+            for promptIndex in histoPCaData.getArrayPromptIndex():
                 # Iterate over inputs
-                for inputIndex in data.getArrayInputIndex():
+                for inputIndex in histoPCaData.getArrayInputIndex():
                     # Iterate over replicates
                     for rep in range(3):
                         # Iterate across languages (0 = English, 1 = Finnish, 2 = Swedish)
