@@ -1,0 +1,21 @@
+analysisWe need to parse the statement. Determine sample type: "Tutkitaan prostataresekaatti" => it's a radical prostatectomy (RP). So sample type "RP".
+
+Malignancy: yes, adenocarcinoma present. So "kyllä".
+
+Gleason: reported as Gleason 9 (4+5). The statement says: first focus Gleason 4 and 3; second focus 5 (>80%) and some 4. Summary: Gleason 9. So we output "4+5=9" or "5+4=9"? They want "major+minor=sum" format. For Gleason 9, typical representation: 5+4=9. But the text says first focus 4 and 3, second focus 5>80% and some 4. The dominant grade is 5 >80% so main grade 5, minor grade 4. So "5+4=9". They used "4+5=9" earlier? The example had "4+3=7". So we need "5+4=9" as major+minor. Use "5+4=9".
+
+Return JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "kyllä",
+ "Gleason": "5+4=9"
+}
+
+Check constraints: only these fields, no nested. All good.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "5+4=9"
+}
+```

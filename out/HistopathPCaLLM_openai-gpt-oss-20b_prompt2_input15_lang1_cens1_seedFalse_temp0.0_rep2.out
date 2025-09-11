@@ -1,0 +1,7 @@
+analysisWe must produce JSON with fields: Sampletype, Malignancy, Gleason. We need to decide whether the statement is a valid histopathological report. The given text: It says "Prostatan kudosmateriaalin kokonaismäärä on varsin niukka... Perustuen tukeviin kliinisiin huomioihin......toisin edustavaa Gleasonia tai muuta markkeria ei tässä kohtaa voida vahvistaa...". So it basically says that histopathology cannot confirm Gleason or markers; there is no pathology result. It's more like a note that no Gleason sum could be confirmed. So it's not a valid histopathological conclusion. According to the earlier examples, we should output all NA. Because it doesn't provide malignant findings. It's uncertain. The instructions: If it's not a valid histopathological statement, then all NA. So "Sampletype": "NA", "Malignancy": "NA", "Gleason": "NA". Wait: The statement includes "Prostatan kudosmateriaalin kokonaismäärä on varsin niukka...". No mention of biopsy, RP, TURP. So sample type is NA. Malignancy is NA because not found. Gleason NA. So produce JSON.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

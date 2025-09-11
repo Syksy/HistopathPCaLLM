@@ -1,0 +1,21 @@
+analysisWe need to parse the Finnish text. The task: produce JSON with three fields:
+
+1. original sample type: allowed values "biopsy", "RP", "TURP" or "NA".
+
+2. Whether the sample had malignant findings: "kyllä" (yes), "ei" (no) or "NA".
+
+3. Reported Gleason score: format "major+minor=sum" as integers for malignant findings, and "NA" for benign.
+
+We only return data for the worst lesion. So we need to identify the worst Gleason in the sample. The text says: "Tutkittavana on radikaali prostatektomia, jossa prostatan paino 50g." So it's a radical prostatectomy. The sample type: "RP" (radical prostatectomy). So field 1: "RP".
+
+Malignant findings? Yes, there is tumor. So field 2: "kyllä".
+
+Reported Gleason score: The text describes two macro blocks in the apex A+B. Macro A: "kasvutapaa 4+3, jossa vallitseva kasvutapa 4 n. 60%." Macro B: "korkeamman pistesumman (9) kasvua 4+5, jossa osuudet n. 50% ja 20%." So macro B has Gleason 4+5 (sum 9). Macro A has 4+3 (sum 7). The worst lesion is macro B with 4+5 sum 9. So we need to report "4+5=9". Format: "major+minor=sum". So "4+5=9". According to spec, the format is "major+minor=sum" as integers. So we put "4+5=9". (Alternatively "4+5=9" is correct). Provide JSON: {"sample_type":"RP","malignancy":"kyllä","gleason":"4+5=9"}.
+
+Check that no nested structures. All good.assistantfinal```json
+{
+  "sample_type": "RP",
+  "malignancy": "kyllä",
+  "gleason": "4+5=9"
+}
+```

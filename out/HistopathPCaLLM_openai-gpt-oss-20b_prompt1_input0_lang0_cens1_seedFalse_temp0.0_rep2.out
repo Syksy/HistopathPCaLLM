@@ -1,0 +1,25 @@
+analysisWe need to produce JSON with three fields: Sampletype, Malignancy, Gleason.
+
+We have a statement: "A lot sample material was obtained, which were run in multiple batches. In histological examination prostate tissue was observed, but any inference of cell atypia, malignancy, or carcinoma cannot be conducted. Some spot-like inflammation can be observed. From this material reliable conclusions cannot be drawn regarding whether the findings fit the suspicion of benign prostate hyperplasia."
+
+We need to determine sample type: The statement says "A lot sample material was obtained" but not specifying type. Allowed values: "biopsy", "RP", "TURP" or "NA". Since not specified, we use "NA".
+
+Malignancy: The statement says "any inference... cannot be conducted" and "reliable conclusions cannot be drawn regarding whether the findings fit suspicion of benign prostate hyperplasia." So they cannot conclude malignant or not. So "NA" perhaps? Allowed values: "yes", "no" or "NA". Since cannot determine, use "NA".
+
+Gleason: Since no malignant findings, use "NA".
+
+Thus JSON:
+
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+
+Return that.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

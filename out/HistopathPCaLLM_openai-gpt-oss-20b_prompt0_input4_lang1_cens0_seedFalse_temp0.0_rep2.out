@@ -1,0 +1,23 @@
+analysisWe need to parse the text and produce JSON with three fields:
+
+1. sample original type: allowed values "biopsy", "RP", "TURP" or "NA".
+2. Whether sample had malignant findings: "kyllä", "ei", or "NA".
+3. Reported Gleason score: "major+minor=sum" or "NA" if benign.
+
+We must only return the worst lesion results, but no nested structures. Here the text says: "Näytteen 3 biopsiasylinterit... Muutoin näytteet ovat edustavat ja nähdään benigniä prostatakudosta. Rauhasepiteeleissä ei... Näytteistä ei siis löydetä karsinoomaa tai PIN-muutoksia."
+
+Thus it's no malignant lesions. So malignant findings: "ei". Gleason: "NA". Sample type: "biopsy" presumably because it's prostate biopsies. So output:
+
+{
+  "sample_type": "biopsy",
+  "malignant_findings": "ei",
+  "gleason_score": "NA"
+}
+
+We need to match field names? The task says: "Anna vastaukset seuraaviin kolmeen rakenteelliseen kenttään:" but doesn't specify names. We can choose names like "sample_type", "malignant_findings", "gleason_score". That should be fine. JSON format.assistantfinal```json
+{
+  "sample_type": "biopsy",
+  "malignant_findings": "ei",
+  "gleason_score": "NA"
+}
+```

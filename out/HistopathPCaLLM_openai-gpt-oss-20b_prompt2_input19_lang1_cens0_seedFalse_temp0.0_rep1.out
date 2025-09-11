@@ -1,0 +1,31 @@
+analysisWe need to parse the input. The user says: "Sovella yllä olevia kysymyksiä tähän seuraavaan lausuntoon:" then gives a statement.
+
+We need to produce JSON with three fields: Sampletype, Malignancy, Gleason.
+
+Rules: Only consider the worst lesion results. The sample type: allowed values "biopsy", "RP", "TURP", "NA".
+
+From the statement: "Näytteinä kohdennetut prostatabiopsiat eri puolilta tyyppilokaatioita." It says "prostate biopsies". So sampletype = "biopsy".
+
+Malignancy: Determine if there are malignant findings. The statement says: "Näytteessä 4 nähdään koko lieriön pituudelta adenokarsinoomaa, isompi osuus rauhasrakenteita muodostaen (Gleason 3, noin 90%) ja pienempi osuus rauhasten yhteensulautumista (Gleason 4, 10%)." So there is malignancy. So Malignancy = "kyllä".
+
+Gleason: For malignant findings, report major+minor=sum in the form "major+minor=sum". The worst lesion is the sum of the highest Gleason pattern and the next highest? Typically Gleason score is sum of most common pattern (major) and second most common pattern (minor). Here they say majority is Gleason 3 (90%) and minority is Gleason 4 (10%). So major=3, minor=4? Wait, usually you list major + minor. But here the major is 3, minor 4. That would be 3+4=7. But typical rule: major pattern 3, minor pattern 4 gives Gleason 3+4=7. Yes. So Gleason string "3+4=7".
+
+But is there any other malignant lesion? No. So we use that.
+
+Thus output:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "kyllä",
+ "Gleason": "3+4=7"
+}
+
+We need to ensure JSON syntax correct. Provide only JSON. The instructions say: "Vastaesimerkkinä... JSON-formaattiin" So we output the JSON.
+
+Thus final answer.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "kyllä",
+  "Gleason": "3+4=7"
+}
+```

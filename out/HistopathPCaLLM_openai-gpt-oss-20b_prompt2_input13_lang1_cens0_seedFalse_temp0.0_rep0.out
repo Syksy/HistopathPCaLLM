@@ -1,0 +1,27 @@
+analysisThe user wants a JSON with three fields: Sampletype, Malignancy, Gleason. They gave a sample statement. The input statement: "Näytteinä prostatan paksuneulabiopsioita tyyppipaikoista otettuna, yhteispituus oikealta noin 60mm ja vasemmalta noin 80mm. Näytteestä B havaitaan karsinoomaa, joka menee jo Gleason tasolle 5 ja kokonais Gleason taso on 9 (4+5). Kyseistä muutosta noin 20% vasemmalla. Muissa näytteissä normaalia rauhasrakennetta, eikä merkittävää tulehdusta."
+
+We need to parse: It's about prostate core needle biopsies? "paksuneulabiopsioita" is core needle biopsy. So sample type is "biopsy".
+
+Malignancy: yes, because karsinooma (cancer) found.
+
+Gleason: "4+5=9" given. So "4+5=9". Should we include the sum? The format: "major+minor=sum" as integers. So "4+5=9".
+
+Thus output JSON:
+
+{
+"Sampletype":"biopsy",
+"Malignancy":"kyllä",
+"Gleason":"4+5=9"
+}
+
+Check if any nuance: The statement says "Näytteestä B havaitaan karsinoomaa, joka menee jo Gleason tasolle 5 ja kokonais Gleason taso on 9 (4+5)." So it's a malignancy. So Malignancy: kyllä.
+
+The sample type is biopsy. Good.
+
+Return that JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "kyllä",
+  "Gleason": "4+5=9"
+}
+```

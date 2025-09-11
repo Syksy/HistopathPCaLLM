@@ -1,0 +1,19 @@
+analysisWe need to parse the statement: "Samples consist of very fragmented parts of the original prostatic operation material... Microscopically, relatively normal prostate tissue structures are observed, but majority of the sample material cannot be further inspected due to a heavy burn artefact. The results are therefore inconclusive; due to the technical challenges, re-examination is heavily suggested."
+
+We need to output JSON with fields: Sampletype: allowed values "biopsy", "RP", "TURP" or "NA". The sample type: "original prostatic operation material" indicates it is from a radical prostatectomy (RP). The statement says "original prostatic operation material" meaning the operation material from prostate surgery. So likely "RP". Or could be "operation material" from prostatectomy. Usually "RP" stands for radical prostatectomy. So sample type "RP".
+
+Second field: Malignancy: "yes", "no", or "NA". The sample is inconclusive; we cannot determine malignancy. So likely "NA".
+
+Third field: Gleason: "major+minor=sum" for malignant statements or "NA" for benign statements. Since we cannot determine malignancy, we output "NA".
+
+Thus JSON: {"Sampletype":"RP","Malignancy":"NA","Gleason":"NA"}.
+
+Check allowed values: yes, no, or NA. So "NA" is fine.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

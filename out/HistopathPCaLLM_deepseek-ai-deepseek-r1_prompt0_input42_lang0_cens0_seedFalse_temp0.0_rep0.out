@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this problem step by step. The user wants me to extract structured data from a histopathological report related to prostate cancer. The goal is to answer three specific questions in JSON format, using only the most severe lesion's information.
+
+First, I need to determine the original sample type. The allowed values are "biopsy", "RP" (which stands for radical prostatectomy), "TURP" (transurethral resection of the prostate), or "NA". Looking at the provided statement, the first line mentions "Prostatectomy preparate". The term "prostatectomy" refers to the surgical removal of the prostate, so "RP" would be the correct value here. That answers the first field.
+
+Next, checking for malignant tumor findings. The options are "yes", "no", or "NA". The presence of Gleason grades (4 and 3) indicates malignancy. Gleason scoring is used specifically for prostate cancer, so the answer here should be "yes".
+
+For the Gleason grade, the preferred format is "major+minor=sum". The summary in the statement says "score 7 (4+3)", which means the major component is 4, minor is 3, summing to 7. Since the user specified to take the most severe lesion, and the highest pattern here is 4+3=7, that's the one to report.
+
+I need to ensure the JSON is valid, without nested structures. Also, confirm that all values are correctly mapped. No other lesions are mentioned, so the most severe is clear. All three fields are addressed properly.
+</think>
+
+```json
+{
+  "original_sample_type": "RP",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "4+3=7"
+}
+```

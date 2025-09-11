@@ -1,0 +1,21 @@
+Analysoin annetun histopatologisen lausunnon ja pyrin rakenteistamaan sen annettujen ohjeiden mukaisesti.
+
+Lausunto: "Näytteet vasemmasta ja oikeasta lohkosta. Eräällä alueella vasemmalla puolella nähdään pieniä korkea-asteisia PIN-muutoksia. Ei perineuraalia invaasiota. Joitakin kudosmuodostelmia oikealla, jotka viittaavat hyperplasiaan. Sekalaisia löydöksiä havaittu."
+
+1. Näytteen alkuperäinen tyyppi: Lausunnossa mainitaan "Näytteet vasemmasta ja oikeasta lohkosta", mutta ei suoranaisesti kerrota, onko kyseessä "biopsy", "RP", "TURP" vai jokin muu. Koska ei ole mainintaa radikaaliprostatetomiasta (RP) tai transuretraalisesta resektiosta (TURP) ja mainitaan "biopsia" muistuttava konteksti ("Näytteet vasemmasta ja oikeasta lohkosta"), voisi olettaa sen olevan "biopsy". Kuitenkaan tämä ei ole varmaa, joten tulkinta on haastavaa. Tässä tapauksessa, koska teksti viittaa "näytteisiin" ja "lohkoon", se voisi viitata biopsiatyyppiin, mutta varmuutta ei ole.
+
+2. Pahanlaatuiset löydökset: Lausunnossa mainitaan "korkea-asteisia PIN-muutoksia", jotka ovat prekankeroottisia muutoksia, ja "hyperplasiaan viittaavia kudosmuodostelmia", mutta ei suoranaisesti mainita pahanlaatuisia löydöksiä. PIN-muutokset (Prostatic Intraepithelial Neoplasia) eivät ole itsessään pahanlaatuisia, mutta voivat edeltää syöpää. Lausunnossa ei kuitenkaan mainita adenokarsinoomaa tai muuta syöpää. Siksi, pahanlaatuisia löydöksiä ei ole vahvistettu, jolloin "Malignancy" on "ei".
+
+3. Gleason-luokka: Koska lausunnossa ei mainita pahanlaatuisia löydöksiä, Gleason-luokkaa ei ole määritetty. Tällöin "Gleason" kentän arvo on "NA", koska se on hyvänlaatuinen löydös.
+
+Rakenteistettu tulos JSON-formaatissa:
+
+```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```
+
+Tässä on huomattavaa, että "Sampletype" on tulkittu "biopsy":ksi, koska se vaikuttaa todennäköiseltä kontekstin perusteella, vaikka se ei olekaan varmaa. Jos varmuus puuttuu, "NA" voisi olla sopivampi valinta. Kuitenkin, koska lausunnossa ei suoranaisesti mainita muita tyyppejä ja "biopsy" on yksi yleisimmistä konteksteista tällaisille lausunnoille, "biopsy" on valittu.

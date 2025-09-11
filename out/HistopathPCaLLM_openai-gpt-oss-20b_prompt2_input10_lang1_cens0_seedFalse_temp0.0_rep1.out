@@ -1,0 +1,17 @@
+analysisWe need to parse Finnish pathology statement. Determine sample type: "Näytteinä 8 kpl edustavia prostatan systeemibiopsioita tyyppipaikoista" indicates 8 core biopsies? "biopsioita" and "systeemibiopsioita" typical prostate systematic biopsies. So sample type "biopsy". Malignancy: statement says "epävarma, benigniin päin" and "epävarma syöpädiagnoosia ei voida antaa". So no malignant findings. So "Malignancy": "ei". Gleason: Since no malignancy found, "NA". Return JSON.
+
+Thus:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Check guidelines: Only worst lesion results should be returned. Since none malignant, it's benign. So correct.
+
+Return JSON.assistantfinal{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}

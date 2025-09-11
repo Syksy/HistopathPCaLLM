@@ -1,0 +1,21 @@
+analysisWe need to parse the statement. It's a histopathological statement. We need to produce JSON with three fields: original sample type, malignant tumor findings, reported Gleason grade.
+
+We need to determine sample type: options "biopsy", "RP", "TURP" or "NA". The statement says "Several sampling sites are available from standard locations." Not specifying the exact procedure. Could be a biopsy. Likely it's a biopsy. But the statement doesn't explicitly say "biopsy". It says "sampling sites" and "sample part" and "sample material". Could be a biopsy. I think we should default to "biopsy".
+
+Malignant tumor findings: The statement says "no notable atypic patterns... sample material is insufficient to reliably assess the content for presence of adenocarcinoma or PIN-like changes." So we cannot confirm presence. So malignant tumor findings: "NA" or "no"? The instructions: "Were there malignant tumor findings (allowed values: "yes", "no" or "NA")." Since it can't be determined, we might say "NA". Because it's insufficient to assess. So "NA".
+
+Reported Gleason grade: Since we cannot assess, "NA". So JSON:
+
+{
+  "original_sample_type": "biopsy",
+  "malignant_tumor_findings": "NA",
+  "gleason_grade": "NA"
+}
+
+We need to ensure JSON is valid. Provide only JSON.assistantfinal```json
+{
+  "original_sample_type": "biopsy",
+  "malignant_tumor_findings": "NA",
+  "gleason_grade": "NA"
+}
+```

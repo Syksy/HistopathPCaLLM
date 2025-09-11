@@ -1,0 +1,26 @@
+analysisWe have a user instruction in Finnish. They want to transform unstructured text into structured data. The text is a pathology report for prostate cancer. We need to output JSON with three fields: 1) sample type (allowed values "biopsy", "RP", "TURP", or "NA"). 2) Whether malignant findings present ("kyllä", "ei", "NA"). 3) Reported Gleason grade: "major+minor=sum" as integers for malignant findings, "NA" for benign findings.
+
+We must consider only the worst lesion? Actually they say: "vain pahimman leesion tulokset tulisi palauttaa eikä rakenteinen tulos saisi koostua sisäkkäisistä rakenteista." So only worst lesion results should be returned, and output should not be nested. But in this case, the text states: "Histologisessa tarkastelussa havaitaan prostatakudosta, mutta päättelyä solujen atypiasta, maligniteetista, tai karsinoomasta ei voida tehdä. Vähän nähtävissä läiskittäistä tulehdusta. Materiaalista ei voida vetää johtopäätöstä sopisiko se pelkästään epäiltyyn hyvänlaatuiseen hyperplasiaan." That means: They see prostate tissue but cannot determine atypia, malignancy or carcinoma. There's some inflammation. Cannot conclude it is just suspected benign hyperplasia. So there are no malignant findings. So malignant findings? "ei" or "NA"? We need to decide. The allowed values are "kyllä", "ei", or "NA". "ei" means no malignant findings. "NA" means unknown? Usually "NA" is used when not applicable. But here we do have some information that there are no malignant findings. So we should set "ei".
+
+The sample type: The text doesn't specify whether it's a biopsy, radical prostatectomy (RP), TURP etc. It just says "Näytemateriaalia tuli yhteensä runsaasti, josta suurin osa käynnistettiin useammassa erässä." Could be a biopsy? "käynnistettiin" maybe means "started" or "performed"? It says "Näytemateriaalia tuli yhteensä runsaasti" which means "Total sample material was plentiful, most of which was started in several stages." Hard to interpret. It could be a biopsy? But not explicitly. The allowed values: "biopsy", "RP", "TURP", "NA". If not certain, we can use "NA". So set "NA".
+
+Gleason grade: Since no malignant findings, we set "NA".
+
+Thus JSON:
+
+{
+  "sample_type": "NA",
+  "malignant_findings": "ei",
+  "gleason_grade": "NA"
+}
+
+We should output JSON. Ensure no nested structures. Also the keys in Finnish? They didn't specify key names. The instruction says "Anna vastaukset seuraaviin kolmeen rakenteelliseen kenttään:" meaning "Return answers to the following three structural fields:" but didn't specify field names. We can choose field names: "sample_type", "malignant_findings", "gleason_grade". That seems fine.
+
+Let's output.assistantfinal```json
+{
+  "sample_type": "NA",
+  "malignant_findings": "ei",
+  "gleason_grade": "NA"
+}
+```
+

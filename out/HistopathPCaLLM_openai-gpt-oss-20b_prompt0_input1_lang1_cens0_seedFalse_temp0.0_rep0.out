@@ -1,0 +1,17 @@
+analysisWe need to parse Finnish text. The task: produce structured data in JSON format with three fields:
+
+1. "Näytteen alkuperäinen tyyppi" (original sample type): allowed values "biopsy", "RP", "TURP" or "NA". The sample type is "biopsy" because it's a biopsy. The text: "Tutkittavana 12 edustavaa neulabiopsiaa prostatan tyyppipaikoista." That's a needle biopsy. So type = "biopsy".
+
+2. "Olikko näytteessä pahanlaatuisia löydöksiä" (Were there malignant findings?) Allowed values "kyllä", "ei", "NA". The text: "Nähdään normaaleja rauhasrakenteita ja jonkin verran aaltoilevaa hyperplastisen kaltaista epiteeliä. Lopputulos on siis lähinnä benignin oloista kasvua." So benign. So answer is "ei".
+
+3. "Mikä oli raportoitu Gleason-luokka" (What was the reported Gleason grade). Allowed values "major+minor=sum" integers for malignant findings, "NA" for benign. Since benign, "NA".
+
+Return JSON: { "Näytteen alkuperäinen tyyppi": "biopsy", "Olikko näytteessä pahanlaatuisia löydöksiä": "ei", "Mikä oli raportoitu Gleason-luokka": "NA" }.
+
+Make sure no nested structures. So final.assistantfinal```json
+{
+  "Näytteen alkuperäinen tyyppi": "biopsy",
+  "Olikko näytteessä pahanlaatuisia löydöksiä": "ei",
+  "Mikä oli raportoitu Gleason-luokka": "NA"
+}
+```

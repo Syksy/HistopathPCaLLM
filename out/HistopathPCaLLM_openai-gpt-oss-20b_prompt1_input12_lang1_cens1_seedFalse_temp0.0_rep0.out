@@ -1,0 +1,25 @@
+analysisWe need to parse the statement. Let's translate: "The sample consists of suspected prostate cancer cells and it has been started in eight parts. In histological examination, the majority of the sample material appears to be from the prostate, but high-resolution images are pending in the digital pathology queue."
+
+We need to determine sample type: allowed values: "biopsy", "RP", "TURP", or "NA".
+
+The statement says "Saatu näyte koostuu epäillystä eturauhassyöpäsolukosta ja se on käynnistetty kahdeksassa osassa." That suggests a biopsy? "Biopsy" is a sample taken from suspect cancer cells. Could also be "biopsy". There's no mention of radical prostatectomy (RP) or TURP. So we set Sampletype: "biopsy".
+
+Malignancy: Are there malignant findings? The statement says suspicious prostate cancer cells. But no definitive malignant finding. It says "epäillystä eturauhassyöpäsolukosta" which means suspected prostate cancer cells. So it's suspicious, but not confirmed. So "Malignancy": "NA"? Allowed values: "kyllä", "ei" or "NA". Since not confirmed, use "NA".
+
+Gleason: If malignant, we would give Gleason. But since not malignant, use "NA".
+
+Thus JSON:
+
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+
+We need to ensure no nested structures. Just these three fields. Output in JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

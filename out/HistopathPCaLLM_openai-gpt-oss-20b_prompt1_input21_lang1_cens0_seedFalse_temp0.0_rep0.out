@@ -1,0 +1,13 @@
+analysisWe need to output JSON with fields: Sampletype, Malignancy, Gleason. Determine sample type: The text says "Prostatalastuja yhteensä noin 19g, josta laitettu 10g histologiaan." "lastuja" likely "samples" or "tissues" from a prostate specimen. Could be RP (radical prostatectomy) or TURP? "Prostatalastuja" might be "prostate tissue" from surgery. Since it's a specimen of 19g, likely from radical prostatectomy (RP). It's a resection, not a biopsy. So Sampletype: "RP".
+
+Malignancy: There is malignant growth. "tumajyväset erottuvat selvästi" indicates malignant. So "kyllä".
+
+Gleason: "Gleason luokituksessa eniten tasoa 5 ja toiseksi eniten tasoa 4." Reported Gleason-luokka: major + minor = sum. Usually major is 5, minor is 4, sum 9. Usually we say "5+4=9". But the text: "eniten tasoa 5 ja toiseksi eniten tasoa 4." That likely means the most common grade is 5, second most common is 4. So Gleason 5+4=9. Provide "5+4=9".
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "5+4=9"
+}
+```

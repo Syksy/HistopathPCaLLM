@@ -1,0 +1,23 @@
+analysisWe need to parse the statement. We need three fields:
+
+1. Original sample type: allowed values "biopsy", "RP", "TURP" or "NA".
+
+The statement: "The sample is a fresh prostatectomy specimen, with a total weight 44g." This is a prostatectomy specimen. That likely corresponds to RP (radical prostatectomy). But also says "original sample is an autopsy sample intended for research use." There's conflict: "fresh prostatectomy specimen" vs "original sample is an autopsy sample intended for research use." But "fresh prostatectomy specimen" indicates RP. But autopsy sample is weird: autopsy sample would be "NA"? The allowed values: "biopsy", "RP", "TURP" or "NA". If autopsy sample is not one of those, we might choose "NA". But the statement may be contradictory. Which one should we pick? The instruction: "original sample type" likely refers to the type of sample. The text says "The sample is a fresh prostatectomy specimen" but also "original sample is an autopsy sample intended for research use." Which is the original? "original sample" might refer to original sample type. That says autopsy. But autopsy is not in allowed values. So we choose NA. Or perhaps we choose RP because it's a prostatectomy specimen.
+
+Given the instruction: "original sample type" allowed values: "biopsy", "RP", "TURP" or "NA". So we likely choose "RP" because it's a prostatectomy specimen. The autopsy mention might be background. So choose "RP".
+
+2. Were there malignant tumor findings? The summary: "Prostate tissue contains at most a low inflammatory state, and most of the tissue changes can be attributed to normal aging." No malignant tumors. So "no".
+
+3. What is the reported Gleason grade? Since no malignant tumor, "NA".
+
+Thus JSON:
+
+{ "sample_type":"RP", "malignant":"no", "gleason_grade":"NA" }
+
+Return JSON.assistantfinal```json
+{
+  "sample_type": "RP",
+  "malignant": "no",
+  "gleason_grade": "NA"
+}
+```

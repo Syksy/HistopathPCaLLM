@@ -1,0 +1,27 @@
+analysisWe need to parse the input Finnish text. It's a statement: "Eturauhasmateriaalin yhteiskoko noin 2x. Materiaali asetettu kaseteille, pienempi osa materiaalista ajettiin. Mikroskoopilla nähdään tavallista eturauhaskudosta rauhasineen. Joitakin rauhasia, joista basaalisoluhyperplasiaan ehkä viittaavia löydöksiä. Ei voitu määrittää, onko syöpään liittyviä muutoksia vai ei."
+
+We need to determine:
+
+1. Sample type: allowed values "biopsy", "RP", "TURP" or "NA".
+
+The text says "Eturauhasmateriaalin yhteiskoko noin 2x. Materiaali asetettu kaseteille, pienempi osa materiaalista ajettiin." This suggests a whole prostate sample? It could be radical prostatectomy? It says "Eturauhasmateriaalin yhteiskoko" ~ entire prostate material. "pienempi osa materiaalista ajettiin" maybe a core. But not clear. Likely it's a radical prostatectomy (RP). But we need to decide: It's likely a whole prostate specimen (radical prostatectomy). The sample type is probably "RP" (radical prostatectomy). But could also be "biopsy" if it's a core. But the text: "Eturauhasmateriaalin yhteiskoko" indicates whole organ. So "RP".
+
+2. Malignancy: "Ei voitu määrittää, onko syöpään liittyviä muutoksia vai ei." So cannot determine malignancy; no malignant findings. So "NA" maybe? The allowed values are "kyllä", "ei", or "NA". Since cannot determine, use "NA".
+
+3. Gleason: Since cannot determine, "NA".
+
+Thus JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "NA",
+ "Gleason": "NA"
+}
+
+Check instructions: Only worst lesion results should be returned. But here no malignancy. So "NA".
+
+Seems correct.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}

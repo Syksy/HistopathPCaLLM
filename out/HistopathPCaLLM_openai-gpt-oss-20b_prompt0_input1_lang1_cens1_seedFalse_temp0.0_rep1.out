@@ -1,0 +1,25 @@
+analysisWe need to parse Finnish pathology report. The prompt: "Tehtävänäsi on tuottaa rakenteista dataa vapaamuotoisesta tekstistä. Raakadata annetaan... Prosessoitavat syötteet ovat eturauhassyövän histopatologisia lausuntoja. Sinun tulee toimia kuin dataa rakenteistava algoritmi. Palauta rakenteelliset vastaukset syntaksia noudattavassa JSON-formaatissa. Ota huomioon että vain pahimman leesion tulokset tulisi palauttaa eikä rakenteinen tulos saisi koostua sisäkkäisistä rakenteista. Anna vastaukset seuraaviin kolmeen rakenteelliseen kenttään: 
+ 1. Mikä on näytteen alkuperäinen tyyppi (sallitut arvot "biopsy", "RP", "TURP" tai "NA"). 
+ 2. Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot "kyllä", "ei" tai "NA"). 
+ 3. Mikä oli raportoitu Gleason-luokka (sallitut arvot "major+minor=sum" muodossa kokonaislukuina pahanlaatuisille löydöksille ja "NA" hyvänlaatuisille löydöksille). 
+ Sovita seuraava lausunto:..."
+
+We must use only the worst lesion results. No nested structures. Provide JSON with three fields: sample type, presence of malignant findings, Gleason class.
+
+Now the given report: "Tutkittavana edustavaa prostatakudosta sovituista paikoista. Näytteiden yhteismäärä on riittävä. Nähdään mm. rauhasrakenteita ja jonkin verran aaltoilevaa epiteeliä. Loppupäätelmä on vielä kesken ja valmistuu lähipäivinä. Lääk. Heikki Histopatologi"
+
+We need to interpret: It seems to be a core sample? It says "Tutkittavana edustavaa prostatakudosta sovituista paikoista." Means "The sample to be examined is representative prostate tissue from selected sites." It doesn't specify biopsy or RP. Could be "biopsy" or "NA". There's no mention of pahanlaatuisia found; just mention of some "aaltoilevaa epiteeliä" but no diagnosis. So pahanlaatuisia? likely "ei" or "NA". Since it's not concluded yet, maybe "NA" because not yet determined. But the field for malignant findings is "kyllä", "ei" or "NA". "NA" if not enough info. So "NA".
+
+Gleason class: no malignant findings; thus "NA".
+
+Sample type: maybe "biopsy"? But it could be "RP" if radical prostatectomy. The description: "Tutkittavana edustavaa prostatakudosta sovituista paikoista." That sounds like a biopsy. So choose "biopsy".
+
+Thus JSON: {"sample_type":"biopsy","malignant_findings":"NA","gleason":"NA"}
+
+We need to ensure correct JSON syntax. Provide only that.assistantfinal```json
+{
+  "sample_type": "biopsy",
+  "malignant_findings": "NA",
+  "gleason": "NA"
+}
+```

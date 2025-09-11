@@ -1,0 +1,11 @@
+analysisWe must parse the text. We need to output JSON with fields Sampletype, Malignancy, Gleason. We must consider only the worst lesion. The text: "Tutkittavana on radikaali prostatektomia..." So sampletype likely "RP" (radical prostatectomy). There's malignancy yes because tumor found. Gleason: the worst Gleason reported. We have two macro blocks A and B. Macro A: Gleason pattern 4+3, dominant 4 ~60%. Macro B: higher score 9, Gleason 4+5, with proportions 50% and 20%? Wait says: "korkeamman pistesumman (9) kasvua 4+5, jossa osuudet n.50% ja 20%" So macro B: Gleason 4+5=9. So worst lesion is Gleason 4+5=9. So output: Sampletype "RP", Malignancy "kyllä", Gleason "4+5=9".
+
+Check if any other lesions. Only those macro blocks. No benign. So output accordingly. Ensure no nested structures. Just one JSON object. Use correct Finnish field names.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+5=9"
+}
+```

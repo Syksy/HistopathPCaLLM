@@ -1,0 +1,17 @@
+analysisWe need to parse the statement: "Samples consist of total 4g shaving chips, which are run via three tissue casettes. Microscopically relatively normal prostate grandular structures are observed, although a heavy burn artefact is present. Although glands are largely unobservable due to the artefacts, the findings hint at the specimen presenting with benign prostate hyperplasia."
+
+We need to produce structured fields:
+
+1. Sampletype: allowed values: "biopsy", "RP", "TURP" or "NA". The statement says "shaving chips" run via tissue casettes. That is likely "RP" (radical prostatectomy) or "shaving chips" from prostatectomy. In pathology, "shaving chips" can be from RP or TURP? "Shaving chips" from prostatectomy? Typically "shaving" refers to tissue from radical prostatectomy. So sample type likely "RP". But we should consider if "shaving chips" is typical for TURP? TURP yields tissue chips, but they are not "shaving chips" - "shaving" is used for radical prostatectomy. So Sampletype: "RP".
+
+2. Malignancy: The statement says "benign prostate hyperplasia" - benign lesion. So Malignancy: "no".
+
+3. Gleason: Since benign, reported Gleason: "NA".
+
+Return JSON. Ensure no nested structures. Just those 3 keys. Use sample keys exactly as specified: "Sampletype", "Malignancy", "Gleason". Provide JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}
+```

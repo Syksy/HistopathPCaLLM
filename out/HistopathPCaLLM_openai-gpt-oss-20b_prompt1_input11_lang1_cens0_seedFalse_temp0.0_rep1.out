@@ -1,0 +1,27 @@
+analysisWe need to parse the text and output a JSON with fields:
+
+- Sampletype: "biopsy", "RP", "TURP" or "NA". The sample type: the text refers to "Prostatektomiapreparaatti" i.e., Radical prostatectomy (RP). So Sampletype: "RP".
+
+- Malignancy: "kyllä", "ei", or "NA". The sample has malignant findings: invasoiva kasvainsolukko, malignant mass. So "kyllä".
+
+- Gleason: "major+minor=sum" for malignant findings. They mention Gleason luokkaa 4+3. So "4+3=7".
+
+We should not include nested structures. Also no extra keys. Output exactly as JSON with proper quotes.
+
+We need to ensure that the values match allowed ones. For sampletype: "RP" is allowed. For Malignancy: "kyllä". For Gleason: "4+3=7".
+
+Return JSON object. Let's produce:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "kyllä",
+ "Gleason": "4+3=7"
+}
+
+Ensure JSON is valid.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+3=7"
+}
+```

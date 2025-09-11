@@ -1,0 +1,15 @@
+analysisWe need to output JSON with fields Sampletype, Malignancy, Gleason. The input is a statement about a prostatectomy specimen (prostatetomiapreparaatti). So Sampletype should be "RP" (since radical prostatectomy). Malignancy: yes (kyllä). Gleason: we need to report "major+minor=sum" from the malignant findings. The statement says: "use several clear foci, with predominant Gleason class 4 and some grade 3." So major 4, minor 3, sum 7. But maybe there are multiple foci; but we pick the reported Gleason. The statement says "vallitseva Gleason luokka on 4 ja mukana myös jonkin verran luokkaa 3." So we can say "4+3=7". So produce JSON:
+
+{
+"Sampletype": "RP",
+"Malignancy": "kyllä",
+"Gleason": "4+3=7"
+}
+
+No nested structures. Output JSON only.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+3=7"
+}
+```

@@ -1,0 +1,24 @@
+analysisWe need to parse the statement and produce JSON. The statement: "A lot sample material was obtained, which were run in multiple batches. In histological examination prostate tissue was observed, but any inference of cell atypia, malignancy, or carcinoma cannot be conducted. Some spot-like inflammation can be observed. From this material reliable conclusions cannot be drawn regarding whether the findings fit the suspicion of benign prostate hyperplasia."
+
+We need to provide fields:
+1. Sampletype: allowed values "biopsy", "RP", "TURP" or "NA". The statement doesn't specify sample type. It says "a lot sample material" and "histological examination prostate tissue". No mention of biopsy, RP, TURP. So Sampletype: "NA".
+
+2. Malignancy: "yes", "no" or "NA". The statement says "any inference of cell atypia, malignancy, or carcinoma cannot be conducted" and "reliable conclusions cannot be drawn regarding whether the findings fit the suspicion of benign prostate hyperplasia." So no definitive malignant findings. It's uncertain. So Malignancy: "NA".
+
+3. Gleason: "NA" because no malignant statement.
+
+Thus JSON:
+
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+
+Return valid JSON.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

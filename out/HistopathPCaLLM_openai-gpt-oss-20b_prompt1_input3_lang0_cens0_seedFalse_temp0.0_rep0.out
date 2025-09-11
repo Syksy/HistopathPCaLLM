@@ -1,0 +1,23 @@
+analysisWe need to parse the statement. Sample type: The sample consists of 12.3g of prostate chippings. The material started on one cassette. This indicates it's probably a radical prostatectomy? Wait, chippings might be from a TURP or biopsy. But the sample is chippings of prostate. Usually chippings could be from a TURP or from a biopsy. The statement says "Sample consists of 12.3g of prostate chippings. The material is started on one casette." That seems more like a TURP or a prostate resection. In the context, "chippings" might come from a TURP (Transurethral resection of prostate). But we have to choose from allowed values: "biopsy", "RP", "TURP" or "NA". The sample is chippings - not a whole organ, so likely TURP. So sample type: "TURP".
+
+Malignancy: Nothing indicating malignancy is found. So "no".
+
+Gleason: NA.
+
+Thus JSON:
+
+{
+ "Sampletype": "TURP",
+ "Malignancy": "no",
+ "Gleason": "NA"
+}
+
+Check: The sample is chippings from prostate, not a biopsy? Biopsy usually refers to core needle biopsy. TURP is resection of prostate tissue. So "TURP" is appropriate.
+
+Return JSON exactly.assistantfinal```json
+{
+  "Sampletype": "TURP",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}
+```

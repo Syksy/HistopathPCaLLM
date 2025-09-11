@@ -1,0 +1,37 @@
+analysisWe need to parse the given statement and produce structured JSON following rules:
+
+- Sampletype: type of sample: "biopsy", "RP", "TURP", or "NA".
+- Malignancy: "kyllä", "ei", or "NA".
+- Gleason: "major+minor=sum" for malignant findings, or "NA" for benign.
+
+We must return only the worst lesion results. The statement:
+
+" Näytteinä prostatan paksuneulabiopsioita tyyppipaikoista otettuna, yhteispituus oikealta noin 60mm ja vasemmalta noin 80mm. Näytteestä B havaitaan karsinoomaa, joka menee jo Gleason tasolle 5 ja kokonais Gleason taso on 9 (4+5). Kyseistä muutosta noin 20% vasemmalla. Muissa näytteissä normaalia rauhasrakennetta, eikä merkittävää tulehdusta."
+
+Interpretation: The samples are "paksuneulabiopsioita" which is a type of biopsy (core biopsy). So Sampletype "biopsy".
+
+Malignancy: yes (karsinooma). So "kyllä".
+
+Gleason: reported as 4+5=9. So "4+5=9".
+
+Return JSON accordingly.
+
+Check for any nuance: The statement says "karsinoomaa, joka menee jo Gleason tasolle 5 ja kokonais Gleason taso on 9 (4+5)". So major=4, minor=5? In Gleason, usually the major is the predominant pattern, minor the secondary. But they say major+minor=9, 4+5. So indeed major 4, minor 5. So we output "4+5=9".
+
+No nested structure.
+
+Thus output:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "kyllä",
+ "Gleason": "4+5=9"
+}
+
+Ensure JSON keys exactly as specified: "Sampletype", "Malignancy", "Gleason".
+
+Return result.assistantfinal{
+  "Sampletype": "biopsy",
+  "Malignancy": "kyllä",
+  "Gleason": "4+5=9"
+}

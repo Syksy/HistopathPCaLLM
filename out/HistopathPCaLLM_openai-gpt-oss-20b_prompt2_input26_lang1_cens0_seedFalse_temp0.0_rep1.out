@@ -1,0 +1,17 @@
+analysisWe need to parse the given pathology statement. Determine sample type (biopsy, RP, TURP, or NA). The statement: "Tutkittavana on prostatektomiapreparaatti, joka käynnistetään..." It refers to a prostatectomy specimen. So sample type should be "RP" (radical prostatectomy). Malignancy: yes, they reported a tumor (glandular?). It's described as "laaja kasvain" (large tumor) with Gleason 3 and 4. So malignant. So "kyllä". Gleason: "3+4=7" presumably. They say "Suurin kasvainfokus on basiksen puolella, missä vallitseva Gleason luokka 3, ja luokan 4 erilaistumista melkein yhtä paljon." That implies both 3 and 4 components. So sum 7. So output:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "kyllä",
+ "Gleason": "3+4=7"
+}
+
+Check format: keys are exactly as specified: "Sampletype", "Malignancy", "Gleason". Use lower case values for "kyllä". "3+4=7" as string. Should we use "3+4=7" or "3+4=7" exactly. Yes.
+
+Return JSON. No nested structure.
+
+Return only JSON.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "3+4=7"
+}

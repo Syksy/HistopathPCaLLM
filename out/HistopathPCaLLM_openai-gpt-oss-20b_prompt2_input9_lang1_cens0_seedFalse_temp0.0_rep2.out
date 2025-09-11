@@ -1,0 +1,23 @@
+analysisWe need to parse the given Finnish text. Determine sample type, malignancy, Gleason.
+
+Text: "Tutkittavaksi on saatu prostatan elektrosektiolastuja, joiden yhteispaino 20g. Näistä tutkitaan 10g, joten noin puolet materiaalista jää käyttämättä. Käytössä yhteensä 8 kasettia. Nähdään histologisesti runsas määrä prostatan stroomakudosta. Epiteeli on kaksirivistä. Paikoitellen rauhaset ovat laajentuneita sopien hyperplasiaan. Mitään malignia ei tule esiin, joten löydös sopii hyvänlaatuiseen liikakasvuun."
+
+Interpretation: It's an "electrosection" sample (TURP? Actually "electrosection" could be TURP, but "elektrosektiolastuja" means "electrosection pieces." So sample type: "TURP" maybe? But the sample type allowed: "biopsy", "RP", "TURP" or "NA". So "electrosection" suggests TURP. So Sampletype: "TURP".
+
+Malignancy: "Mitään malignia ei tule esiin" = no malignancy. So "ei".
+
+Gleason: since no malignancy, Gleason "NA".
+
+Thus JSON:
+
+{
+ "Sampletype": "TURP",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+We should output exactly that JSON. Ensure no formatting extras.assistantfinal{
+  "Sampletype": "TURP",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}

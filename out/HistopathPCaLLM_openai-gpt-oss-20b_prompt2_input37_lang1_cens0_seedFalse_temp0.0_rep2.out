@@ -1,0 +1,25 @@
+analysisWe need to parse the text, then determine:
+
+1. Sample type: biopsy, RP, TURP, or NA. The text: "Preparaattina 7g elektrosektiolastuja. Histologisesti nähtään prostatakudosta, jossa osittain lisääntyneitä kyhmyisiä rauhaskomponentteja. Paikoittain vähäistä inflammaatiota kuten tavallisesti. Löydös siis hyperplasia." It doesn't say biopsy or RP, etc. It mentions 7g; perhaps a resection? But likely not a biopsy. It says "Preparaattina" but no explicit mention. The sample likely is a resection: "7g" maybe from a TURP or RP. But we cannot determine. The instructions say only use allowed values. If no clear type, set to NA. So Sampletype: NA.
+
+2. Malignancy: The finding is hyperplasia, no malignancy. So "ei".
+
+3. Gleason: For benign lesions, we put NA. So "NA".
+
+Thus output:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+But check if any malignant mention? No. So correct.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

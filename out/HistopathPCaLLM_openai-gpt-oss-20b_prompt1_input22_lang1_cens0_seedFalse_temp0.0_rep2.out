@@ -1,0 +1,21 @@
+analysisWe need to parse the text. It's a Finnish text describing a prostate sample. It says "Tutkittavana purkillinen prostatan paksuneulanäytteitä molemmilta puolilta, joista vasemman puolen fragmentit pituudeltaan 10 ja 7mm ja oikean puolen 15 ja 10mm. Kroonista tulehdusta nähdään systemaattisesti. Vasemman puolen fragmenteissa näkyy lähinnä matalalle erilaistunutta karsinoomasolukkoa, josta Gleason kasvutapaa 3 pääsääntöisesti ja toiseksi eniten tapaa 4. Lisäksi hermojen ympärillä syöpäkasvustoa. Oikean puolen fragmentit taas eivät näytä malignilta."
+
+We need to output three fields: Sampletype: "biopsy", "RP", "TURP" or "NA". Here it says "purkillinen" meaning "bagged" maybe a prostate biopsy. It says "purkillinen prostatan paksuneulanäytteitä" which likely refers to a "biopsy" sample. So Sampletype = "biopsy".
+
+Malignancy: is there malignant findings? The left side fragments show malignant cells, with Gleason patterns 3 and 4, plus tumor around nerves. So yes. So Malignancy = "kyllä".
+
+Gleason: reported Gleason class. They mention Gleason patterns 3 and 4. Usually Gleason is major+minor = sum. The major pattern is 4, minor 3. So Gleason = "4+3=7". Should we use the same format. Yes.
+
+Thus JSON:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "kyllä",
+ "Gleason": "4+3=7"
+}
+
+Ensure no nested structures. Output JSON.assistantfinal{
+  "Sampletype": "biopsy",
+  "Malignancy": "kyllä",
+  "Gleason": "4+3=7"
+}

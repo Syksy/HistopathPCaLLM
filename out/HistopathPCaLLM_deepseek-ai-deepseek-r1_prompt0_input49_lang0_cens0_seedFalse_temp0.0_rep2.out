@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this problem step by step. The user wants me to extract structured data from a given medical text related to prostate cancer. The output needs to be in JSON format with three specific fields. Let me break down each part.
+
+First, the original sample type. The allowed values are "biopsy", "RP" (which I know stands for radical prostatectomy), "TURP" (transurethral resection of the prostate), or "NA". Looking at the provided statement: "Investigated rest of the prostate chippings, remaining 90 shavings on 8 glasses." The term "shavings" and "chippings" makes me think of TURP, as TURP involves removing tissue from the prostate, often resulting in chips or shavings. So I'll go with "TURP" for the first field.
+
+Next, were there malignant tumor findings? The options are "yes", "no", or "NA". The text says "5 shavings contained carcinoma." Since carcinoma is a malignant tumor, the answer here should be "yes".
+
+Third, the Gleason grade. The preferred format is "major+minor=sum". The statement mentions "Most common Gleason class is 3, second most common Gleason class is 4." In Gleason scoring, the primary (most common) and secondary (second most common) grades are added. So primary is 3, secondary is 4, sum is 7. The format would be "3+4=7".
+
+I need to make sure that only the most severe lesion is considered. Since the example provided includes multiple shavings with carcinoma, but the highest Gleason mentioned is 3+4=7, that's the one to report. Also, the JSON shouldn't have nested structures, so each field is a top-level key. No issues there. Let me double-check the allowed values and the input text again to confirm. Yep, everything seems to align. The answer should be valid JSON without any markdown, just the raw JSON.
+</think>
+
+```json
+{
+  "original_sample_type": "TURP",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "3+4=7"
+}
+```

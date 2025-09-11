@@ -1,0 +1,17 @@
+analysisWe need to parse the statement. It's a description of prostate tissue from multiple autopsies. The statement: "Tutkitaan useasta ruumiinavauksesta saatua eturauhasmateriaalia kurssilla URO-101, yhteensä koko noin 100(?). Näytteet valmisteltu rutiinin mukaan siten, että apex, keskiosa, basis ja seminaalivesikkelit kaseteilla. Joitakin esimerkinomaisia histologisia muutoksia kahdessa alueessa vasemmassa dorsaalisessa lohkossa. Seminaalivesikkelit ovat puhtaat. Ei kyetä erittelemään erilaistumismuutoksia yksilöille, mutta kiinnostavia trendejä havainnoillistetaan opetusmielessä. YHTEENVETO: Joitakin kiinnostavia löydöksiä havaittu, mutta esimerkinomaisen demonstraation luonteen vuoksi näitä ei käytetä määrittämään erilaistumisasteita (esim. Gleason 1-5)."
+
+We need to answer three fields: Sampletype, Malignancy, Gleason. Only worst lesion results should be returned. But the sample type: it's from autopsy (ruumiinavaukset) not biopsy, RP, TURP. So sample type likely "NA". Malignancy: The statement says "Ei kyetä erittelemään erilaistumismuutoksia yksilöille" and "ei käytetä määrittämään erilaistumisasteita (esim. Gleason 1-5)". So no malignancy determination. So "NA" for Malignancy. Gleason: Not reported. So "NA".
+
+Thus JSON:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "NA",
+ "Gleason": "NA"
+}
+
+We should ensure correct JSON syntax.assistantfinal{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}

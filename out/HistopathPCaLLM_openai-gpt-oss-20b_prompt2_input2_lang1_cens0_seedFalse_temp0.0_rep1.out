@@ -1,0 +1,17 @@
+analysisWe need to produce JSON with fields: Sampletype, Malignancy, Gleason.
+
+We have a statement: It's a radical prostatectomy specimen. The sample is from radical prostatectomy (RP). There's no mention of malignancy. They state "korkeintaan lievä-asteista tulehdusta" and "tyypillisiä ikäpohjaisia muutoksia." No mention of adenocarcinoma, Gleason. So Malignancy = "ei" (no malignant findings). Gleason = "NA" (since no malignancy). Sampletype = "RP". So output JSON accordingly.
+
+Make sure to match allowed values: "biopsy", "RP", "TURP", or "NA". Malignancy allowed "kyllä", "ei", "NA". Gleason allowed "major+minor=sum" or "NA". So output:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Check that no nested structures. That's it.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}

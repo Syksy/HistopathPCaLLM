@@ -1,0 +1,15 @@
+analysisWe need to parse statement and return JSON with fields Sampletype, Malignancy, Gleason. Only most severe lesion should be returned, no nested structures.
+
+Sample type: statement says "prostatectomy resection". Allowed values: "biopsy", "RP", "TURP" or "NA". "RP" stands for radical prostatectomy. So Sampletype: "RP".
+
+Malignancy: yes because adenocarcinoma present. So "yes".
+
+Gleason: For most severe lesion. They mention two lesions: Apex 3+4, Basis 4+4. The more severe is 4+4 (sum 8). So Gleason: "4+4=8". Ensure format "major+minor=sum". So "4+4=8".
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "yes",
+  "Gleason": "4+4=8"
+}
+```

@@ -1,0 +1,19 @@
+analysisWe need to parse the given Finnish text. Determine sample type: possibilities: "biopsy", "RP", "TURP", or "NA". The text: "Näytteenä on varmistuksena ajettavaksi n. 10g turp-lastuja, joista noin puolet käynnistetään 6:een kudoskasettiin." That indicates TURP (Transurethral resection of prostate) sample. So Sampletype = "TURP".
+
+Malignancy: presence of malignant findings. The text: "Lastuissa havaitaan >50%:ssa yhteensulaneina asinuksina kasvavaa Gleason 4 -luokan tuumorikasvua." Also "YHTEENVETO: Aiemmin benigniksi luokiteltu mutta malignin epäilyksen jättänyt höyläysnäyte arvioidaan uusiksi siis pistesumman 8 adenokarsinoomaksi." So yes malignant. So Malignancy = "kyllä".
+
+Gleason: It says "Gleason 4 -luokan tuumorikasvua" and "pistesumman 8 adenokarsinoomaksi" maybe Gleason 4+4? Actually they mention "Gleason 4-luokan" but not minor. Gleason 8 could be 4+4 or 3+5 etc. But they say "pistesumman 8 adenokarsinoomaksi". So we can report "4+4=8" or "4+?=8"? The major is 4. Minor must be also 4 to sum 8. But they only mention "Gleason 4-luokan" but not minor. But "pistesumman 8" suggests 4+4=8. So we can report "4+4=8". That is allowed.
+
+Thus output JSON:
+
+{
+ "Sampletype": "TURP",
+ "Malignancy": "kyllä",
+ "Gleason": "4+4=8"
+}
+
+Check formatting: keys exactly: "Sampletype", "Malignancy", "Gleason". Provide JSON.assistantfinal{
+  "Sampletype": "TURP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+4=8"
+}

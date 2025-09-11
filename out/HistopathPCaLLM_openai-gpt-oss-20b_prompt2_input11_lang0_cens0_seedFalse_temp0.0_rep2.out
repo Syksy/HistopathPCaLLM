@@ -1,0 +1,23 @@
+analysisWe need to parse the statement and extract: sample type, malignancy, Gleason. Allowed sample types: "biopsy", "RP", "TURP" or "NA". The statement: "Prostatectomy preparate" => this is a radical prostatectomy (RP). So Sampletype: "RP".
+
+Malignancy: yes, since tumor tissue observed. So "yes".
+
+Gleason: reported as "4+3". The statement says "Gleason grading 4+3". We need "major+minor=sum" format. 4+3 sum is 7. So "4+3=7".
+
+Thus output JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "yes",
+ "Gleason": "4+3=7"
+}
+
+Check formatting: keys capitalized exactly as example: "Sampletype", "Malignancy", "Gleason". Ensure proper JSON.
+
+Return only JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "yes",
+  "Gleason": "4+3=7"
+}
+```

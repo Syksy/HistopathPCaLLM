@@ -1,0 +1,25 @@
+analysisWe need to parse Finnish text. The sample: "Katsottavaksi tullut yhteensä noin 5g edestä prostatan höylälastuja, joista kaikki käyty läpi. Potilas ollut suspekti aiemmin kohonneen PSA:n takia. Skoopilla katsoen lähes kaikissa nähdään adenokarsinoomaa, edustavin Gleason 4:ää ja sen eri variantteja joten pistesumma 8. Löydös siis vahvistaa aiemman suspision."
+
+We need to give JSON with Sampletype, Malignancy, Gleason.
+
+Sampletype: The sample type can be "biopsy", "RP", "TURP", or "NA". In this case, it's "prostatan höylälastuja" = prostate core biopsies. So "biopsy".
+
+Malignancy: Are there malignant findings? Yes: adenokarsinooma. So "kyllä".
+
+Gleason: The report says "edustavin Gleason 4:ää ja sen eri variantteja" and "pistesumma 8". Gleason sum 8. So "4+4=8"? Actually Gleason 4+4 = 8. But they mention "edustavin Gleason 4:ää" meaning most common Gleason grade 4. But sum 8. So we can output "4+4=8" or "4+4=8". The rule: "major+minor=sum" format. So we need major and minor. If sum 8, possible major+minor=8. Could be 4+4. Provide "4+4=8".
+
+Thus JSON:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "kyllä",
+ "Gleason": "4+4=8"
+}
+
+Return that.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "kyllä",
+  "Gleason": "4+4=8"
+}
+```

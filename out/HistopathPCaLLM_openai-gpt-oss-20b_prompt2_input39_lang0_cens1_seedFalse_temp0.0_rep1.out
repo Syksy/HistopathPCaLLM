@@ -1,0 +1,15 @@
+analysisWe need to parse the provided statement and produce JSON with fields: Sampletype, Malignancy, Gleason.
+
+We must identify the sample type: allowed values "biopsy", "RP", "TURP" or "NA". The statement says "Sample under examination has size of 20. Some slices extracted, remaining tissue run according to normal routine. Microscopic inspection conducted at 3 locations. But it is not clear whether there is benign hyperplasia or malignant findings. Gleason score cannot be assessed at this point."
+
+We need to determine if this is a valid histopathological statement. It says it's not clear whether there's benign hyperplasia or malignant findings, and Gleason can't be assessed. So we cannot determine malignancy or Gleason. The sample type? "Sample under examination" doesn't specify biopsy, RP, or TURP. So likely NA.
+
+Therefore we set Sampletype: "NA", Malignancy: "NA", Gleason: "NA". According to instructions: only results from most severe lesion should be returned, but here no lesion. So NA.
+
+Thus JSON: {"Sampletype":"NA","Malignancy":"NA","Gleason":"NA"}assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

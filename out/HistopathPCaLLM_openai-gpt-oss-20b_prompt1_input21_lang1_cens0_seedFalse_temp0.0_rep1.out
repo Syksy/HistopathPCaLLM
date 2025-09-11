@@ -1,0 +1,27 @@
+analysisWe need to parse the statement. It's Finnish. The statement: "Prostatalastuja yhteensä noin 19g, josta laitettu 10g histologiaan. Näkyy paljon fibromuskulaaria stroomaa ja mattomaista huonosti erilaistunutta kasvua stroomassa. Tumat suurentuneet, kooltaan vaihtelevat ja tumajyväset erottuvat selvästi. Noin puolet lastujen pinta-alasta kasvainkudosta, jossa Gleason luokituksessa eniten tasoa 5 ja toiseksi eniten tasoa 4."
+
+We need to output JSON with fields: Sampletype, Malignancy, Gleason.
+
+We must only return results for the worst lesion. The worst lesion presumably is Gleason grade 5 (major). They mention "eniten tasoa 5" i.e., most level 5. And second most 4. Gleason grade typical syntax: major+minor=sum. We must output "5+4=9" presumably. But we need to confirm if major+minor: major is the most common pattern, minor is next. In Gleason scoring, the major (most common pattern) + minor (second most common). They say "eniten tasoa 5 ja toiseksi eniten tasoa 4." So major=5, minor=4, sum=9. So "5+4=9".
+
+Now sample type: It says "Prostatalastuja" (prostate specimens). It is likely a resection (RP?) or TURP? They mention "laitettu 10g histologiaan" (10g taken for histology). That could be a biopsy? But "laitettu 10g histologiaan" could be a surgical specimen (like an RP). Usually, whole prostate is removed in radical prostatectomy (RP). The weight 19g may be the whole prostate. If they only took 10g for histology, likely a surgical specimen (RP). The sample type likely "RP" (radical prostatectomy). We need to pick from allowed values "biopsy", "RP", "TURP" or "NA". So we choose "RP".
+
+Malignancy: The lesion is malignant (pahimman leesion). They mention "huonosti erilaistunutta kasvua" (poorly differentiated growth), "tumajyväset" etc. So "kyllä".
+
+Thus JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "kyllä",
+ "Gleason": "5+4=9"
+}
+
+Double-check: The instruction: "vain pahimman leesion tulokset tulisi palauttaa eikä rakenteinen tulos saisi koostua sisäkkäisistä rakenteista." Means only worst lesion. So we output single-level JSON.
+
+Make sure field names exactly as given: "Sampletype", "Malignancy", "Gleason". Use quotes. Provide correct capitalization.
+
+Return only JSON.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "5+4=9"
+}

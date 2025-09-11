@@ -1,0 +1,23 @@
+analysisWe need to parse this Finnish text and produce JSON with fields:
+
+"Sampletype": must be one of "biopsy", "RP", "TURP", "NA". We need to determine the sample type. The text: "Tutkittu materiaali koostuu useammasta suspektista fokuksesta prostatassa." No mention of biopsy, RP (radical prostatectomy), TURP. So probably "NA".
+
+Second: "Oliko näytteessä pahanlaatuisia löydöksiä" (was there malignant findings). The text says "useammasta suspektista fokuksesta" suggest there are suspicious foci, but no definitive malignant findings. It says "kudosta, jonka piirteet tutkittiin tarkasti" but "tarkan scoren luokittaminen on mahdotonta" due to resolution. It suggests it's uncertain. So we cannot confirm malignant. The allowed values: "kyllä", "ei", "NA". Since not clear if malignant, maybe "NA"? The instructions: "vain pahimman leesion tulokset tulisi palauttaa" and "rakenteinen tulos saisi koostua sisäkkäisistä rakenteista." I'm not fully sure. But we likely set "Malignancy": "NA" because no definitive malignant.
+
+Third: "Mikä oli raportoitu Gleason-luokka" (what was reported Gleason). There's no Gleason score reported. So "NA".
+
+Thus output:
+
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+
+Make sure JSON is valid.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

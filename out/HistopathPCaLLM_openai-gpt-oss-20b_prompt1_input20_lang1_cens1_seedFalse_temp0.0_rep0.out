@@ -1,0 +1,21 @@
+analysisWe need to parse the Finnish text and produce JSON with three fields: Sampletype, Malignancy, Gleason. Use allowed values.
+
+The statement: It's a case covering many complementary diseases in pelvic area with interventions affecting morphology of prostate region. Samples from prostate tissue are divided into six main sections from apex to base. The shift sampling reveals that evaluation of possible adenocarcinoma is impossible due to local treatments, because the prostate tissue samples are clearly altered. Even hypothetically, if a low-level Gleason (like 3+4) were found, the overall disease burden would strongly influence. So basically they cannot assess malignancy due to altered tissue. There's no mention of actual malignancy. So answer: Sampletype: NA? The sample type isn't specified; it says "Saadun eturauhaskudoksen näytteet" - the samples are from prostate tissue. That could be "biopsy"? But not clear if it's a biopsy or RP etc. It's a biopsy likely. The allowed values: "biopsy", "RP", "TURP" or "NA". I'd say biopsy. Malignancy: "ei" because they say evaluation impossible, not found. There's no mention of malignancy. So "ei". Gleason: NA because no malignancy.
+
+Thus JSON:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Check: The user says "vain pahimman leesion tulokset tulisi palauttaa eikä rakenteinen tulos saisi koostua sisäkkäisistä rakenteista." So only worst lesion results. There's no lesion. So NA.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

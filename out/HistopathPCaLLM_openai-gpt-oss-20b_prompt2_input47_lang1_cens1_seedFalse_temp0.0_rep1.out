@@ -1,0 +1,29 @@
+analysisWe need to parse the Finnish text.
+
+Text: "Tutkitaan näytemateriaalia oikealta ja vasemmalta. Eturauhasmateriaalin kokonaismäärä on noin 30+40=70. Vasemmalla normaalia eturauhasepiteeliä, mutta paikoittain vähän lymfosyyttistä kertymää joka viittaisi krooniseen tulehdukseen. Ei voida määrittää onko maligneja löydöksiä vasemmalla tai oikealla."
+
+We need to determine sample type: biopsy, RP, TURP, or NA. The text doesn't specify that it is a biopsy, RP (radical prostatectomy), TURP, or NA. It says "Tutkitaan näytemateriaalia", meaning "We examine the specimen material". It doesn't specify the type. So likely NA.
+
+Malignancy: Are there malignant findings? They say "Ei voida määrittää onko maligneja löydöksiä vasemmalla tai oikealla." Means "Cannot determine if there are malignant findings left or right". So we cannot say yes. Should be "NA" perhaps? But the rule: "Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot 'kyllä', 'ei' tai 'NA')."
+
+We cannot determine, so NA.
+
+Gleason: If malignant, Gleason major+minor=sum. If not malignant, NA. Since we cannot determine malignancy, we cannot report Gleason. So NA.
+
+Thus output:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "NA",
+ "Gleason": "NA"
+}
+
+Check: sample type NA because not specified. Good.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

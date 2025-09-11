@@ -1,0 +1,31 @@
+analysisWe need to parse Finnish text. The prompt: "Tehtävänäsi on tuottaa rakenteista dataa vapaamuotoisesta tekstistä. Raakadata annetaan näiden ohjeiden lopuksi. Prosessoitavat syötteet ovat eturauhassyövän histopatologisia lausuntoja. Sinun tulee toimia kuin dataa rakenteistava algoritmi. Palauta rakenteelliset vastaukset syntaksia noudattavassa JSON-formaatissa. Ota huomioon että vain pahimman leesion tulokset tulisi palauttaa eikä rakenteinen tulos saisi koostua sisäkkäisistä rakenteista. Anna vastaukset seuraaviin kolmeen rakenteelliseen kenttään: 
+ 1. Mikä on näytteen alkuperäinen tyyppi (sallitut arvot "biopsy", "RP", "TURP" tai "NA"). 
+ 2. Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot "kyllä", "ei" tai "NA"). 
+ 3. Mikä oli raportoitu Gleason-luokka (sallitut arvot "major+minor=sum" muodossa kokonaislukuina pahanlaatuisille löydöksille ja "NA" hyvänlaatuisille löydöksille). 
+ Sovella yllä olevien kysymista tähän seuraavaan lausuntoon: 
+
+Näytteenä 1-6 prostatabiopsiat tyyppipaikoista. Näytteen 3 biopsiasylinterit eivät edustavia, sillä siinä ei nähdä prostatakudosta. Muutoin näytteet ovat edustavat ja nähdään benigniä prostatakudosta. Rauhasepiteeleissä ei myöskään havaita merkittävää atypiaa. Näytteistä ei siis löydetä karsinoomaa tai PIN-muutoksia."
+
+We must return one structured JSON answer. Since the text refers to multiple samples 1-6, but we need to output the worst lesion results, which means we need to look for the worst among all. The text says there are no malignant findings: "Näytteistä ei siis löydetä karsinoomaa tai PIN-muutoksia." So pahanlaatuisia löydöksiä: "ei". Since no malignant, Gleason-luokka is NA.
+
+We also need to specify sample type: from text "prostatabiopsiat" means biopsy. So type: "biopsy".
+
+Thus JSON:
+
+{
+  "tyyppi": "biopsy",
+  "pahanlaatu_luonti": "ei",
+  "gleason": "NA"
+}
+
+But we must use the exact field names? The instruction: "Anna vastaukset seuraaviin kolmeen rakenteelliseen kenttään:" but does not specify field names. We need to output JSON with three keys. We might choose keys "tyyppi", "pahanlaatu_luonti", "gleason". But maybe use English? The prompt is in Finnish. The earlier text says "1. Mikä on näytteen alkuperäinen tyyppi (sallitut arvot "biopsy", "RP", "TURP" tai "NA")" So key could be "tyyppi" or "sample_type". But unspecified. However typical tasks used keys "type", "malignancy", "gleason". But to be safe maybe use "tyyppi", "pahanlaatu", "gleason". Let's use "tyyppi", "pahanlaatu", "gleason".
+
+Return JSON: {"tyyppi":"biopsy","pahanlaatu":"ei","gleason":"NA"}
+
+No nested structures. Ok.assistantfinal```json
+{
+  "tyyppi": "biopsy",
+  "pahanlaatu": "ei",
+  "gleason": "NA"
+}
+```

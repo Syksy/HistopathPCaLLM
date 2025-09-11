@@ -1,0 +1,17 @@
+analysisWe need to parse the instruction: produce structured data for the given statement. Fields: sample type, malignant tumor findings, Gleason grade. Only the most severe lesion should be returned, structured result not nested. Provide answers to the three fields.
+
+We analyze text: Sample consists of 12.3g of prostate chippings. The material is started on one casette. In histological inspection, spotted chronic inflammation is apparently, and the material gives an overall impression of stromal hyperplasia. Nothing indicating malignancy is found.
+
+So sample type: it's a biopsy? It says "prostate chippings", likely a biopsy. So sample type "biopsy". Malignant tumor findings: "Nothing indicating malignancy is found." So "no". Gleason grade: Since no malignancy, "NA".
+
+Return JSON with keys: "sample_type", "malignant_findings", "gleason_grade" perhaps? The instruction says: Provide answers to the following three structured fields: 1. What is the original sample type (allowed values: "biopsy", "RP", "TURP" or "NA"). 2. Were there malignant tumor findings (allowed values: "yes", "no" or "NA"). 3. What is the reported Gleason grade (allowed values preferably "major+minor=sum" in the form of whole numbers for malignant statements or "NA" for benign statements). So keys names unspecified. Use maybe "sample_type", "malignant_findings", "gleason_grade". Provide JSON.
+
+Thus: {"sample_type":"biopsy","malignant_findings":"no","gleason_grade":"NA"}.
+
+Ensure valid JSON. No nested structures. Provide single object.assistantfinal```json
+{
+  "sample_type": "biopsy",
+  "malignant_findings": "no",
+  "gleason_grade": "NA"
+}
+```

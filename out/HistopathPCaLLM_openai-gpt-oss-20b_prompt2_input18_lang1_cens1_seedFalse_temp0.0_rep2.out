@@ -1,0 +1,23 @@
+analysisWe need to parse the provided Finnish pathological report. Determine sample type, malignancy, Gleason.
+
+We need to output JSON with keys "Sampletype", "Malignancy", "Gleason".
+
+We must only return the worst lesion results: so if multiple lesions, we return worst (most malignant). But here seems a single mention of possible ISUP GG 1 or higher, but not confirmed. The text says "pienen osan ISUP GG 1:tä tai korkeampaa, mutta suspekti fokus on nyt liian pieni luotettavan gradeerauksen tekemiseksi." So it's uncertain, not confirmed. No actual malignant finding reported. So it's likely "Malignancy": "ei" or "NA"? If no malignant findings, then "Malignancy": "ei", Gleason: "NA". Sample type: "biopsy" or "RP" etc. The sentence "Näytemateriaali, joka on saatu standardien eturauhasproseduurien yhteydessä" indicates that the sample is obtained during standard prostate procedures. That could be a prostatectomy (RP) or TURP? Standard prostate procedures could be biopsy or TURP? The phrase "standardien eturauhasproseduurien yhteydessä" maybe refers to standard biopsy procedures. The sample includes 120 tissue sections. It says "Näytemateriaalissa pieni osa näyttää erottuvan muista." Could be a biopsy. They mention "pienen osan ISUP GG 1:tä tai korkeampaa" but not confirmed. So we treat as benign. So sample type: "biopsy" likely. There's no mention of radical prostatectomy. So sample type "biopsy".
+
+Thus JSON:
+
+{
+"Sampletype": "biopsy",
+"Malignancy": "ei",
+"Gleason": "NA"
+}
+
+Check: The instructions: Only the worst lesion results should be returned and no nested structures. The example with invalid text returns NA for all. In this case, we have a valid text but no malignant lesion. So we say "Malignancy": "ei". The sample type is "biopsy". Good.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

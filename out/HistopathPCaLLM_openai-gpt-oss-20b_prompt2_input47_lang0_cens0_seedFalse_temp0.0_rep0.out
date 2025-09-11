@@ -1,0 +1,17 @@
+analysisWe need to parse the statement. Statement: "Examined three biopsies from the right and three from the left. Total length of biopsies is roughly 3+4=7 cm. On the left, normal prostate epithelium but in places a little lymfocytic accumulation that would indicate slight chronic inflammation. No malign findings on the left or the right."
+
+So sample type is biopsy (since it's biopsies). Malignancy: No malignant findings. So "no". Gleason: Since no malignancy, we set "NA". So JSON:
+
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}
+
+Check allowed values: Sampletype allowed: "biopsy", "RP", "TURP" or "NA". Ok. Malignancy: "yes", "no" or "NA". Ok. Gleason: whole numbers or "NA". Ok.
+
+Return.assistantfinal{
+  "Sampletype": "biopsy",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}

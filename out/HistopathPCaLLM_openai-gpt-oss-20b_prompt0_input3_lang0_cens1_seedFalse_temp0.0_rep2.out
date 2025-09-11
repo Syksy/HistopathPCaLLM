@@ -1,0 +1,21 @@
+analysisWe need to parse the statement: "The primary sample contains over a dozen grams of prostate material, which is done in a single run. In histological inspection, some inflammation is apparent, but burn artefacts prevent detailed examination of the tissue material. Thus nothing conclusive may be derived from this run."
+
+We need to produce JSON with three fields: "sample_type", "malignant", "gleason_grade".
+
+We need to determine sample type: likely "biopsy" (since it's a primary sample, but unspecified). Could also be "RP" or "TURP". The statement: "primary sample contains over a dozen grams of prostate material" maybe from RP (radical prostatectomy) which yields many grams. But "single run" could be a surgical specimen. Usually, a radical prostatectomy yields many grams. If it were a biopsy, it wouldn't be that many grams. So likely "RP". But the statement didn't mention "prostatectomy" explicitly. It just says primary sample contains over a dozen grams of prostate material. That is typical for a prostatectomy. So sample_type = "RP".
+
+Malignant: There's no malignant tumor findings; only inflammation, burn artefacts. So malignant = "no".
+
+Gleason grade: Since no malignant, "NA".
+
+Thus JSON: { "sample_type": "RP", "malignant": "no", "gleason_grade": "NA" }
+
+Check allowed values: sample_type allowed: "biopsy", "RP", "TURP" or "NA". We choose "RP". Malignant: "yes", "no" or "NA". We choose "no". Gleason grade: whole numbers or "NA". We choose "NA".
+
+Return JSON.assistantfinal```json
+{
+  "sample_type": "RP",
+  "malignant": "no",
+  "gleason_grade": "NA"
+}
+```

@@ -1,0 +1,21 @@
+analysisWe need to produce JSON with fields Sampletype: allowed values "biopsy", "RP", "TURP" or "NA". Malignancy: "kyllä", "ei", "NA". Gleason: "major+minor=sum" or "NA".
+
+Given the text: "Preparaatti painaa 80 grammaa ja on kooltaan noin 7 x 6 x 5 cm. Valmistettiin 8 makrokasettia ja 5 tavallista kasettia. Makroskooppisesti nähdään kyhmyistä hyperplasiaa, mikroskooppistesti nähdään epiteelin hyperplasiaa. Maligniteettia tai inflammaatiota ei löydy."
+
+Interpretation: It's a surgical specimen: "preparaatti" (prep) weight 80g, size 7x6x5 cm, prepared 8 macro-cassettes and 5 standard cassettes. Macroscopically sees hyperplasia of nodules, microscopically sees epithelial hyperplasia. No malignancy or inflammation. So it's a surgical specimen, maybe radical prostatectomy? It is not a biopsy; it's a specimen. "Preparaatti" likely means a surgical specimen (complete prostate). So Sampletype: "RP" (radical prostatectomy). Malignancy: "ei" (no). Gleason: "NA" because no malignancy. So output:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Check if "RP" is allowed for radical prostatectomy. Yes. No mention of TURP. So that's correct.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

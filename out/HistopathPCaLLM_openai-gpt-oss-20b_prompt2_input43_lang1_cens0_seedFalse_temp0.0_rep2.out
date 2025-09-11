@@ -1,0 +1,29 @@
+analysisWe need to parse the given Finnish pathology statement. Determine sample type, malignancy, Gleason.
+
+Statement: "Näytteenä noin 30g prostatalastuja. Materiaali ajettiin kaseteissa A-H, purkissa jäljellä noin 15g. Näkyy tavallista prostatakudosta. Yksittäisiä atrofiouituneita rauhasia näkyy, mutta mitään eturauhasadenokarsinoomaan viittaavaa ei tule materiaalissa esiin."
+
+Translate: "Sample of approx 30g prostate tissue. Material was processed in cassettes A-H, about 15g remains in the bottle. Normal prostate tissue is seen. Single atrophic glands are visible, but nothing indicating prostate adenocarcinoma is present in the material."
+
+Thus sample type: It is a prostate specimen from a surgical specimen, likely radical prostatectomy (RP). It says "Näytteenä noin 30g prostatalastuja" meaning a sample of 30g prostate tissue; processed in cassettes. This is consistent with a radical prostatectomy specimen, not a biopsy. Not TURP. So sampletype = "RP".
+
+Malignancy: No malignancy; "ei" (no). Gleason: NA, because no malignancy.
+
+Return JSON.
+
+Check instructions: only worst lesion results should be returned, not nested structures. Output JSON with keys: Sampletype, Malignancy, Gleason.
+
+Thus:
+
+{
+ "Sampletype":"RP",
+ "Malignancy":"ei",
+ "Gleason":"NA"
+}
+
+Ensure exactly those values in Finnish: "RP", "ei", "NA".
+
+Return.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}

@@ -1,0 +1,26 @@
+analysisThe user asks: "Your task is to produce structured data from free format text. Raw data will be provided in the end of these instructions. These statements are prostate cancer histopathological statements. You should act as a data structuring algorithm. Return the structured answers in valid JSON format. Please note that only the results from the most severe lesion should be returned, and the structured result should not consist of nested structures. Provide answers to the following three structured fields: 
+1. What is the original sample type (allowed values: "biopsy", "RP", "TURP" or "NA"). 
+2. Were there malignant tumor findings (allowed values: "yes", "no" or "NA"). 
+3. What is the reported Gleason grade (allowed values preferably "major+minor=sum" in the form of whole numbers for malignant statements or "NA" for benign statements). 
+
+We have to parse the provided statement. The statement: "The specimen consists of a comprehensive overview of the patient's prostate tissue, prepared to be run on casettes following the normal routine. Samples D-G were run for the first tissue batch, second batch in samples K-P, third batch in O-Q. Already in the first part some special patterns of cell growth are observed peripherally, with attention being focused especially on sample material drawn from roughly the prostate capsule border region. It is impossible to assess potential prostate capsule breach or positive/negative surgical margin status from the current material. The role of the histological traits found in basis and seminal vehicle findings are proposed to be discussed at the next week's uro-meeting to reach a consensus with colleagues. During an earlier meeting, a colleague compared this patient based on his clinical factors to a different, recent Gleason 7 score patient of his, and proposed that a more through-out sampling ought to be conducted to be able to rule out mid-grade GG findings. Further histopathological investigation is therefore warranted, especially before making a statement affecting any potential intervention-decisions."
+
+We need to determine sample type. It says "specimen", "comprehensive overview of the patient's prostate tissue", but no explicit mention of biopsy or RP (radical prostatectomy). "run on casettes" maybe indicates a biopsy? It mentions "samples D-G", "K-P", etc. No mention of surgical procedure. Likely it's a biopsy. But the statement is ambiguous. There's mention of "specimen" and "sample material drawn from roughly the prostate capsule border region". It doesn't mention radical prostatectomy. So sample type likely "biopsy" maybe? But instructions: allowed values: "biopsy", "RP", "TURP" or "NA". If uncertain, we might choose NA. But we need to apply logic: The statement describes a specimen that is run on casettes following normal routine. Usually, "cassettes" refer to paraffin blocks from biopsies or possibly surgical specimens. The mention of "samples D-G" etc. indicates multiple samples, could be from a transrectal ultrasound guided biopsy. So "biopsy" seems plausible.
+
+Malignancy: They mention "special patterns of cell growth" but no clear malignant statement. They mention "mid-grade GG findings" but not confirmed. They say "glo" maybe "GG" stands for Gleason Grade group. They mention "different, recent Gleason 7 score patient of his". But they are uncertain. So we cannot confirm malignant tumor findings. They say "Further histopathological investigation is warranted". So we cannot say yes or no. The instruction says for benign we use "no". But we don't have a benign statement. There's no definitive mention of malignant tumor. So maybe "NA"? The options are "yes", "no" or "NA". If cannot determine, we might say "NA". But the example says if statement not valid histopathological, set NA. But here it's ambiguous. But we need to return only the result from the most severe lesion. There is no lesion reported. No Gleason. So we likely set "NA" for all fields.
+
+Wait, the example: For a statement that is not a valid histopathological statement, they set all fields to NA. For a valid statement, they provide sample type, yes/no, Gleason. Here, the statement is not a valid histopathological statement because it doesn't provide a clear malignant finding or Gleason. So we should set all to NA.
+
+But we might consider that they mention "Gleason 7" but it's a comparison to another patient, not this patient. So no Gleason for this patient. So "NA" for Gleason. Malignancy: unknown. So "NA".
+
+Sample type: unknown. So "NA".
+
+Thus JSON: {"Sampletype":"NA","Malignancy":"NA","Gleason":"NA"}.
+
+We must output that. Let's produce.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

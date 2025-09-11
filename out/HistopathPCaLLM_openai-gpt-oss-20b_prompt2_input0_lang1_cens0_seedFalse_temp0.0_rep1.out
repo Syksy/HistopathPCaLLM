@@ -1,0 +1,13 @@
+analysisWe need to produce JSON with fields Sampletype, Malignancy, Gleason. We need to parse the given text. It's about a prostate sampling: "Höyläyslastuja tuli yhteensä noin 30g, joista noin 20g käynnistettiin kuudessa blokissa. Histologisessa tarkastelussa havaitaan hyvänlaatuista prostatakudosta, missä ei atypiaa, malignia, tai karsinoomaa näy. Vähän nähtävissä läiskittäistä tulehdusta. Löydös sopii siis epäiltyyn hyvänlaatuiseen hyperplasiaan."
+
+We need to determine sample type. The text mentions "Höyläyslastuja" which means "radical prostatectomy" or "surgical removal" maybe? In Finnish, "höyläys" refers to radical prostatectomy. The mention "kuudessa blokissa" indicates surgical specimen processed into blocks. That is RP (radical prostatectomy). So Sampletype: "RP".
+
+Malignancy: There is no atypia, malignia, cancer. So "ei".
+
+Gleason: Since no malignancy, set "NA".
+
+Return JSON. Ensure no nested structures. Provide exactly fields. Use quotes around values. Provide no extra text.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}

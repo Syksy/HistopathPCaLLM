@@ -1,0 +1,23 @@
+analysisWe need to parse the statement. Determine sample type: It says "Kaseteissa normaalin tavan mukaan otetut prostatabiopsiat" meaning "In the cases, standard prostate biopsies were taken". So sample type: biopsy.
+
+Malignancy? The report says small focus suspected but not clear adenocarcinoma. It says "Löydös on niin niukka että jää suspisio-asteelle, eikä selvää adenokarsinoomaa löydetä." So malignancy is not present, but suspicious. The rule says only malignant findings should be flagged as "kyllä". If not malignant, "ei". But is suspicious considered malignant? The example says "Löydös on niin niukka että jää suspisio-asteelle, eikä selvää adenokarsinoomaa löydetä." It's not malignant. So "ei".
+
+Gleason: No Gleason reported. Since no malignancy, "NA".
+
+Thus output:
+
+{
+ "Sampletype":"biopsy",
+ "Malignancy":"ei",
+ "Gleason":"NA"
+}
+
+Check if sample type should be "biopsy" or "biopsia"? Allowed values: "biopsy", "RP", "TURP", "NA". So "biopsy" is correct.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

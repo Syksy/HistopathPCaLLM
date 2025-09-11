@@ -1,0 +1,19 @@
+analysisWe must parse the statement. It's a pathology report: "Tuorenäyte on saatu...". It seems it's a post-mortem sample (ruumiinavaus). It says "YHTEENVETO:... normaalissa kudoksessa, jossa havaitaan tulehdusta ja ikä-pohjaisia muutoksia." It says "lisätutkimus... adenokarsinooman tai muiden malignien muutosten arvioinnisa". But does it identify malignant lesions? It mentions "adenokarsinooman tai muiden malignien muutosten arvioinnisa muutoin normaalissa kudoksessa". But no Gleason. They say "normaalissa kudoksessa". So likely no malignancy reported. This is not a biopsy, RP, TURP. It's a postmortem sample (ruumiinavaus). So Sampletype likely "NA". There's no malignant findings reported; says "normal tissue with inflammation". So Malignancy "ei". Gleason "NA". According to guidelines: only worst lesion results should be returned. If no malignant lesion, then NA.
+
+Thus output:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+But check: Sampletype allowed values "biopsy", "RP", "TURP" or "NA". So "NA". Malignancy allowed "kyllä", "ei", "NA". So "ei". Gleason allowed "major+minor=sum" or "NA". So "NA".
+
+Thus JSON.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

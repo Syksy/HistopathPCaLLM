@@ -1,0 +1,25 @@
+analysisWe need to parse the statement. The sample type: "radikaali prostatektomianäyte" => that's RP (radical prostatectomy). So Sampletype: "RP".
+
+Malignancy: Are there malignant findings? The description says "mikroskooppisesti kaikissa makroleikkeissä... nähdään lähinnä normaalia kasvustoa. Jonkin verran havaitaan atrofiaa ja läikittäistä tulehdusta, sekä korkeintaan hyperplasiaan viittaavaa kasvua. … YHTEENVETO: Prostatassa korkeintaan lievä-asteista tulehdusta ja tyypillisiä ikäpohjaisia muutoksia." No malignancy reported. So Malignancy: "ei".
+
+Gleason: Since no malignancy, Gleason should be "NA".
+
+Return JSON with keys exactly: "Sampletype", "Malignancy", "Gleason". All lowercase? The example uses "Sampletype", "Malignancy", "Gleason" with capital first letter. Use same. Provide string values. Should we include quotes around values. Yes.
+
+Thus:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Check if "ei" is correct Finnish for "no". Example uses "kyllä", "ei". So yes.
+
+Return only JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

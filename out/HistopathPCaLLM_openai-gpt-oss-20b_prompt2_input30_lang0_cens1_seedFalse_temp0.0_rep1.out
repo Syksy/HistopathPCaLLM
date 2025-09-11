@@ -1,0 +1,17 @@
+analysisWe need to parse this statement: "APPENDIX, ADDITIONAL CONSULTATION: John Doe and Jane Doe were consulted at a joint meeting, due to some uncertainties regarding the findings. Originally, atypical findings were suspected in the cells, but JD & JD could not confirm or deny the suspicions. The earlier uncertain diagnosis of the patient could therefore not be determined, defining their status requires further examination. The patient must be contacted."
+
+We need to determine sample type: allowed values: biopsy, RP, TURP, or NA. Statement doesn't mention sample type. So NA.
+
+Malignancy: yes, no, or NA. The statement says atypical findings suspected, but not confirmed. So malignancy cannot be determined. So NA.
+
+Gleason: only if malignant. Since malignancy is NA, Gleason NA.
+
+Thus output JSON with NA for all fields. The structure example: {"Sampletype":"NA","Malignancy":"NA","Gleason":"NA"}.
+
+We must ensure correct field names: "Sampletype", "Malignancy", "Gleason". Provide JSON.
+
+Make sure no nested structures. Done.assistantfinal{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}

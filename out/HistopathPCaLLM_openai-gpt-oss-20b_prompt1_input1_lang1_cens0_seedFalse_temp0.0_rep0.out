@@ -1,0 +1,27 @@
+analysisWe need to parse the Finnish text. The sample is: "Tutkittavana 12 edustavaa neulabiopsiaa prostatan tyyppipaikoista. Näytteiden yhteispituus on noin 150mm. Nähdään normaaleja rauhasrakenteita ja jonkin verran aaltoilevaa hyperplastisen kaltaista epiteeliä. Lopputulos on siis lähinnä benignin oloista kasvua. Lääk. Heikki Histopatologi"
+
+We need to output JSON with fields: Sampletype, Malignancy, Gleason.
+
+Determine sample type: "neulabiopsia" is biopsy. So Sampletype: "biopsy".
+
+Malignancy: The text says "Lopputulos on siis lähinnä benignin oloista kasvua." So no malignancy. So "ei".
+
+Gleason: For benign, it's "NA". So "NA".
+
+Return JSON. Ensure no nested structures. Provide exactly JSON.
+
+Thus output:
+
+{
+"Sampletype":"biopsy",
+"Malignancy":"ei",
+"Gleason":"NA"
+}
+
+Make sure keys are exactly as specified. The question says "Sampletype", "Malignancy", "Gleason". So that.
+
+Return that.assistantfinal{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}

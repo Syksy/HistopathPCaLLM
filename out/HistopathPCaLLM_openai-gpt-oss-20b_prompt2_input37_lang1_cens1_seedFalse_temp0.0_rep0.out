@@ -1,0 +1,21 @@
+analysisWe need to produce JSON with three fields: Sampletype, Malignancy, Gleason. The input text: "Alle puolet mahdollisesta näytemateriaalista valmisteltuna. Histologisessa tarkastelussa nähdään eturauhaskudosta, jossa osittain nodulaarisia rauhaskomponentteja. Paikoittain vähäistä inflammaatiota. Tarkempi tarkastelu ei ollut nyt mahdollista, näytteet tutkitaan tarkemmin ensi viikolla."
+
+We need to determine if it's a valid histopathological statement. The text is describing a sample: "Alle puolet mahdollisesta näytemateriaalista valmisteltuna." That means less than half of the possible sample material prepared. "Histologisessa tarkastelussa nähdään eturauhaskudosta, jossa osittain nodulaarisia rauhaskomponentteja. Paikoittain vähäistä inflammaatiota. Tarkempi tarkastelu ei ollut nyt mahdollista, näytteet tutkitaan tarkemmin ensi viikolla." This is describing a specimen but doesn't specify sample type (biopsy, RP, TURP). It does not mention malignancy or Gleason. So it's not a valid histopathological statement. So output should be NA for all three.
+
+But we need to consider if sample type can be inferred. "Histologisessa tarkastelussa" could be from a biopsy, but not specified. The guidelines: The sample type must be one of "biopsy", "RP", "TURP" or "NA". Since not explicitly stated, we should put "NA". Malignancy: no mention, so "NA". Gleason: "NA".
+
+So JSON:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "NA",
+ "Gleason": "NA"
+}
+
+Return that.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

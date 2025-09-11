@@ -1,0 +1,23 @@
+analysisWe need to parse statement. We look for sampletype: "biopsy", "RP", "TURP" or "NA". The statement: "Valmisteltu näytesetti ajettiin standardiprotokollan mukaisesti...". This is a "näytesetti" maybe a biopsy set. Likely biopsy. Not specifically RP (radical prostatectomy) or TURP. So sampletype likely "biopsy".
+
+Malignancy: presence of malignant findings. The statement says "Mikroskooppisesti havaitaan prostatasolukkoa...". There is no mention of adenocarcinoma or Gleason. They say "Osia tavallisimmista Gleason pisteytyksen komponenteista... arvot 4 ja 3, ei pystytä luotettavasti tarkastelemaan...". So we cannot confirm malignancy. The text says "Pyydetty arvio korkea-asteisista PIN-muutoksista jää täyttämättä epäluotettavana." PIN high-grade prostatic intraepithelial neoplasia. That's pre-cancerous. So malignancy likely "ei" (no). Because no malignant findings. So Malignancy: "ei".
+
+Gleason: Since malignant not present, Gleason should be "NA". The statement doesn't provide a reliable Gleason. So "NA".
+
+Thus JSON:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Check: Are there any contradictions? The statement mentions "Arvot 4 ja 3" but says cannot examine reliably. So we must not report Gleason. So "NA".
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

@@ -1,0 +1,19 @@
+analysisWe need to parse the Finnish text. Determine sample type: options "biopsy", "RP", "TURP" or "NA". The statement: "Suspekti prostatanäyte, prosessoitu rutiinin mukaisesti. Näytemateriaali keskeltä (E, F, G) muodostaa yhtenevän kudosfokuksen (koko noin 3x2x1mm). Fokuksessa suurin osa rauhasrakenteista ja kanavista erillään. Seminaalivesikkelit leikkeissä O ja P puhtaat. Negatiiviset marginaalit, kapseli ehjä. Ei metastaaseja alueen imusolmukkeissa. Kuitenkin rakenne epäselvä ja vaikeatulkintainen. Tarkempaa tarkastelua vaaditaan."
+
+We need to see if it's a biopsy or other. It says "Suspekti prostatanäyte" - a suspicious prostate specimen. But not specifying biopsy. Could be a core biopsy? Usually "prostatabiopsio". The text says "Suspekti prostatanäyte" maybe a core. So sample type likely "biopsy". There's no mention of radical prostatectomy (RP) or TURP. So sample type "biopsy". Malignancy? The report says uncertain structure, unclear, need further exam. No malignant cells reported. So malignancy: "ei". Gleason: since no malignancy, "NA". So JSON:
+
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+
+We must ensure "Sampletype" field uses lowercase? Provided examples show "biopsy". So yes. Malignancy "ei". Gleason "NA".
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

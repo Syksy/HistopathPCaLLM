@@ -1,0 +1,31 @@
+analysisWe need to parse the Finnish text. It's a pathology statement. We need to determine:
+
+1. Sample type: allowed values "biopsy", "RP", "TURP", or "NA".
+2. Whether malignancy present: "kyllä", "ei", "NA".
+3. Gleason: "major+minor=sum" or "NA".
+
+We must only return the worst lesion results. But we only have one set of conclusions. Let's analyze the statement:
+
+"Näytteinä yhteensä 4g höyläyslastuja, jotka käynnistetty kolmeen kudoskasettiin. Todetaan mikroskooppisesti suhteellisen normaalia prostatasolukkoa, jossa kuitenkin voimakasta polttoartefaktaa. Rauhaset melko tuhoutuneet polttoartefaktoista johtuen, mutta löydökset viittaisivat hienoisesti prostatahyperplasiaan."
+
+So: "Samples: 4g core biopsies, 3 tissue cores. Microscopically relatively normal prostate cells, with strong burn artifact. Glandular tissue mostly destroyed by burn artifact, but findings would indicate benign prostate hyperplasia."
+
+Thus sample type: biopsy (since core biopsies). So "biopsy".
+
+Malignancy: "no malignancy", it indicates benign hyperplasia. So "ei".
+
+Gleason: no cancer, so "NA".
+
+Thus JSON:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+We must ensure no nested structures. Output JSON exactly.assistantfinal{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}

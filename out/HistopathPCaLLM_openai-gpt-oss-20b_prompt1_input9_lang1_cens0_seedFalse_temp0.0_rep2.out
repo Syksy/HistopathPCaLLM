@@ -1,0 +1,25 @@
+analysisWe need to parse the Finnish text. The sample: "Tutkittavaksi on saatu prostatan elektrosektiolastuja, joiden yhteispaino 20g. Näistä tutkitaan 10g, joten noin puolet materiaalista jää käyttämättä. Käytössä yhteensä 8 kasettia. Nähdään histologisesti runsas määrä prostatan stroomakudosta. Epiteeli on kaksirivistä. Paikoitellen rauhaset ovat laajentuneita sopien hyperplasiaan. Mitään malignia ei tule esiin, joten löydös sopii hyvänlaatuiseen liikakasvuun."
+
+We need to produce JSON with keys: Sampletype, Malignancy, Gleason.
+
+Sampletype: "electrosection"? The allowed values: "biopsy", "RP", "TURP" or "NA". The sample is "prostatan elektrosektiolastuja" which is "electrosection specimens". None of the allowed values match. So we should use "NA".
+
+Malignancy: "ei" (no malignancy). They said "Mitään malignia ei tule esiin" => no malignancy => "ei".
+
+Gleason: For benign lesions => "NA".
+
+So JSON:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Return that.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

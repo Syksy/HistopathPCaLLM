@@ -1,0 +1,19 @@
+analysisWe need to parse the Finnish text. It is a histopathology statement. We need to output JSON with Sampletype, Malignancy, Gleason. Allowed sample types: "biopsy", "RP", "TURP", "NA". Malignancy: "kyllä", "ei", "NA". Gleason: "major+minor=sum" for malignant findings, "NA" for benign.
+
+We need to decide the sample type. The text: "Tutkittavana purkillinen prostatan paksuneulanäytteitä molemmilta puolilta" - means "Investigated are packed prostate core samples from both sides". This is a biopsy? It's a core sample, possibly a prostate core biopsy. So sample type = "biopsy". Malignancy: The text says left side fragments show malignant (cancer). It says "Vasemman puolen fragmenteissa näkyy... karsinoomasolukkoa" - yes malignant. So "kyllä". Gleason: It says Gleason pattern 3 and 4, with pattern 3 primary, 4 secondary. That is Gleason 3+4=7. So "3+4=7".
+
+Thus JSON:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "kyllä",
+ "Gleason": "3+4=7"
+}
+
+Double-check: The statement says "Gleason kasvutapaa 3 pääsääntöisesti ja toiseksi eniten tapaa 4" which means major pattern 3, minor 4. So good.
+
+Return exactly that.assistantfinal{
+  "Sampletype": "biopsy",
+  "Malignancy": "kyllä",
+  "Gleason": "3+4=7"
+}

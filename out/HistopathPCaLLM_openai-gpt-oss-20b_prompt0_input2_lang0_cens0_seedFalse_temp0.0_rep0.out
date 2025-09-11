@@ -1,0 +1,37 @@
+analysisThe user: "Your task is to produce structured data from free format text. Raw data will be provided in the end of these instructions. These statements are prostate cancer histopathological statements. You should act as a data structuring algorithm. Return the structured answers in valid JSON format. Note that only the results from the most severe lesion should be returned, and the structured result should not consist of nested structures. Provide answers to the following three structured fields:
+
+1. What is the original sample type (allowed values: "biopsy", "RP", "TURP" or "NA").
+2. Were there malignant tumor findings (allowed values: "yes", "no" or "NA").
+3. What is the reported Gleason grade (allowed values preferably "major+minor=sum" in the form of whole numbers for malignant statements or "NA" for benign statements).
+
+Apply the above questions to the following statement: [text]
+
+We need to parse the statement. Summarize:
+
+"The sample is a fresh prostatectomy specimen, with a total weight 44g. Outer dimensions... Three macrosections... The original sample is an autopsy sample intended for research use.... Microscopically all longitudinal macrosections from both the apex and basis present normal benign growth. Some atrophy and spot-like inflammation is found, along with growth suggestive of hyperplasia. The resection surfaces are clean, capsule no abnormal growth, seminal vesicles no tumor growth. SUMMARY: Prostate tissue contains at most a low inflammatory state, and most of the tissue changes can be attributed to normal aging."
+
+So it's an autopsy sample? The sample type: "autopsy" is not in allowed values. Allowed values: biopsy, RP, TURP, NA. "RP" refers to radical prostatectomy. The statement says "fresh prostatectomy specimen" but then says "The original sample is an autopsy sample intended for research use." So it's an autopsy sample, but the sample type is "autopsy". But allowed values only include biopsy, RP, TURP, NA. So we need to choose "NA" if cannot map. The sample is from a prostatectomy specimen but autopsy sample. I'd say the sample type is "NA" because it's not typical. But maybe we could classify as "RP" (radical prostatectomy) because the sample is a prostatectomy specimen. However, the phrase "The original sample is an autopsy sample intended for research use" implies it's from an autopsy. Not a surgical specimen. So it's autopsy. Allowed values include "NA". So we choose "NA".
+
+Malignant tumor findings: none. So "no".
+
+Gleason grade: NA because benign.
+
+Return JSON with three keys: sampleType, malignant, gleason.
+
+Thus output:
+
+{
+  "sampleType": "NA",
+  "malignant": "no",
+  "gleason": "NA"
+}
+
+Be careful to follow JSON format. Also they said "only the results from the most severe lesion should be returned". There is no lesion, so no malignant.
+
+So output JSON.assistantfinal```json
+{
+  "sampleType": "NA",
+  "malignant": "no",
+  "gleason": "NA"
+}
+```

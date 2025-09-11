@@ -1,0 +1,23 @@
+analysisWe need to parse the statement. Sample type: It's a prostatectomy preparate. Allowed values: "biopsy", "RP", "TURP" or "NA". For prostatectomy, that is radical prostatectomy (RP). So Sampletype "RP".
+
+Malignancy: Are there malignant tumor findings? Yes, it says "widely spread tumor" etc. So "yes".
+
+Gleason: The statement says "dominant Gleason is class 3 and class 4 differentation is almost as prevalent." The typical Gleason pattern numbers are 3 and 4. The dominant Gleason is 3+4 or 4+3? The text: "dominant Gleason is class 3 and class 4 differentation is almost as prevalent." That suggests 3 and 4 both present, but dominant is class 3? Actually "dominant Gleason is class 3 and class 4 differentiation is almost as prevalent." That is ambiguous. Usually Gleason is primary + secondary. It could be 3+4 or 4+3. But if dominant is class 3, that would be 3 primary, 4 secondary. So Gleason 3+4=7. But we need the most severe lesion: The highest grade is 4 (secondary). So Gleason 3+4=7. Return "3+4=7". The question: Provide Gleason grade "major+minor=sum". So "3+4=7". Good.
+
+Thus JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "yes",
+ "Gleason": "3+4=7"
+}
+
+Check: "major+minor=sum" format. Should be "3+4=7". Yes.
+
+Return that JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "yes",
+  "Gleason": "3+4=7"
+}
+```

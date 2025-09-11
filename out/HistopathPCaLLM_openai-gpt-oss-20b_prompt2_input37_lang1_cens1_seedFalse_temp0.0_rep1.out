@@ -1,0 +1,25 @@
+analysisWe need to parse Finnish text describing a histopathology report. The question: "Sovella yllä olevia kysymyksiä tähän seuraavaan lausuntoon:" followed by the text. We need to output JSON with fields:
+
+- Sampletype: allowed values "biopsy", "RP", "TURP", or "NA". Determine sample type from description. The text: "Alle puolet mahdollisesta näytemateriaalista valmisteltuna. Histologisessa tarkastelussa nähdään eturauhaskudosta, jossa osittain nodulaarisia rauhaskomponentteja. Paikoittain vähäistä inflammaatiota. Tarkempi tarkastelu ei ollut nyt mahdollista, näytteet tutkitaan tarkemmin ensi viikolla." There's no mention of biopsy, radical prostatectomy (RP), TURP. Might be a core biopsy but unclear. Because "näytteet" plural. Probably it's a biopsy sample. But "alle puolet mahdollisesta näytemateriaalista valmisteltuna" suggests maybe a partial sample. There's no mention of specific procedure. So maybe we set Sampletype to "NA"? But guidelines: "Mikä on näytteen alkuperäinen tyyppi (sallitut arvot "biopsy", "RP", "TURP" tai "NA")". If uncertain, set NA. Because no mention of procedure. So Sampletype: NA.
+
+- Malignancy: "kyllä" if malign findings, "ei" if no malign findings, "NA" if unknown. The text says "Histologisessa tarkastelussa nähdään eturauhaskudosta, jossa osittain nodulaarisia rauhaskomponentteja." Nodular components could be benign or malignant. "Vähäistä inflammaatiota". No mention of cancer. So likely negative. So "ei".
+
+- Gleason: For malignant findings, report major+minor=sum. For nonmalignant, "NA". So "NA".
+
+Thus output:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Check that we are not nesting. That is fine.
+
+Ensure JSON syntax.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

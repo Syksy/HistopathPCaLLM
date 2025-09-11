@@ -1,0 +1,23 @@
+analysisWe need to parse the Finnish text. It says: "Tutkittavaksi on saatu prostatan elektrosektiolastuja, joiden yhteispaino 20g. Näistä tutkitaan 10g, joten noin puolet materiaalista jää käyttämättä. Käytössä yhteensä 8 kasettia. Nähdään histologisesti runsas määrä prostatan stroomakudosta. Epiteeli on kaksirivistä. Paikoitellen rauhaset ovat laajentuneita sopien hyperplasiaan. Mitään malignia ei tule esiin, joten löydös sopii hyvänlaatuiseen liikakasvuun."
+
+Interpretation: The sample type is "electrosection" maybe "TURP" or "RP"? It says "prostataan elektrosektiolastuja". "Electrosection" likely refers to TURP (transurethral resection of prostate). The sample type from TURP is "TURP". The allowed values: "biopsy", "RP", "TURP" or "NA". So we give "TURP".
+
+Malignancy: "Mitään malignia ei tule esiin" => no malignancy, so answer "ei".
+
+Gleason: Since no malignancy, we set "NA".
+
+Thus JSON:
+
+{
+ "Sampletype": "TURP",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+We need to ensure no nested structures. Provide exactly that JSON.assistantfinal```json
+{
+  "Sampletype": "TURP",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

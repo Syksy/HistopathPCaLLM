@@ -1,0 +1,19 @@
+analysisWe have to produce JSON with three fields: Sampletype, Malignancy, Gleason. The example: "Prostata biopsiasta..." is biopsy. For this text: "Näytteenä on radikaali prostatektomianäyte...". So sample type is "RP" (radical prostatectomy). Malignancy: Does the sample contain malignant findings? The text says: "mikroskooppisesti kaikissa makroleikkeissä... nähdään lähinnä normaalia kasvustoa. Jonkin verran havaitaan atrofiaa ja läikittäistä tulehdusta, sekä korkeintaan hyperplasiaan viittaavaa kasvua." Also says "kapselissa ei havaita mitään poikkeavaa, ja seminaaleissa ei kasvainkudosta." So no malignancy. So Malignancy: "ei". Gleason: Since no malignancy, Gleason is "NA".
+
+Thus output:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Also note: "käyttöön saatu autopsianäyte." But sample type is still RP? The text: "Näytteenä on radikaali prostatektomianäyte..." So yes.
+
+We must ensure no nested structures. Just simple JSON.
+
+Return that.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}

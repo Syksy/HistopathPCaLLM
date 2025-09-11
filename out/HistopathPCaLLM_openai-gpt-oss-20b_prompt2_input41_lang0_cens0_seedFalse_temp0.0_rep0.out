@@ -1,0 +1,31 @@
+analysisWe need to parse the statement. It's a histopathological statement.
+
+The statement: "Samples 1-6 are representative systematic biopsies from the right and left lobe. Sample 3 (left apex) shows little chronic inflammation. Left side also shows in samples 1 and 2 atrophied glands with remaining chronic inflammation. No signs of prostate cancer in the material."
+
+We need to produce a JSON with Sampletype, Malignancy, Gleason.
+
+We need to identify the sample type: "biopsy", "RP", "TURP", or "NA".
+
+The text says: "Samples 1-6 are representative systematic biopsies from the right and left lobe." So the sample type is "biopsy".
+
+Were there malignant tumor findings? The statement says "No signs of prostate cancer in the material." So malignancy: "no".
+
+What is the reported Gleason grade? For benign statements, we should put "NA". Because there is no malignant statement.
+
+Thus output:
+
+{
+"Sampletype":"biopsy",
+"Malignancy":"no",
+"Gleason":"NA"
+}
+
+We should ensure keys exactly as in example: "Sampletype", "Malignancy", "Gleason". Should not have nested structures.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}
+```

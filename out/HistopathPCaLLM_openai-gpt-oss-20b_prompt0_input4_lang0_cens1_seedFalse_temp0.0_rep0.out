@@ -1,0 +1,30 @@
+analysisWe need to parse the statement. We have to return JSON with fields:
+- original sample type: allowed values: "biopsy", "RP", "TURP" or "NA".
+- malignant tumor findings: "yes", "no" or "NA".
+- reported Gleason grade: "major+minor=sum" or "NA".
+
+The statement: "Several sampling sites are available from standard locations. One sample part appears to be not representative, as it contains no prostate tissue. Otherwise the sampled tissue appears representative of prostate tissue. While no notable atypic patterns are present among the observed prostate tissue, the sample material is insufficient to reliably assess the content for presence of adenocarcinoma or PIN-like changes."
+
+Interpretation: The sample is insufficient to reliably assess presence of adenocarcinoma or PIN-like changes. So cannot conclude malignant tumor findings. So malignant tumor findings = "NA" because uncertain / insufficient.
+
+But maybe they want "no" if no evidence of malignant. But the text says insufficient to assess presence. So "NA" is appropriate.
+
+Original sample type: It says sampling sites available from standard locations. Likely a biopsy. So "biopsy".
+
+Reported Gleason grade: Since malignant tumor findings is "NA", Gleason grade = "NA".
+
+Thus JSON:
+
+{
+  "sample_type": "biopsy",
+  "malignant_tumor_findings": "NA",
+  "gleason_grade": "NA"
+}
+
+But they want field names: maybe "sample_type", "malignant_tumor_findings", "gleason_grade". Ensure valid JSON.assistantfinal```json
+{
+  "sample_type": "biopsy",
+  "malignant_tumor_findings": "NA",
+  "gleason_grade": "NA"
+}
+```

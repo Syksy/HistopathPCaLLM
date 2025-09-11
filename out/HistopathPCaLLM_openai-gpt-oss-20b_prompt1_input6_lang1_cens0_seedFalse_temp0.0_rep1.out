@@ -1,0 +1,30 @@
+analysisWe need to parse the provided statement. The statement: 
+"Näytteinä yhteensä 4g höyläyslastuja, jotka käynnistetty kolmeen kudoskasettiin. Todetaan mikroskooppisesti suhteellisen normaalia prostatasolukkoa, jossa kuitenkin voimakasta polttoartefaktaa. Rauhaset melko tuhoutuneet polttoartefaktoista johtuen, mutta löydökset viittaisivat hienoisesti prostatahyperplasiaan."
+
+We need to produce JSON with three fields: Sampletype, Malignancy, Gleason.
+
+We need to output only the worst lesion results. The sample type: It is "höyläyslastuja" (biopsy? The text says "Näytteinä yhteensä 4g höyläyslastuja, jotka käynnistetty kolmeen kudoskasettiin." That indicates "biopsy" (biopsy = "biopsy" value). So Sampletype: "biopsy".
+
+Malignancy: Are there malignant findings? The text says "löydökset viittaisivat hienoisesti prostatahyperplasiaan." That's benign hyperplasia. So Malignancy: "ei".
+
+Gleason: Since it's benign, "NA".
+
+Thus JSON:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+But we need to ensure formatting: keys exactly as provided? They used "Sampletype" etc. So same.
+
+Return only that JSON. No extra text.
+
+Let's produce.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

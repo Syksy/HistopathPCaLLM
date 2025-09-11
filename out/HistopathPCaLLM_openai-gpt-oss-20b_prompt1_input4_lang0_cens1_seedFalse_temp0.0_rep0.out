@@ -1,0 +1,27 @@
+analysisWe need to parse the statement and produce JSON with Sampletype, Malignancy, Gleason.
+
+We need to identify sample type: It's a biopsy? The statement: "Several sampling sites are available from standard locations." That doesn't specify type. It says sample part not representative, contains no prostate tissue. Otherwise tissue appears representative. No atypical patterns. Sample material insufficient to assess presence of adenocarcinoma or PIN-like changes.
+
+Thus we cannot confirm malignancy. So Malignancy: "NA" or "no"? They say insufficient to assess presence. So we cannot say yes or no. The rule says only the results from the most severe lesion should be returned, and the structured result should not be nested. Provide answers to the three fields. Allowed values: sample type: "biopsy", "RP", "TURP" or "NA". In this case, it's a biopsy? The statement refers to sampling sites from standard locations, likely a biopsy. It doesn't mention RP (radical prostatectomy) or TURP. So sample type should be "biopsy".
+
+Malignancy: The statement says: "sample material is insufficient to reliably assess the content for presence of adenocarcinoma or PIN-like changes." So we cannot determine. So "NA" is appropriate.
+
+Gleason: Since no malignant statement, we should use "NA".
+
+Thus JSON:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "NA",
+ "Gleason": "NA"
+}
+
+Check if the field names exactly as in example: "Sampletype", "Malignancy", "Gleason". Yes.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

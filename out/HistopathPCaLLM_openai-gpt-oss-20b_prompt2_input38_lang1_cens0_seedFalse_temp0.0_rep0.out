@@ -1,0 +1,25 @@
+analysisWe need to parse the given Finnish text. Determine sample type, malignancy, Gleason.
+
+Text: "Tutkittavana edustavia neulabiopsioita. Biopsioiden kokonaispituus on noin 111 mm. Histologisesti nähdään hyperplastista prostatakudosta, jossa kroonista inflammaatiota. Ei epäiltyä maligniteettia."
+
+Interpretation: "Investigated representative needle biopsies.... Histologically, hyperplastic prostate tissue with chronic inflammation. No malignancy suspected." So sample type: biopsy? The text says "neulabiopsioita" which is needle biopsies, so "biopsy". Malignancy: "ei epäiltyä maligniteettia" = no malignancy. So "ei". Gleason: since no malignancy, "NA".
+
+Return JSON.
+
+Ensure keys exactly "Sampletype", "Malignancy", "Gleason". Values as specified. Provide lower case "biopsy", "ei", "NA" etc. According to allowed values: sampletype: "biopsy", "RP", "TURP", or "NA". Malignancy: "kyllä", "ei", or "NA". Gleason: "major+minor=sum" or "NA". For no malignancy, use "NA".
+
+Thus output:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Let's also ensure format.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

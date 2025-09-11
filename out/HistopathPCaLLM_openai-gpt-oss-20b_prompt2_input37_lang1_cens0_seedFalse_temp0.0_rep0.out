@@ -1,0 +1,19 @@
+analysisWe need to parse the Finnish text: "Preparaattina 7g elektrosektiolastuja. Histologisesti nähtään prostatakudosta, jossa osittain lisääntyneitä kyhmyisiä rauhaskomponentteja. Paikoittain vähäistä inflammaatiota kuten tavallisesti. Löydös siis hyperplasia."
+
+We need to produce structured JSON with three fields: Sampletype, Malignancy, Gleason. Sampletype allowed values: "biopsy", "RP", "TURP", "NA". There is no mention of the sample type in the statement. The statement says "Preparaattina 7g elektrosektiolastuja" meaning specimen of 7g electrosequential slides? Not sure. It doesn't mention biopsy or radical prostatectomy. Likely "NA". Malignancy: "ei" if no malignant findings. The text says "Löydös siis hyperplasia." So no malignancy. So Malignancy "ei". Gleason: "NA" because no malignant. So JSON:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Check: The instruction says "vain pahimman leesion tulokset" means only worst lesion results. But here no malignancy. So yes "ei". They didn't mention sample type; we should pick "NA". That seems correct.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

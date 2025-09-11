@@ -1,0 +1,25 @@
+analysisWe have to parse the statement: "Tutkittavana edustavia neulabiopsioita. Biopsioiden kokonaispituus on noin 111 mm. Histologisesti nähdään hyperplastista prostatakudosta, jossa kroonista inflammaatiota. Ei epäiltyä maligniteettia."
+
+We need to produce JSON with fields:
+
+- Sampletype: allowed values "biopsy", "RP", "TURP" or "NA".
+This is a biopsy (neulabiopsio). So "biopsy".
+
+- Malignancy: "kyllä", "ei" or "NA". Here says "Ei epäiltyä maligniteettia." So malignancy is "ei".
+
+- Gleason: "major+minor=sum" for malignant, "NA" for benign. Since benign, "NA".
+
+Thus output:
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Make sure JSON syntax correct, no extra.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

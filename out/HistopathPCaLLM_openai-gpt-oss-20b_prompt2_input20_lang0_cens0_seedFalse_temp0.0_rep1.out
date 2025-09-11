@@ -1,0 +1,18 @@
+analysisWe need to parse the statement. The sample type: it's a prostatectomy resection: that's "RP" (radical prostatectomy). Malignancy: yes (adenocarcinoma found). Gleason grade: we need the most severe lesion. They mention apex: 3+4, basis: 4+4. The most severe is 4+4=8 (major 4, minor 4). So Gleason: "4+4=8". Return JSON with fields Sampletype, Malignancy, Gleason.
+
+Check allowed values: Sampletype allowed: "biopsy", "RP", "TURP" or "NA". So "RP". Malignancy: "yes" or "no" or "NA". Use "yes". Gleason: "major+minor=sum" in form of whole numbers for malignant statements, or "NA" for benign. So "4+4=8".
+
+Thus JSON: 
+{
+  "Sampletype":"RP",
+  "Malignancy":"yes",
+  "Gleason":"4+4=8"
+}
+
+We must output valid JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "yes",
+  "Gleason": "4+4=8"
+}
+```

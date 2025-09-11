@@ -1,0 +1,21 @@
+analysisWe need to parse the statement and produce JSON with 3 fields. The statement: "Tutkittavana edustavaa prostatakudosta sovituista paikoista. Näytteiden yhteismäärä on riittävä. Nähdään mm. rauhasrakenteita ja jonkin verran aaltoilevaa epiteeliä. Loppupäätelmä on vielä kesken ja valmistuu lähipäivinä. Lääk. Heikki Histopatologi"
+
+This is a histology report. The question: we output Sampletype: what is the type? The options: "biopsy", "RP", "TURP" or "NA". The statement doesn't mention any procedure type. It says "Tutkittavana edustavaa prostatakudosta sovituista paikoista." That suggests a biopsy? But maybe if it's a histopathology, not sure. "Sovituista paikoista" could refer to multiple biopsies? The statement doesn't specify "biopsia" explicitly. It says "Näytteiden yhteismäärä on riittävä." So it could be multiple samples. But sample type is likely "biopsy". But let's interpret: We should choose "biopsy" if it's a biopsy or unspecified. The instructions say we need to return only the worst lesion. But here no malignant findings are reported, just mention of epithelium. So "Malignancy": "ei". Gleason: "NA" because no malignancy.
+
+Thus JSON:
+
+{
+"Sampletype":"biopsy",
+"Malignancy":"ei",
+"Gleason":"NA"
+}
+
+But should we choose "NA" for Sampletype? The sample type might be "NA" because not specified. But the statement seems to be a histopathology of prostate tissue "edustavaa prostatakudosta". Could be a biopsy. The phrase "Tutkittavana edustavaa prostatakudosta" could be for a histology of a biopsy. They didn't mention "biopsia" but likely it's a biopsy. The instructions: "Mikä on näytteen alkuperäinen tyyppi (sallitut arvot "biopsy", "RP", "TURP" tai "NA")". If uncertain, maybe "NA". But we can infer "biopsy" because it's a sample of prostate tissue. However, we might err on safe side: "NA" because not explicit. But "biopsy" is plausible. The sample type: "biopsy" is typical. I'd choose "biopsy".
+
+Thus final JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

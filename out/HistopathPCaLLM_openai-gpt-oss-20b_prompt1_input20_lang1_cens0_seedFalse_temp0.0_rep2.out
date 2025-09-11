@@ -1,0 +1,15 @@
+analysisWe need to produce JSON with three fields: Sampletype, Malignancy, Gleason. The sample: "Näytteenä prostatektomiaresekaatti, josta tehty kuusi makroleikettä ja normaalit mikroskooppileikkeet. Sekä apexista että basiksesta otetuista leikkeistä löytyy adenokarsinoomaa. Apexin pitkittäinen leike näyttää mikroskooppisesti rauhasten yhteensulautumista sopien parhaiten Gleason 3+4 luokkaan, kun taas basiksessa lähinnä luokkaa 4+4. Näiden malignien näytteiden fokusten koot n. 8mm ja 5mm. Ei kuitenkaan havaita kapselista uloskasvua, ja marginaalit ovat puhtaat."
+
+We need to return only the results for the worst lesion. Which is the worst Gleason? We have apex 3+4 (which is 3+4=7). Basik 4+4 (which is 4+4=8). The worst is 4+4=8. So Gleason: "4+4=8". Sampletype? The sample is a prostatectomy resection: "prostatektomiaresekaatti" means radical prostatectomy. So sampletype: "RP". Malignancy: "kyllä" because adenocarcinoma present. So JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "kyllä",
+ "Gleason": "4+4=8"
+}
+
+We need to ensure no nested structures. Output exactly JSON.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+4=8"
+}

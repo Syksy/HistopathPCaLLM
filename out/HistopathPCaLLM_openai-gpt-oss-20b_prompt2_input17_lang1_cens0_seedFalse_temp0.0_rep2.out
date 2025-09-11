@@ -1,0 +1,27 @@
+analysisWe need to extract structured data.
+
+We have a statement: "Ajetaan prostatetomiapreparaatti normaalin kaavan mukaan, s.e. oikea lohko värjätty vihreällä ja vasen keltaisella väriaineella. Näytteet A-D basiksesta apexiin päin makroleikkeinä, ja apex näytteinä E-F ja basis G-N, ja loput seminaalivesikkelit molemmilta puolilta N-O. Nähdään makroleikkeissä useampi selkeä focus, joissa vallitseva Gleason luokka on 4 ja mukana myös jonkin verran luokkaa 3. Pääosa löydöksistä basiksessa, mutta apex ja seminaalivesikkelit puhtaat. Perineuraalista invaasiota havaitaan runsaasti, ja kasvain infiltroi selvästi kapselin läpi rasvaan."
+
+We need to output JSON with keys: Sampletype, Malignancy, Gleason.
+
+We need to pick worst lesion results (only the worst). The statement seems to be a surgical specimen (radical prostatectomy). Not a biopsy. So Sampletype: "RP". It's likely a radical prostatectomy (RP). In the list, the allowed values: "biopsy", "RP", "TURP", "NA". So "RP".
+
+Malignancy: "kyllä" because there is malignancy (adenocarcinoma). So "kyllä".
+
+Gleason: We have Gleason class 4 and some 3. It says "vallitseva Gleason luokka on 4 ja mukana myös jonkin verran luokkaa 3." So major 4 minor 3 sum 7. So "4+3=7".
+
+Thus output JSON:
+
+{
+"Sampletype": "RP",
+"Malignancy": "kyllä",
+"Gleason": "4+3=7"
+}
+
+No nested. Ensure proper JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+3=7"
+}
+```

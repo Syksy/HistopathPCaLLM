@@ -1,0 +1,25 @@
+analysisWe need to parse the statement: "Approx 30g prostate samples. Material is placed in cassettes and in the jar. Mostly ordinary prostate tissue seen. Isolated atrophied glands visible, but no decision regarding cancerous changes can be reached."
+
+We must determine sample type. It's "prostate samples" but not explicitly biopsy, RP, TURP. Could be radical prostatectomy? It's large prostate sample (30g). Likely radical prostatectomy (RP). But the text says "Approx 30g prostate samples" - that suggests surgical specimen, maybe RP. The allowed values: "biopsy", "RP", "TURP" or "NA". Since it's not a biopsy or TURP, but a surgical specimen, likely "RP". We can go with "RP".
+
+Malignancy: no decision regarding cancerous changes can be reached. So cannot determine malignant. So "NA" maybe. But we need to decide: Are there malignant tumor findings? The statement says no decision can be reached. That implies uncertain. According to instructions: "Malignancy: yes, no or NA" for malignant tumor findings. Since no decision, we might set "NA". Because they didn't say malignant or benign. So "NA".
+
+Gleason: Since we can't determine malignancy, Gleason "NA".
+
+Thus JSON:
+
+{
+"Sampletype":"RP",
+"Malignancy":"NA",
+"Gleason":"NA"
+}
+
+Check if sample type could be "NA" because not a biopsy, RP, TURP. But likely RP. The statement: "Approx 30g prostate samples" suggests a radical prostatectomy specimen. So "RP" is correct.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

@@ -1,0 +1,23 @@
+analysisWe need to parse the Finnish text. Determine sample type: likely biopsy? The text: "Muutaman tusinan gramman verran näytemateriaalia saatiin" indicates some tissue sample but not specifying a biopsy or RP (radical prostatectomy) or TURP. It's ambiguous. Could be a biopsy? But the text says "näytemateriaalia" which could be a biopsy. But no clear mention of biopsy. "mikäli" no mention. So we might set Sampletype: NA.
+
+Malignancy: does it report malignant findings? The text says "Suuria määriä prostatasolukkoa havaittiin, ja epiteelisolukon raja vaikuttaa normaalilta. Osat rauhasrakenteista vaikuttaa suhteettoman kokoisilta, mikä voi johtua teknisistä haasteita näytteen käsittelyssä. Johtopäätöksiä ei voida vetää varmasti nykyisestä materiaalista, ja virheellistä näytteenkäsittelyä epäillään." No malignant mention. So "ei".
+
+Gleason: no Gleason. So "NA".
+
+Thus produce JSON:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+But per spec, Malignancy allowed values "kyllä","ei","NA". So "ei" is correct. Sampletype allowed values "biopsy","RP","TURP","NA". So "NA" fine.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

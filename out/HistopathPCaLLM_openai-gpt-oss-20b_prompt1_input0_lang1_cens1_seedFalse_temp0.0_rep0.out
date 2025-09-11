@@ -1,0 +1,23 @@
+analysisWe need to parse the Finnish text. The input: "Näytemateriaalia tuli yhteensä runsaasti, josta suurin osa käynnistettiin useammassa erässä. Histologisessa tarkastelussa havaitaan prostatakudosta, mutta päättelyä solujen atypiasta, maligniteetista, tai karsinoomasta ei voida tehdä. Vähän nähtävissä läiskittäistä tulehdusta. Materiaalista ei voida vetää johtopäätöstä sopisiko se pelkästään epäiltyyn hyvänlaatuiseen hyperplasiaan."
+
+We need to output JSON with fields:
+- Sampletype: allowed values "biopsy", "RP", "TURP" or "NA".
+- Malignancy: "kyllä", "ei" or "NA".
+- Gleason: "major+minor=sum" for malignant findings, or "NA" for benign.
+
+We must only consider the worst lesion results. The sample type: The statement doesn't specify type. It says "Näytemateriaalia tuli yhteensä runsaasti, josta suurin osa käynnistettiin useammassa erässä." This implies a sample from multiple sites? It may be a biopsy or unspecified. Not RP or TURP. So likely "biopsy" if it's a biopsy. But it could be "NA" if not specified. The statement says "Histologisessa tarkastelussa havaitaan prostatakudosta, mutta päättelyä solujen atypiasta, maligniteetista, tai karsinoomasta ei voida tehdä." So no malignancy. So Malignancy: "ei". Gleason: "NA" because benign.
+
+Thus Sampletype: "biopsy". But we should consider: The statement says "Näytemateriaalia tuli yhteensä runsaasti, josta suurin osa käynnistettiin useammassa erässä." This likely refers to a biopsy procedure. So "biopsy" seems fine.
+
+Thus JSON:
+{
+ "Sampletype":"biopsy",
+ "Malignancy":"ei",
+ "Gleason":"NA"
+}
+
+Make sure JSON format. No extra fields. Ensure correct Finnish words. Use "biopsy" exactly. Ensure no trailing spaces.assistantfinal{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}

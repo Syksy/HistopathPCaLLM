@@ -1,0 +1,26 @@
+analysisWe need to parse the statement. The statement: "Examination consists of six biopsy cylinders that had been taken due to elevated PSA. Focus #1 on the front of left side exhibits 5mm length of poorly differentiated atypical grandular structure. This appears to be adenocarcinoma, with Gleason classification 4+4=8. Focus #2 on the middle of the left side also exhibits 10mm length of adenocarcinoma tissue, with Gleason point sum 4+3=7 and grade 4 proportion approx 80%. Focus 3# on the middle section on the right side also contains a finding with grades 4 and 3 with proportions approx. 70:30%, thus sum 7 (3+4). In the rest of the samples mostly hyperplastic changes are seen in the epithelial cells. As a summary, the highest grade malignant finding was in focus 1 with point sum 8."
+
+We need to output a JSON with three fields:
+
+1. Sampletype: "biopsy" (since it's biopsy cylinders). Allowed values: "biopsy", "RP", "TURP" or "NA". So "biopsy".
+
+2. Malignancy: "yes" because there is adenocarcinoma.
+
+3. Gleason: The most severe lesion: Focus #1 had Gleason 4+4=8. That is the highest. So Gleason: "4+4=8".
+
+Thus JSON:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "yes",
+ "Gleason": "4+4=8"
+}
+
+Ensure valid JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "yes",
+  "Gleason": "4+4=8"
+}
+```
+

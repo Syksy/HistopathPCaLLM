@@ -1,0 +1,31 @@
+analysisWe have a prompt in Finnish. The task: produce structured data from free text. The input: a pathology report. We need to output JSON with three fields: 1) sample type (allowed values: "biopsy", "RP", "TURP" or "NA"). 2) Were there malignant findings? (allowed values: "kyllä", "ei" or "NA"). 3) Reported Gleason score (allowed values: "major+minor=sum" as integers for malignant findings, "NA" for benign findings).
+
+We need to apply to the given report.
+
+The report says: "Höyläyslastuja tuli yhteensä noin 30g, joista noin 20g käynnistettiin kuudessa blokissa. Histologisessa tarkastelussa havaitaan hyvänlaatuista prostatakudosta, missä ei atypiaa, malignia, tai karsinoomaa näy. Vähän nähtävissä läiskittäistä tulehdusta. Löydös sopii siis epäiltyyn hyvänlaatuiseen hyperplasiaan."
+
+This is a biopsy (the sample is a biopsy). The sample type likely "biopsy". Are there malignant findings? No. So "ei". Gleason score: NA.
+
+Thus JSON: {"sample_type":"biopsy","malignant":"ei","gleason":"NA"}.
+
+Make sure field names: The problem statement: "1. Mikä on näytteen alkuperäinen tyyppi... 2. Oliko näytteessä pahanlaatuisia löydöksiä... 3. Mikä oli raportoitu Gleason-luokka..."
+
+Thus we probably use keys like "sample_type", "malignant", "gleason". The allowed values: for sample type: "biopsy", "RP", "TURP", "NA". For malignant: "kyllä", "ei", "NA". For Gleason: "major+minor=sum" or "NA".
+
+Thus produce JSON:
+
+{
+  "sample_type":"biopsy",
+  "malignant":"ei",
+  "gleason":"NA"
+}
+
+We should not include nested structures. And the JSON must be valid. So produce the JSON. Probably no extra keys. Just exactly those three.
+
+Return JSON.assistantfinal```json
+{
+  "sample_type": "biopsy",
+  "malignant": "ei",
+  "gleason": "NA"
+}
+```

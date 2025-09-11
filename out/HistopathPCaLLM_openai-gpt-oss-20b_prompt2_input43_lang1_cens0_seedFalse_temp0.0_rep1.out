@@ -1,0 +1,17 @@
+analysisWe need to parse the statement: "Näytteenä noin 30g prostatalastuja. Materiaali ajettiin kaseteissa A-H, purkissa jäljellä noin 15g. Näkyy tavallista prostatakudosta. Yksittäisiä atrofiouituneita rauhasia näkyy, mutta mitään eturauhasadenokarsinoomaan viittaavaa ei tule materiaalissa esiin."
+
+We need to produce JSON with fields: Sampletype, Malignancy, Gleason.
+
+Sampletype: It's a radical prostatectomy? The specimen: "Näytteenä noin 30g prostatalastuja." Means "sample of about 30g prostate tissue." It sounds like a total or radical prostatectomy specimen, not a biopsy. Could be "RP" (radical prostatectomy). Not TURP, not biopsy. So Sampletype: "RP".
+
+Malignancy: "mitään eturauhasadenokarsinoomaan viittaavaa ei tule materiaalissa esiin" means no adenocarcinoma findings. So malignancy: "ei".
+
+Gleason: Since no malignancy, Gleason: "NA".
+
+Return JSON accordingly.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

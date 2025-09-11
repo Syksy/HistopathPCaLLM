@@ -1,0 +1,21 @@
+analysisWe need to parse the statement, produce JSON with keys: Sampletype, Malignancy, Gleason. According to guidelines: Sampletype can be "biopsy","RP","TURP","NA". Malignancy: "kyllä","ei","NA". Gleason: "major+minor=sum" for malignant, "NA" for benign.
+
+We need to decide if the statement is a valid histopathological report. The statement: "Tutkittu materiaali koostuu useammasta suspektista fokuksesta prostatassa. Tutkitussa materiaalissa noin puolet kattaa kudosta, jonka piirteet tutkittiin tarkasti digitaalisesa histopatologiassa. Näisä havaittiin vaihtelevan tasoisia solujen erilaistumisgradeja, mutta tarkan scoren luokittaminen on mahdoonta johtuen resoluutio-ongelmista digitalisoiduissa kuvissa. Konkluusio on että näytesisällön gradeeraus tulisi tehdä manuaalisesti laseilla ennen digitalisointia, ja sitten ne voitaisiin syöttää jälleen systeemiin. Tämä varotoimenpide on perusteltu, sillä minkään keski-graden (esim. 3+4 tai 4+3) erilaistuminen voisi olla erittäin vaikeaa arvioida, johtuen digitalisoinnissa tapahtuneesta mokasta."
+
+This appears to be a discussion of methodology, not a histopathological report. There's no mention of a sample type, no clear mention of malignancy presence or Gleason. So it's not a valid histopathological report. Therefore we set all fields to NA.
+
+Thus output JSON:
+
+{
+ "Sampletype":"NA",
+ "Malignancy":"NA",
+ "Gleason":"NA"
+}
+
+Make sure no nested data. Straight.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

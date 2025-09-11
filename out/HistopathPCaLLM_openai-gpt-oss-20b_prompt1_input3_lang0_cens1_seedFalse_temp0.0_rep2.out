@@ -1,0 +1,15 @@
+analysisWe need to parse the statement. It says: "The primary sample contains over a dozen grams of prostate material, which is done in a single run. In histological inspection, some inflammation is apparent, but burn artefacts prevent detailed examination of the tissue material. Thus nothing conclusive may be derived from this run." We need to find sample type: "biopsy", "RP", "TURP" or "NA". The statement does not specify the sample type, but it says "primary sample contains... prostate material". It might be from a "single run" but no explicit. We might consider "NA" if not specified. Malignancy: "no" or "NA"? It says nothing conclusive may be derived, but inflammation present. So malignant tumor findings? Likely "NA" because no conclusion. Gleason: "NA". So output JSON with those fields. It says only the results from the most severe lesion should be returned, but no lesion. So "NA". So produce:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "NA",
+ "Gleason": "NA"
+}
+
+But check allowed values for Malignancy: "yes", "no" or "NA". Use "NA" because inconclusive. Yes. Return JSON.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

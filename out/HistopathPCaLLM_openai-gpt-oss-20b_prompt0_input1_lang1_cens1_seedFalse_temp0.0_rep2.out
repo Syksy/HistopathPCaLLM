@@ -1,0 +1,35 @@
+analysisWe need to parse Finnish pathology report. The text:
+
+" Tutkittavana edustavaa prostatakudosta sovituista paikoista. Näytteiden yhteismäärä on riittävä. Nähdään mm. rauhasrakenteita ja jonkin verran aaltoilevaa epiteeliä. Loppupäätelmä on vielä kesken ja valmistuu lähipäivinä. Lääk. Heikki Histopatologi"
+
+We must produce three fields:
+
+1. Sample type: allowed values "biopsy", "RP", "TURP", or "NA".
+
+2. Whether malignant findings: allowed "kyllä", "ei", "NA"
+
+3. Reported Gleason score: "major+minor=sum" for malignant findings; "NA" for benign.
+
+We must consider only the worst lesion results. The report is incomplete; says "Loppupäätelmä on vielä kesken ja valmistuu lähipäivinä." So no conclusion yet. So we have no malignant findings. So for field 2: "ei" (no malignant) or "NA"? The rules: "Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot "kyllä", "ei" tai "NA")". Since we don't know, but it's incomplete. Probably "NA" indicates not available. But it says "only worst lesion results should be returned" and we can't provide nested structure. But we can set "NA" for malignant findings? Actually if no malignant findings present, we set "ei". But we don't have conclusion. The text states "Nähdään mm. rauhasrakenteita ja jonkin verran aaltoilevaa epiteeliä." That's benign. So malignant "ei". So field 2: "ei".
+
+Field 3: Gleason score: since no malignant, "NA".
+
+Field 1: sample type: it's a biopsy? The text: "Tutkittavana edustavaa prostatakudosta sovituista paikoista." Could be a biopsy. No mention of RP or TURP. So likely "biopsy". But we might also consider "NA" if not clear. The text says "edustavaa prostatakudosta sovituista paikoista" means "representative prostate tissue from selected sites". Could be a core biopsy. So "biopsy".
+
+Thus JSON:
+
+{
+  "sample_type": "biopsy",
+  "malignant_finding": "ei",
+  "gleason_score": "NA"
+}
+
+We must output in JSON format. Ensure syntax. No nested. Ensure field names exactly? The prompt didn't specify keys. Provide structure? It says "Anna vastaukset seuraaviin kolmeen rakenteelliseen kenttään:" So we can use keys maybe "sample_type", "malignant_finding", "gleason_score" or Finnish terms? Might use "näytteen tyyppi", "pahanlaatu", "gleason". But better to use English keys? Not specified. Use keys: "sample_type", "malignant_finding", "gleason_score".
+
+Return only JSON.assistantfinal```json
+{
+  "sample_type": "biopsy",
+  "malignant_finding": "ei",
+  "gleason_score": "NA"
+}
+```

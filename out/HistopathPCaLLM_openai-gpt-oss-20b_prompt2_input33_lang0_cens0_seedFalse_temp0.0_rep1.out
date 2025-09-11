@@ -1,0 +1,27 @@
+analysisWe need to parse the statement and output JSON with Sampletype, Malignancy, Gleason.
+
+Statement: "Radical prostatectomy preparate started normally according to protocol. On the edges of the capsule, growth pattern varies by Gleason types 3+4/4+3. Tumor has penetrated the capsule (estimate T3b). View specific information from the additional details of the report. One finding (1/4, N1) in lymph nodes in processed macro sections. No malignant findings in seminal vehicles."
+
+We need to identify sample type: "Radical prostatectomy preparate" indicates surgical specimen type "RP" (Radical Prostatectomy). So Sampletype: "RP".
+
+Malignancy: Yes, there is malignant tumor findings. It mentions growth pattern varies by Gleason types 3+4/4+3, tumor penetrated capsule. So Malignancy: "yes".
+
+Gleason: The most severe lesion: we have Gleason types 3+4/4+3. Which is the highest? The pattern 4+3 is higher (score 7 but pattern 4+3). The statement "growth pattern varies by Gleason types 3+4/4+3." That indicates there are different patterns. The most severe is 4+3. So Gleason: "4+3=7".
+
+Return JSON.
+
+Check allowed values: Sampletype allowed values: "biopsy", "RP", "TURP" or "NA". So "RP".
+
+Malignancy: "yes", "no" or "NA". So "yes".
+
+Gleason: "major+minor=sum" whole numbers. So "4+3=7".
+
+Return JSON object.
+
+assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "yes",
+  "Gleason": "4+3=7"
+}
+```

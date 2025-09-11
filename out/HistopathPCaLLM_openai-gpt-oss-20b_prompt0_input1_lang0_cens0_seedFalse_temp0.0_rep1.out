@@ -1,0 +1,31 @@
+analysisWe need to parse the given text. It's a prostate cancer histopathology statement. The fields: original sample type, malignant tumor findings, reported Gleason grade. Must return only the results from the most severe lesion, not nested structures. Provide answers to the three structured fields. Allowed values:
+
+1. original sample type: "biopsy", "RP", "TURP" or "NA".
+2. malignant tumor findings: "yes", "no" or "NA".
+3. reported Gleason grade: "major+minor=sum" whole numbers for malignant statements or "NA" for benign statements.
+
+Now the statement: "12 representative needle biopsies are being inspected from standard sampling locations. Total length of the samples is approx. 150mm. Normal grandular structures are observed along with wave-like epithelial structures with hyperplastic characteristics. The conclusion is that only benign-like growth is observed. MD, John Doe."
+
+- Sample type: needle biopsies. Allowed values: "biopsy" is likely correct (biopsy). So "biopsy".
+
+- Malignant tumor findings: The conclusion: only benign-like growth is observed. So malignant tumor findings: "no".
+
+- Gleason grade: Since benign, the field should be "NA".
+
+Thus JSON:
+
+{
+  "original_sample_type": "biopsy",
+  "malignant_tumor_findings": "no",
+  "reported_gleason_grade": "NA"
+}
+
+We must not nest. Also no extra fields. Ensure it's valid JSON. Make sure field names match: "original sample type" maybe. But instructions: Provide answers to the following three structured fields: 1. What is the original sample type... 2. Were there malignant tumor findings... 3. What is the reported Gleason grade... So field names maybe "original_sample_type", "malignant_tumor_findings", "reported_gleason_grade". The JSON keys can be those.
+
+Thus final answer.assistantfinal```json
+{
+  "original_sample_type": "biopsy",
+  "malignant_tumor_findings": "no",
+  "reported_gleason_grade": "NA"
+}
+```

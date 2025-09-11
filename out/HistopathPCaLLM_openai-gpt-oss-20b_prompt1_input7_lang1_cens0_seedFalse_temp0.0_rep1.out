@@ -1,0 +1,19 @@
+analysisWe need to parse the given Finnish text. The instruction: "Sovella yllä olevia kysymyksiä tähän seuraavaan lausuntoon:" So we produce JSON with three fields: Sampletype, Malignancy, Gleason. Need to consider only the worst lesion outcome. For this report: "Kaseteissa normaalin tavan mukaan otetut prostatabiopsiat, kokonaispituus n. 150mm. Näytteessä 1B oikeasta basiksesta hyppää esiin fokus, jossa pieniä rauhasrakenteita, missä tuma-atypiaa ja morfologinen löydös saattaisi vastata adenokarsinoomaa. Löydös on niin niukka että jää suspisio-asteelle, eikä selvää adenokarsinoomaa löydetä. Muissa näytteissä havaitaan vain normaalia rauhaskudosta."
+
+Interpretation: It's a prostate biopsy. The findings: there is a small focus that may correspond to adenocarcinoma but is so small that it remains at suspicion level, no clear adenocarcinoma found. So no malignant lesion detected. So Malignancy: "ei". Sampletype: "biopsy". Gleason: since no malignancy, "NA". That matches format. So JSON:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Make sure fields exactly as described. JSON keys: "Sampletype", "Malignancy", "Gleason". Provide as plain JSON. No nested structures. Ensure no extra whitespace? It's fine.
+
+Return.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

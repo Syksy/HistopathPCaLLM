@@ -1,0 +1,29 @@
+analysisWe need to parse the Finnish pathology statement. The user says: "Sovella... seuraavaan lausuntoon: Useita...". So we need to output JSON with 3 fields:
+
+1. "näytteen alkuperäinen tyyppi" (sample type) allowed values: "biopsy", "RP", "TURP" or "NA".
+
+2. "oliko näytteessä pahanlaatuisia löydöksiä" (were there malignant findings) allowed values: "kyllä", "ei" or "NA".
+
+3. "Mikä oli raportoitu Gleason-luokka" (reported Gleason score) allowed values: "major+minor=sum" or "NA" for benign.
+
+We should consider that only the worst lesion results should be returned, and the structure should not be nested. The statement: "Useita näyttöönottokohtia oli saatavilla standardilokaatioista. Yksi näyteosa ei vaikuta edustavalta, koska siinä ei havaita normaalia prostatasolukkoa. Muutoin näytteinä käsitelty kudos vaikuttaa edustavalta prostatalta. Vaikka mitään epätyypillisiä rakenteita ei ole havaitussa prostatasolukossa, näytemateriaali itsessään ei ole riittävä että voitaisiin luotettavasti arvioida adenokarsinooman tai PIN-kaltaisten muutosten läsnäoloa."
+
+Interpretation: There were multiple biopsy sites. One sample not representative because no normal prostate tissue. Otherwise samples appear representative. No atypical structures were found, but the material is not sufficient to reliably assess adenocarcinoma or PIN-like changes. So essentially no malignant findings reported, and insufficient to assess. Thus "pahanlaatuisia löydöksiä" = "ei" (no malignant findings). Gleason score = "NA" because benign. Sample type: it's a biopsy (multiple biopsy sites). So "biopsy". So JSON:
+
+{
+  "näytteen alkuperäinen tyyppi": "biopsy",
+  "oliko näytteessä pahanlaatuisia löydöksiä": "ei",
+  "Mikä oli raportoitu Gleason-luokka": "NA"
+}
+
+Make sure field names match exactly? The user wrote in Finnish: "Mikä on näytteen alkuperäinen tyyppi...", "Oliko näytteessä pahanlaatuisia löydöksiä...", "Mikä oli raportoitu Gleason-luokka...". So we should use those keys. Use proper Finnish keys.
+
+Thus output JSON. Ensure no nested structure. Also no extra keys.
+
+Return only JSON.assistantfinal```json
+{
+  "Mikä on näytteen alkuperäinen tyyppi": "biopsy",
+  "Oliko näytteessä pahanlaatuisia löydöksiä": "ei",
+  "Mikä oli raportoitu Gleason-luokka": "NA"
+}
+```

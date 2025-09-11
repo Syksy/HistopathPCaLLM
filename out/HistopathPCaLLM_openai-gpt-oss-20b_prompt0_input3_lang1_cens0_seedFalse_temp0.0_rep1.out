@@ -1,0 +1,27 @@
+analysisWe need to parse the input. It's a histopathology report of prostate sample (maybe? The text: "Näytteenä on yhteensä 12.3g lastuja. Käynnistetään ne yhdellä kasetilla. Histologisessa tarkastelussa näkyy läiskittäistä kroonista tulehdusta, ja näytteistä tulee yleinen vaikutelma strooman hyperplasiasta. Mitään maligniin suoraan viittaavaa ei näy." The content is Finnish. It says: "The sample is a total of 12.3g of lobes. They are processed in one block. Histological examination shows patchy chronic inflammation, and the sample shows a general impression of stromal hyperplasia. No direct indication of malignancy." So no malignant findings. So:
+
+1. Sample type: The allowed values: "biopsy", "RP", "TURP", or "NA". The sample type likely is "biopsy" (or maybe "NA" if not indicated). They didn't specify type. It says "lastuja" - maybe lobes of prostate. Could be RP (radical prostatectomy). Actually "lastuja" could mean "lobes" of prostate. The sample is 12.3g of lobes, so that would be radical prostatectomy? Usually "lastuja" are lobes, but 12.3g of lobes might be the entire gland removed. The text: "Näytteenä on yhteensä 12,3g lastuja. Käynnistetään ne yhdellä kasetilla." That sounds like a whole gland or major resection, maybe "RP". But not sure. But we might lean to "RP" because it's a large sample. "Biopsy" would be smaller. But they didn't say "prostatectomy". "Lastuja" might be lobes. In Finnish, "lattiat" are lobes. Usually prostate biopsy yields a few cores, not 12.3g. So it's likely a radical prostatectomy. So sample type: "RP". But if uncertain, maybe "NA". But we need to pick one of allowed. The instructions: "Mikä on näytteen alkuperäinen tyyppi (sallitut arvot "biopsy", "RP", "TURP" tai "NA")". So we choose "RP".
+
+2. Oliko näytteessä pahanlaatuisia löydöksiä: The statement: "Mitään maligniin suoraan viittaavaa ei näy." So no malignant. So "ei".
+
+3. Mikä oli raportoitu Gleason-luokka: For malignant findings only. Since no malignancy, "NA".
+
+Return JSON with those fields. Ensure no nested structure. Use keys: "sample_type" maybe? The question didn't specify field names. It says "Anna vastaukset seuraaviin kolmeen rakenteelliseen kenttään". So we need to produce keys: maybe "sample_type", "malignant_findings", "gleason_score". Use those names. Or we can just use any names but consistent. Usually JSON keys in English. We'll use "sample_type", "malignant_findings", "gleason_score". Provide JSON.
+
+No nested structures. Just flat object.
+
+Answer: 
+
+{
+ "sample_type": "RP",
+ "malignant_findings": "ei",
+ "gleason_score": "NA"
+}
+
+Make sure it's valid JSON.assistantfinal```json
+{
+  "sample_type": "RP",
+  "malignant_findings": "ei",
+  "gleason_score": "NA"
+}
+```

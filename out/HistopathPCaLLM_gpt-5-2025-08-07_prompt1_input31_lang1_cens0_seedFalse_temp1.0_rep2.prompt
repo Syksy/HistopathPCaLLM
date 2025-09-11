@@ -1,0 +1,17 @@
+Tehtävänäsi on tuottaa rakenteista dataa vapaamuotoisesta tekstistä. Raakadata annetaan näiden ohjeiden lopuksi. Prosessoitavat syötteet ovat eturauhassyövän histopatologisia lausuntoja. Sinun tulee toimia kuin dataa rakenteistava algoritmi. Palauta rakenteelliset vastaukset syntaksia noudattavassa JSON-formaatissa. Ota huomioon että vain pahimman leesion tulokset tulisi palauttaa eikä rakenteinen tulos saisi koostua sisäkkäisistä rakenteista. Anna vastaukset seuraaviin kolmeen rakenteelliseen kenttään: 
+ 1. Mikä on näytteen alkuperäinen tyyppi (sallitut arvot "biopsy", "RP", "TURP" tai "NA"). 
+ 2. Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot "kyllä", "ei" tai "NA"). 
+ 3. Mikä oli raportoitu Gleason-luokka (sallitut arvot "major+minor=sum" muodossa kokonaislukuina pahanlaatuisille löydöksille ja "NA" hyvänlaatuisille löydöksille). 
+
+ Esimerkiksi lausunto "Prostata biopsiasta havaitaan adenokarsinoomaa Gleason luokilla 4 ja 3, joten summa 4+3=7." kuuluisi rakenteistaa JSON-formaattiin tavalla: 
+
+ {
+ "Sampletype": "biopsy",
+  "Malignancy": "kyllä",
+ "Gleason": "4+3=7" 
+}
+
+ Sovella yllä olevia kysymyksiä tähän seuraavaan lausuntoon: 
+
+
+Potilas on käynyt rutiineissa systeemibiopsiossa, joissa kuitenkin vain aivan minimaalinen fokus 3+3=6 Gleason löydöstä ja johtanut aluksi aktiiviseurantaan. Potilas kuitenkin oireillut ja PSA lähtenyt nousuun (viimeisin arvo jo >100), joten kuvantamisen jälkeen on tehty pari targetoitua biopsiaa. Toisessa biopsiapalassa tekninen epäonnistuminen leikkeissä, mutta toisesta löytyykin melkein 10mm matkalta laaja fokus, jossa pääosin kasvutapaa 4. Potilas ehtinyt aloittaa jo sädehoidon, ja morfologiset solumuutokset vaikeuttavat tulkintaa. Vaikuttaa vahvasti kuitenkin että toiseksi yleisin kasvutapa 5. Löydös vahvistaa epäilyn että aiempi Gleason summa 6 ei sattunut osumaan pahimman laatuisiin fokuksiin, ja hoitosuunnitelmaa on jo päivitetty uuden löydöksen perusteella.

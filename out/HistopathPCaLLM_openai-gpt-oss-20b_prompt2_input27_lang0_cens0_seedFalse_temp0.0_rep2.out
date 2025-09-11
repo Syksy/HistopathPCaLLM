@@ -1,0 +1,25 @@
+analysisWe need to parse the statement "Total 13g of shavings were run on eight casettes. Carcinoma was histologically detected in blocks F & G, where the growth pattern was Gleason 3+3=6."
+
+We need to determine Sampletype: allowed values: "biopsy", "RP", "TURP" or "NA". The statement says "shavings were run on eight casettes". This is likely a surgical specimen, maybe radical prostatectomy (RP) or something. Shavings suggests a frozen section? The sample type might be "RP" if it's a radical prostatectomy. "shavings" are from a prostatectomy specimen, often called "shavings" during frozen section. So likely "RP".
+
+Malignancy: yes, because carcinoma detected.
+
+Gleason: 3+3=6.
+
+Thus JSON:
+
+{
+"Sampletype":"RP",
+"Malignancy":"yes",
+"Gleason":"3+3=6"
+}
+
+Check if any other nuance: Only most severe lesion – there is only one lesion. So return that.
+
+Thus output.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "yes",
+  "Gleason": "3+3=6"
+}
+```

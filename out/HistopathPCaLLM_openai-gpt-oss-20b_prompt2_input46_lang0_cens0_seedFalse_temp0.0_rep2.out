@@ -1,0 +1,27 @@
+analysisWe need to parse the statement. The statement: "Shaved prostate chippings with total tissue weight around 20 gr. Material was set on eight cassettes, smaller portion of material was run. Regular prostate tissue with glands seen under microscope. Some gland findings coincide with basal cell hyperplasia. No signs of prostate cancer in the material."
+
+We need to produce JSON with fields:
+
+1. Sampletype: allowed values: "biopsy", "RP", "TURP" or "NA". The text says "Shaved prostate chippings". That might be a biopsy? Terms: "shaved prostate chippings" likely refers to a biopsy, maybe a shave biopsy. So sample type: "biopsy". The instructions say use allowed values. "biopsy" is allowed. So set to "biopsy".
+
+2. Malignancy: "yes", "no" or "NA". The text says "No signs of prostate cancer in the material." So Malignancy: "no".
+
+3. Gleason: For malignant statements, we need a "major+minor=sum" format. For benign statements, "NA". Since it's benign, Gleason: "NA".
+
+Thus JSON:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "no",
+ "Gleason": "NA"
+}
+
+Check if sampletype "biopsy" is correct. The statement: "Shaved prostate chippings" maybe refers to a type of biopsy (shave biopsy). It's basically a prostate sampling, so biopsy. So good.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}
+```

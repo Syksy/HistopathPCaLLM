@@ -1,0 +1,13 @@
+analysisWe need to parse the text. Identify sample type: options "biopsy", "RP", "TURP", "NA". The text describes "Näytekappale" (sample piece) originally from an enlarged prostate. It mentions both sides processed. It's a sample from prostate. It's not a radical prostatectomy (RP) or TURP. It's likely a biopsy. So "biopsy".
+
+Second: presence of malignant findings: we must decide "kyllä" or "ei" or "NA". The report: "Suurempaa ja pienempää Gleason luokkaa ei pysty luotettavasti määrittelemään... Erilaisia soluarkkitehtuureja havaitaan... epäilty suurempi summa referoidaan kollegalle jatkotutkimuksia varten." It seems uncertain malignant features. But they suspect bigger sum. But they can't determine. So maybe no clear malignancy reported. "Ei". They say no perineural invasion, capsule intact. So likely "ei".
+
+Third: Gleason class: if malignancy, we would provide major+minor=sum. If no malignancy, "NA". Since we think no malignant findings, "NA".
+
+Thus output JSON with keys: sample_type, malignant, gleason. Ensure no nested structures. Use values exactly as allowed. Provide JSON.assistantfinal```json
+{
+  "sample_type": "biopsy",
+  "malignant": "ei",
+  "gleason": "NA"
+}
+```

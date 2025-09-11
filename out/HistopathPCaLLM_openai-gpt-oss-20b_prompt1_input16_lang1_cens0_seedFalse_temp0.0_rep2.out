@@ -1,0 +1,7 @@
+analysisWe need to parse the Finnish text. Output JSON with Sampletype, Malignancy, Gleason. Determine sample type: "fuusiobiopsia" is a biopsy. So "biopsy". Malignancy: yes ("kyllä") because carcinomas. Gleason: we have Gleason 4 and 3? The text says: "tason 3 graduksen kasvua, joskus jonkin verran myös Gleason 4 -tyypin silmukoituvaa rakennetta". So there are both grade 3 and 4. So Gleason 3+4=7. So output "3+4=7" or "4+3=7"? In example they use "4+3=7" for 4 and 3. Order doesn't matter? Use major+minor=sum. Major is highest grade, minor is lower. So major 4, minor 3 sum 7. So "4+3=7". Provide JSON. No nested structures. Use keys: Sampletype, Malignancy, Gleason. Ensure values are strings. Done.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "kyllä",
+  "Gleason": "4+3=7"
+}
+```

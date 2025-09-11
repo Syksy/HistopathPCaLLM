@@ -1,0 +1,19 @@
+analysisWe need to parse the statement: "Prostatectomy preparate weighing approx 80g invastigated. Almost exclusively seen Gleason grade 4 differentiation, mostly in a small part of combined glands. Small amount of Gleason 3. Summary: score 7 (4+3)."
+
+We need to provide JSON with Sampletype, Malignancy, Gleason. Sampletype: likely "RP" (radical prostatectomy). Malignancy: yes. Gleason: "4+3=7". They want "major+minor=sum" format: 4+3=7. So output:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "yes",
+ "Gleason": "4+3=7"
+}
+
+Check allowed values: Sampletype: "biopsy", "RP", "TURP" or "NA". So "RP" is okay. Malignancy: "yes". Gleason: "4+3=7". Good.
+
+Return just that JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "yes",
+  "Gleason": "4+3=7"
+}
+```

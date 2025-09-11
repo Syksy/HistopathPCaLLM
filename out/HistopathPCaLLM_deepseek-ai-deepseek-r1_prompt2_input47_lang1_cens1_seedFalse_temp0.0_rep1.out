@@ -1,0 +1,21 @@
+<think>
+Okay, let's tackle this. The user wants me to parse a Finnish histopathology report for prostate cancer and structure the data into JSON with three specific fields. The input text is: 
+
+"Tutkitaan näytemateriaalia oikealta ja vasemmalta. Eturauhasmateriaalin kokonaismäärä on noin 30+40=70. Vasemmalla normaalia eturauhasepiteeliä, mutta paikoittain vähän lymfosyyttistä kertymää joka viittaisi krooniseen tulehdukseen. Ei voida määrittää onko maligneja löydöksiä vasemmalla tai oikealla."
+
+First, I need to determine the sample type. The report mentions "näytemateriaalia" which translates to sample material. However, there's no specific mention of biopsy, RP (radical prostatectomy), or TURP (transurethral resection of the prostate). The term "Eturauhasmateriaali" is just prostate material. Since the sample type isn't specified as any of the allowed values, the answer here should be "NA".
+
+Next, checking for malignancy. The text states "Ei voida määrittää onko maligneja löydöksiä..." which means they couldn't determine if there are malignant findings. The allowed values are "kyllä", "ei", or "NA". Since the result is inconclusive, it's not a clear yes or no. So "Malignancy" should be "NA".
+
+For Gleason score, the report doesn't mention any Gleason grades (like 3+4=7 or similar). Since malignancy isn't confirmed, Gleason would automatically be "NA" as per the instructions.
+
+So the JSON should have all fields as "NA".
+</think>
+
+```json
+{
+ "Sampletype": "NA",
+ "Malignancy": "NA",
+ "Gleason": "NA" 
+}
+```

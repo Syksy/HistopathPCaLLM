@@ -1,0 +1,28 @@
+analysisWe need to parse the given Finnish pathology report. The tasks:
+
+1. Determine sample type: possible values "biopsy", "RP", "TURP", "NA".
+The report says "Tutkittavana on radikaali prostatektomia" i.e., radical prostatectomy. So sample type is "RP" (radical prostatectomy).
+
+2. Whether malignancy: "kyllä" if malignant findings present. There is mention of tumor. So yes: "kyllä".
+
+3. Gleason: "major+minor=sum" for malignant findings. They report two macro A and B. Macro A: Gleason 4+3 => sum 7. Macro B: Gleason 4+5 => sum 9. Which one is the "worst" lesion? We need only the worst lesion. Which is higher Gleason sum: 9 is worse. So Gleason "4+5=9". They mention "korkeamman pistesumman (9) kasvua 4+5". So yes, use 4+5=9.
+
+Return JSON with fields "Sampletype", "Malignancy", "Gleason".
+
+Make sure no nested structures. Use correct Finnish values.
+
+Thus final JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "kyllä",
+ "Gleason": "4+5=9"
+}
+
+Check that sample type must be one of allowed values. "RP" is allowed. Good. Return JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+5=9"
+}
+```

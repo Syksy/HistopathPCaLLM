@@ -1,0 +1,35 @@
+analysisWe need to parse the statement and output JSON with specified fields: Sampletype, Malignancy, Gleason.
+
+We must use allowed values: Sampletype: "biopsy", "RP", "TURP", or "NA".
+
+Malignancy: "kyllä", "ei", "NA".
+
+Gleason: "major+minor=sum" for malignant findings or "NA" for benign findings.
+
+The input statement:
+
+"Näytteenä prostatektomiaresekaatti, josta tehty kuusi makroleikettä ja normaalit mikroskooppileikkeet. Sekä apexista että basiksesta otetuista leikkeistä löytyy adenokarsinoomaa. Apexin pitkittäinen leike näyttää mikroskooppisesti rauhasten yhteensulautumista sopien parhaiten Gleason 3+4 luokkaan, kun taas basiksessa lähinnä luokkaa 4+4. Näiden malignien näytteiden fokusten koot n. 8mm ja 5mm. Ei kuitenkaan havaita kapselista uloskasvua, ja marginaalit ovat puhtaat."
+
+We interpret: sample type is a prostatectomy (radical prostatectomy) specimen, which in Finnish likely "prostatektomiarese" i.e. radical prostatectomy. The allowed type "RP" corresponds to radical prostatectomy. So Sampletype: "RP".
+
+Malignancy: yes, because adenocarcinoma found. So "kyllä".
+
+Gleason: For malignant findings we need to report the reported Gleason. The text mentions two Gleason scores: 3+4 and 4+4. Which one to report? The instruction: "vain pahimman leesion tulokset tulisi palauttaa" meaning only the worst lesion results should be returned. So worst Gleason is 4+4=8. So we should report that. Format "4+4=8". So Gleason: "4+4=8".
+
+Thus JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "kyllä",
+ "Gleason": "4+4=8"
+}
+
+Check allowed values: sampletype "RP" is allowed. Malignancy "kyllä" allowed. Gleason "4+4=8" is correct format.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+4=8"
+}
+```

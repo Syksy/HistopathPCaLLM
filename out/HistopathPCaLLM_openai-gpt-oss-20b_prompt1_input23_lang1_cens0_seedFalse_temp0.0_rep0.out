@@ -1,0 +1,17 @@
+analysisWe must parse the given statement and produce JSON with three fields: Sampletype, Malignancy, Gleason. Sampletype: the sample type is "prostatektomiapreparaasti" which is a prostatectomy specimen, so "RP" (radical prostatectomy). Malignancy: yes, pahanlaatuisia löydöksiä, so "kyllä". Gleason: must be "major+minor=sum" format. The statement says Gleason-pistesumma on 9, grade group 5. Gleason sum 9 implies typical breakdown could be 4+5 or 5+4. But the statement earlier: "Edustaa pääosin erilaistumisluokkaa 4 (60%). Toiseksi yleisin luokka 5 (n. 30% osuus) edustava huonosti erilaistunut kasvainkomponentti. Tertiäärinen vähäisin luokka 3 erittäin pieni." So the components are 4, 5, 3. The dominant is 4, secondary 5. So major=4, minor=5 sum=9. So Gleason "4+5=9". According to allowed values, "major+minor=sum" with integers. So "4+5=9".
+
+Thus JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "kyllä",
+ "Gleason": "4+5=9"
+}
+
+Check for no nested structures. So output exactly that.
+
+assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+5=9"
+}

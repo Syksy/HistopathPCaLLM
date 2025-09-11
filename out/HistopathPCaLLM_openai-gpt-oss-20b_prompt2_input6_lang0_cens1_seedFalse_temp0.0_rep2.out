@@ -1,0 +1,15 @@
+analysisWe need to parse the given statement. We must output JSON with Sampletype, Malignancy, Gleason. According to instructions, only most severe lesion should be considered, but if no malignant tumor findings, set Malignancy "no" and Gleason NA. If sample type not identifiable, set NA. Here statement: "Samples consist of very fragmented parts of the original prostatic operation material. Albeit fragmented, the material is run in three separate batches. Microscopically, relatively normal prostate tissue structures are observed, but majority of the sample material cannot be further inspected due to a heavy burn artefact. The results are therefore inconclusive; due to the technical challenges, re-examination is heavily suggested."
+
+We need sample type: This refers to "original prostatic operation material". That suggests a radical prostatectomy (RP) tissue specimen. So Sampletype: "RP". Malignancy: no malignant findings; the statement says normal tissue observed, but inconclusive due to artifact. There is no malignant tumor findings. So "no". Gleason: NA. So JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "no",
+ "Gleason": "NA"
+}
+
+Return as valid JSON. Ensure no extra text.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}

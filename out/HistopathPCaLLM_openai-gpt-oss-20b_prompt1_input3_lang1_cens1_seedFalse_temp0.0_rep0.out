@@ -1,0 +1,13 @@
+analysisWe need to output JSON with Sampletype, Malignancy, Gleason. The input: "Primäärinäyte koostuu vähän yli tusinasta grammasta prostatamateriaalia, joka ajetaan yhdellä kerralla. Histologisessa tarkastelussa nähdään jonkin verran tulehdusta, mutta polttoartefaktat estävät näytemateriaalin luotettavan tarkastelun. Siispä mitään konklusiivista johtopäätöstä ei voida vetää tästä ajosta."
+
+We must determine sample type: "biopsy", "RP", "TURP" or "NA". The phrase: "Primäärinäyte" indicates primary sample, likely from radical prostatectomy? But unclear. "Primitively" sample comprised of >10g of prostate material, processed in one go. That sounds like a surgical specimen, maybe from radical prostatectomy (RP). In pathology, radical prostatectomy yields a specimen >10g. So sample type likely "RP".
+
+Malignancy: Are there malignant findings? No malignancy reported. So "ei". Gleason: For benign/no malignancy, value "NA".
+
+Return JSON. Ensure correct field names exactly as shown. The example had "Sampletype", "Malignancy", "Gleason". Use those. Provide valid JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

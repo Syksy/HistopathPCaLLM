@@ -1,0 +1,33 @@
+analysisWe need to parse the Finnish text. The instructions: produce JSON with Sampletype, Malignancy, Gleason. Only worst lesion results should be returned. No nested structures.
+
+We have the sample: "Tutkittavana 12 edustavaa neulabiopsiaa prostatan tyyppipaikoista. Näytteiden yhteispituus on noin 150mm. Nähdään normaaleja rauhasrakenteita ja jonkin verran aaltoilevaa hyperplastisen kaltaista epiteeliä. Lopputulos on siis lähinnä benignin oloista kasvua. Lääk. Heikki Histopatologi"
+
+Interpretation: 12 representative needle biopsies of prostate (neulabiopsia). The results are primarily benign growth. So sample type: "biopsy" (since needle biopsy). Malignancy: "ei" (no malignant). Gleason: "NA" (since no malignant). So output JSON with those values.
+
+Return JSON only.
+
+Thus:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Check that sample type values allowed: "biopsy", "RP", "TURP" or "NA". Good.
+
+Malignancy: "kyllä", "ei" or "NA". Good.
+
+Gleason: "major+minor=sum" or "NA". So "NA".
+
+Yes.
+
+Return JSON.
+
+assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

@@ -1,0 +1,25 @@
+analysisWe need to parse the statement: "The primary sample contains over a dozen grams of prostate material, which is done in a single run. In histological inspection, some inflammation is apparent, but burn artefacts prevent detailed examination of the tissue material. Thus nothing conclusive may be derived from this run."
+
+We have no explicit sample type. The text doesn't say biopsy, RP (radical prostatectomy), TURP, or NA. It says "primary sample contains over a dozen grams of prostate material". That could be from a surgical specimen, maybe radical prostatectomy. However "primary sample" is ambiguous. There's no mention of biopsy or TURP. The sample seems to be a surgical specimen. Usually radical prostatectomy yields the entire prostate and is more than a dozen grams. So likely "RP". But the instructions: allowed values: "biopsy", "RP", "TURP" or "NA". If uncertain, maybe choose "NA"? But it's likely RP. But let's think: The phrase "single run" might refer to a surgical specimen run. Could also be a core needle biopsy? But over a dozen grams is huge for biopsy. So it's more likely radical prostatectomy. So "Sampletype": "RP".
+
+Malignancy: "nothing conclusive may be derived" meaning no malignant tumor findings found, but also no conclusive findings. But we have no evidence of malignancy. The statement says "some inflammation is apparent, but burn artefacts prevent detailed examination." Nothing conclusive. So "no" for malignancy? But "no malignant tumor findings" is "no". It's not "NA". Because we have no malignant findings. So "Malignancy": "no".
+
+Gleason: Since no malignant, we use "NA".
+
+Thus JSON:
+
+{
+  "Sampletype": "RP",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}
+
+Check if any nuance: The sample might be "primary sample" but nothing else. But they didn't specify type. But typical pathology: "primary sample" could be "primary surgical specimen" like radical prostatectomy or TURP. But "over a dozen grams" is more than typical TURP. So "RP". Good.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}
+```

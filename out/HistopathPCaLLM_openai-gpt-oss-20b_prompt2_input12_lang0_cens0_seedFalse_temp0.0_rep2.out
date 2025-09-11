@@ -1,0 +1,27 @@
+analysisWe need to parse the statement: "The obtained sample consist of electrosection shavings from the prostate and have been started in eight blocks. In histological examination, majority of the sample material exhibits normal prostate tissue like architecture, thus the material is classified as benign."
+
+We need to produce JSON with fields:
+
+"Sampletype": allowed values: "biopsy", "RP", "TURP" or "NA". "electrosection shavings" likely from radical prostatectomy? Electrosection shavings could be from RP. Alternatively from TURP? Electrosection shavings from the prostate: Usually from prostatectomy. "electrosection" used in radical prostatectomy. So sample type likely RP. The statement says "obtained sample consist of electrosection shavings from the prostate". That is typical of RP. So Sampletype = "RP".
+
+"Malignancy": "yes", "no" or "NA". The statement: "majority of the sample material exhibits normal prostate tissue like architecture, thus the material is classified as benign." So malignancy = "no".
+
+"Gleason": for malignant statements, major+minor=sum. For benign statements, "NA". So Gleason = "NA".
+
+Thus JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "no",
+ "Gleason": "NA"
+}
+
+Check if sample type should be "RP" or maybe "NA" if uncertain. But it's a known type: "electrosection shavings" is a term used for RP. So okay.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}
+```

@@ -1,0 +1,13 @@
+analysisWe need to parse the Finnish statement. It's a histopathology report. We need to output 3 fields: Sampletype, Malignancy, Gleason. Allowed values: Sampletype: "biopsy", "RP", "TURP", or "NA". Malignancy: "kyllä", "ei", "NA". Gleason: "major+minor=sum" for malignant findings, or "NA" for benign findings.
+
+The statement: "Useita näyttöönottokohtia oli saatavilla standardilokaatioista. Yksi näyteosa ei vaikuta edustavalta, koska siinä ei havaita normaalia prostatasolukkoa. Muutoin näytteinä käsitelty kudos vaikuttaa edustavalta prostatalta. Vaikka mitään epätyypillisiä rakenteita ei ole havaitussa prostatasolukossa, näytemateriaali itsessään ei ole riittävä että voitaisiin luotettavasti arvioida adenokarsinooman tai PIN-kaltaisten muutosten läsnäoloa."
+
+Interpretation: Many sites available. One sample not representative because lacks normal prostate tissue. Otherwise tissue appears representative. No atypical structures found, but material is insufficient to reliably assess presence of adenocarcinoma or PIN-like changes. So the report states that adenocarcinoma or PIN-like changes cannot be reliably assessed due to insufficient material. So we cannot say malignant or benign. Malignancy: NA? Because uncertain. Sampletype: what is sample type? It's a biopsy? It says "useita näyttöönottokohtia" meaning multiple biopsy sites. So sample type is biopsy. So Sampletype: "biopsy". Malignancy: "NA" because can't assess. Gleason: "NA". That should be correct.
+
+Return JSON accordingly.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

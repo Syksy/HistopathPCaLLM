@@ -1,0 +1,27 @@
+analysisWe need to parse the given text and produce JSON with fields:
+
+- Sampletype: one of "biopsy", "RP", "TURP", or "NA".
+- Malignancy: "kyllä", "ei", or "NA".
+- Gleason: "major+minor=sum" or "NA".
+
+We have a statement:
+
+"Valmisteltu näytesetti ajettiin standardiprotokollan mukaisesti, ja niiden paino(t) sopivat referenssiarvojen puitteisiin. Mikroskooppisesti havaitaan prostatasolukkoa, mikä vaikuttaa muodostavan putkimaisia rakenteita vaihtelevilla erilaistumisasteilla. Osia tavallisimmista Gleason pisteytyksen komponenteista tällaisessa tilanteissa, arvot 4 ja 3, ei pystytä luotettavasti tarkastelemaan, sillä vain noin 5% koko materiaalista pystyttiin tutkimaan. Pyydetty arvio korkea-asteisista PIN-muutoksista jää täyttämättä epäluotettavana. Kaikki osat prostatasta mukaan lukien basis, apex ja keskiosa, tutkittiin, ja soluarkkitehtuurin varmistettiin muistuttavan prostatasolukkoa."
+
+We need to evaluate if this is a valid histopathological statement.
+
+It says: "Mikroskooppisesti havaitaan prostatasolukkoa" meaning "microscopically observed prostate cell." No mention of carcinoma or malignant lesion. "Osia tavallisimmista Gleason pisteytyksen komponenteista... arvot 4 ja 3, ei pystytä luotettavasti tarkastelemaan" means they cannot reliably evaluate Gleason components 4 and 3 due to limited sampling. So it's uncertain/present but not confirmed. They say "Pyydetty arvio korkea-asteisista PIN-muutoksista jää täyttämättä epäluotettavana." So they didn't evaluate high-grade PIN. So we have no malignant findings reported. So Malignancy: "ei". Gleason: "NA" because no malignant lesion reported. Sampletype: The text says "näytesetti" (sample set), but doesn't specify type. Could be biopsy? They say "Valmisteltu näytesetti ajettiin standardiprotokollan mukaisesti", not necessarily specifying biopsy or RP. Typically "näytesetti" might refer to a set of biopsies. But we cannot be sure. The allowed types: "biopsy", "RP", "TURP", or "NA". Since not explicit, safe to use "NA". But "näytesetti" could be a biopsy set. But the instructions: "Mikä on näytteen alkuperäinen tyyppi (sallitut arvot "biopsy", "RP", "TURP" tai "NA")." We need to decide. The text does not mention "biopsia" or "radikaaliprostata" or "TURP". It just says "näytesetti". Might be a biopsy; but "biopsy" is a single sample. However, "näytesetti" could be multiple core biopsies. But the content seems like a review of all prostate tissue. Hard to say. I'd choose "NA" to be safe because no clear type. So final JSON:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Double-check: Malignancy: "ei" because no malignant lesion reported. Gleason: "NA" because no malignant lesion. Ok.
+
+Return JSON.assistantfinal{
+  "Sampletype": "NA",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}

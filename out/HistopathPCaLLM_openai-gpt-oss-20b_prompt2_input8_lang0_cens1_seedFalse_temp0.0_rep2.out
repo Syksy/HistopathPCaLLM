@@ -1,0 +1,7 @@
+analysisWe need to parse the statement. Need to produce JSON with Sampletype, Malignancy, Gleason. Only the most severe lesion. The statement says: Sample 1 and 2 are free of malignant findings. Sample 3 contains majority of prostate tissue, but the Gleason patterns appear missing; empty fields? and?. Lower grade covering above 10% but no grade score reported, possibly a recording mishap. Suspicion of PIN-changes. No malignant findings reported. So Malignancy: no? Actually it's not malignant, only PIN (prostatic intraepithelial neoplasia) which is pre-cancer. So that's not malignant tumor. So Malignancy: no. Gleason: NA. Sampletype: "RP"? It says "run according to routine protocol", but not clear if it's radical prostatectomy? It doesn't say "RP" but "run according to routine protocol" could refer to RP. Usually "RP" refers to radical prostatectomy specimen. The statement mentions "Samples with indices 1 and 2 contain non-primary tissue (multiple segments each), of varying quantities. Sample 3 contains majority of the prostate tissue of interest, which is run according to the routine protocol." That could be a prostatectomy specimen. But sample type we may infer as "RP" because it's a specimen from surgery. However "biopsy" would be for needle biopsy. There's no mention of biopsy. So likely "RP". But the instruction says allowed values: "biopsy", "RP", "TURP" or "NA". Let's choose "RP". Malignancy: no. Gleason: NA.
+
+Return JSON.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}

@@ -1,0 +1,19 @@
+analysisWe need to parse the given Finnish text. Determine sample type: "Valmistellut näytteet prosessoidaan standardirutiinin proseduurin mukaisesti, siten että oikea puoli prostatasta on merkitty eri tavoin kuin vasen puoli. Näytteet A-D antavat kattavan näkymän basiksesta apeksiin, ja lisää apeksia on E-F ja basista G-N, ja jäljelle jäävää materiaalia N-O. Useampaa selvästi hyvin valmisteltua prostatan kudoskohdetta havaitaan, joten voidaan todnäk arvioida esim. erilaistumisasteet Gleasonille välille 3:sta 5:een siten että onko niitä ollenkaan läsnä vai onko materiaali täysin normaalia. Tämä arviointi, tukien histopatologiaa täyskropan kuvantamisella sekä seminaalivehikkelien, imusolmukkeiden ja kapselin läpäisemättömyyden arvioinnin kanssa, jätetään tehtäväksi erikoistuville lääkäreille ensi viikon kurssisessiossa. Tilannepäivitys konsensuksesta tullaan sitten lisäämään tämän alustavan raportin jatkeeksi."
+
+We need to see if it's a valid histopathological statement. There's no mention of biopsy, radical prostatectomy, TURP. It says "Valmistellut näytteet" but no type. It's unclear. It also doesn't mention malignancy or Gleason. There's talk of evaluating Gleason but not providing a result. So likely not a valid histopathological statement. According to instructions, we should output all NA.
+
+Thus:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "NA",
+ "Gleason": "NA"
+}
+
+Check the instructions: "only the worst lesion results should be returned and the structured result should not consist of nested structures." So we just output top-level fields. Good.
+
+Thus final.assistantfinal{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}

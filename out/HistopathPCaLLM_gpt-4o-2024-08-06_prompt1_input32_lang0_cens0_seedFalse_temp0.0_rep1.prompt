@@ -1,0 +1,17 @@
+Your task is to produce structured data from free format text. Raw data will be provided in the end of these instructions. These statements are prostate cancer histopathological statements. You should act as a data structuring algorithm. Return the structured answers in valid JSON format. Please note that only the results from the most severe lesion should be returned, and the structured result should not consist of nested structures. Provide answers to the following three structured fields: 
+ 1. What is the original sample type (allowed values: "biopsy", "RP", "TURP" or "NA"). 
+ 2. Were there malignant tumor findings (allowed values: "yes", "no" or "NA"). 
+ 3. What is the reported Gleason grade (allowed values preferably "major+minor=sum" in the form of whole numbers for malignant statements or "NA" for benign statements). 
+
+ For example, the statement "Adenocarcinoma is detected in the prostate biopsy with Gleason grades 4 and 3, resulting in a sum of 4+3=7." should be structured in JSON format as follows: 
+
+ {
+ "Sampletype": "biopsy",
+ "Malignancy": "yes",
+ "Gleason": "4+3=7" 
+}
+
+ Apply the above questions to the following statement: 
+
+
+UPDATE: The patient originally underwent a radical prostatectomy, during which five lymph nodes were examined in sample 1 and eight lymph nodes in sample 2. The median length was 3 cm and the longest 5 cm. Additionally, seminal vesicles were processed in samples 3 and 4. In the original multifocal adenocarcinoma of the prostate, Gleason 4+4 pattern was observed particularly in the base of the prostate, along with 3+3, 3+4, and 4+3 patterns. The lymph nodes examined were clear in sample 1 (0/5) as well as in sample 2 (0/8), with only normal benign cell material observed. The examined seminal vesicles (samples 3 and 4) are also clear of cancer, so the findings are benign. Therefore, it is concluded that the cancer has not metastasized locally (status N0). The findings from the macroscopic sections of the original primary prostate tissue remain. In summary, the lymph nodes and seminal vesicles examined were clear.

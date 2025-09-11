@@ -1,0 +1,17 @@
+analysisThe task: produce JSON with Sampletype, Malignancy, Gleason. Input: Finnish text about prostate tissue, but no actual sample type, no malignancy, no Gleason. So expected output is "NA" for all fields.
+
+We need to check instructions: only the worst lesion results should be returned; no nested structures. The example with invalid text returns all NA. So for this input, it's not a valid histopathological statement: it's a general note, no biopsy, no Gleason. So all NA.
+
+Thus JSON:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "NA",
+ "Gleason": "NA"
+}
+
+Return only that.assistantfinal{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}

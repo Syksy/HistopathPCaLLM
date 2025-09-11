@@ -1,0 +1,13 @@
+analysisWe need to produce JSON with fields: Sampletype, Malignancy, Gleason. The sample type: "biopsy", "RP", "TURP", or "NA". The statement: "Näytteenä on yhteensä 12.3g lastuja. Käynnistetään ne yhdellä kasetilla. Histologisessa tarkastelussa näkyy läiskittäistä kroonista tulehdusta, ja näytteistä tulee yleinen vaikutelma strooman hyperplasiasta. Mitään maligniin suoraan viittaavaa ei näy." This is a histopathology report. It says "no malignant features seen". So Malignancy: "ei". Sampletype: It's unclear: "Näytteenä on yhteensä 12.3g lastuja. Käynnistetään ne yhdellä kasetilla." It might be a "biopsy" or "RP" (radical prostatectomy). "12.3g" likely weight of specimen; "lastuja" maybe "tissues"? "Käynnistetään ne yhdellä kasetilla" maybe "process them in one cassette". Not clear if it's a biopsy or RP. Usually the weight of a prostatectomy is about 60-80g. 12.3g suggests small sample, likely a biopsy. So Sampletype: "biopsy". Gleason: NA because no malignancy. So output:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+We need to follow the JSON format exactly. Ensure no nested. Output just JSON.assistantfinal{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}

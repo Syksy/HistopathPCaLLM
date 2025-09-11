@@ -1,0 +1,19 @@
+analysisWe need to parse the Finnish text. The task: produce structured data for the three fields: sample type, presence of malignant findings, reported Gleason score. Only worst lesion results should be returned; structured result should not contain nested structures. Provide JSON.
+
+Allowed values for sample type: "biopsy", "RP", "TURP" or "NA". Sample type: The statement: "Tuorenäyte on saatu tutkimuskäyttöön luovutetusta ruumiinavauksesta." It's a body donation (autopsy). So not biopsy, RP, TURP. So sample type: "NA".
+
+Second: Oliko näytteessä pahanlaatuisia löydöksiä? Does it say malignant? The text says: "neuvotaan... mahdollisen adenokarsinooman tai muiden malignien muutosten arvioinnisa". It mentions possibility but no definitive malignant findings. So "ei" or "NA"? The allowed values: "kyllä", "ei" or "NA". Because not determined: "ei"? The text says no malignant found; just inflammation and age changes. So "ei".
+
+Third: Gleason-luokka. Only malignant lesions get Gleason. Since no malignant, return "NA".
+
+Thus JSON: {"sample_type":"NA","malignant":"ei","gleason":"NA"}.
+
+But they want field names: "Mikä on näytteen alkuperäinen tyyppi", "Oliko näytteessä pahanlaatuisia löydöksiä", "Mikä oli raportoitu Gleason-luokka". But we can use keys maybe "sample_type", "malignant", "gleason". They didn't specify keys; we can choose. They want JSON-formatted structured answers. So keys in English or Finnish? They didn't specify. I'll use English keys: "sample_type", "malignant", "gleason". Provide JSON.
+
+Make sure no nested structures. Straight output.assistantfinal```json
+{
+  "sample_type": "NA",
+  "malignant": "ei",
+  "gleason": "NA"
+}
+```

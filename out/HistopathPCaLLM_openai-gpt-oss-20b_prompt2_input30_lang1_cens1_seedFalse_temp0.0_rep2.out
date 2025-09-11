@@ -1,0 +1,19 @@
+analysisWe need to parse the given Finnish text. It appears to be a consultation note: "LISÄKONSULTAATIO: Matti Meikäläistä ja Maija Meikäläistä konsultoitu epävarmojen löydösten vuoksi yhteistapaamisessa. Soluissa oltiin alun perin epäilty poikkeavia löydöksiä, mutta MM & MM eivät pystyneet varmistamaan tai hylkäämään epäilyjä. Kudosnäytteen tulkinta haastavaa iästä johtuvien muutosten takia. Potilaan aiempaa epävarmaa diagnoosia ei siis pystytty määrittämään, statuksen selvittäminen vaatii jatkotutkimuksia. Potilaaseen oltava yhteydessä."
+
+It doesn't mention sample type, malignancy, Gleason. So it's not a biopsy or RP or TURP. It's a consultation note, no tissue. So Sampletype: "NA". Malignancy: "NA" because cannot determine malignant. Gleason: "NA". According to instructions: only return data for worst lesions, but if no malignancy or not a histopath report, return NA.
+
+Thus JSON as:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "NA",
+ "Gleason": "NA"
+}
+
+But check if there is any mention of malignant? No. So "Malignancy": "NA". The sample type is not a biopsy, RP, TURP. So NA. Return JSON.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

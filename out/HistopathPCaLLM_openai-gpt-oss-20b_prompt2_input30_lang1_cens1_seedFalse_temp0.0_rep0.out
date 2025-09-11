@@ -1,0 +1,17 @@
+analysisWe need to process a statement: "LISÄKONSULTAATIO: Matti Meikäläistä ja Maija Meikäläistä konsultoitu epävarmojen löydösten vuoksi yhteistapaamisessa. Soluissa oltiin alun perin epäilty poikkeavia löydöksiä, mutta MM & MM eivät pystyneet varmistamaan tai hylkäämään epäilyjä. Kudosnäytteen tulkinta haastavaa iästä johtuvien muutosten takia. Potilaan aiempaa epävarmaa diagnoosia ei siis pystytty määrittämään, statuksen selvittäminen vaatii jatkotutkimuksia. Potilaaseen oltava yhteydessä."
+
+We need to decide sample type: "biopsy", "RP", "TURP" or "NA". The statement refers to a consultation about a sample with unclear findings. It mentions "Kudosnäytteen" which is a tissue sample. But we don't know if it's biopsy, radical prostatectomy (RP), TURP, or unknown. The statement doesn't specify. So we likely set "NA".
+
+Malignancy: The statement says uncertain findings, could not confirm or reject suspicion. So malignancy is "NA" as we cannot determine. But guidelines say: "Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot 'kyllä', 'ei' tai 'NA')." If cannot determine, set NA. So "NA".
+
+Gleason: Because we cannot determine presence of malignancy, we set "NA".
+
+So JSON: { "Sampletype": "NA", "Malignancy": "NA", "Gleason": "NA" }.
+
+Return that.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

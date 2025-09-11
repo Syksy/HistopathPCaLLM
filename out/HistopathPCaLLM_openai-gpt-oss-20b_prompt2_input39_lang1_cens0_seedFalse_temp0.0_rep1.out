@@ -1,0 +1,21 @@
+analysisWe need to parse the given statement. We need to output JSON with fields:
+
+- Sampletype: one of "biopsy", "RP", "TURP", "NA". The statement says "Tutkittavana prostatektomiapreparaatti". That's a radical prostatectomy specimen. So Sampletype "RP".
+
+- Malignancy: "kyllä" if malignant findings present. The statement says "löydetään kasvain" (tumor found), Gleason 3+4=7, so malignant. So "kyllä".
+
+- Gleason: for malignant, must be "major+minor=sum". The statement says "Gleason 3 (major) ja 4 erilaistumisasteella... siten Gleason grade 7." So major=3, minor=4, sum=7. So output "3+4=7". Note the format "major+minor=sum" with numbers.
+
+Thus JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "kyllä",
+ "Gleason": "3+4=7"
+}
+
+We must ensure proper JSON, no comments.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "3+4=7"
+}

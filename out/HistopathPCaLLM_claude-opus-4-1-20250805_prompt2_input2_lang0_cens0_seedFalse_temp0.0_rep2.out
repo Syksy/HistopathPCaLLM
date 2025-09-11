@@ -1,0 +1,15 @@
+Looking at this histopathological statement, I need to extract:
+
+1. **Sample type**: The text mentions "fresh prostatectomy specimen" and later "The original sample is an autopsy sample intended for research use." Since this is an autopsy sample for research (not a clinical prostatectomy for cancer treatment), and autopsy is not one of the allowed values, this should be "NA".
+
+2. **Malignancy**: The text clearly states "normal benign growth" and the summary confirms "Prostate tissue contains at most a low inflammatory state, and most of the tissue changes can be attributed to normal aging." No malignant findings are reported, so this is "no".
+
+3. **Gleason grade**: Since there are no malignant findings (the statement describes benign tissue), the Gleason grade is "NA".
+
+```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}
+```

@@ -1,0 +1,19 @@
+<think>
+Okay, let's tackle this step by step. The user wants structured data from the provided prostate cancer histopathological statement. The three fields to focus on are original sample type, malignant tumor findings, and Gleason grade.
+
+First, the original sample type. The allowed values are biopsy, RP (radical prostatectomy), TURP (transurethral resection of the prostate), or NA. The statement mentions "prostate resection," which typically refers to a surgical removal. Since RP is a type of resection, but TURP is also a resection procedure. Wait, the sample mentions "resection" and the weight is 100g. Radical prostatectomies usually remove the entire prostate, which in adults is normally around 20-30 grams. A 100g prostate is more indicative of a TURP, which is done for benign prostatic hyperplasia (BPH) where the prostate is enlarged. So TURP might be the correct sample type here. But I need to confirm. The term "resection" can apply to both, but given the weight, TURP is more likely. So answer for 1 is "TURP".
+
+Next, malignant tumor findings. The statement clearly mentions adenocarcinoma, which is malignant. Also, there's capsule invasion and perineural growth, which are signs of malignancy. So the answer here is "yes".
+
+For the Gleason grade. The summary states "Gleason 9 tumor". The detailed description mentions in the first focus, most common Gleason 4, next 3 (so 4+3=7), but the second focus has Gleason 5 (>80%) with some 4. The highest Gleason would be the most severe. Since the summary says Gleason 9, that's 4+5=9 or 5+4=9. The second focus has Gleason 5 as the primary (since it's >80%) and 4 as secondary, so 5+4=9. The highest grade is the one to report. So the answer should be "5+4=9".
+
+Check if the user wants the most severe lesion's result. The summary says Gleason 9, which aligns with the second focus. So the structured JSON should have "5+4=9".
+</think>
+
+```json
+{
+  "original_sample_type": "TURP",
+  "malignant_tumor_findings": "yes",
+  "reported_gleason_grade": "5+4=9"
+}
+```

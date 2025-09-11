@@ -1,0 +1,27 @@
+analysisWe need to parse the statement and give JSON with the three fields. Let's interpret.
+
+Statement in Finnish: "Ajetaan prostatetomiapreparaatti normaalin kaavan mukaan, s.e. oikea lohko värjätty vihreällä ja vasen keltaisella väriaineella. Näytteet A-D basiksesta apexiin päin makroleikkeinä, ja apex näytteinä E-F ja basis G-N, ja loput seminaalivesikkelit molemmilta puolilta N-O. Nähdään makroleikkeissä useampi selkeä fokus, joissa vallitseva Gleason luokka on 4 ja mukana myös jonkin verran luokkaa 3. Pääosa löydöksistä basiksessa, mutta apex ja seminaalivesikkelit puhtaat. Perineuraalista invaasiota havaitaan runsaasti, ja kasvain infiltroi selvästi kapselin läpi rasvaan."
+
+We need to determine sample type: "biopsy", "RP", "TURP" or "NA".
+
+This is a prostatectomy specimen (prostatetomiapreparaatti). Likely radical prostatectomy (RP). They mention "prostatetomiapreparaatti" which is a prostatectomy specimen. So sample type = "RP".
+
+Malignancy: yes, since they see clear foci with Gleason 4 and some 3, perineural invasion, infiltration. So malignancy = "kyllä".
+
+Gleason: major+minor sum. They say "vallitseva Gleason luokka on 4 ja mukana myös jonkin verran luokkaa 3" So major 4, minor 3 => sum 7. So "4+3=7".
+
+Return JSON object.
+
+We must not nest. Provide:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "kyllä",
+ "Gleason": "4+3=7"
+}
+
+That's it.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+3=7"
+}

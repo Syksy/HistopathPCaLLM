@@ -1,0 +1,27 @@
+analysisWe need to parse the statement. The sample: "Sample consists of 12.3g of prostate chippings. The material is started on one casette. In histologial inspection, spotted chronic inflammation is apparently, and the material gives an overall impression of stromal hyperplasia. Nothing indicating malignancy is found."
+
+We need structured fields:
+
+1. Original sample type: allowed values: "biopsy", "RP", "TURP" or "NA".
+
+The statement says "Sample consists of 12.3g of prostate chippings." That suggests a biopsy? But "chippings" might be fragments from any procedure. But typical: "prostate chippings" often refers to biopsy or TURP. Usually "chippings" might come from TURP or prostatectomy. But the sample weight 12.3g suggests a core or biopsy. But let's choose "biopsy" as likely. The sample type: "biopsy".
+
+2. Malignant tumor findings: "yes", "no" or "NA". The statement says "Nothing indicating malignancy is found." So "no".
+
+3. Reported Gleason grade: "major+minor=sum" for malignant statements, or "NA" for benign statements. Since it's benign, "NA".
+
+Return JSON:
+
+{
+  "sample_type": "biopsy",
+  "malignant": "no",
+  "gleason_grade": "NA"
+}
+
+Check no nested structures. So JSON as above.assistantfinal```json
+{
+  "sample_type": "biopsy",
+  "malignant": "no",
+  "gleason_grade": "NA"
+}
+```

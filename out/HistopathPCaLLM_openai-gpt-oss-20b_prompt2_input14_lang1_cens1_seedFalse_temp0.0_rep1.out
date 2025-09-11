@@ -1,0 +1,17 @@
+analysisWe need to parse the statement to determine if it's a valid histopathological statement. The example shows that if the statement is unclear or not a proper histopathology, we return NA for all fields. The statement given seems like a clinical note describing a sample, but not giving a diagnosis. It says "On mahdotonta arvioida mahdollista prostatakapselin läpäisyä" etc. It doesn't mention malignancy or Gleason. It doesn't say "adenokarsinooma" or Gleason sum. So it doesn't meet criteria. So output all NA.
+
+But we must consider: "Sovella yllä olevien kysymykset...". The statement likely not contain malignant findings. So all NA. The sample type: We could deduce sample type: "Näyte koostuu kattavasta katsauksesta potilaan prostatakudokseen" maybe biopsy? But unclear. The sample type likely biopsy? But the statement says "Näyte koostuu kattavasta katsauksesta... valmistettu ajettavaksi kaseteilla..." It doesn't say biopsy or RP or TURP. So we should return NA for Sampletype.
+
+Thus final JSON:
+
+{
+"Sampletype": "NA",
+"Malignancy": "NA",
+"Gleason": "NA"
+}
+
+assistantfinal{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}

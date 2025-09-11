@@ -1,0 +1,37 @@
+analysisWe need to parse the Finnish text and produce JSON with three fields:
+
+- sample type: allowed values "biopsy", "RP", "TURP", or "NA".
+- malignant findings: "kyllä", "ei", or "NA".
+- reported Gleason score: "major+minor=sum" for malignant or "NA" for benign.
+
+We are told to only return the worst lesion results, and the structured result should not be nested. Provide answers to the three fields.
+
+We are told to apply to the given statement.
+
+Let's analyze the statement:
+
+" Tutkittavana 12 edustavaa neulabiopsiaa prostatan tyyppipaikoista. Näytteiden yhteispituus on noin 150mm. Nähdään normaaleja rauhasrakenteita ja jonkin verran aaltoilevaa hyperplastisen kaltaista epiteeliä. Lopputulos on siis lähinnä benignin oloista kasvua. Lääk. Heikki Histopatologi"
+
+Thus it's 12 representative needle biopsies of prostate. The findings: normal glandular structures and some wave-like hyperplastic epithelium. The result is mainly benign appearing growth.
+
+Thus sample type: "biopsy". Malignant findings: "ei" (no malignant). Gleason score: "NA" because benign.
+
+Thus JSON:
+
+{
+  "sample_type": "biopsy",
+  "malignant_findings": "ei",
+  "gleason_score": "NA"
+}
+
+We need to follow the syntax. Provide the JSON. Use proper keys as specified? The keys are not explicitly given, but the description says "Anna vastaukset seuraaviin kolmeen rakenteelliseen kenttään:" which likely means we should produce fields named accordingly. We can choose keys: "sample_type", "malignant_findings", "gleason_score". Provide that.
+
+No nested structure. Just simple JSON object.
+
+Thus output.assistantfinal```json
+{
+  "sample_type": "biopsy",
+  "malignant_findings": "ei",
+  "gleason_score": "NA"
+}
+```

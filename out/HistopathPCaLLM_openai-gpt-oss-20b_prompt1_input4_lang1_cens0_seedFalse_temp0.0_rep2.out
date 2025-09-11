@@ -1,0 +1,14 @@
+analysisWe need to parse the Finnish text. The input: "Näytteenä 1-6 prostatabiopsiat tyyppipaikoista. Näytteen 3 biopsiasylinterit eivät edustavia, sillä siinä ei nähdä prostatakudosta. Muutoin näytteet ovat edustavat ja nähdään benigniä prostatakudosta. Rauhasepiteeleissä ei myöskään havaita merkittävää atypiaa. Näytteistä ei siis löydetä karsinoomaa tai PIN-muutoksia."
+
+We need to produce 3 fields:
+1. Sampletype: allowed values "biopsy", "RP", "TURP" or "NA". The sample type here: "prostatabiopsiat" (prostate biopsies). So "biopsy".
+
+2. Malignancy: "kyllä", "ei" or "NA". The statement says no carcinoma or PIN changes found. So no malignancy: "ei".
+
+3. Gleason: For malignant lesions we provide "major+minor=sum". For benign: "NA". So "NA".
+
+Return JSON object with those fields. Ensure no nested structures. Provide the answer.assistantfinal{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}

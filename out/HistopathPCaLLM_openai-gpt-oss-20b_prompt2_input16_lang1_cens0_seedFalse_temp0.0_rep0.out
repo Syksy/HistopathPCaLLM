@@ -1,0 +1,21 @@
+analysisWe need to parse the Finnish histopathology statement. Determine sample type: "Tutkittavana kolme fuusiobiopsiaa prostatan suspektista fokuksesta." That means "three fusion biopsies of suspicious focus." So sample type likely "biopsy" (multiple biopsies). So Sampletype: "biopsy".
+
+Malignancy: The statement says there are carcinoma foci: "karsinoomafokuksia" etc. So malignancy yes: "kyllä".
+
+Gleason: The statement mentions "tason 3 graduksen kasvua, joskus jonkin verran myös Gleason 4 -tyypin silmukoituvaa rakennetta" and "score 7 yhteensä". So Gleason 3 + 4 = 7. So Gleason: "3+4=7". Should we order major+minor=sum. Usually major is 4, minor 3. So "4+3=7" maybe. The statement says "score 7" presumably 4+3. So produce "4+3=7".
+
+Thus output JSON:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "kyllä",
+ "Gleason": "4+3=7"
+}
+
+Check: They ask that only worst lesion results returned (no nested). This is fine.
+
+Return JSON only.assistantfinal{
+  "Sampletype": "biopsy",
+  "Malignancy": "kyllä",
+  "Gleason": "4+3=7"
+}

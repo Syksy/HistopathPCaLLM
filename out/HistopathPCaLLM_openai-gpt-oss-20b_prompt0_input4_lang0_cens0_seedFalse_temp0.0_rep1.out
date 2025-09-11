@@ -1,0 +1,29 @@
+analysisWe need to produce structured data from the statement. The statement refers to samples 1 to 6, all prostate biopsies. They say: Sample 3 biopsy cylinders are not representative, as no prostate tissue is observed. Otherwise samples are representative and benign prostate tissue is observed. No adenocarcinoma or PIN-like changes.
+
+We need to return JSON with fields:
+
+1. original sample type: allowed values: "biopsy", "RP", "TURP" or "NA". Since it's biopsy, we set "biopsy".
+
+2. malignant tumor findings: "yes", "no" or "NA". Since statement says no malignant tumor findings. So "no".
+
+3. reported Gleason grade: allowed values "major+minor=sum" or "NA" for benign. Since benign, "NA".
+
+Return JSON.
+
+Also ensure only most severe lesion, but since none, benign. So "NA".
+
+Hence output:
+
+{
+  "sample_type":"biopsy",
+  "malignant_tumor_findings":"no",
+  "gleason_grade":"NA"
+}
+
+Make sure valid JSON.assistantfinal```json
+{
+  "sample_type": "biopsy",
+  "malignant_tumor_findings": "no",
+  "gleason_grade": "NA"
+}
+```

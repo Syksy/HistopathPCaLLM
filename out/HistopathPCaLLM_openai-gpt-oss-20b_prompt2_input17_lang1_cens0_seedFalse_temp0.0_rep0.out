@@ -1,0 +1,21 @@
+analysisWe need to output JSON with three fields: Sampletype, Malignancy, Gleason. Must not be nested. Determine from the text.
+
+The text: "Ajetaan prostatetomiapreparaatti normaalin kaavan mukaan, s.e. oikea lohko värjätty vihreällä ja vasen keltaisella väriaineella. Näytteet A-D basiksesta apexiin päin makroleikkeinä, ja apex näytteinä E-F ja basis G-N, ja loput seminaalivesikkelit molemmilta puolilta N-O. Nähdään makroleikkeissä useampi selkeä fokus, joissa vallitseva Gleason luokka on 4 ja mukana myös jonkin verran luokkaa 3. Pääosa löydöksistä basiksessa, mutta apex ja seminaalivesikkelit puhtaat. Perineuraalista invaasiota havaitaan runsaasti, ja kasvain infiltroi selvästi kapselin läpi rasvaan."
+
+We need sample type: "RP" because it's prostatectomy. The text refers to "prostatetomiapreparaatti" which indicates radical prostatectomy. So Sampletype: "RP". Malignancy: yes (kyllä) because there are malignant lesions. Gleason: reported Gleason class 4 and 3, so 4+3=7. So "4+3=7". Output JSON accordingly.
+
+Check that they want no nested. Just plain.
+
+Thus:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "kyllä",
+ "Gleason": "4+3=7"
+}
+
+Make sure keys exactly as sample. Use double quotes. No extra fields. So final.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "kyllä",
+  "Gleason": "4+3=7"
+}

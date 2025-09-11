@@ -1,0 +1,17 @@
+analysisWe need to parse the instruction. The input is a Finnish paragraph about prostate samples. We must output JSON with 3 fields: Sampletype, Malignancy, Gleason. Sampletype allowed values: "biopsy", "RP", "TURP", "NA". Malignancy: "kyllä", "ei", "NA". Gleason: "major+minor=sum" or "NA". We must only return results for the worst lesion. But the sample is fragmentary, with no malignancy evident. The paragraph says: "Näytteet koostuvat erittäin fragmentoituneista osista alkuperäistä prostata-käsittelymateriaalia.... Mikroskooppisesti nähdään verrattain normaalia prostatasolukkoa, mutta valtaosaa näytemateriaalista ei voida tutkia riittävän tarkasti johtuen vahvasta polttoartefaktasta. Tulokset ovat siten epäselvät, ja johtuen teknisistä ongelmista materiaalin uudelleentarkastelua suositellaan vahvasti."
+
+So no malignancy reported, no Gleason. It's likely Sampletype: "NA" because we don't know if it's a biopsy, RP, TURP. The text says "prostata-käsittelymateriaalia" meaning processed material, but not clear. The sample type: could be "RP" (radical prostatectomy) or "TURP"? The text: "Näytteet koostuvat... alkuperäisestä prostata-käsittelymateriaalia." That might refer to material from a prostatectomy. But it's ambiguous. Since instructions say "only the worst lesion results should be returned and no nested structures." But we only have one sample. We should set:
+
+Sampletype: "NA" because we cannot determine.
+
+Malignancy: "NA" because uncertain.
+
+Gleason: "NA"
+
+Return JSON accordingly.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

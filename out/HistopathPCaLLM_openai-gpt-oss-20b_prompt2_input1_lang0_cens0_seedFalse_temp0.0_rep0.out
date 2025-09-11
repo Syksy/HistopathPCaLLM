@@ -1,0 +1,25 @@
+analysisWe need to parse the statement: "12 representative needle biopsies are being inspected from standard sampling locations. Total length of the samples is approx. 150mm. Normal grandular structures are observed along with wave-like epithelial structures with hyperplastic characteristics. The conclusion is that only benign-like growth is observed. MD, John Doe."
+
+We need to output JSON with fields: Sampletype, Malignancy, Gleason.
+
+Allowed sampletype values: "biopsy", "RP", "TURP" or "NA". The statement says "needle biopsies" - that is a biopsy. So Sampletype: "biopsy".
+
+Malformed: yes or no. The conclusion states only benign-like growth. So Malignancy: "no".
+
+Gleason: For benign statements it's NA. So "NA".
+
+Return JSON exactly. Ensure no nested structure. Provide only the JSON object. Use proper JSON formatting. Ensure no trailing commas. Provide no extraneous text.
+
+Thus output:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "no",
+ "Gleason": "NA"
+}
+
+Let's produce.assistantfinal{
+  "Sampletype": "biopsy",
+  "Malignancy": "no",
+  "Gleason": "NA"
+}

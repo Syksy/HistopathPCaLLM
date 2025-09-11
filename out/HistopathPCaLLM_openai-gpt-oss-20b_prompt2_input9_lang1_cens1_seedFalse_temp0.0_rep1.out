@@ -1,0 +1,13 @@
+analysisWe need to parse the given Finnish text and extract info: Sample type: allowed values "biopsy", "RP", "TURP" or "NA". Malignancy: "kyllä" (yes), "ei" (no), "NA". Gleason: "major+minor=sum" or "NA".
+
+Text: "Muutaman tusinan gramman verran näytemateriaalia saatiin, josta noin puolet käsiteltiin. Toinen puoli heitettiin pois käyttämättömänä. Ajot tehtiin 8:ssa stepissä, minkä jälkeen materiaali tutkittiin histologisesti. Suuria määriä prostatasolukkoa havaittiin, ja epiteelisolukon raja vaikuttaa normaalilta. Osat rauhasrakenteista vaikuttaa suhteettoman kokoisilta, mikä voi johtua teknisistä haasteita näytteen käsittelyssä. Johtopäätöksiä ei voida vetää varmasti nykyisestä materiaalista, ja virheellistä näytteenkäsittelyä epäillään."
+
+This appears to be a description of an assay but no mention of prostate biopsy or RP etc. It says material was obtained, processed, histology. No mention of malignant cells, Gleason. So we must return NA for all fields.
+
+Thus output JSON: {"Sampletype":"NA","Malignancy":"NA","Gleason":"NA"}assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}
+```

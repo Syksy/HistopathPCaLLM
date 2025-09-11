@@ -1,0 +1,21 @@
+analysisWe need to parse the Finnish text. The question: we have to produce JSON with three fields: sample type, malignant findings, Gleason score. We must only return the worst lesion results. The sample type can be "biopsy", "RP", "TURP" or "NA". The malignant findings: "kyllä", "ei", "NA". Gleason: "major+minor=sum" for malignant lesions, else "NA".
+
+We have a pathology report: "Näytemateriaalia tuli yhteensä runsaasti, josta suurin osa käynnistettiin useammassa erässä. Histologisessa tarkastelussa havaitaan prostatakudosta, mutta päättelyä solujen atypiasta, maligniteetista, tai karsinoomasta ei voida tehdä. Vähän nähtävissä läiskittäistä tulehdusta. Materiaalista ei voida vetää johtopäätöstä sopisiko se pelkästään epäiltyyn hyvänlaatuiseen hyperplasiaan."
+
+Interpretation: It's a biopsy? They say "Näytemateriaalia tuli yhteensä runsaasti, josta suurin osa käynnistettiin useammassa erässä" - sample material was obtained in large amount, most in several sessions. That sounds like a biopsy.
+
+No malignant findings: "päättelyä solujen atypiasta, maligniteetista, tai karsinoomasta ei voida tehdä" means cannot determine atypia, malignancy, or carcinoma. So likely no malignant findings. They mention inflammation. They cannot conclude if it's just benign hyperplasia. So malignant findings: "ei". Gleason: "NA". So JSON:
+
+{
+  "sample_type": "biopsy",
+  "malignant_findings": "ei",
+  "gleason_score": "NA"
+}
+
+Make sure no nested structures. Output should be JSON.assistantfinal```json
+{
+  "sample_type": "biopsy",
+  "malignant_findings": "ei",
+  "gleason_score": "NA"
+}
+```

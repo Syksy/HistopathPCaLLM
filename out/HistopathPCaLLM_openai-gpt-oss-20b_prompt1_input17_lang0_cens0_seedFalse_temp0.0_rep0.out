@@ -1,0 +1,17 @@
+analysisWe need to parse the statement and produce JSON with fields: Sampletype, Malignancy, Gleason. Only most severe lesion. Statement: "Prostatectomy preparate is processed according to the standard routine..." So sample type is "RP" (Radical Prostatectomy). Malignancy: yes. Gleason: we need major+minor=sum. They mention "most dominant Gleason grade 4 along with some grade 3." For most severe lesion, we consider the highest grade or highest score? The dominant is grade 4, but grade 3 present. We need to report Gleason grade as "major+minor=sum" for malignant statements. Usually Gleason grade is 4+3=7? But we need to decide. The dominant is 4, minor is 3. Usually the sum is 4+3=7. So Gleason: "4+3=7".
+
+Thus JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "yes",
+ "Gleason": "4+3=7"
+}
+
+Return that.assistantfinal```json
+{
+  "Sampletype": "RP",
+  "Malignancy": "yes",
+  "Gleason": "4+3=7"
+}
+```

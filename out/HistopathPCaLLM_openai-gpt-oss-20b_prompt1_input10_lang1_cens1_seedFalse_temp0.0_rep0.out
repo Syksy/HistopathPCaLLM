@@ -1,0 +1,25 @@
+analysisWe need to produce JSON with three fields: Sampletype, Malignancy, Gleason. The input is a statement about prostate samples. We need to determine:
+
+1. What is the sample type: biopsy, RP, TURP, or NA. The statement says "Pyydetyt prostatanäytteet saapuivat kahdeksassa erillisessä erässä" – "the requested prostate samples arrived in eight separate batches". It doesn't mention biopsy, RP, or TURP. So likely NA.
+
+2. Was there malignant findings: "normaalia basaalisolukkoa" (normal basal cells). "Erikoisen näköisiä muotoja havaittiin aiemmissa näytteissä, mitkä viittaisivat siihen että värjäykset epäonnistuivat" – no mention of cancer. So "ei" (no malignancy). But we need to confirm if "päivä" mentions anything about cancer. The statement is about immuno panels, patterns, etc. No mention of malignancy. So Malignancy = "ei".
+
+3. Gleason: Only reported if malignant findings. Since no malignancy, Gleason = "NA".
+
+Thus JSON:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Check format: we need "Sampletype" key. The example uses "Sampletype". So we should use that. JSON keys: "Sampletype", "Malignancy", "Gleason". All strings.
+
+Return JSON.assistantfinal```json
+{
+  "Sampletype": "NA",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

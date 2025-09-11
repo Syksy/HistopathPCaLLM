@@ -1,0 +1,29 @@
+analysisWe need to produce output JSON with three fields:
+
+- Sampletype: allowed values "biopsy", "RP", "TURP", or "NA".
+- Malignancy: "kyllä", "ei", or "NA".
+- Gleason: "major+minor=sum" for malignant, or "NA" for benign.
+
+We need to analyze the given statement.
+
+Statement: "Näytteinä yhteensä 4g höyläyslastuja, jotka käynnistetty kolmeen kudoskasettiin. Todetaan mikroskooppisesti suhteellisen normaalia prostatasolukkoa, jossa kuitenkin voimakasta polttoartefaktaa. Rauhaset melko tuhoutuneet polttoartefaktoista johtuen, mutta löydökset viittaisivat hienoisesti prostatahyperplasiaan."
+
+Interpretation: Sample: 4g core samples? "höyläyslastuja" likely refers to core biopsy samples. So sample type: "biopsy".
+
+Malignancy: findings indicate benign prostatic hyperplasia. So "ei" for malignancy (no malignant findings). Gleason: "NA" because benign.
+
+Thus output:
+
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+
+We must ensure JSON valid syntax. Use double quotes. Return only JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

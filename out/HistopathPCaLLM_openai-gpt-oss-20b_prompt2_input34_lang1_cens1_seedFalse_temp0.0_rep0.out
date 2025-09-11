@@ -1,0 +1,23 @@
+analysisWe need to process the given Finnish text. It's a histopathology statement. We must output JSON with fields: Sampletype (one of "biopsy", "RP", "TURP", "NA"). Malignancy: "kyllä", "ei", or "NA". Gleason: "major+minor=sum" or "NA".
+
+We need to parse the statement: "Näyte painaa 7.5gr, joka on valmisteltu kuudelle kudoskasetille kokonaispainoltaan 7gr. Histologiseseti nähdään, että rauhaset ovat hyvin lähellä toisiaan, osittain cribriform kasvua. Löydökset eivät viittaa eturauhasen. Hyperplastista eturauhaskudosta kroonisella inflammaatiolla nähdään."
+
+Let's translate: "Sample weighs 7.5g, prepared on six tissue blocks total weight 7g. In histology, glands are close to each other, partially cribriform growth. Findings do not indicate prostate. Hyperplastic prostate tissue with chronic inflammation is noted." So no malignancy. There's mention of cribriform growth but no mention of cancer. So Malignancy: "ei". Gleason: "NA" because no malignant. Sample type: It's a biopsy? It says "Näyte" (sample) prepared on six tissue blocks. It doesn't say biopsy specifically. Could be a prostate biopsy. Likely the sample is from prostate, but no mention of biopsy vs RP vs TURP. The sample is probably a biopsy. So Sampletype: "biopsy". According to instructions, only the worst lesion results should be returned, but we only have no malignancy. So Malignancy "ei". Gleason "NA". Output JSON accordingly.
+
+Thus:
+
+{
+ "Sampletype": "biopsy",
+ "Malignancy": "ei",
+ "Gleason": "NA"
+}
+
+Double-check: The sample type might be "NA" if not clear. But we can guess biopsy. The statement includes "Näyte painaa 7.5gr" so it's a sample. It doesn't mention "biopsiasta" or "eturauhassyövän biopsiasta". But it's a prostate tissue? It says "rauhaset" (glands) "rauhaskudosta" - "prostate tissue". So likely a biopsy. Without explicit mention of RP or TURP. So choose "biopsy".
+
+Return that JSON.assistantfinal```json
+{
+  "Sampletype": "biopsy",
+  "Malignancy": "ei",
+  "Gleason": "NA"
+}
+```

@@ -1,0 +1,22 @@
+analysisWe need to parse the statement. It's in Finnish. It says: "Samples collected from left and right lobe of prostate. In one sample there is some chronic inflammation, in two samples atrophic glands and chronic inflammation. Hard to say whether there are cancer related changes." So it's not a histopath report, just a description. We need to produce JSON with fields:
+
+- Sampletype: allowed values "biopsy", "RP", "TURP", "NA".
+We have "Näytteet kerätty vasemmasta ja oikeasta lohkosta eturauhasesta." It might be biopsy or maybe TURP? Not sure. Usually "näytteet" could be biopsies. But not specified. The statement does not mention biopsy, radical prostatectomy, TURP. So sampletype maybe NA. But could be "biopsy" because they collected samples. The statement: "Näytteet kerätty vasemmasta ja oikeasta lohkosta eturauhasesta." Means "Samples collected from left and right lobe of prostate." It doesn't specify method. Usually "biopsy" is standard. But we cannot assume. But the instructions: The sampletype should reflect the original type of sample. Allowed: biopsy, RP, TURP, NA. If not known, maybe NA. I'd lean NA because we don't know if it's biopsy, or resection. The safe answer: NA.
+
+- Malignancy: "kyllä", "ei", "NA". The text says "Vaikea sanoa, onko näytteessä syöpään liittyviä muutoksia." Hard to say. So we cannot determine malignancy. So "NA".
+
+- Gleason: "major+minor=sum" for malignant, "NA" for benign. Since malignancy not known, we set "NA".
+
+Thus output:
+
+{
+ "Sampletype": "NA",
+ "Malignancy": "NA",
+ "Gleason": "NA"
+}
+
+We need to output exactly that.assistantfinal{
+  "Sampletype": "NA",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}

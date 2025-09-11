@@ -1,0 +1,23 @@
+analysisWe need to produce JSON with three fields: Sampletype, Malignancy, Gleason.
+
+We have to consider only the worst lesion results. The input says: "Näytteet koostuvat erittäin fragmentoituneista osista alkuperäistä prostata-käsittelymateriaalia. Vaikkakin materiaali on pirstaloitunutta, se ajetaan kolmessa erillisessä erässä. Mikroskooppisesti nähdään verrattain normaalia prostatasolukkoa, mutta valtaosaa näytemateriaalista ei voida tutkia riittävän tarkasti johtuen vahvasta polttoartefaktasta. Tulokset ovat siten epäselvät, ja johtuen teknisistä ongelmista materiaalin uudelleentarkastelua suositellaan vahvasti."
+
+So sample type: it's from prostate processing material. Likely "RP" (radical prostatectomy) or "TURP" or "biopsy"? "Alkuperäistä prostata-käsittelymateriaalia" suggests that it's from a prostate surgery, maybe radical prostatectomy (RP). There are no biopsy. So we should choose "RP". But we need to confirm: "Näytteet koostuvat... alkuperäistä prostata-käsittelymateriaalia." That indicates that the material comes from prostate processing, likely from RP. So Sampletype: "RP".
+
+Malignancy: The report says "Tulokset ovat siten epäselvät", no mention of malignant lesion. So we cannot say yes. So "ei" or "NA"? The instruction says: "Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot "kyllä", "ei" tai "NA")." If it's unclear, maybe "NA" indicates not applicable. But we have no evidence of malignancy. The sample is ambiguous. Should we set "ei" meaning no malignancy? The report says "Tulokset... epäselvät" and "materiaalin uudelleentarkastelua suositellaan". That suggests that they can't determine. So we might set Malignancy: "NA" since no result. But they didn't say "malignancy" at all. They just said "epäselvät". That could be "NA" because we can't determine. The instructions: "Oliko näytteessä pahanlaatuisia löydöksiä (sallitut arvot "kyllä", "ei" tai "NA")". If we cannot determine, "NA" is appropriate. So "NA".
+
+Gleason: Since no malignant result, "NA". Because the guidelines: "Mikä oli raportoitu Gleason-luokka (sallitut arvot "major+minor=sum" muodossa kokonaislukuina pahanlaatuisille löydöksille ja "NA" hyvänlaatuisille löydöksille)." So for benign or unknown, "NA".
+
+Thus JSON:
+
+{
+ "Sampletype": "RP",
+ "Malignancy": "NA",
+ "Gleason": "NA"
+}
+
+We must not use nested structures. Provide only these fields. Output JSON as plain text.assistantfinal{
+  "Sampletype": "RP",
+  "Malignancy": "NA",
+  "Gleason": "NA"
+}

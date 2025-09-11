@@ -1,0 +1,17 @@
+Your task is to produce structured data from free format text. Raw data will be provided in the end of these instructions. These statements are prostate cancer histopathological statements. You should act as a data structuring algorithm. Return the structured answers in valid JSON format. Please note that only the results from the most severe lesion should be returned, and the structured result should not consist of nested structures. Provide answers to the following three structured fields: 
+ 1. What is the original sample type (allowed values: "biopsy", "RP", "TURP" or "NA"). 
+ 2. Were there malignant tumor findings (allowed values: "yes", "no" or "NA"). 
+ 3. What is the reported Gleason grade (allowed values preferably "major+minor=sum" in the form of whole numbers for malignant statements or "NA" for benign statements). 
+
+ For example, the statement "Adenocarcinoma is detected in the prostate biopsy with Gleason grades 4 and 3, resulting in a sum of 4+3=7." should be structured in JSON format as follows: 
+
+ {
+ "Sampletype": "biopsy",
+ "Malignancy": "yes",
+ "Gleason": "4+3=7" 
+}
+
+ Apply the above questions to the following statement: 
+
+
+The patient had undergone routine systematic biopsy, where only a minimal focus with Gleason 3+3=6 was found. This led to active surveillance. However, the patient has since developed active symptons, and PSA levels have elevated rapidly (latest value already >100). This led to two targeted biopsies done using imaging for guidance. In the first targeted biopsy there was a technical failure resulting in loss of the material, but the second targeted biopsy hit a large focus of almost 10mm with primary differentiation pattern 4. The patient had already started radiotherapy, which made interpretation of the cell morphological changes difficult. However, it would strongly appear that the second most common differentiation pattern is 5. The novel findings confirm that the previous Gleason sum 6 did not capture the most aggressive tumor characteristics. The patient treatment plan has already been updated based on the new findings.
