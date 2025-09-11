@@ -27,6 +27,38 @@ tail(summary)
 table(summary$model)
 ```
 
+## Convenience functions
+
+```{r}
+modeltabs <- function(x, correctField = "allCorrect", censoringField = "censoption", modelField = "model"){
+	tmp_cens0 <- do.call("rbind", by(x[which(x[,censoringField] == 0),correctField], INDICES=x[,modelField], FUN=\(x){
+	c(
+		TP = sum(x[,correctField] == "True"),
+		FN = sum(x[,correctField] == "False")
+	)
+	}))
+	tmp_cens1 <- do.call("rbind", by(x[which(x[,censoringField] == 1),correctField], INDICES=x[,modelField], FUN=\(x){
+	c(
+		TN = sum(x[,correctField] == "False"),
+		FP = sum(x[,correctField] == "True")
+	)
+	}))
+	tmp <- as.data.frame(cbind(tmp_cens0, tmp_cens1))
+	tmp[,"Sens"] <- apply(tmp, MARGIN=1, FUN=\(x){
+		(x["TP"])/(x["TP"] + x["FN"])
+	})
+	tmp[,"Spec"] <- apply(tmp, MARGIN=1, FUN=\(x){
+		(x["TN"])/(x["TN"] + x["FP"])
+	})
+	tmp[,"F_score"] <- apply(tmp, MARGIN=1, FUN=\(x){
+		(2*x["TP"])/((2*x["TP"]) + x["FP"] + x["FN"])
+	})
+	tmp[,"Accuracy"] <- apply(tmp, MARGIN=1, FUN=\(x){
+		(x["TP"] + x["TN"])/(x["FP"] + x["FN"] + x["TP"] + x["TN"])
+	})
+}
+```
+
 # English
 
 ```{r subsets}
@@ -75,7 +107,15 @@ tmp2 <- do.call("rbind", by(dat_eng_prompt0_cens1, INDICES=dat_eng_prompt0_cens0
 }))
 #tmp2
 
+
+
 tmp <- as.data.frame(cbind(tmp1, tmp2))
+tmp[,"Sens"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(x["TP"])/(x["TP"] + x["FN"])
+})
+tmp[,"Spec"] <- apply(tmp, MARGIN=1, FUN=\(x){
+	(x["TN"])/(x["TN"] + x["FP"])
+})
 tmp[,"F_score"] <- apply(tmp, MARGIN=1, FUN=\(x){
 	(2*x["TP"])/((2*x["TP"]) + x["FP"] + x["FN"])
 })

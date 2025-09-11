@@ -147,8 +147,10 @@ knitr::kable(df) %>% column_spec(1, width = "6cm") %>% column_spec(2:ncol(df), w
 # Combine both English + Finnish
 df <- modeltabs(summary %>% filter(lang == 1 & promptIndex == 2 & seedoption == "False"), fields=c("TP", "FN", "TN", "FP", "Sens", "Spec", "F_score", "medianRuntimeAll", "medianCharCountAll"))
 
-df[,"Type"] <- ifelse(grepl("claude|gpt|mistral-large|mistral-medium|gemini|grok", rownames(df), ignore.case = TRUE), "Proprietary", "Open")
-df[,"TypePch"] <- ifelse(grepl("claude|gpt|mistral-large|mistral-medium|gemini|grok", rownames(df), ignore.case = TRUE), 16, 15)
+# List 'proprietary' models; if not in list, assume 'open' model status
+props <- "claude|gpt-4.1|gpt-4o|mistral-large|mistral-medium|gemini|grok"
+df[,"Type"] <- ifelse(grepl(props, rownames(df), ignore.case = TRUE), "Proprietary", "Open")
+df[,"TypePch"] <- ifelse(grepl(props, rownames(df), ignore.case = TRUE), 16, 15)
 
 print(df)
 
