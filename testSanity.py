@@ -2,6 +2,7 @@
 import os
 import time
 import re
+import pandas as pd
 # Running models on Replicate
 import replicate
 # Import synthetic data and prompts
@@ -74,4 +75,63 @@ while True:
         print("Error: " + str(e))
         time.sleep(120)
 
+sanity = pd.DataFrame({'model': [],
+                        'inputIndex': [],
+                        'lang': [],
+                        'cens': [],
+                        'hit1': [], # Can sample type be inferred
+                        'hit2': [], # Verbal explanation
+                        'hit3': [], # Can malignancy be inferred
+                        'hit4': [], # Verbal explanation
+                        'hit5': [], # Can Gleason be inferred
+                        'hit6': [], # Verbal explanation
+                        'hit7': [], # Grammar and clarity category
+                        'hit8': []  # Verbal explanation
+                        })
+
 # Collect results into a pandas, and pop out a tsv
+# Iterate across models to use for sanity checking
+for modelname in [
+    "moonshotai/kimi-k2-instruct",
+    "openai/o1",
+]:
+    # Input statements
+    for inputIndex in histoPCaData.getArrayInputIndex():
+        # Iterate across languages (0 = English, 1 = Finnish, 2 = Swedish)
+        for lang in [0, 1, 2]:
+            # Non-censored (value 0) or censored (1) version of the input statements
+            for cens in [0, 1]:
+                # Construct filename
+                filename = ("SanityCheck_" + re.sub("/", "-", modelname)
+                            + "_input" + str(inputIndex)
+                            + "_lang" + str(lang)
+                            + "_cens" + str(cens)
+                            )
+                # Construct sanity check and add to pandas
+                if os.path.isfile(filename + ".check"):
+                    file = open(filename + ".check", 'r', encoding="utf-8")
+                    lines = file.readlines()
+                    lines = "".join(lines).strip()
+                    # Parameter combo and full output prior to any potential parsing;
+                    # going from {"#1", "#2", ..., "#8"} line starters
+                    sanity.loc[len(sanity.index)] = [
+                        modelname,
+                        inputIndex,
+                        lang,
+                        cens,
+                        # Remove extra angle brackets after finding the answers preceded by #num
+                        re.sub(r"[<>]", "", "".join(re.findall(r"^#1\s*(.*)$", lines, flags=re.MULTILINE))),
+                        re.sub(r"[<>]", "", "".join(re.findall(r"^#2\s*(.*)$", lines, flags=re.MULTILINE))),
+                        re.sub(r"[<>]", "", "".join(re.findall(r"^#3\s*(.*)$", lines, flags=re.MULTILINE))),
+                        re.sub(r"[<>]", "", "".join(re.findall(r"^#4\s*(.*)$", lines, flags=re.MULTILINE))),
+                        re.sub(r"[<>]", "", "".join(re.findall(r"^#5\s*(.*)$", lines, flags=re.MULTILINE))),
+                        re.sub(r"[<>]", "", "".join(re.findall(r"^#6\s*(.*)$", lines, flags=re.MULTILINE))),
+                        re.sub(r"[<>]", "", "".join(re.findall(r"^#7\s*(.*)$", lines, flags=re.MULTILINE))),
+                        re.sub(r"[<>]", "", "".join(re.findall(r"^#8\s*(.*)$", lines, flags=re.MULTILINE)))
+                    ]
+
+# Working directory for project taken from env vars
+os.chdir(os.environ.get("ROOT_DIR"))
+
+print(sanity)
+sanity.to_csv('sanity.tsv', sep="\t")
