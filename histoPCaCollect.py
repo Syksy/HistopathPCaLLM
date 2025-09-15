@@ -135,7 +135,10 @@ modelnames = [
     "gpt-4.1-nano-2025-04-14",
     "gpt-4.1-mini-2025-04-14",
     "gpt-4.1-2025-04-14",
-    # Grok 8xAI)
+    "gpt-5-2025-08-07",
+    "gpt-5-mini-2025-08-07",
+    "gpt-5-nano-2025-08-07",
+    # Grok (xAI)
     "grok-3-beta",
     "grok-2-1212",
     # Replicate runs
@@ -155,9 +158,10 @@ modelnames = [
     "mistral-small-2503",
     # Local models run on a RTX 5090 setup
     # Gemmas
-    "google/gemma-3-4b-it",
-    "google/gemma-3-12b-it",
-    "google/gemma-3-27b-it",
+    # Comment out; run on Replicate
+    #"google/gemma-3-4b-it",
+    #"google/gemma-3-12b-it",
+    #"google/gemma-3-27b-it",
     # MedGemmas (fine-tuned Gemmas that focus on biomedical data)
     "google/medgemma-4b-it",
     "google/medgemma-27b-it",

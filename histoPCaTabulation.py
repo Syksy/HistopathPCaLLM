@@ -39,7 +39,10 @@ modelnames = [
     "gpt-4.1-nano-2025-04-14",
     "gpt-4.1-mini-2025-04-14",
     "gpt-4.1-2025-04-14",
-    # Grok 8xAI)
+    "gpt-5-2025-08-07",
+    "gpt-5-mini-2025-08-07",
+    "gpt-5-nano-2025-08-07",
+    # Grok (xAI)
     "grok-3-beta",
     "grok-2-1212",
     # Replicate runs
