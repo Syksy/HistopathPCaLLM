@@ -11,7 +11,7 @@
 
 <meta name="author" content="T. D. Laajala" />
 
-<meta name="date" content="2025-07-03" />
+<meta name="date" content="2025-09-04" />
 
 <title>HistopathPCaLLM summary</title>
 
@@ -576,7 +576,7 @@ display: none;
 
 <h1 class="title toc-ignore">HistopathPCaLLM summary</h1>
 <h4 class="author">T. D. Laajala</h4>
-<h4 class="date">2025-07-03</h4>
+<h4 class="date">2025-09-04</h4>
 
 </div>
 
@@ -606,7 +606,7 @@ display: none;
 <h1>Data</h1>
 <pre class="r"><code>summary &lt;- read.table(&quot;summary.tsv&quot;, header=TRUE, row.names=1, sep=&quot;\t&quot;)</code></pre>
 <pre class="r"><code>dim(summary)</code></pre>
-<pre><code>## [1] 10440    24</code></pre>
+<pre><code>## [1] 23400    42</code></pre>
 <pre class="r"><code>head(summary)</code></pre>
 <pre><code>##   censoption                     model promptIndex inputIndex lang seedoption
 ## 0          0 claude-3-5-haiku-20241022           0          0    0      False
@@ -629,13 +629,34 @@ display: none;
 ## 3             361          38       1.048615      5.025001       True
 ## 4             401          23       0.592226      2.537969       True
 ## 5             431           0       3.011076      7.572387       True
-##   parseable2 parseable3 parseable answer1 answer2 answer3 correct1 correct2
-## 0       True       True      True  biopsy      no    &lt;NA&gt;    False     True
-## 1       True       True      True    TURP      ei    &lt;NA&gt;     True     True
-## 2       True       True      True  biopsy      no    &lt;NA&gt;     True     True
-## 3       True       True      True  biopsy      ei    &lt;NA&gt;     True     True
-## 4       True       True      True      RP      no    &lt;NA&gt;     True     True
-## 5       True       True      True      RP      ei    &lt;NA&gt;     True     True
+##   parseable2 parseable3 answer1rep0 answer2rep0 answer3rep0 answer1rep1
+## 0       True       True      biopsy          no        &lt;NA&gt;      biopsy
+## 1       True       True        TURP          ei        &lt;NA&gt;        TURP
+## 2       True       True      biopsy          no        &lt;NA&gt;      biopsy
+## 3       True       True      biopsy          ei        &lt;NA&gt;      biopsy
+## 4       True       True          RP          no        &lt;NA&gt;          RP
+## 5       True       True          RP          ei        &lt;NA&gt;          RP
+##   answer2rep1 answer3rep1 answer1rep2 answer2rep2 answer3rep2 correct1rep0
+## 0          no        &lt;NA&gt;      biopsy          no        &lt;NA&gt;        False
+## 1          ei        &lt;NA&gt;        TURP          ei        &lt;NA&gt;         True
+## 2          no        &lt;NA&gt;      biopsy          no        &lt;NA&gt;         True
+## 3          ei        &lt;NA&gt;      biopsy          ei        &lt;NA&gt;         True
+## 4          no        &lt;NA&gt;          RP          no        &lt;NA&gt;         True
+## 5          ei        &lt;NA&gt;          RP          ei        &lt;NA&gt;         True
+##   correct2rep0 correct3rep0 correct1rep1 correct2rep1 correct3rep1 correct1rep2
+## 0         True         True        False         True         True        False
+## 1         True         True         True         True         True         True
+## 2         True         True         True         True         True         True
+## 3         True         True         True         True         True         True
+## 4         True         True         True         True         True         True
+## 5         True         True         True         True         True         True
+##   correct2rep2 correct3rep2 parseable answer1 answer2 answer3 correct1 correct2
+## 0         True         True      True  biopsy      no    &lt;NA&gt;    False     True
+## 1         True         True      True    TURP      ei    &lt;NA&gt;     True     True
+## 2         True         True      True  biopsy      no    &lt;NA&gt;     True     True
+## 3         True         True      True  biopsy      ei    &lt;NA&gt;     True     True
+## 4         True         True      True      RP      no    &lt;NA&gt;     True     True
+## 5         True         True      True      RP      ei    &lt;NA&gt;     True     True
 ##   correct3 allCorrect
 ## 0     True      False
 ## 1     True       True
@@ -645,72 +666,103 @@ display: none;
 ## 5     True       True</code></pre>
 <pre class="r"><code>tail(summary)</code></pre>
 <pre><code>##       censoption              model promptIndex inputIndex lang seedoption
-## 10434          1 mistral-small-2503           2         27    0      False
-## 10435          1 mistral-small-2503           2         27    1      False
-## 10436          1 mistral-small-2503           2         28    0      False
-## 10437          1 mistral-small-2503           2         28    1      False
-## 10438          1 mistral-small-2503           2         29    0      False
-## 10439          1 mistral-small-2503           2         29    1      False
+## 23394          1 Qwen-Qwen3-30B-A3B           2         47    0      False
+## 23395          1 Qwen-Qwen3-30B-A3B           2         47    1      False
+## 23396          1 Qwen-Qwen3-30B-A3B           2         48    0      False
+## 23397          1 Qwen-Qwen3-30B-A3B           2         48    1      False
+## 23398          1 Qwen-Qwen3-30B-A3B           2         49    0      False
+## 23399          1 Qwen-Qwen3-30B-A3B           2         49    1      False
 ##       concordanceExact concordanceCaseinsensitive concordanceContent
-## 10434             True                       True               True
-## 10435             True                       True               True
-## 10436             True                       True               True
-## 10437             True                       True               True
-## 10438             True                       True               True
-## 10439             True                       True               True
+## 23394            False                      False               True
+## 23395            False                      False               True
+## 23396            False                      False              False
+## 23397            False                      False              False
+## 23398             True                       True               True
+## 23399            False                      False              False
 ##       medianCharCount maxCharDiff maxRuntimeDiff medianRuntime parseable1
-## 10434             147           0     0.21175861     0.4363608       True
-## 10435             356           0     0.14057851     1.0106168       True
-## 10436             345           0     0.02942276     0.7666953       True
-## 10437             506           0     0.10655427     1.2566364       True
-## 10438             150           0     0.10503507     0.5219708       True
-## 10439             437           0     0.19093847     1.6361713       True
-##       parseable2 parseable3 parseable answer1 answer2 answer3 correct1 correct2
-## 10434       True       True      True    &lt;NA&gt;      no    &lt;NA&gt;     True    False
-## 10435       True       True      True    &lt;NA&gt;      ei    &lt;NA&gt;     True    False
-## 10436       True       True      True    &lt;NA&gt;      no    &lt;NA&gt;     True    False
-## 10437       True       True      True  biopsy      ei    &lt;NA&gt;    False    False
-## 10438       True       True      True    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True
-## 10439       True       True      True    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True
-##       correct3 allCorrect
-## 10434     True      False
-## 10435     True      False
-## 10436     True      False
-## 10437     True      False
-## 10438     True       True
-## 10439     True       True</code></pre>
+## 23394              63           2      146.41534      806.9108       True
+## 23395              63           1      436.41858      540.8050       True
+## 23396              65           3     1287.52250      749.2974       True
+## 23397              63           1     1221.74830      876.1277       True
+## 23398              63           0       91.31598      350.3760       True
+## 23399              63           5     1036.59740      951.7472       True
+##       parseable2 parseable3 answer1rep0 answer2rep0 answer3rep0 answer1rep1
+## 23394       True       True        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 23395       True       True        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 23396       True       True        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 23397       True       True        &lt;NA&gt;          ei        &lt;NA&gt;        &lt;NA&gt;
+## 23398       True       True        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+## 23399       True       True        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;
+##       answer2rep1 answer3rep1 answer1rep2 answer2rep2 answer3rep2 correct1rep0
+## 23394        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;         True
+## 23395        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;         True
+## 23396          no        &lt;NA&gt;        &lt;NA&gt;          no        &lt;NA&gt;         True
+## 23397          ei        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;         True
+## 23398        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;         True
+## 23399        &lt;NA&gt;        &lt;NA&gt;      biopsy        &lt;NA&gt;        &lt;NA&gt;         True
+##       correct2rep0 correct3rep0 correct1rep1 correct2rep1 correct3rep1
+## 23394         True         True         True         True         True
+## 23395         True         True         True         True         True
+## 23396         True         True         True        False         True
+## 23397        False         True         True        False         True
+## 23398         True         True         True         True         True
+## 23399         True         True         True         True         True
+##       correct1rep2 correct2rep2 correct3rep2 parseable answer1 answer2 answer3
+## 23394         True         True         True      True    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+## 23395         True         True         True      True    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+## 23396         True        False         True      True    &lt;NA&gt;      no    &lt;NA&gt;
+## 23397         True         True         True      True    &lt;NA&gt;      ei    &lt;NA&gt;
+## 23398         True         True         True      True    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+## 23399        False         True         True      True    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+##       correct1 correct2 correct3 allCorrect
+## 23394     True     True     True       True
+## 23395     True     True     True       True
+## 23396     True    False     True      False
+## 23397     True    False     True      False
+## 23398     True     True     True       True
+## 23399     True     True     True       True</code></pre>
 <pre class="r"><code>table(summary$model)</code></pre>
 <pre><code>## 
 ##      claude-3-5-haiku-20241022     claude-3-5-sonnet-20240620 
-##                            360                            360 
+##                            600                            600 
 ##     claude-3-5-sonnet-20241022     claude-3-7-sonnet-20250219 
-##                            360                            360 
+##                            600                            600 
 ##         claude-opus-4-20250514       claude-sonnet-4-20250514 
-##                            360                            360 
+##                            600                            600 
 ##        deepseek-ai-deepseek-r1        deepseek-ai-deepseek-v3 
-##                            360                            360 
+##                            600                            600 
 ##           gemini-2.0-flash-001      gemini-2.0-flash-lite-001 
-##                            360                            360 
+##                            600                            600 
 ##   gemini-2.5-pro-preview-03-25   gemini-2.5-pro-preview-05-06 
-##                            360                            360 
+##                            600                            600 
 ##   gemini-2.5-pro-preview-06-05 google-deepmind-gemma-3-12b-it 
-##                            360                            360 
+##                            600                            600 
 ## google-deepmind-gemma-3-27b-it  google-deepmind-gemma-3-4b-it 
-##                            360                            360 
-##             gpt-4.1-2025-04-14        gpt-4.1-mini-2025-04-14 
-##                            360                            360 
-##        gpt-4.1-nano-2025-04-14              gpt-4o-2024-05-13 
-##                            360                            360 
-##              gpt-4o-2024-08-06              gpt-4o-2024-11-20 
-##                            360                            360 
-##                    grok-2-1212                    grok-3-beta 
-##                            360                            360 
-## meta-llama-4-maverick-instruct    meta-llama-4-scout-instruct 
-##                            360                            360 
-##             mistral-large-2411            mistral-medium-2505 
-##                            360                            360 
-##             mistral-small-2503 
-##                            360</code></pre>
+##                            600                            600 
+##          google-gemma-3-12b-it          google-gemma-3-27b-it 
+##                            600                            600 
+##           google-gemma-3-4b-it         google-medgemma-27b-it 
+##                            600                            600 
+##          google-medgemma-4b-it             gpt-4.1-2025-04-14 
+##                            600                            600 
+##        gpt-4.1-mini-2025-04-14        gpt-4.1-nano-2025-04-14 
+##                            600                            600 
+##              gpt-4o-2024-05-13              gpt-4o-2024-08-06 
+##                            600                            600 
+##              gpt-4o-2024-11-20                    grok-2-1212 
+##                            600                            600 
+##                    grok-3-beta meta-llama-4-maverick-instruct 
+##                            600                            600 
+##    meta-llama-4-scout-instruct             mistral-large-2411 
+##                            600                            600 
+##            mistral-medium-2505             mistral-small-2503 
+##                            600                            600 
+##             openai-gpt-oss-20b                 Qwen-Qwen3-14B 
+##                            600                            600 
+##             Qwen-Qwen3-30B-A3B                  Qwen-Qwen3-4B 
+##                            600                            600 
+##                  Qwen-Qwen3-8B 
+##                            600</code></pre>
 <div id="convenience-functions" class="section level2">
 <h2>Convenience functions</h2>
 <pre class="r"><code>modeltabs &lt;- function(x, correctField = &quot;allCorrect&quot;, censoringField = &quot;censoption&quot;, modelField = &quot;model&quot;, fields=c(&quot;TP&quot;, &quot;FN&quot;, &quot;TN&quot;, &quot;FP&quot;, &quot;Sens&quot;, &quot;Spec&quot;, &quot;F_score&quot;), decimals=3){
@@ -816,25 +868,25 @@ F_score
 claude-3-5-haiku-20241022
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-26
+45
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-4
+5
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-9
+12
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-21
+38
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.867
+0.90
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.300
+0.24
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.675
+0.677
 </td>
 </tr>
 <tr>
@@ -842,25 +894,25 @@ claude-3-5-haiku-20241022
 claude-3-5-sonnet-20240620
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-28
+48
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 2
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-4
+9
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-26
+41
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.933
+0.96
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.133
+0.18
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.667
+0.691
 </td>
 </tr>
 <tr>
@@ -868,25 +920,25 @@ claude-3-5-sonnet-20240620
 claude-3-5-sonnet-20241022
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-29
+49
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 1
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
+24
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
+26
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.967
+0.98
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.433
+0.48
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.763
+0.784
 </td>
 </tr>
 <tr>
@@ -894,25 +946,25 @@ claude-3-5-sonnet-20241022
 claude-3-7-sonnet-20250219
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-28
+48
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 2
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
+25
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
+25
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.933
+0.96
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.433
+0.50
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.747
+0.780
 </td>
 </tr>
 <tr>
@@ -920,25 +972,25 @@ claude-3-7-sonnet-20250219
 claude-opus-4-20250514
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-29
+49
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 1
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
+21
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
+29
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.967
+0.98
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.433
+0.42
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.763
+0.766
 </td>
 </tr>
 <tr>
@@ -946,48 +998,22 @@ claude-opus-4-20250514
 claude-sonnet-4-20250514
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-29
+48
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1
+2
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-9
+18
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-21
+32
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.967
+0.96
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.300
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.725
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-deepseek-ai-deepseek-r1
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-24
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-6
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-19
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-11
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.800
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.633
+0.36
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
 0.738
@@ -995,28 +1021,54 @@ deepseek-ai-deepseek-r1
 </tr>
 <tr>
 <td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+deepseek-ai-deepseek-r1
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+42
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+8
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+31
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+19
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.84
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.62
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.757
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
 deepseek-ai-deepseek-v3
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-27
+44
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-3
+6
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
+24
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
+26
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.900
+0.88
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.567
+0.48
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.771
+0.733
 </td>
 </tr>
 <tr>
@@ -1024,25 +1076,25 @@ deepseek-ai-deepseek-v3
 gemini-2.0-flash-001
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+45
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+5
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 28
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-2
+22
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-21
+0.90
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-9
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.933
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.700
+0.56
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.836
+0.769
 </td>
 </tr>
 <tr>
@@ -1050,25 +1102,25 @@ gemini-2.0-flash-001
 gemini-2.0-flash-lite-001
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-21
+38
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+12
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 9
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-5
+41
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-25
+0.76
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.700
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.167
+0.18
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.553
+0.589
 </td>
 </tr>
 <tr>
@@ -1076,25 +1128,25 @@ gemini-2.0-flash-lite-001
 gemini-2.5-pro-preview-03-25
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-28
+48
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 2
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-15
+26
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-15
+24
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.933
+0.96
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.500
+0.52
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.767
+0.787
 </td>
 </tr>
 <tr>
@@ -1102,25 +1154,25 @@ gemini-2.5-pro-preview-03-25
 gemini-2.5-pro-preview-05-06
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-28
+48
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 2
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-12
+23
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-18
+27
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.933
+0.96
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.400
+0.46
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.737
+0.768
 </td>
 </tr>
 <tr>
@@ -1128,25 +1180,25 @@ gemini-2.5-pro-preview-05-06
 gemini-2.5-pro-preview-06-05
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-28
+48
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 2
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
+28
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
+22
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.933
+0.96
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.567
+0.56
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.789
+0.800
 </td>
 </tr>
 <tr>
@@ -1154,25 +1206,25 @@ gemini-2.5-pro-preview-06-05
 google-deepmind-gemma-3-12b-it
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-20
+34
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-10
+16
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-20
+28
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-10
+22
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.667
+0.68
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.667
+0.56
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.667
+0.642
 </td>
 </tr>
 <tr>
@@ -1180,25 +1232,25 @@ google-deepmind-gemma-3-12b-it
 google-deepmind-gemma-3-27b-it
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-23
+37
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-7
+13
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-10
+15
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-20
+35
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.767
+0.74
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.333
+0.30
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.630
+0.607
 </td>
 </tr>
 <tr>
@@ -1206,25 +1258,155 @@ google-deepmind-gemma-3-27b-it
 google-deepmind-gemma-3-4b-it
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-10
+18
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-20
+32
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-15
+25
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-15
+25
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.333
+0.36
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.500
+0.50
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.364
+0.387
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+google-gemma-3-12b-it
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.00
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.00
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+google-gemma-3-27b-it
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.00
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.00
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+google-gemma-3-4b-it
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.00
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.00
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+google-medgemma-27b-it
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+23
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+27
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+26
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+24
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.46
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.52
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.474
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+google-medgemma-4b-it
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+18
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+32
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+25
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+25
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.36
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.50
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.387
 </td>
 </tr>
 <tr>
@@ -1232,25 +1414,25 @@ google-deepmind-gemma-3-4b-it
 gpt-4.1-2025-04-14
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-29
+44
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1
+6
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-21
+38
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-9
+12
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.967
+0.88
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.700
+0.76
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.853
+0.830
 </td>
 </tr>
 <tr>
@@ -1258,25 +1440,25 @@ gpt-4.1-2025-04-14
 gpt-4.1-mini-2025-04-14
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-20
+33
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-10
+17
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+31
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 19
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-11
+0.66
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.667
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.633
+0.62
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.656
+0.647
 </td>
 </tr>
 <tr>
@@ -1284,25 +1466,25 @@ gpt-4.1-mini-2025-04-14
 gpt-4.1-nano-2025-04-14
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-15
+26
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-15
+24
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-5
+8
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-25
+42
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.500
+0.52
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.167
+0.16
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.429
+0.441
 </td>
 </tr>
 <tr>
@@ -1310,25 +1492,25 @@ gpt-4.1-nano-2025-04-14
 gpt-4o-2024-05-13
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-26
+41
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-4
+9
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-29
+48
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1
+2
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.867
+0.82
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.967
+0.96
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.912
+0.882
 </td>
 </tr>
 <tr>
@@ -1336,25 +1518,25 @@ gpt-4o-2024-05-13
 gpt-4o-2024-08-06
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-26
+41
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-4
+9
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-30
+49
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0
+1
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.867
+0.82
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1.000
+0.98
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.929
+0.891
 </td>
 </tr>
 <tr>
@@ -1362,25 +1544,25 @@ gpt-4o-2024-08-06
 gpt-4o-2024-11-20
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-27
+44
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+6
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+47
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 3
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-30
+0.88
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.900
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1.000
+0.94
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.947
+0.907
 </td>
 </tr>
 <tr>
@@ -1388,25 +1570,25 @@ gpt-4o-2024-11-20
 grok-2-1212
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-26
+36
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-4
+14
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-22
+31
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-8
+19
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.867
+0.72
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.733
+0.62
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.812
+0.686
 </td>
 </tr>
 <tr>
@@ -1414,25 +1596,25 @@ grok-2-1212
 grok-3-beta
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-28
+46
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-2
+4
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-24
+34
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-6
+16
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.933
+0.92
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.800
+0.68
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.875
+0.821
 </td>
 </tr>
 <tr>
@@ -1440,25 +1622,25 @@ grok-3-beta
 meta-llama-4-maverick-instruct
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-28
+47
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-2
+3
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
+27
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
+23
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.933
+0.94
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.433
+0.54
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.747
+0.783
 </td>
 </tr>
 <tr>
@@ -1466,25 +1648,25 @@ meta-llama-4-maverick-instruct
 meta-llama-4-scout-instruct
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+38
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+12
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 22
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-8
+28
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-15
+0.76
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-15
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.733
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.500
+0.44
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.657
+0.655
 </td>
 </tr>
 <tr>
@@ -1492,25 +1674,25 @@ meta-llama-4-scout-instruct
 mistral-large-2411
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-27
+45
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-3
+5
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-24
+37
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-6
+13
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.900
+0.90
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.800
+0.74
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.857
+0.833
 </td>
 </tr>
 <tr>
@@ -1518,25 +1700,25 @@ mistral-large-2411
 mistral-medium-2505
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-26
+43
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-4
+7
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
+27
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
+23
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.867
+0.86
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.567
+0.54
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.754
+0.741
 </td>
 </tr>
 <tr>
@@ -1544,25 +1726,155 @@ mistral-medium-2505
 mistral-small-2503
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+39
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+11
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 26
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-4
+24
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.78
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.52
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.690
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+openai-gpt-oss-20b
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+29
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+21
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+18
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+32
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.58
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.36
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.523
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+Qwen-Qwen3-14B
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+31
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+19
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+35
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+15
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.62
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.70
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.646
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+Qwen-Qwen3-30B-A3B
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+31
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+19
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+30
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+20
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.62
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.60
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.614
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+Qwen-Qwen3-4B
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+25
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+25
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+34
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 16
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-14
+0.50
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.867
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.533
+0.68
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.743
+0.549
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+Qwen-Qwen3-8B
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+25
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+25
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+34
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+16
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.68
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.549
 </td>
 </tr>
 </tbody>
@@ -1625,25 +1937,25 @@ F_score
 claude-3-5-haiku-20241022
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-26
+43
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-4
+7
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-11
+16
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-19
+34
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.867
+0.86
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.367
+0.32
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.693
+0.677
 </td>
 </tr>
 <tr>
@@ -1651,25 +1963,25 @@ claude-3-5-haiku-20241022
 claude-3-5-sonnet-20240620
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-29
+49
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 1
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-4
+8
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-26
+42
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.967
+0.98
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.133
+0.16
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.682
+0.695
 </td>
 </tr>
 <tr>
@@ -1677,25 +1989,25 @@ claude-3-5-sonnet-20240620
 claude-3-5-sonnet-20241022
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-30
+49
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-10
+1
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 20
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1.000
+30
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.333
+0.98
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.40
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.750
+0.760
 </td>
 </tr>
 <tr>
@@ -1703,594 +2015,22 @@ claude-3-5-sonnet-20241022
 claude-3-7-sonnet-20250219
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-29
+49
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 1
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-10
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-20
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.967
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.333
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.734
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-claude-opus-4-20250514
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-29
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-10
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-20
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.967
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.333
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.734
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-claude-sonnet-4-20250514
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-28
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-2
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 19
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-11
+31
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.933
+0.98
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.633
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.812
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-deepseek-ai-deepseek-r1
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-27
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-3
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-14
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-16
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.900
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.467
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.740
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-deepseek-ai-deepseek-v3
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-21
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-9
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.700
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.433
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.618
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-gemini-2.0-flash-001
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-24
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-6
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-4
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-26
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.800
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.133
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.600
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-gemini-2.0-flash-lite-001
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-24
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-6
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.800
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.567
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.716
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-gemini-2.5-pro-preview-03-25
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-29
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.967
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.567
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.806
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-gemini-2.5-pro-preview-05-06
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-30
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-16
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-14
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1.000
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.533
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.811
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-gemini-2.5-pro-preview-06-05
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-30
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-23
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-7
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1.000
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.767
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.896
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-google-deepmind-gemma-3-12b-it
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-22
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-8
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-30
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.733
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.000
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.537
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-google-deepmind-gemma-3-27b-it
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-20
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-10
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.667
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.433
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.597
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-google-deepmind-gemma-3-4b-it
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-12
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-18
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-9
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-21
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.400
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.300
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.381
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-gpt-4.1-2025-04-14
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-29
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-26
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-4
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.967
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.867
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.921
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-gpt-4.1-mini-2025-04-14
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-23
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-7
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-19
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-11
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.767
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.633
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.719
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-gpt-4.1-nano-2025-04-14
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-29
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.433
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.033
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.361
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-gpt-4o-2024-05-13
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-27
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-3
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-30
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.900
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1.000
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.947
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-gpt-4o-2024-08-06
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-27
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-3
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-30
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.900
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1.000
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.947
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-gpt-4o-2024-11-20
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-28
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-2
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-29
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-1
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.933
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.967
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.949
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-grok-2-1212
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-24
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-6
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-26
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-4
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.800
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.867
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.828
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-grok-3-beta
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-28
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-2
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-20
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-10
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.933
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.667
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.824
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-meta-llama-4-maverick-instruct
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-27
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-3
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.900
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.567
-</td>
-<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.771
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-meta-llama-4-scout-instruct
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-23
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-7
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-22
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-8
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.767
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.733
+0.38
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
 0.754
@@ -2298,28 +2038,730 @@ meta-llama-4-scout-instruct
 </tr>
 <tr>
 <td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
-mistral-large-2411
+claude-opus-4-20250514
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-21
+48
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+2
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+16
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+34
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.96
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.32
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.727
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+claude-sonnet-4-20250514
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+47
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+3
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+28
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+22
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.94
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.56
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.790
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+deepseek-ai-deepseek-r1
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+45
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+5
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+22
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+28
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.90
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.44
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.732
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+deepseek-ai-deepseek-v3
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+38
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+12
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+17
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+33
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.76
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.34
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.628
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+gemini-2.0-flash-001
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+42
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+8
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+8
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+42
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.84
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.16
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.627
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+gemini-2.0-flash-lite-001
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+41
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 9
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+22
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+28
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.82
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.44
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.689
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+gemini-2.5-pro-preview-03-25
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+48
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+2
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+31
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+19
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.96
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.62
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.821
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+gemini-2.5-pro-preview-05-06
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+30
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+20
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+1.00
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.60
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.833
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+gemini-2.5-pro-preview-06-05
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+49
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+1
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+36
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+14
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.98
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.72
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.867
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+google-deepmind-gemma-3-12b-it
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+35
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+15
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.70
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.00
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.519
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+google-deepmind-gemma-3-27b-it
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+33
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+17
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+17
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+33
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.66
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.34
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.569
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+google-deepmind-gemma-3-4b-it
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+21
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+29
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+13
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+37
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.42
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.26
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.389
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+google-gemma-3-12b-it
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.00
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.00
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+google-gemma-3-27b-it
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.00
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.00
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+google-gemma-3-4b-it
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.00
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.00
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+google-medgemma-27b-it
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+32
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+18
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+20
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+30
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.64
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.40
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.571
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+google-medgemma-4b-it
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 26
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+24
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+33
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+17
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.52
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.66
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.559
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+gpt-4.1-2025-04-14
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+48
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+2
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+41
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+9
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.96
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.82
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.897
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+gpt-4.1-mini-2025-04-14
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+36
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+14
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+26
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+24
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.72
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.52
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.655
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+gpt-4.1-nano-2025-04-14
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+22
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+28
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+1
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+49
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.44
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.02
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.364
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+gpt-4o-2024-05-13
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+44
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+6
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+49
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+1
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.88
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.98
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.926
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+gpt-4o-2024-08-06
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+44
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+6
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+50
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.88
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+1.00
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.936
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+gpt-4o-2024-11-20
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+45
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+5
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+46
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 4
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.700
+0.90
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.867
+0.92
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.764
+0.909
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+grok-2-1212
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+35
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+15
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+34
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+16
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.70
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.68
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.693
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+grok-3-beta
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+45
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+5
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+30
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+20
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.90
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.60
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.783
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+meta-llama-4-maverick-instruct
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+46
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+4
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+25
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+25
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.92
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.50
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.760
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+meta-llama-4-scout-instruct
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+33
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+17
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+32
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+18
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.66
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.64
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.653
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+mistral-large-2411
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+32
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+18
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+44
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+6
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.64
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.88
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.727
 </td>
 </tr>
 <tr>
@@ -2327,25 +2769,25 @@ mistral-large-2411
 mistral-medium-2505
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-25
+42
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-5
+8
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-17
+27
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-13
+23
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.833
+0.84
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.567
+0.54
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.735
+0.730
 </td>
 </tr>
 <tr>
@@ -2353,25 +2795,155 @@ mistral-medium-2505
 mistral-small-2503
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-28
+44
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-2
+6
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+31
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
 19
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-11
+0.88
 </td>
 <td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.933
-</td>
-<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
-0.633
+0.62
 </td>
 <td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
-0.812
+0.779
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+openai-gpt-oss-20b
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+23
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+27
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+16
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+34
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.46
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.32
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.430
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+Qwen-Qwen3-14B
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+38
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+12
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+28
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+22
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.76
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.56
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.691
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+Qwen-Qwen3-30B-A3B
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+35
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+15
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+28
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+22
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.70
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.56
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.654
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+Qwen-Qwen3-4B
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+27
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+23
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+2
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+48
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.54
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.04
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.432
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 6cm; border-bottom: 1px solid lightgrey;">
+Qwen-Qwen3-8B
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+26
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+24
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+21
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+29
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.52
+</td>
+<td style="text-align:right;width: 70px; border-bottom: 1px solid lightgrey;">
+0.42
+</td>
+<td style="text-align:right;width: 100px; border-bottom: 1px solid lightgrey;">
+0.495
 </td>
 </tr>
 </tbody>
@@ -2383,75 +2955,99 @@ mistral-small-2503
 # Combine both English + Finnish
 df &lt;- modeltabs(summary %&gt;% filter(lang == 1 &amp; promptIndex == 2 &amp; seedoption == &quot;False&quot;), fields=c(&quot;TP&quot;, &quot;FN&quot;, &quot;TN&quot;, &quot;FP&quot;, &quot;Sens&quot;, &quot;Spec&quot;, &quot;F_score&quot;, &quot;medianRuntimeAll&quot;, &quot;medianCharCountAll&quot;))
 
-df[,&quot;Type&quot;] &lt;- ifelse(grepl(&quot;claude|gpt|mistral-large|mistral-medium|gemini|grok&quot;, rownames(df), ignore.case = TRUE), &quot;Proprietary&quot;, &quot;Open&quot;)
-df[,&quot;TypePch&quot;] &lt;- ifelse(grepl(&quot;claude|gpt|mistral-large|mistral-medium|gemini|grok&quot;, rownames(df), ignore.case = TRUE), 16, 15)
+# List &#39;proprietary&#39; models; if not in list, assume &#39;open&#39; model status
+props &lt;- &quot;claude|gpt-4.1|gpt-4o|mistral-large|mistral-medium|gemini|grok&quot;
+df[,&quot;Type&quot;] &lt;- ifelse(grepl(props, rownames(df), ignore.case = TRUE), &quot;Proprietary&quot;, &quot;Open&quot;)
+df[,&quot;TypePch&quot;] &lt;- ifelse(grepl(props, rownames(df), ignore.case = TRUE), 16, 15)
 
 print(df)</code></pre>
-<pre><code>##                                TP FN TN FP  Sens  Spec F_score medianRuntimeAll
-## claude-3-5-haiku-20241022      26  4 11 19 0.867 0.367   0.693        9.0545585
-## claude-3-5-sonnet-20240620     29  1  4 26 0.967 0.133   0.682        4.3778548
-## claude-3-5-sonnet-20241022     30  0 10 20 1.000 0.333   0.750        4.1135477
-## claude-3-7-sonnet-20250219     29  1 10 20 0.967 0.333   0.734        1.8064793
-## claude-opus-4-20250514         29  1 10 20 0.967 0.333   0.734        3.0257578
-## claude-sonnet-4-20250514       28  2 19 11 0.933 0.633   0.812        2.5034220
-## deepseek-ai-deepseek-r1        27  3 14 16 0.900 0.467   0.740       12.7149117
-## deepseek-ai-deepseek-v3        21  9 13 17 0.700 0.433   0.618        0.8476365
-## gemini-2.0-flash-001           24  6  4 26 0.800 0.133   0.600        0.5880008
-## gemini-2.0-flash-lite-001      24  6 17 13 0.800 0.567   0.716        0.5910016
-## gemini-2.5-pro-preview-03-25   29  1 17 13 0.967 0.567   0.806        7.3804130
-## gemini-2.5-pro-preview-05-06   30  0 16 14 1.000 0.533   0.811       13.1507820
-## gemini-2.5-pro-preview-06-05   30  0 23  7 1.000 0.767   0.896       17.0467490
-## google-deepmind-gemma-3-12b-it 22  8  0 30 0.733 0.000   0.537        2.9483900
-## google-deepmind-gemma-3-27b-it 20 10 13 17 0.667 0.433   0.597        4.0692591
-## google-deepmind-gemma-3-4b-it  12 18  9 21 0.400 0.300   0.381        7.1109675
-## gpt-4.1-2025-04-14             29  1 26  4 0.967 0.867   0.921        1.1523333
-## gpt-4.1-mini-2025-04-14        23  7 19 11 0.767 0.633   0.719        0.8334279
-## gpt-4.1-nano-2025-04-14        13 17  1 29 0.433 0.033   0.361        0.6215001
-## gpt-4o-2024-05-13              27  3 30  0 0.900 1.000   0.947        0.7242718
-## gpt-4o-2024-08-06              27  3 30  0 0.900 1.000   0.947        0.8114994
-## gpt-4o-2024-11-20              28  2 29  1 0.933 0.967   0.949        0.7284982
-## grok-2-1212                    24  6 26  4 0.800 0.867   0.828        0.6532841
-## grok-3-beta                    28  2 20 10 0.933 0.667   0.824        0.8342841
-## meta-llama-4-maverick-instruct 27  3 17 13 0.900 0.567   0.771        3.4540458
-## meta-llama-4-scout-instruct    23  7 22  8 0.767 0.733   0.754        2.3140240
-## mistral-large-2411             21  9 26  4 0.700 0.867   0.764        1.6115493
-## mistral-medium-2505            25  5 17 13 0.833 0.567   0.735        0.5353837
-## mistral-small-2503             28  2 19 11 0.933 0.633   0.812        1.2189705
+<pre><code>##                                TP FN TN FP Sens Spec F_score medianRuntimeAll
+## claude-3-5-haiku-20241022      43  7 16 34 0.86 0.32   0.677        4.8806425
+## claude-3-5-sonnet-20240620     49  1  8 42 0.98 0.16   0.695        3.9913668
+## claude-3-5-sonnet-20241022     49  1 20 30 0.98 0.40   0.760        4.1753883
+## claude-3-7-sonnet-20250219     49  1 19 31 0.98 0.38   0.754        1.7082590
+## claude-opus-4-20250514         48  2 16 34 0.96 0.32   0.727        3.1064039
+## claude-sonnet-4-20250514       47  3 28 22 0.94 0.56   0.790        2.4673954
+## deepseek-ai-deepseek-r1        45  5 22 28 0.90 0.44   0.732        9.6503740
+## deepseek-ai-deepseek-v3        38 12 17 33 0.76 0.34   0.628        0.9051520
+## gemini-2.0-flash-001           42  8  8 42 0.84 0.16   0.627        0.6010048
+## gemini-2.0-flash-lite-001      41  9 22 28 0.82 0.44   0.689        0.5964830
+## gemini-2.5-pro-preview-03-25   48  2 31 19 0.96 0.62   0.821       10.2898090
+## gemini-2.5-pro-preview-05-06   50  0 30 20 1.00 0.60   0.833       13.5061245
+## gemini-2.5-pro-preview-06-05   49  1 36 14 0.98 0.72   0.867       16.4314970
+## google-deepmind-gemma-3-12b-it 35 15  0 50 0.70 0.00   0.519               NA
+## google-deepmind-gemma-3-27b-it 33 17 17 33 0.66 0.34   0.569               NA
+## google-deepmind-gemma-3-4b-it  21 29 13 37 0.42 0.26   0.389        7.0879940
+## google-gemma-3-12b-it           0 50  0 50 0.00 0.00   0.000               NA
+## google-gemma-3-27b-it           0 50  0 50 0.00 0.00   0.000               NA
+## google-gemma-3-4b-it            0 50  0 50 0.00 0.00   0.000               NA
+## google-medgemma-27b-it         32 18 20 30 0.64 0.40   0.571       95.1887830
+## google-medgemma-4b-it          26 24 33 17 0.52 0.66   0.559        1.2703336
+## gpt-4.1-2025-04-14             48  2 41  9 0.96 0.82   0.897        1.0461769
+## gpt-4.1-mini-2025-04-14        36 14 26 24 0.72 0.52   0.655        0.8940377
+## gpt-4.1-nano-2025-04-14        22 28  1 49 0.44 0.02   0.364        0.7255046
+## gpt-4o-2024-05-13              44  6 49  1 0.88 0.98   0.926        0.7720839
+## gpt-4o-2024-08-06              44  6 50  0 0.88 1.00   0.936        0.9387950
+## gpt-4o-2024-11-20              45  5 46  4 0.90 0.92   0.909        0.7778467
+## grok-2-1212                    35 15 34 16 0.70 0.68   0.693               NA
+## grok-3-beta                    45  5 30 20 0.90 0.60   0.783        0.8650519
+## meta-llama-4-maverick-instruct 46  4 25 25 0.92 0.50   0.760        3.5852946
+## meta-llama-4-scout-instruct    33 17 32 18 0.66 0.64   0.653        2.6372308
+## mistral-large-2411             32 18 44  6 0.64 0.88   0.727        1.1305034
+## mistral-medium-2505            42  8 27 23 0.84 0.54   0.730        0.6296923
+## mistral-small-2503             44  6 31 19 0.88 0.62   0.779        1.1213228
+## openai-gpt-oss-20b             23 27 16 34 0.46 0.32   0.430               NA
+## Qwen-Qwen3-14B                 38 12 28 22 0.76 0.56   0.691      125.1653425
+## Qwen-Qwen3-30B-A3B             35 15 28 22 0.70 0.56   0.654      602.4151950
+## Qwen-Qwen3-4B                  27 23  2 48 0.54 0.04   0.432       18.4075440
+## Qwen-Qwen3-8B                  26 24 21 29 0.52 0.42   0.495       20.5211560
 ##                                medianCharCountAll        Type TypePch
-## claude-3-5-haiku-20241022                   489.0 Proprietary      16
-## claude-3-5-sonnet-20240620                  554.0 Proprietary      16
-## claude-3-5-sonnet-20241022                  414.5 Proprietary      16
-## claude-3-7-sonnet-20250219                   82.0 Proprietary      16
+## claude-3-5-haiku-20241022                   471.5 Proprietary      16
+## claude-3-5-sonnet-20240620                  545.0 Proprietary      16
+## claude-3-5-sonnet-20241022                  396.0 Proprietary      16
+## claude-3-7-sonnet-20250219                   81.0 Proprietary      16
 ## claude-opus-4-20250514                       69.0 Proprietary      16
-## claude-sonnet-4-20250514                     81.5 Proprietary      16
-## deepseek-ai-deepseek-r1                    1979.0        Open      15
-## deepseek-ai-deepseek-v3                      72.0        Open      15
+## claude-sonnet-4-20250514                     83.0 Proprietary      16
+## deepseek-ai-deepseek-r1                    1930.0        Open      15
+## deepseek-ai-deepseek-v3                      74.0        Open      15
 ## gemini-2.0-flash-001                         77.0 Proprietary      16
-## gemini-2.0-flash-lite-001                    76.5 Proprietary      16
-## gemini-2.5-pro-preview-03-25                 81.0 Proprietary      16
-## gemini-2.5-pro-preview-05-06                 82.5 Proprietary      16
-## gemini-2.5-pro-preview-06-05                 78.0 Proprietary      16
+## gemini-2.0-flash-lite-001                    76.0 Proprietary      16
+## gemini-2.5-pro-preview-03-25                 78.5 Proprietary      16
+## gemini-2.5-pro-preview-05-06                 80.0 Proprietary      16
+## gemini-2.5-pro-preview-06-05                 77.5 Proprietary      16
 ## google-deepmind-gemma-3-12b-it               94.0        Open      15
 ## google-deepmind-gemma-3-27b-it               92.0        Open      15
 ## google-deepmind-gemma-3-4b-it                91.0        Open      15
+## google-gemma-3-12b-it                         0.0        Open      15
+## google-gemma-3-27b-it                         0.0        Open      15
+## google-gemma-3-4b-it                          0.0        Open      15
+## google-medgemma-27b-it                       74.5        Open      15
+## google-medgemma-4b-it                        74.0        Open      15
 ## gpt-4.1-2025-04-14                           67.0 Proprietary      16
-## gpt-4.1-mini-2025-04-14                      69.0 Proprietary      16
+## gpt-4.1-mini-2025-04-14                      67.0 Proprietary      16
 ## gpt-4.1-nano-2025-04-14                      65.0 Proprietary      16
 ## gpt-4o-2024-05-13                            65.0 Proprietary      16
 ## gpt-4o-2024-08-06                            77.0 Proprietary      16
 ## gpt-4o-2024-11-20                            74.0 Proprietary      16
-## grok-2-1212                                  66.0 Proprietary      16
-## grok-3-beta                                  67.0 Proprietary      16
-## meta-llama-4-maverick-instruct              838.5        Open      15
-## meta-llama-4-scout-instruct                 546.0        Open      15
-## mistral-large-2411                           85.0 Proprietary      16
-## mistral-medium-2505                          81.0 Proprietary      16
-## mistral-small-2503                          440.5        Open      15</code></pre>
+## grok-2-1212                                  65.0 Proprietary      16
+## grok-3-beta                                  65.0 Proprietary      16
+## meta-llama-4-maverick-instruct              763.5        Open      15
+## meta-llama-4-scout-instruct                 520.0        Open      15
+## mistral-large-2411                           83.0 Proprietary      16
+## mistral-medium-2505                          79.0 Proprietary      16
+## mistral-small-2503                          410.5        Open      15
+## openai-gpt-oss-20b                         1298.0        Open      15
+## Qwen-Qwen3-14B                               66.0        Open      15
+## Qwen-Qwen3-30B-A3B                           65.0        Open      15
+## Qwen-Qwen3-4B                                69.0        Open      15
+## Qwen-Qwen3-8B                                66.0        Open      15</code></pre>
 <pre class="r"><code>par(mar=c(4,4,1,1))
 
-plot(as.numeric(df[,&quot;F_score&quot;]), as.numeric(df[,&quot;medianRuntimeAll&quot;]), xlab=&quot;F-score (log-scale)&quot;, ylab=&quot;Median runtime (seconds, log-scale)&quot;, pch=df[,&quot;TypePch&quot;], log=&quot;xy&quot;)
-legend(&quot;topleft&quot;, pch=c(16,15), legend=c(&quot;Proprietary&quot;, &quot;Open&quot;))</code></pre>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAMACAMAAADc4P4dAAAA6lBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZpAAZrY6AAA6OgA6Ojo6OmY6ZmY6ZpA6ZrY6kJA6kLY6kNtmAABmADpmOgBmOjpmOmZmZjpmZmZmZpBmkJBmkLZmkNtmtrZmtttmtv+QOgCQZgCQZjqQZmaQkDqQkGaQkJCQkLaQtraQttuQtv+Q29uQ2/+2ZgC2Zjq2kDq2kGa2kJC2kLa2tpC2tra2ttu225C227a229u22/+2///bkDrbkGbbtmbbtpDbtrbbttvb25Db27bb29vb2//b/7bb////tmb/25D/27b/29v//7b//9v///+24Gs1AAAACXBIWXMAAB2HAAAdhwGP5fFlAAAgAElEQVR4nO2de2PTSJ5o5U5YTOiwA5PMmMks0OHONNlt09nF3AvtTrKb9OIk2N//61yV3rZlWaoqqV7n/AGxLUulx3G9flUVrQDAWSLTCQAAeRAYwGEQGMBhEBjAYRAYwGEQGMBhEBjAYRAYwGEQGMBhEBjAYRAYwGEQGMBhEBjAYRAYwGEQGMBhEBjAYRAYwGEQGMBhEBjAYRAYwGEQGMBhEBjAYRAYwGEQGMBhEBjAYRAYwGEQGMBhEBjAYRAYwGEQGMBhEBjAYRAYwGEQGMBhEBjAYRAYwGEQGMBh7BU4AgiYtpr0KqECpq8fgFlaetKvhvK0/glyFe9PEFRAYNvx/gRBBQS2He9PEFRAYNvx/gRBBQS2He9PEFRAYNvx/gRBBQS2He9PEFRAYNvx/gRBBQS2He9PEFRAYNvx/gRBBQS2He9PEFRAYNvx/gRBBQS2He9PEFRAYNvx/gTDpP04on37abmdjoP1gffPt/cnGCLdhgI276nlduqH6gfvn2/vTzBAug7mbdxVy+2Uj9QT3j/f3p9geHQfjt+0r5bbqR6oL7x/vr0/wfBA4AreP9/en2BwyMyI07CzltspHqc3vH++vT/B4EDgKt4/396fYHAgcBXvn2/vTzA4ELiK98+39ycYHjRiVfD++fb+BMMDgSt4/3x7f4IBQiBHiffPt/cnGCKEUhZ4/3x7f4JhwmCGDKXLMC/LMqOjsz+UErJ8F/3wW/1HDxcK+0VgaEBB4OXtTPBFb4K6oktg4fDfVRKyU+Dlx+ilwn4RGBqQFfjhfFw++Ip5lxIaBY6itwr72inwIkJg6As5ga9PNp78Q5VCohJNJ7C3njEvnV1exb9Iu8rASiAw9IeMwKm+o+eTD3EJ+tPkNFXYUFF69wm0aOmbVzPd+7FaFrwLBIb+6C5wXKWLdf35W+XDx8tn8Xsvvm1/rX92nkCbvrY1gVfTKHqqNW0pCAz90Vng+zj7fbFd5304j/PkX7Qlqz27TqBVtMu6wPNU4Gn05Nt1/Iv0/Gv8YnktChjPL9IfpziTfrp6iN8Z5Zeg3LisAy+vjsrvLKrV68fLo6TscrHx5U/j+K/0vS3dERga6Crw91fR8dfaLWKFe6lC7qEXga+SOkL8e/SQV/YPk5MWAt+nrXfZr1W5cSHw/bj6narAZZtZqmvx5f94V/z6TTd/BxEYGugs8F92N1c9/MUegdfb2HZ9easI/TL57yBR8Gnyc5WTyBm7+S/vsjdSz8qNc4Hvx2vfqQhcbfN+uf7leZ7vxkd8sl4VQWBowNdADgmB80asqcgh01LGVPSRfVstL8dp5pzIKTLWq+yNysaZwMJ50Sa/LDbJC8Xik6TkfXuSZcHll+/zMvR2hRmBoQEEzv68+zgutXpSVHmz8mz2132+TfFRuXEm8KJ4IxY22SR3clG0kcVfTjLr8svxn2n5e77VkoDA0EDwAlfJS8V5Jjgvm6XTN0ujy/J2vnEmcKUOm5m7nanGaucCvyy3fZvuZKMEjcDQhIrAj7PZ57h8aTAMa6XeiLXlr9Aqy5bLv9L257KkW+Sn5SapwNU6bPqdTYEfb97nISOV/cffy8rom11OCAwNyAt89Sxtpvn+6rC+WXoYdAl8kHcVlXnosmwbztTNlMzeeFrduBS4ipC5FHh5fZq3cGUCl+XltAy9XYJGYGhCWuCP+XOYV/UMoTGQI6MqcNExluas6wILOzcFrrRBbwlc/WxL4KQMXVOCRmBoQlZgkXcd/nMcP4fxQ7f91A2HvlDKHKUcuFLIzqm2Qouc/vWH/321LXBShq4pQSMwNCEpsMhM3sQPnXgOhcF9xBC3Q9dghpJptaEq/zit8tbVgbeK0JvhLLnA8zwcpNKIVSm7iDJ0TQkagaEJSYGnWZxD8hwu+okhbofqcMImgetaoXM9p3mn8brANb9mmcCV/HxRU4SO9y0CsrbLMggMDcgJnD2MmcA1xcbh6FPg2n7gp/kbGw5mNeZ4lz98LfZe6UYqBX54VSdw/Pm/vqoZ9oDA0ICcwFkZMBO4ptg4HH0KvBaJJX6jkmao46+VMKstgUVNd/Qm3vbxY1QEcuQBIqIInewsjwKplpjn0cG4pjkQgaEBBN56s6JVTSz0wVpH0LbARfCzIMlP08bnt2sf1AlchnnpO0HwHYrQW29WtaoZjZR5ePjbxsZFp9NivOZvUi1O/v6Yy3v2brMCnW9XM3AYgaEB+Uasl4XAc18bsVbleOD0VdJ3JEZEH7zZ2rgyHjgZ9XtQzBS2PI9fvoj/SPZ1EJfJt5qwtw+s5wTBdyQFXmQxHPmAOTu7kbRT6QfWz/ZIwgQEhgYkBRbFvdGFEHj5a2RpIEcP9CrwvH7qHQSGBmQjsdZifq0MpeyDPgW+Htc3BSIwNCAdC502zVQaeAzhh8CLSqPXBghsE3uD+4ZGYTjhw7kYjzQ6Nrs0gx8CJ11N9RURyx6YoGkRXj80vg7o74feBP5+snNaXqsel7ApK42mU1KCwLbj/Qk6QzUQx3RaChDYdrw/QWfwQuCNGSdyHA2ldAHvT3AINh5XDfvQnEBpENh2vD/BIUDgQuDTozqeI3BfeH+CQ4DA1iR4E3suZU94f4JDgMDWJHgTey5lT3h/gkOgQ2A/GrGsw6Jr2Q/en+AQIPCeze7cHA/sAt6f4BBoEdivQI7lp0nO0TNaofvD+xMcAj0C+xRKuVifwNxpga+ToO6D490Lp5rEqsfFVTQJ7M9gho0FCKJjd4vQV+WpjN7s33xwLHtg3ESbwNYhKbBYmOH406to9G+XJ/GDb25Cjl0n0PaGLT+ubWhwZoJdePW4mQKBtya1E4NXp/nC8/bNyNH2hk1FxvviLv7r8XL3kD6TePW4mQKBt6aVFbNwpJPA1CxGMCBqAouSRDGML8mNawfVm8Srx80UCFw7L3Q2uaKNS6u0u2Eisrtq7Nzs9EC1ePW4mQKBawXOJoTeMZ1ie5Z3N7PZ7LNUZ7KSwJulf1GYyNbZfrp6OBWl62L58uWVmCw2X0U4mUR2eflMTEnS74xCXj1upkDgrTpwtoxIJrBCN9LteeXKdp+fR0Xg7cJ/tuyYEDhraK+sk5SSzgAmrsD/zd/qtQLh1eMGupGe2F082KXH0gIXSx/kHHYswqoIfL81EWRWuY8/+Jd32XdTgyv9ZslXKnP69VzsRmBoQL4bKV1aQOQ+C/nG2zQe5CgL6XqW2NAtP1MReDvhWZ6c6Cqy2nwRM1FZPrxYlauaJQKLRcx6b/lCYGhAUmDxQD9Jlgj54cv/vJJuxEqW8qsGQF2Pu0Z1KQq8mfBpvg5wpna2rmipepZHC4GzhPa8sgwCQwPSoZRRvpy1ShlyvqXrZrvw/oQpCFyjXiFwfkrTrMe7OMVF0XeWpbPntd0QGBqQHsxwfZJUf5MqrGwIYl0PctfyeF85cJ6IZJtqO3s6tezyXbV5C4HBEMrDCa8nk2IZvq7UtX51bRHTWwfOavWV+Z+TPzdmAou/hMBgBUYH9JsWuKkVuiLwk28bYzcQGGzBqMAVCwqGLEI39gNn76RLAm85isBgBQoCL/9bPLbf//Kz/NM7re3H6dSm21ck1mYdeCOrRmCwAmmBH07TZ1oUOv8ue/Sku6YaifjwrmuTttLz/X2jByyPha6UrZNK8XZWjcBgBSozcuQCKwQyzJNG7MmHmeBTGsnRbWdqz/eO0Uj341zsTGXR3/W1+MpLBAZLUJiRY5Q++Y8fVWIJrzam9ujcJaX4fCfjgc82xwMnjVbHX8vAqyTi5M238mwRGKxAOha68tBOVUKRlpdVhUdnXVVQfb5rZ+SInTzIk5WWpReVjUQmjcBgBdKjkSqZruoTvLydXU4mk7PZF4m9KD/f1+VwiiL3F03PmbKHWV24nMUvKWQjMFiB0njg2lcDo+H5vt2alTLtO4rNPigL9MtLMR74IItaQWCwAgSuo9IPbBwEhgbkJ7Uru1UUhhOqg8AQMvLjgYtKsGiyNTcVHAJDyCiMB46OL+7u7m7OI60ZsKZYaDUQGBxBNpBjLbxf55QyCLwBAkMD8qGU5Vx0WtdVQeANEBgaUBnMcPN+Mpm8vtDcfvV412l4sffPt/cnCCqwwLfteH+CoAIC2473JwgqqAosov17XpqgGe+fb+9PEFRQnNRurqUVuoelVfzB+xMEFWQFTieEzTuTVCIp+1laxR+8P0FQQWE8cGxtonFliuTudFxaJapB9tCO4P0JggryoZTp1Iyiv1RhedGuS6sgMEAVpfHAIh9+qzIaqb+lVfzB+xMEFZSGE2ZDGuQF7m9pFX/w/gRBBSWBp5Ha8qI9Lq3iD96fIKigInDNLMrd6HFlBn/w/gRBBZUB/VkVWH5SOwRugfcnCCrIt0IffvkpXWL012i7INyOHpdW8QfvTxBUUBnQn8zQmPwl24vU39Iq/uD9CYIKagP6Y/uEwC9kRxSaXlrFBbw/QVBBOhZ6eT15LeIev/+5e/hjiemlVRzA+xOUJoAonv2YHk5oemkV+/H+BCUJJBBvH6YF1rC0ivf0ct1dh8uToiTw99Oj5xpmdFdcWsV71K+wf3B9MtQENrkkQ0bg9y9UEDgDgcFBKKLkIDA4CALnIDA4CALnIDA4CALnIDC4CP5mIDC4CAJnGBU4HxKxAcMJYS/4m2I0EguBQRr8TTAbSrk1qSwCQ2vQd2Va4JXSnNIJ3EMIGckpdW5mG9xJHr9uXrtOIDCEjPSkdltILnGm2hCGwBAy+gSWXeJsoVaIRmAIGdkitJjJbnT8YTZ7PxajeD+djztORlfu651SFozAEDIKk9r9KfM1XV5BvCNXmb2fTP5d6otpwhAYAkZ+Wtly7shpUghWWOJMBQSGkFFa3CwjXZlBen0GNRAYQkZpbaS1V4YCoxEYQgaBARxGZW2knHQ1lLgIjcAAwyLfiFXYmi3pO6cRC2BoFLqRsinYxdTsscziP7WoZjkQGEJGdjDDIp2O/SiNwXqbGG1kcD8CQ8hIj0a6L0cCHn5NsmTJUEpFEBhCRmE44e25WIvsIF3bbPn+ZwOdwCsEhrAxvjaSKggMIYPAAK2wcwIQFYEfxUj+z39oTU9nbLyo4B+2TsElL/DVs3wccMcVffVi3yUFD7F2EkxpgT9WhvK/MNN+lWDdFQUPqU5cYTot68gKPE8G9M9myUh+IyFYGbZdUPAR7wS+Hxf57vKj9Gw6OrDtgoKHrM8dZTo1a0gKPN0Y0G8uC1a7nhbfGbAHix8TfQP6DYHA0DsWPyb6xgMbAoGhdyx+TBDY1jsDFmHvU0IR2tpbA/Zg71NCI5a1twYswtqHRFLgRXwmeQDWVaS4vJESCAxDYOszIhvIEee60eGHu7u7T2JcsLOBHAgMbbHzCZEVWExrV2CuBozAEDbSsdDLIhh6ZDIUGoEhaFSGE968n0wmrz9rTU9nEBhCJvAB/QgMboPACAwOg8AIDA7TVWAx/3MNroZSArgNAgM4TGeBT4/qeI7AAAYIvA4M4DYIDOAwCAzgMAgM4DAIDOAwCAzgMAgM4DAIDOAwCAzgMAgM4DAIDOAwCAzgMAgM4DAIDOAwOgROxwg//6olQV1BYAgZTQKPfvzr2MzyDAgMIaNJ4B9+Wy1/NTK/OwJDyGipAz/e/aEjLVIgMIQMjVgADoPAAA6DwAAOoyrw1TiKjs10IKUgMISMtMDXJ2Iu6Hm6PuEvupPVHgSGkJEVeJ5M5n4/1jKv+/LuZjabfb6T6YZCYAgZSYGFubG1icZire+X8im4Pa+s8HD8pevXERhCRlLg2Nwn31ZC3aer1SL5V46Hk41FWg47FscRGEJGTuDYXFHvFfnw2zwSS4pFUgY/mqQ8SyrU3SIyERhCRk7gTNl52n4lL7AYBjG6qLxxPe5aoUZgCBklgaepbfICz7d0FUp3qlAjMISMisBZFViUpOXGMYgdbBaYF1G3nSEwhIx0HTg2L6sCi4xYrhGrLuvump0jMISMfCv04ZefonQYYbSdj7YDgQHUkBQ4nYRDVFeTvyR7kbLG7DUoQgO0RzYSK43BilUTAr+QHck/3bI1r1e3BoEhZKRjoZfXk9cibOr7n7tHTxWIn4En1aEQD++6RlYjMISM4eGEyWCI0eTDTPApjeToFpaJwBAypscDX403QilHb7rtAIEhZEwLvFpeVhUenXWtTiMwhExXgZc3szo+q0xIubydXU4mk7PZF4m9IDCETFeB8/6jDRQHBCuAwBAyCAzgMNJF6PO4wnr8YTb7xziuuKoVoZVAYAgZhSl1/vSt+FNhQg5VEBhCRlLgtUk4prKx0HU0x0LXFd+1HRrAOZRm5MiQHk5YBwIDtEdpQH/tK0UYjQTQHusE7rpSGgJDyKgM6M/pOgJQKwgMISM/oL/IdB+6TmOlFQSGkFEY0H+YTCe5vOo8kaRWEBhCRrYfeJG2AB+lQxB0rI20vJl9llgnHIEhZKRHI92XSyocSq9OWDZYXae7G3We3AOBIWQUhhPenovx9wcKE3IUzdfLj+WAwo4xIQgMIWN0PHAh8FSY++NkcioUZmkVgLZYIbCoUKdlZzEnFkurALTFCoErM8N3XqsUgSFk5AW+eT8peS0VyJEJvBYWwrzQAO1RmxdacUB/JvBaKCax0ADtkRR4w18EhoFg/Nk68qGU0fMPdwUSERirah24DAWJfxoQGHbAENJN5AczSK6HVEUILMxdVBquqAPDThgEvoX0cEId4ZPpDHkHf/vyU7E7FviGnTCNwzY6xgNLU53iMtnf8vfOIyO4leGAwNtIF6H1DEBa3l6ejkuBhdEds3ZuZTAwk1IN8o1Y+uaxSyzOBe46MoI7GQwIXIP8eOA+xgAv/6vzwCbuZDAgcA0KgRyjszvtyekOdzIYELgG6UYsHYEcOuBOhoM+f/35BUBgcAZdAvuUiUsKfHq0znMEDpyNX/S+D2J+L5ZgfIFvVby4Cx4wiMBa8k6/KtIIDFoYRmAdtVcEtgofboIPDCWwMq6ksyUqAj+KdYJlpoLViQf3wAsQ2AzyAl89y67B6I3mNHXCg3vgBQhsBmmBP1auQufJnDXiwT3wAgQ2g6zAYkT/6Hg2+3QuxiJoGBssiwf3wAucEZhGLIGYUifLd8Wk7FrWVpHDh5vgAwhsBkmBp9Vcd2oyC/bhJviAOwITyJGMB65kunF2zPrAoeOQwIRSbowm7GlsYTv8uA3u45LADGZAYNjALYH9gSI0aAGBzUAjFoDDSAos1hPMA7CuIp0TZHUFgSFkZAM5xIq+h2Jphk8nEYEcAIaQFViszVBgrgaMwBA20rHQyyIYemQyFBqBIWhUhhMmKwS//qw1PZ1BYAgZBvQDOAwCAziMgsDL/xZ13+9/+dlkFRiBIWikBX44LdYjG/1dc6K6gMAQMrICL8aVBQW7reirFwSGkFEY0J91Hz0yoB8cx+E4bvlY6DJ6g1hocJvgBGY0EvhEcAIzHhh8AoERGBwmOIHFUIZyBOHC5HAGx6432EhwAotpoYtKsGiRNteP5Nj1BhsJT+Ck9/f44u7u7ubc7HhCx6432Eh4AifZboHBbmAEBnUCFHj1cF6c8DHjgcFpQhR4tVqm44EvjI5lQGBQJ0yB7cCx6w02gsDmcOx6g40EKvDjbPb522r5h9YEdcWx6w02EqTAV8+iZETh91eHXzUnqguOXW8ArUgLnE5KmQhMNxKAIWQFnsf2Hv5zHAsswioJ5AAwgsKA/jdx5isGMawHRg8NAkPIKC1ulgosBjMwoB/ABEoD+jOBGdAPYAil8cCZwIwHBjAEAkMAONe92xqK0OA9TkZotES+EetlIfCcRiywGEdjrNohKfAii+EQAsd/043kIg4HEHbB75OUFFj0/Y4uhMDLXyMCOdwEgT1ANhIrmVMnh1BKJwlDYM/PUjoWWuTBGQxmcBPPH+0Mz89SYTjhw7kYjzQ6/qI3RR3x8J4MheePdobnZ8mA/nDx/NHO8PwsEThcPH+0c/w+SVWBr8ZRdEwd2EkQ2AOkBb4+EX3A8+Sy0ArtJIEITCBHst3G63kSyZFP724uFBqB5QlFYEIpV7UD+mNrE41FhxJrIzlIMAIzmKFucbMn35K+4KcM6HeVgAT2F6XRSCIffstwQldBYA9QGg+cLTKKwG6CwB6gJPA0ysb1I7CLILAHqAicVYEZ0A9gCuk6cFz5zarA2RSVhkBgCBn5VujDLz8lJehkQDAD+gFMIClwPhz4ZfqXuQwYgSFoZCOx0hisuOorBH5hcI1vBIaQkR/Qfz15LUYCf/+z2QHBCAwhw3BCAIdBYACH6Srw8nPDRjcG6sIIDCHTVeDvr3ZOYfdwbiIeC4EhZDrnwOdR9OKPmg0ezs1MD43AEDLd68C/i0l0Nhuer0+jaPR3fclqDwLDkNgWNi7RiPVwIk7ixw932eu7/zwVbxiaHdquywl+Y9/ID6lW6OuT7DxGR9mcOtHhRR+pa5Mwiy4meI6FY7cku5FuT9eGoj03F8th0bUEz7Fx9KV8P/D1+yT7HR29bupZ6h17LiX4jl8CW4I9lxI8x8oJEBAYoB0I3AfWXEnwHQTuA2uuJPgOAveBNVcSvMdCfxEYoC0I3AP2XErwHvv8RWAIj/XKbJcHyDp/ERjCQ15gLwYz2IVdlxNcQEVg20BgCA4EtgjHrz8YAIFTHmezz99Wy7r5OYbD8esPBkBgwdWzKFlapWGWrCFw/PqDARA45mNy7onAySLBpnD8+oMBEDhZ3Sw6/Oc4W2RUcTa75d3NLC6O38nsxfHrDwZA4GRppDdx5ismkk3XGpXm9rxyLbsv0+L49QcDIHC2JHAq8GqhsDzhw8nG1TzsWBx3/PqDARA4znRFvTcTOM6OZcvQi2RSvKNJimgWi0bdcnPHrz8YAIG/vxLNV7nA2SsJxNqko+p8ltfjqOO+HL/+YAAE1iXwfEtXofTLLrtw/PqDARBYUxG6rvlr0bFN2/HrD6CEfCPWy0LguWwjVl3W3TU7R2AIGUmBF1kMh3At/luyGwmBAdSQFFgUfkcXQuDlr5F0IEdWEl+DIjRAe2QjsURjU4F0KOV0y1bxy9CpPI7AEDLSsdDCtDz2QnowgwjoelL99sO7rj8HCAwhozCc8OFcBF6Mukc/VpgnGfjkw0zwKY3k6NSLhMAQNKYH9F+No3VGb7rtAIEhZEwLvFpeVhUenXVtDkNgCBnjAscsb2eXk8nkbPZFojEbgSFk5Buxrt9PSl6rDQhWAIEhZGQF3qi7SsZCawCBIWTkI7EQGMA48rHQ0fHnuwJzM1MiMISM9HDCjt21rWmOhY5q6CcdAC6gNB64DxAYoD3S44HNCLwNAkPISNeBe5sL+rFbhRqBIWQkBY7zSemJKPWCwBAysv3A9+PohbHgjSoIDCEjHYklJnQ+OMp5Tj8wgAEUcmACOQBMo7C0ih6Bl5enRz/+XJbGaYUGaI98JNbo7E5DJNbv441hhAgM0B75SCyF9cxK5kUens+NhcCgH38DfsxGYomS+OHF3d1H8f9vUrv29caAPnyO2TMbiTXPc17Rpp0ajMCgGa+jbiXrwHMtRejK0irFMuEIDHrxO25efmJ32RVFK1RlzSeERmDQCwIn2228jn07VJlPNmFN1myIIgKDVjwfuibZiHV6dJRcD7VIrHVZ78dihAQCg1YQON1u7dXawirygRwby4uKFdO+IjBoBYHT7dZeaRJ4c2FSsd73/0Ng0AkCp9v1cnTRD3xcieKadv818PCegFa89tf0xO7zDV8/IjBoBoGT7Xo6/tV43Vcx3zQCg0589te4wKvl9fqqDsuPYwQGrXjsb2eB00ZiXY1YGvDztoBefNUXgQGcprPApyJoQwRyrMGUOgAmMF4HVgWBIWQQGMBhJMcD38w+V9qOby7PWB8YXMXpFi4dM3L0uFLSfhy+9mADjvcxITAEjetRHp0F/n0S89dxNPpxknNCNxI4ivNxlp0F3pwROsXcQkmOXnewg/AEzkYMrXNoLANGYFBg/TE2nRoZugu8nM1mn+Ii9IdZwV1PiWuVMCcvO9hBiAILjDZbrePmZQc7CFXgjX5gk7h52cEOQhXYIty87GAJrvuLwBA0AQt8835S8ppQSnASx/1lgW8IHLf9Nb/AtyrOXnmwBYf1VVncLHr+QcMC38o4fO0BlJFeXtRg9OQaCAwhIx3IMfqlh9RIgMAQMkRiATiMdBEagQHMI9+I9bZ+w6FBYAgZSYHtKUMjMISMQiDH6MzkMMIcBIaQMbs+sAYQGEIGgQEcRlJgllYBsAGGEwI4DAIDOAwCAzgMAgM4jGQoZXU2DmbkADAF3UgADoPAAA4jWQd+LObi+HQejd4wIweAETQ0Yt2Pozd6EiMDAkPI6GiFnpucngOBIWR0CBxnwSwvCmACHQIbHRyMwBAymnJgBAYwgZ46cPSEQA4AAygLvLz7NTI5STQCQ8joCeSgFRrACFoEHtEPDGAEDTNyPD8zF4eFwBA2DCcEaMd6tdF0ajIQGKAdPgn88fBCf1qksOZKgu94JPDyHasTQmh4JLA9K6sgMAyFRwKzOiGEh0cCi+hJc8FXa1hzJcF3fBJ4dTWODj+wuBkEhEcCL99P/rp2NoxGAu/pX2CJ/TKpHUA7+hZYas8sbgbQjp4Flts1kVgA7ehXYMl9IzBAOxC4DxAYBqJXgWV3jsAAFoDAAA7jtMDLu5vZbPb5TmZmPAQGH3BX4NvzSsKPv3T9OgKDFzjaiPVwsv7TEx12HKaIwOAFbgq8GIv0HmXLhD8TL0ZvO+0BgcEP5Bq4zQosQjJH1bk9rsddwzIRGDxBqoPKrMDzLV2F0i+77AKBwRsk+peNCrx8F0WbBeZFx3VaEBhCxqjAdTPzdJ2tB4EhZOQFvnk/KXkttbgZAgOoISvw/Xit80duPHDd5JYUoQHaIynwhr+yA/qnW7aKanGn2bYQGEJGflK76PmHuwLJ1c1CLaEAABQHSURBVJHE78CTr5U3Ht51XeoQgSFkpKeV1TMr5TwJ3Zh8mAk+pZEcnXqREBiCRnpOLE0rM1xtlMU7L1WKwBAyxldmWF5WFR6ddW3ORmAIGRtWZljezi4nk8nZ7ItEZxQCQ8jIN2J1G3PQGwgMISMpsD2rmyEwhIxCIMfojKVVAMzCygwADmOdwM2F86gGXUcGcA/rllZBYID2mJ4TawtGIwG0xzqBV4/dAqsRGELGPoE7gsAQMpoElpqTXQsIDCEjLfDyUzEdx9EzupEAjCAr8ELHjBw6QGAIGU0zchxThAYwgMKMHMefXkWjf7s86byYglYQGEJGfkaOl8mUVm8TmTtNQ6cXBIaQUZqRY55oXDc9+3AgMISM0owci3RmrIXsBFlbIdUSLWIIDCGjJPD9OCk8x6/kytAIDKCG0pQ6mbnyo/u3VgdGYIAuSLZCT5M6cOmxbD9w1hqmAAJDyMh3I4lqb9oM3XU1lCrKLWAIDCEjPyeWkDZW94cv//NKZZZ31dm1EBhCRjqUMqmqivxToDLL+0KtEI3AEDLSgxmuT5Lqb9IK1XU1hTUU55hGYAgZ5eGE15PJmeTSZhn3k8m/y38bgW2HCZD6hAH90DMI3CcIDD1jQuBBjmTF7xECQ88ML/Agx7KkSNFV4LTXh4ndoTWDCzzIwWypFCAw9MzQAg9yNGuq9Z0FPhWTuPc4sXtXENh2EFj5SI0ft9yNlsT0AALbzsACD3K4wc5p7yEQGHoGgXUcZ/cWLfekK0m6QWDbQWAth9m5SctdaUuUZhDYdhBYy2F2btJyV9n/y5tZHZ+ZVhZ2MLDAHjVitblyEt1IddCNBLtAYB0HQWAwxNAC+xPI0YfARRH6PIpGxx9ms3+Mo9EZRWiwiEF+LAb9kdAncM48iv70rfhTbVorJRAYthkkr+//IC2KLpICr00FPWVid4Ae6E3g5bvqLDrZ9NBmQGDwl/01baWJ3WtfDQwCg8fsrWkjMIDN7Klpy69OWFZ7VeaFVgaBIWTkJ3YvMt2HVyaboREYQkZhYvfDC/HX8mpsMo4DgSFoFCZ2Fxwl/6rM664KAoPn9NCIFXNfLix4+FU6beogMHhNP4EcgtvzZ/F+D46/SKdNBwgMHtNbKKU1IDD4y/5gaAQGsJUWoxlUBH5MBvIv1VZGUgWBwVui/QbLC3wlasDJHNE0YgH0QNSnwB+TXaaTvNONBKCfPgWei+6jf46zRb7NRVIiMHhLjwLfj6PoTZz5ihCs9cDooUFg8JUW/soKPE0G9KcCr4/uHxoEBm/pTeBsQH8mMAP6Afpgv79q44EzgRkPDNALe/1FYACL2aMvRWgAu2nUV6UR62Uh8JxGLAAzyE8rm8RwCIHF0GC6kQBMICmw6PsdXQiBl79GBHJAoOwp3w6SgpbbbbxeWyOJUEoIkb0tTIOkoeV2m2+IPDiDwQwQInu7eIZJRMvttt96SGbkGDEjBwTJ/iCLYVLRcrt+kyEPAoMZEFgLCAxGaBGnPEwyWm7XbzLkQWAwgqsCP97VYW5aHQQGIzgq8Fr3UYmdsdCmm/jBYxBYD00rp5puYACfscJfKYGfT7Z4bd9gBhuuLniMuwJHozOzU8lW2T3Q2YbLCx5jxQPWvRX69lwk+eDMXPjzGggMprDh+ZLqRkodPrywweGdUwVhMPSO+YdLth/4+lSk/fmF9gR1BYEhZOQDOZbXJzY4jMCwQVB3XCkSa3kphjNERoczILBlmL7egd1z1VDK1OHRC+u6kfDXCMYveWh3XUMs9MOJjYEcCGwC49c8uNuuJwe2UGDzz1KAmNfHfAoGRkngx9Reo4EdhFJahHF9wmv6kBf48XJs3N4Vgxlswrw+5lMwNJICW2LviuGENmFeH/MpGBoZge2xd4XANmFeH/MpGJrOAj/8wyJ7VwhsExboYzwBQyM3HtgWe1cIbBXm9TGfgoGREfjwb7NNPlsXyAEGsEAf4wkYGHtm5FjezD5L5Ouh3Cg3sEAf4wkYFrMCPxaz4aUjIyRiMoO5U25ggz6mjz8oXQVevt+eT0d6Sp1iZfDlx+KnYNRxocOA7pUbBKWPeYzOC10IPBXm/jiZJIOMuxnM0wIhY4XAYoXhtOz88K5rcRyBoQXelgusEDjOgJ9mb4lFD1922Yen9wV0YkPNvCdsEFhIW5SbFx2XC/fyroBWLGgb7w0bBC6qwpX3WuPjTQGtWNA73R8IDL6DwKve68CjX/L37scIDDpZj1gwnRrdGBdYmLuoNFxRBwa9IHCyXR8HT8O6Dv725aciCxZv0QoNGkHgZLs+Dl6Ny0zKzcvfx/QDg14QONmun8Mvby9Px6XAwuiyOtwuYd7dEtCMz/6aFjghsTgX+PBrty97eE9ALwi86lfgkuV/ddQXgWE/HvtrmcAS+HhTQDP++ovAEASe6ovAAE6DwAAOY53AzbHQUQ1DpQzAPhAYwGEcE3gbBIaQsU7gykyVrUBgCBn7BO4IAkPIIDCAwyAwgMNYIfDy7kasr3QnMzs8AkPImBf49rzSJXT8pevXERhCxrTADycbvbqH3YYDIzAEjWGBF8lo/qNshaVn4kXHxZEQGELGrMDJDBwXlTeuJabUAQiZlp50kao18y1dJSa1AwiZlp50kaota2uqZHSdVnYoXCiq25HG4VPR/xF7OsKAl6rf5UX3vGcDdsjRjB1pRGDTu609VB87RWC92JFGBDa929pD9bHTuAi9NYksRWh57EgjApvebe2hetnrdMtWUS1+umNro9ghRzN2pBGBTe+29lC97PV+HBtcnUn24V3nmd0Hwg45mrEjjQhsere1h+pnt3PRDj6afJgJPqWRHJ16kQbDDjmasSONCGx6t7WH6mm/V+ONXq3Rm56OpIgdcjRjRxoR2PRuaw/V146Xl1WFR2c2NmAJ7JCjGTvSiMCmd1t7qB73vbydXU4mk7PZF1vtXdkiRzN2pBGBTe+29lCDHclS7JCjGTvSiMCmd1t7qMGOZCl2yNGMHWlEYNO7rT3UYEeyFDvkaMaONCKw6d3WHmqwI1mKHXI0Y0caEdj0bmsPNdiRLMUOOZqxI40IbHq3tYca7EiWYocczdiRRgQ2vdvaQw12JEuxQ45m7EgjApvebe2hBjuSpdghRzN2pBGBTe+29lCDHclS7JCjGTvSiMCmd1t7qMGOBADaQWAAh0FgAIdBYACHQWAAh0FgAIdBYACHQWAAh0FgAIdBYACHQWAAh0FgAIdBYACHQWAAh0FgAIdBYACHQWAAh0FgAIdBYACHQWAAh0FgAIdBYACHQWAAh0FgAIdBYACHQWAAh0FgAIcJTeCH83EUjY6/7vr8fhy9HTI9dexM4/JdVNB7Khuu1PLqKE7B0ZtvgxxxHq3xUv8RBLd7HgzJ3V6fxkk+ONN8pSoEJvDVOH0KRn+v//z7qwHU2MPuNIrUDSVww5W6zz6KDn8b4oj6BN59TsuPCrtv2G3+izv6RS7F+wlL4MU+AaZD5G3NNKSx8lHfqWxIReFvFD3RmLPsPKI2gRvOaaqw/927HaLEFJTAIgc7jAs6tydR9ENd7rEYQI09NKVxPljiGlIhPhq9iZ/Oy7Faebb1EUviC/C0jyOI3yRRAn541z2zbNit+OnJd7vznBQJSuB5nmeIn8aaZy8topoVuCmN094egw6pmBcP40JnFrzv3qgfsPmcsh+Gaecfpd27FY/TS9ndtiUkgeMrnP+8xj+5249C/PkP/8ewwE1pjD/TWWaVS0Xlo8qffR6xIBZC4XhNR5gWHy265vENu6383sRJ7+m3NySB46uYX9DaZ0+UUIcrpdbTlMb4M/kCpK5UxE9pH4nYd28EatlY0xEUBG7Y7byS3mlf7VghCVy9OdPaxpmXA1Yz62lKY/zZ2wfRLfH8wlwqFv0UBvfcm2wTlQJI0xHWitDd7n/DbqvPUm/PVWACF8/e9gVNC6gWCLwzjfNo9NesTfO436J0QyqSl0nH58GbYY6YoVpgbzqCqK0mrU3nnX8k9l2qjN4qwSEJXL2g2xlJWsgxLXBTGit9HT1XhhtSIS5T3rGjsR+4+d5kWyiV3RuP8HASSZ5Tw24rmXOlPUszCLz+hsUCi1bOkYjpEflEX42ae1MxLYsBOvtG9gqs1oK19wgP7ySLNg27Fda+KbZCYGWabmHeFmGxwJVHeN5fv+KeVKSxCaK4+SiCl7S1Z+0VuHPrUqcjlMEio44Vg31Fphd/ZL+4CKxM87VOjbBY4ApCoz6TuUfgl8Un2ppW9523epdV0xHmmWnJj1K3C7snV8iZILA6Dde6+MgNgdd6KIZNxbRS/+7cZCt1xISdncM6jlCJgL/qWrZpVbUevemp8T4sgXc3GJadm6YF3t8au7XZsKmoNqdqTMW+81b/xWo4Qos+LJndrsS4rWexvnHmTjeSBnbfp414+X5biBpp+Sz1L3BD52ZPAjedt4agr/Ydtp3OqeUNI5BDA7uDZuwRuE1E0qr3gkJDKqoPrMaC/J7zVi9B7wmZalNv6brb9a0IpVRmd9iqPQI3hNZWdFHuU5FPRfy6eBQ11oH3xEJr+KloDlqWLkI3X6r8tXIb+k5CErjNiBfTdeCGNJbqLKe9PQ97UyGe8KfpY9m5wUfyiCs9JdDGK5vf9e4t67t3W/YVPPQ3T0RQAidDN780jjk1LvDuNCaBHGIaG/FRrxlw45UST7v4KOly0TweeNe9EePElH8qGo6Qd9jK9G037HaejZwWU3b09YMblMDbkydslUWNC9yQxspUGL0X8huuVKW+0euMHJV7U6lo9nKE6lxFneNDW+22t7ibsARe/b4xfZGFAjek8T6P2N01pdcgqSg+0jykouGIGtqwmo9QTn4jcZzduy1CrA+lJstrQ2ACb04gaKPADWlcZpMc/mE0FavHS9G7+fzLYEfUNQi54ZxuT5OPpM6p4YaJK9Xr8M/QBAbwCgQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBAZwGAQGcBgEBnAYBLaTRbTOy8GOPI+erlbLd9EPv/V9pF0Hid9/2/exvQGB7cSYwPdjIZVRgbM0QBsQ2E5MCZzlfmYFjksBT771fXRPQGA7WQxZaq6QqWNY4O+vzJy9gyCwnRgS+H6cVj8NCxz/jlCIbgcC24khgadZ2dW0wGTBbUFgO9kn8PLqKK4ZH5z9Ub7xLIpGx1+L19en8QbPL7K6pDDzOt7i+dfiy8VnJXEGnB61dGtjP6vVQ/L6a6zYVj11b6IeL8UGo+cXmwfZShBZcEsQ2E72CBybtt66dX+SvhxlHTAP2evoMLUnFvgq+fyXypcPv27sdp58vqq4tbmfeJOUf90WeG+i8u9GGxXtmgQVPyXQDALbSbPAcfZX8Hb9jdTAygapI9PoILHkadWzzVyuzFVzt7b2U20d3xB4b6Lmle++rBykLkF1GTzUgMB20ixwrMLhl/j/h3eZRtNYkjdpfvl0lb0++7ZaXo7LN6InSf4mtDq8EMXW/LOCMtvL3drcT/LleDfiu5uG7UuU+O4LUbq+PUk3yA5Sn6BpXhiARhDYTtb7gZ9ufDrN8riKA0XOmxWSs8c//2ta+LYo/iq+lTPPd5vvd2s/8/zLItfcEHhfohbFecRfrkSL1CeoTAs0gcB20izwPM9Oy62fFp+8Tf7NvzJNs/JpkaNXsrbNbL78KHNraz+FpKXKrRNVEotaEbg+QaY6wl0Dge2kWeDk09GPP+cGbRpSeiZyu6fVd6qVy+yznEq3TuHW+n4y87LXGwLvS1TG4837cVQReEeCNtIGO0BgO9nOgIomIZFfTfO/0y6bjQpjbEbxOhOt2KLa1LRRj90SeGs/FdnSPzskapV0SeXtVWsC1yUIgduBwHayR+CkValsz90WeLM5d1qpzHYReH0/lWy3RuDmRK0fuhR4R4K2c3ioA4HtZI/AMdfnpSwdcuAGMVRz4OZEZdsePH/94X9frQtclyBy4HYgsJ20asN5/HSe5lkNdeCsKalahN4V49RYB07201gH3peoeRGosdaItSNBCNwOBLaTRoErpqWP/1oPzdP6Vugyxmpn/8zeVujKl7daofclqpKdL6pF6B0JohW6HQhsJ83Pb9kplLpS9temn9T1A+f2xOb9UIZFrh2kQz+wKA9v9wM3JaoU+OFVVeAdCaIfuB0IbCfNAosemyKoKeslEkFPy4/RdgRVFhWVCyzUG72J33v8GG3UUpsjscR+8kis65pIrH2JmqZfTZu6kkavMhJrO0FEYrUDge1kTwky77HJ2nOrfTHJ12pioavREusbF6jFQu9L1FrXdkXg2gQRC90SBLaTPQKLimPKYVYsPVk3YHs0UpmhLTZHDRWojUbal6iPubxn75LycXGQmgRRBW4JAtvJ3gf49lw89eUQ2mTobTrcN32djePNXq6VSJeXG+N2cxrGAxfbZOOBa1uJ9yQq2dVBXCRP27cqB9lK0JTxwO1AYKgwbV1w7bebhxk52oLAUCGfE2sXZcfwtNcyLhNytAWBocqeCV1Fw7IoTT/mzd39QAbcGgSGKrE6TVlwNXC51wyYJuiWIDCssWdVhKudLdha00AfcFsQGNaZNzdOPV4+q2/B1gdrI3UAgQEc5v8D3r5Z0QqrH0QAAAAASUVORK5CYII=" width="480" /></p>
+plot(as.numeric(df[,&quot;F_score&quot;]), as.numeric(df[,&quot;medianRuntimeAll&quot;]), xlab=&quot;F-score (log-scale)&quot;, ylab=&quot;Median runtime (seconds, log-scale)&quot;, pch=df[,&quot;TypePch&quot;], log=&quot;xy&quot;)</code></pre>
+<pre><code>## Warning in xy.coords(x, y, xlabel, ylabel, log): 3 x values &lt;= 0 omitted from
+## logarithmic plot</code></pre>
+<pre class="r"><code>legend(&quot;topleft&quot;, pch=c(16,15), legend=c(&quot;Proprietary&quot;, &quot;Open&quot;))</code></pre>
+<p><img src="data:image/png;base64,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" width="480" /></p>
 </div>
 </div>
 <div id="combined" class="section level1">
@@ -2462,7 +3058,7 @@ legend(&quot;topleft&quot;, pch=c(16,15), legend=c(&quot;Proprietary&quot;, &quo
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>## R version 4.4.0 (2024-04-24 ucrt)
 ## Platform: x86_64-w64-mingw32/x64
-## Running under: Windows 10 x64 (build 19045)
+## Running under: Windows 11 x64 (build 26100)
 ## 
 ## Matrix products: default
 ## 

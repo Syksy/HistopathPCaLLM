@@ -11,7 +11,7 @@
 
 <meta name="author" content="T. D. Laajala" />
 
-<meta name="date" content="2025-04-28" />
+<meta name="date" content="2025-07-01" />
 
 <title>HistopathPCaLLM summary</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">HistopathPCaLLM summary</h1>
 <h4 class="author">T. D. Laajala</h4>
-<h4 class="date">2025-04-28</h4>
+<h4 class="date">2025-07-01</h4>
 
 </div>
 
@@ -373,7 +373,7 @@ display: none;
 <h1>Data</h1>
 <pre class="r"><code>summary &lt;- read.table(&quot;summary.tsv&quot;, header=TRUE, row.names=1, sep=&quot;\t&quot;)</code></pre>
 <pre class="r"><code>dim(summary)</code></pre>
-<pre><code>## [1] 6300   23</code></pre>
+<pre><code>## [1] 10440    24</code></pre>
 <pre class="r"><code>head(summary)</code></pre>
 <pre><code>##   censoption                     model promptIndex inputIndex lang seedoption
 ## 0          0 claude-3-5-haiku-20241022           0          0    0      False
@@ -382,80 +382,146 @@ display: none;
 ## 3          0 claude-3-5-haiku-20241022           0          1    1      False
 ## 4          0 claude-3-5-haiku-20241022           0          2    0      False
 ## 5          0 claude-3-5-haiku-20241022           0          2    1      False
-##   concordanceExact concordanceCaseinsensitive concordanceContent maxCharDiff
-## 0             True                       True               True           0
-## 1             True                       True               True           0
-## 2             True                       True               True           0
-## 3            False                      False               True          38
-## 4            False                      False               True          23
-## 5             True                       True               True           0
-##   maxRuntimeDiff medianRuntime parseable1 parseable2 parseable3 parseable
-## 0       2.771024      4.166749       True       True       True      True
-## 1       3.170782      6.982081       True       True       True      True
-## 2       1.122886      2.425561       True       True       True      True
-## 3       1.048615      5.025001       True       True       True      True
-## 4       0.592226      2.537969       True       True       True      True
-## 5       3.011076      7.572387       True       True       True      True
-##   answer1 answer2 answer3 correct1 correct2 correct3 allCorrect
-## 0  biopsy      no    &lt;NA&gt;    False     True     True      False
-## 1    TURP      ei    &lt;NA&gt;    False    False     True      False
-## 2  biopsy      no    &lt;NA&gt;     True     True     True       True
-## 3  biopsy      ei    &lt;NA&gt;     True     True     True       True
-## 4      RP      no    &lt;NA&gt;     True     True     True       True
-## 5      RP      ei    &lt;NA&gt;     True     True     True       True</code></pre>
+##   concordanceExact concordanceCaseinsensitive concordanceContent
+## 0             True                       True               True
+## 1             True                       True               True
+## 2             True                       True               True
+## 3            False                      False               True
+## 4            False                      False               True
+## 5             True                       True               True
+##   medianCharCount maxCharDiff maxRuntimeDiff medianRuntime parseable1
+## 0             402           0       2.771024      4.166749       True
+## 1             430           0       3.170782      6.982081       True
+## 2             375           0       1.122886      2.425561       True
+## 3             361          38       1.048615      5.025001       True
+## 4             401          23       0.592226      2.537969       True
+## 5             431           0       3.011076      7.572387       True
+##   parseable2 parseable3 parseable answer1 answer2 answer3 correct1 correct2
+## 0       True       True      True  biopsy      no    &lt;NA&gt;    False     True
+## 1       True       True      True    TURP      ei    &lt;NA&gt;     True     True
+## 2       True       True      True  biopsy      no    &lt;NA&gt;     True     True
+## 3       True       True      True  biopsy      ei    &lt;NA&gt;     True     True
+## 4       True       True      True      RP      no    &lt;NA&gt;     True     True
+## 5       True       True      True      RP      ei    &lt;NA&gt;     True     True
+##   correct3 allCorrect
+## 0     True      False
+## 1     True       True
+## 2     True       True
+## 3     True       True
+## 4     True       True
+## 5     True       True</code></pre>
 <pre class="r"><code>tail(summary)</code></pre>
-<pre><code>##      censoption              model promptIndex inputIndex lang seedoption
-## 6294          1 mistral-large-2411           2         22    0      False
-## 6295          1 mistral-large-2411           2         22    1      False
-## 6296          1 mistral-large-2411           2         23    0      False
-## 6297          1 mistral-large-2411           2         23    1      False
-## 6298          1 mistral-large-2411           2         24    0      False
-## 6299          1 mistral-large-2411           2         24    1      False
-##      concordanceExact concordanceCaseinsensitive concordanceContent maxCharDiff
-## 6294            False                      False               True          75
-## 6295            False                      False               True          42
-## 6296            False                      False               True           6
-## 6297            False                      False               True         239
-## 6298            False                      False               True          85
-## 6299            False                      False               True          12
-##      maxRuntimeDiff medianRuntime parseable1 parseable2 parseable3 parseable
-## 6294      5.2787333      3.042854       True       True       True      True
-## 6295      4.0452595      3.653190       True       True       True      True
-## 6296      1.1848693      2.675047       True       True       True      True
-## 6297      4.4536896      1.402506       True       True       True      True
-## 6298      0.8530767      3.760904       True       True       True      True
-## 6299      3.3081603      6.611371       True       True       True      True
-##      answer1 answer2 answer3 correct1 correct2 correct3 allCorrect
-## 6294    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
-## 6295    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
-## 6296    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
-## 6297    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
-## 6298    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True
-## 6299    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True     True       True</code></pre>
+<pre><code>##       censoption              model promptIndex inputIndex lang seedoption
+## 10434          1 mistral-small-2503           2         27    0      False
+## 10435          1 mistral-small-2503           2         27    1      False
+## 10436          1 mistral-small-2503           2         28    0      False
+## 10437          1 mistral-small-2503           2         28    1      False
+## 10438          1 mistral-small-2503           2         29    0      False
+## 10439          1 mistral-small-2503           2         29    1      False
+##       concordanceExact concordanceCaseinsensitive concordanceContent
+## 10434             True                       True               True
+## 10435             True                       True               True
+## 10436             True                       True               True
+## 10437             True                       True               True
+## 10438             True                       True               True
+## 10439             True                       True               True
+##       medianCharCount maxCharDiff maxRuntimeDiff medianRuntime parseable1
+## 10434             147           0     0.21175861     0.4363608       True
+## 10435             356           0     0.14057851     1.0106168       True
+## 10436             345           0     0.02942276     0.7666953       True
+## 10437             506           0     0.10655427     1.2566364       True
+## 10438             150           0     0.10503507     0.5219708       True
+## 10439             437           0     0.19093847     1.6361713       True
+##       parseable2 parseable3 parseable answer1 answer2 answer3 correct1 correct2
+## 10434       True       True      True    &lt;NA&gt;      no    &lt;NA&gt;     True    False
+## 10435       True       True      True    &lt;NA&gt;      ei    &lt;NA&gt;     True    False
+## 10436       True       True      True    &lt;NA&gt;      no    &lt;NA&gt;     True    False
+## 10437       True       True      True  biopsy      ei    &lt;NA&gt;    False    False
+## 10438       True       True      True    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True
+## 10439       True       True      True    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     True     True
+##       correct3 allCorrect
+## 10434     True      False
+## 10435     True      False
+## 10436     True      False
+## 10437     True      False
+## 10438     True       True
+## 10439     True       True</code></pre>
 <pre class="r"><code>table(summary$model)</code></pre>
 <pre><code>## 
 ##      claude-3-5-haiku-20241022     claude-3-5-sonnet-20240620 
-##                            300                            300 
+##                            360                            360 
 ##     claude-3-5-sonnet-20241022     claude-3-7-sonnet-20250219 
-##                            300                            300 
-##        deepseek-ai-deepseek-r1             gemini-1.5-pro-001 
-##                            300                            300 
-##             gemini-1.5-pro-002           gemini-2.0-flash-001 
-##                            300                            300 
-##      gemini-2.0-flash-lite-001   gemini-2.5-pro-preview-03-25 
-##                            300                            300 
+##                            360                            360 
+##         claude-opus-4-20250514       claude-sonnet-4-20250514 
+##                            360                            360 
+##        deepseek-ai-deepseek-r1        deepseek-ai-deepseek-v3 
+##                            360                            360 
+##           gemini-2.0-flash-001      gemini-2.0-flash-lite-001 
+##                            360                            360 
+##   gemini-2.5-pro-preview-03-25   gemini-2.5-pro-preview-05-06 
+##                            360                            360 
+##   gemini-2.5-pro-preview-06-05 google-deepmind-gemma-3-12b-it 
+##                            360                            360 
+## google-deepmind-gemma-3-27b-it  google-deepmind-gemma-3-4b-it 
+##                            360                            360 
 ##             gpt-4.1-2025-04-14        gpt-4.1-mini-2025-04-14 
-##                            300                            300 
+##                            360                            360 
 ##        gpt-4.1-nano-2025-04-14              gpt-4o-2024-05-13 
-##                            300                            300 
+##                            360                            360 
 ##              gpt-4o-2024-08-06              gpt-4o-2024-11-20 
-##                            300                            300 
+##                            360                            360 
 ##                    grok-2-1212                    grok-3-beta 
-##                            300                            300 
+##                            360                            360 
 ## meta-llama-4-maverick-instruct    meta-llama-4-scout-instruct 
-##                            300                            300 
-##             mistral-large-2411 
-##                            300</code></pre>
+##                            360                            360 
+##             mistral-large-2411            mistral-medium-2505 
+##                            360                            360 
+##             mistral-small-2503 
+##                            360</code></pre>
+<div id="convenience-functions" class="section level2">
+<h2>Convenience functions</h2>
+<pre class="r"><code>modeltabs &lt;- function(x, correctField = &quot;allCorrect&quot;){
+    tmp1 &lt;- do.call(&quot;rbind&quot;, by(x[,correctField], INDICES=x[,&quot;model&quot;], FUN=\(x){
+    c(
+        TP = sum(x$allCorrect == &quot;True&quot;),
+        FN = sum(x$allCorrect == &quot;False&quot;)
+    )
+    }))
+}
+    
+if(FALSE){
+    tmp1 &lt;- do.call(&quot;rbind&quot;, by(dat_eng_prompt0_cens0, INDICES=dat_eng_prompt0_cens0$model, FUN=\(x){
+        c(
+            TP = sum(x$allCorrect == &quot;True&quot;),
+            FN = sum(x$allCorrect == &quot;False&quot;)
+        )
+    }))
+    #tmp1
+    tmp2 &lt;- do.call(&quot;rbind&quot;, by(dat_eng_prompt0_cens1, INDICES=dat_eng_prompt0_cens0$model, FUN=\(x){
+        c(
+            FP = sum(x$allCorrect == &quot;False&quot;),
+            TN = sum(x$allCorrect == &quot;True&quot;)
+        )
+    }))
+    #tmp2
+    
+    
+    
+    tmp &lt;- as.data.frame(cbind(tmp1, tmp2))
+    tmp[,&quot;Sens&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
+        (x[&quot;TP&quot;])/(x[&quot;TP&quot;] + x[&quot;FN&quot;])
+    })
+    tmp[,&quot;Spec&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
+        (x[&quot;TN&quot;])/(x[&quot;TN&quot;] + x[&quot;FP&quot;])
+    })
+    tmp[,&quot;F_score&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
+        (2*x[&quot;TP&quot;])/((2*x[&quot;TP&quot;]) + x[&quot;FP&quot;] + x[&quot;FN&quot;])
+    })
+    tmp[,&quot;Accuracy&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
+        (x[&quot;TP&quot;] + x[&quot;TN&quot;])/(x[&quot;FP&quot;] + x[&quot;FN&quot;] + x[&quot;TP&quot;] + x[&quot;TN&quot;])
+    })
+}   </code></pre>
+</div>
 </div>
 <div id="english" class="section level1">
 <h1>English</h1>
@@ -498,7 +564,15 @@ tmp2 &lt;- do.call(&quot;rbind&quot;, by(dat_eng_prompt0_cens1, INDICES=dat_eng_
 }))
 #tmp2
 
+
+
 tmp &lt;- as.data.frame(cbind(tmp1, tmp2))
+tmp[,&quot;Sens&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
+    (x[&quot;TP&quot;])/(x[&quot;TP&quot;] + x[&quot;FN&quot;])
+})
+tmp[,&quot;Spec&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
+    (x[&quot;TN&quot;])/(x[&quot;TN&quot;] + x[&quot;FP&quot;])
+})
 tmp[,&quot;F_score&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
     (2*x[&quot;TP&quot;])/((2*x[&quot;TP&quot;]) + x[&quot;FP&quot;] + x[&quot;FN&quot;])
 })
@@ -507,28 +581,66 @@ tmp[,&quot;Accuracy&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
 })
 p0eng &lt;- tmp
 p0eng</code></pre>
-<pre><code>##                                TP FN FP TN   F_score Accuracy
-## claude-3-5-haiku-20241022      20  5 24  1 0.5797101     0.42
-## claude-3-5-sonnet-20240620     24  1 21  4 0.6857143     0.56
-## claude-3-5-sonnet-20241022     24  1 19  6 0.7058824     0.60
-## claude-3-7-sonnet-20250219     24  1 21  4 0.6857143     0.56
-## deepseek-ai-deepseek-r1        22  3 14 11 0.7213115     0.66
-## gemini-1.5-pro-001             23  2 20  5 0.6764706     0.56
-## gemini-1.5-pro-002             22  3 25  0 0.6111111     0.44
-## gemini-2.0-flash-001           24  1 21  4 0.6857143     0.56
-## gemini-2.0-flash-lite-001      19  6 23  2 0.5671642     0.42
-## gemini-2.5-pro-preview-03-25   24  1 14 11 0.7619048     0.70
-## gpt-4.1-2025-04-14             24  1 17  8 0.7272727     0.64
-## gpt-4.1-mini-2025-04-14        20  5 14 11 0.6779661     0.62
-## gpt-4.1-nano-2025-04-14        14 11 23  2 0.4516129     0.32
-## gpt-4o-2024-05-13              24  1 12 13 0.7868852     0.74
-## gpt-4o-2024-08-06              24  1  8 17 0.8421053     0.82
-## gpt-4o-2024-11-20              24  1  8 17 0.8421053     0.82
-## grok-2-1212                    24  1 16  9 0.7384615     0.66
-## grok-3-beta                    24  1 14 11 0.7619048     0.70
-## meta-llama-4-maverick-instruct 23  2 17  8 0.7076923     0.62
-## meta-llama-4-scout-instruct    23  2 23  2 0.6478873     0.50
-## mistral-large-2411             23  2 10 15 0.7931034     0.76</code></pre>
+<pre><code>##                                TP FN FP TN      Sens       Spec   F_score
+## claude-3-5-haiku-20241022      23  7 29  1 0.7666667 0.03333333 0.5609756
+## claude-3-5-sonnet-20240620     29  1 26  4 0.9666667 0.13333333 0.6823529
+## claude-3-5-sonnet-20241022     30  0 23  7 1.0000000 0.23333333 0.7228916
+## claude-3-7-sonnet-20250219     29  1 26  4 0.9666667 0.13333333 0.6823529
+## claude-opus-4-20250514         28  2 22  8 0.9333333 0.26666667 0.7000000
+## claude-sonnet-4-20250514       29  1 20 10 0.9666667 0.33333333 0.7341772
+## deepseek-ai-deepseek-r1        25  5 18 12 0.8333333 0.40000000 0.6849315
+## deepseek-ai-deepseek-v3        28  2 20 10 0.9333333 0.33333333 0.7179487
+## gemini-2.0-flash-001           29  1 26  4 0.9666667 0.13333333 0.6823529
+## gemini-2.0-flash-lite-001      23  7 28  2 0.7666667 0.06666667 0.5679012
+## gemini-2.5-pro-preview-03-25   29  1 17 13 0.9666667 0.43333333 0.7631579
+## gemini-2.5-pro-preview-05-06   29  1 18 12 0.9666667 0.40000000 0.7532468
+## gemini-2.5-pro-preview-06-05   29  1 21  9 0.9666667 0.30000000 0.7250000
+## google-deepmind-gemma-3-12b-it 21  9 28  2 0.7000000 0.06666667 0.5316456
+## google-deepmind-gemma-3-27b-it 23  7 30  0 0.7666667 0.00000000 0.5542169
+## google-deepmind-gemma-3-4b-it   4 26 30  0 0.1333333 0.00000000 0.1250000
+## gpt-4.1-2025-04-14             29  1 22  8 0.9666667 0.26666667 0.7160494
+## gpt-4.1-mini-2025-04-14        24  6 16 14 0.8000000 0.46666667 0.6857143
+## gpt-4.1-nano-2025-04-14        15 15 28  2 0.5000000 0.06666667 0.4109589
+## gpt-4o-2024-05-13              27  3 15 15 0.9000000 0.50000000 0.7500000
+## gpt-4o-2024-08-06              26  4  9 21 0.8666667 0.70000000 0.8000000
+## gpt-4o-2024-11-20              28  2  9 21 0.9333333 0.70000000 0.8358209
+## grok-2-1212                    28  2 21  9 0.9333333 0.30000000 0.7088608
+## grok-3-beta                    28  2 17 13 0.9333333 0.43333333 0.7466667
+## meta-llama-4-maverick-instruct 28  2 22  8 0.9333333 0.26666667 0.7000000
+## meta-llama-4-scout-instruct    27  3 26  4 0.9000000 0.13333333 0.6506024
+## mistral-large-2411             27  3 13 17 0.9000000 0.56666667 0.7714286
+## mistral-medium-2505            28  2 28  2 0.9333333 0.06666667 0.6511628
+## mistral-small-2503             27  3 22  8 0.9000000 0.26666667 0.6835443
+##                                  Accuracy
+## claude-3-5-haiku-20241022      0.40000000
+## claude-3-5-sonnet-20240620     0.55000000
+## claude-3-5-sonnet-20241022     0.61666667
+## claude-3-7-sonnet-20250219     0.55000000
+## claude-opus-4-20250514         0.60000000
+## claude-sonnet-4-20250514       0.65000000
+## deepseek-ai-deepseek-r1        0.61666667
+## deepseek-ai-deepseek-v3        0.63333333
+## gemini-2.0-flash-001           0.55000000
+## gemini-2.0-flash-lite-001      0.41666667
+## gemini-2.5-pro-preview-03-25   0.70000000
+## gemini-2.5-pro-preview-05-06   0.68333333
+## gemini-2.5-pro-preview-06-05   0.63333333
+## google-deepmind-gemma-3-12b-it 0.38333333
+## google-deepmind-gemma-3-27b-it 0.38333333
+## google-deepmind-gemma-3-4b-it  0.06666667
+## gpt-4.1-2025-04-14             0.61666667
+## gpt-4.1-mini-2025-04-14        0.63333333
+## gpt-4.1-nano-2025-04-14        0.28333333
+## gpt-4o-2024-05-13              0.70000000
+## gpt-4o-2024-08-06              0.78333333
+## gpt-4o-2024-11-20              0.81666667
+## grok-2-1212                    0.61666667
+## grok-3-beta                    0.68333333
+## meta-llama-4-maverick-instruct 0.60000000
+## meta-llama-4-scout-instruct    0.51666667
+## mistral-large-2411             0.73333333
+## mistral-medium-2505            0.50000000
+## mistral-small-2503             0.58333333</code></pre>
 </div>
 <div id="runtimes" class="section level3">
 <h3>Runtimes</h3>
@@ -565,28 +677,36 @@ tmp[,&quot;Accuracy&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
 })
 p1eng &lt;- tmp
 p1eng</code></pre>
-<pre><code>##                                TP FN FP TN   F_score Accuracy
-## claude-3-5-haiku-20241022      21  4 19  6 0.6461538     0.54
-## claude-3-5-sonnet-20240620     24  1 20  5 0.6956522     0.58
-## claude-3-5-sonnet-20241022     24  1 14 11 0.7619048     0.70
-## claude-3-7-sonnet-20250219     24  1 15 10 0.7500000     0.68
-## deepseek-ai-deepseek-r1        24  1 10 15 0.8135593     0.78
-## gemini-1.5-pro-001             18  7 16  9 0.6101695     0.54
-## gemini-1.5-pro-002             19  6 20  5 0.5937500     0.48
-## gemini-2.0-flash-001           23  2 18  7 0.6969697     0.60
-## gemini-2.0-flash-lite-001      20  5 22  3 0.5970149     0.46
-## gemini-2.5-pro-preview-03-25   22  3 11 14 0.7586207     0.72
-## gpt-4.1-2025-04-14             24  1 14 11 0.7619048     0.70
-## gpt-4.1-mini-2025-04-14        22  3 13 12 0.7333333     0.68
-## gpt-4.1-nano-2025-04-14        11 14 20  5 0.3928571     0.32
-## gpt-4o-2024-05-13              24  1  8 17 0.8421053     0.82
-## gpt-4o-2024-08-06              23  2  4 21 0.8846154     0.88
-## gpt-4o-2024-11-20              24  1  7 18 0.8571429     0.84
-## grok-2-1212                    24  1  7 18 0.8571429     0.84
-## grok-3-beta                    24  1 16  9 0.7384615     0.66
-## meta-llama-4-maverick-instruct 22  3 19  6 0.6666667     0.56
-## meta-llama-4-scout-instruct    20  5 19  6 0.6250000     0.52
-## mistral-large-2411             23  2 11 14 0.7796610     0.74</code></pre>
+<pre><code>##                                TP FN FP TN   F_score  Accuracy
+## claude-3-5-haiku-20241022      25  5 23  7 0.6410256 0.5333333
+## claude-3-5-sonnet-20240620     29  1 25  5 0.6904762 0.5666667
+## claude-3-5-sonnet-20241022     30  0 18 12 0.7692308 0.7000000
+## claude-3-7-sonnet-20250219     29  1 20 10 0.7341772 0.6500000
+## claude-opus-4-20250514         28  2 19 11 0.7272727 0.6500000
+## claude-sonnet-4-20250514       29  1 26  4 0.6823529 0.5500000
+## deepseek-ai-deepseek-r1        27  3 14 16 0.7605634 0.7166667
+## deepseek-ai-deepseek-v3        28  2 20 10 0.7179487 0.6333333
+## gemini-2.0-flash-001           27  3 21  9 0.6923077 0.6000000
+## gemini-2.0-flash-lite-001      22  8 27  3 0.5569620 0.4166667
+## gemini-2.5-pro-preview-03-25   27  3 14 16 0.7605634 0.7166667
+## gemini-2.5-pro-preview-05-06   28  2 16 14 0.7567568 0.7000000
+## gemini-2.5-pro-preview-06-05   30  0 15 15 0.8000000 0.7500000
+## google-deepmind-gemma-3-12b-it 21  9 19 11 0.6000000 0.5333333
+## google-deepmind-gemma-3-27b-it 23  7 29  1 0.5609756 0.4000000
+## google-deepmind-gemma-3-4b-it  10 20 25  5 0.3076923 0.2500000
+## gpt-4.1-2025-04-14             30  0 18 12 0.7692308 0.7000000
+## gpt-4.1-mini-2025-04-14        23  7 15 15 0.6764706 0.6333333
+## gpt-4.1-nano-2025-04-14        12 18 23  7 0.3692308 0.3166667
+## gpt-4o-2024-05-13              28  2 10 20 0.8235294 0.8000000
+## gpt-4o-2024-08-06              25  5  5 25 0.8333333 0.8333333
+## gpt-4o-2024-11-20              28  2  9 21 0.8358209 0.8166667
+## grok-2-1212                    27  3 11 19 0.7941176 0.7666667
+## grok-3-beta                    28  2 19 11 0.7272727 0.6500000
+## meta-llama-4-maverick-instruct 27  3 23  7 0.6750000 0.5666667
+## meta-llama-4-scout-instruct    24  6 23  7 0.6233766 0.5166667
+## mistral-large-2411             27  3 14 16 0.7605634 0.7166667
+## mistral-medium-2505            27  3 25  5 0.6585366 0.5333333
+## mistral-small-2503             27  3 17 13 0.7297297 0.6666667</code></pre>
 </div>
 <div id="runtimes-1" class="section level3">
 <h3>Runtimes</h3>
@@ -623,31 +743,39 @@ tmp[,&quot;Accuracy&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
 })
 p2eng &lt;- tmp
 p2eng</code></pre>
-<pre><code>##                                TP FN FP TN   F_score Accuracy
-## claude-3-5-haiku-20241022      23  2 17  8 0.7076923     0.62
-## claude-3-5-sonnet-20240620     23  2 22  3 0.6571429     0.52
-## claude-3-5-sonnet-20241022     24  1 13 12 0.7741935     0.72
-## claude-3-7-sonnet-20250219     23  2 14 11 0.7419355     0.68
-## deepseek-ai-deepseek-r1        22  3  8 17 0.8000000     0.78
-## gemini-1.5-pro-001             20  5 11 14 0.7142857     0.68
-## gemini-1.5-pro-002             20  5 20  5 0.6153846     0.50
-## gemini-2.0-flash-001           24  1  8 17 0.8421053     0.82
-## gemini-2.0-flash-lite-001      18  7 21  4 0.5625000     0.44
-## gemini-2.5-pro-preview-03-25   23  2 13 12 0.7540984     0.70
-## gpt-4.1-2025-04-14             24  1  7 18 0.8571429     0.84
-## gpt-4.1-mini-2025-04-14        19  6  9 16 0.7169811     0.70
-## gpt-4.1-nano-2025-04-14        14 11 21  4 0.4666667     0.36
-## gpt-4o-2024-05-13              24  1  1 24 0.9600000     0.96
-## gpt-4o-2024-08-06              24  1  0 25 0.9795918     0.98
-## gpt-4o-2024-11-20              23  2  0 25 0.9583333     0.96
-## grok-2-1212                    23  2  8 17 0.8214286     0.80
-## grok-3-beta                    24  1  6 19 0.8727273     0.86
-## meta-llama-4-maverick-instruct 22  3 13 12 0.7333333     0.68
-## meta-llama-4-scout-instruct    18  7 13 12 0.6428571     0.60
-## mistral-large-2411             23  2  5 20 0.8679245     0.86</code></pre>
+<pre><code>##                                TP FN FP TN   F_score  Accuracy
+## claude-3-5-haiku-20241022      26  4 21  9 0.6753247 0.5833333
+## claude-3-5-sonnet-20240620     28  2 26  4 0.6666667 0.5333333
+## claude-3-5-sonnet-20241022     29  1 17 13 0.7631579 0.7000000
+## claude-3-7-sonnet-20250219     28  2 17 13 0.7466667 0.6833333
+## claude-opus-4-20250514         29  1 17 13 0.7631579 0.7000000
+## claude-sonnet-4-20250514       29  1 21  9 0.7250000 0.6333333
+## deepseek-ai-deepseek-r1        24  6 11 19 0.7384615 0.7166667
+## deepseek-ai-deepseek-v3        27  3 13 17 0.7714286 0.7333333
+## gemini-2.0-flash-001           28  2  9 21 0.8358209 0.8166667
+## gemini-2.0-flash-lite-001      21  9 25  5 0.5526316 0.4333333
+## gemini-2.5-pro-preview-03-25   28  2 15 15 0.7671233 0.7166667
+## gemini-2.5-pro-preview-05-06   28  2 18 12 0.7368421 0.6666667
+## gemini-2.5-pro-preview-06-05   28  2 13 17 0.7887324 0.7500000
+## google-deepmind-gemma-3-12b-it 20 10 10 20 0.6666667 0.6666667
+## google-deepmind-gemma-3-27b-it 23  7 20 10 0.6301370 0.5500000
+## google-deepmind-gemma-3-4b-it  10 20 15 15 0.3636364 0.4166667
+## gpt-4.1-2025-04-14             29  1  9 21 0.8529412 0.8333333
+## gpt-4.1-mini-2025-04-14        20 10 11 19 0.6557377 0.6500000
+## gpt-4.1-nano-2025-04-14        15 15 25  5 0.4285714 0.3333333
+## gpt-4o-2024-05-13              26  4  1 29 0.9122807 0.9166667
+## gpt-4o-2024-08-06              26  4  0 30 0.9285714 0.9333333
+## gpt-4o-2024-11-20              27  3  0 30 0.9473684 0.9500000
+## grok-2-1212                    26  4  8 22 0.8125000 0.8000000
+## grok-3-beta                    28  2  6 24 0.8750000 0.8666667
+## meta-llama-4-maverick-instruct 28  2 17 13 0.7466667 0.6833333
+## meta-llama-4-scout-instruct    22  8 15 15 0.6567164 0.6166667
+## mistral-large-2411             27  3  6 24 0.8571429 0.8500000
+## mistral-medium-2505            26  4 13 17 0.7536232 0.7166667
+## mistral-small-2503             26  4 14 16 0.7428571 0.7000000</code></pre>
 <pre class="r"><code>quantile(p2eng[,&quot;F_score&quot;], probs=c(0.25, 0.5, 0.75))</code></pre>
 <pre><code>##       25%       50%       75% 
-## 0.7076923 0.7540984 0.8571429</code></pre>
+## 0.6666667 0.7466667 0.8125000</code></pre>
 </div>
 <div id="runtimes-2" class="section level3">
 <h3>Runtimes</h3>
@@ -697,28 +825,36 @@ tmp[,&quot;Accuracy&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
 })
 p0fin &lt;- tmp
 p0fin</code></pre>
-<pre><code>##                                TP FN FP TN   F_score Accuracy
-## claude-3-5-haiku-20241022      22  3 25  0 0.6111111     0.44
-## claude-3-5-sonnet-20240620     24  1 24  1 0.6575342     0.50
-## claude-3-5-sonnet-20241022     24  1 21  4 0.6857143     0.56
-## claude-3-7-sonnet-20250219     24  1 23  2 0.6666667     0.52
-## deepseek-ai-deepseek-r1        24  1 22  3 0.6760563     0.54
-## gemini-1.5-pro-001             20  5 16  9 0.6557377     0.58
-## gemini-1.5-pro-002             20  5 25  0 0.5714286     0.40
-## gemini-2.0-flash-001           23  2 25  0 0.6301370     0.46
-## gemini-2.0-flash-lite-001      20  5 22  3 0.5970149     0.46
-## gemini-2.5-pro-preview-03-25   24  1 18  7 0.7164179     0.62
-## gpt-4.1-2025-04-14             24  1 17  8 0.7272727     0.64
-## gpt-4.1-mini-2025-04-14        18  7 14 11 0.6315789     0.58
-## gpt-4.1-nano-2025-04-14        10 15 22  3 0.3508772     0.26
-## gpt-4o-2024-05-13              24  1  7 18 0.8571429     0.84
-## gpt-4o-2024-08-06              23  2  7 18 0.8363636     0.82
-## gpt-4o-2024-11-20              23  2  6 19 0.8518519     0.84
-## grok-2-1212                    20  5 20  5 0.6153846     0.50
-## grok-3-beta                    22  3 18  7 0.6769231     0.58
-## meta-llama-4-maverick-instruct 11 14 15 10 0.4313725     0.42
-## meta-llama-4-scout-instruct    19  6 19  6 0.6031746     0.50
-## mistral-large-2411             19  6  5 20 0.7755102     0.78</code></pre>
+<pre><code>##                                TP FN FP TN   F_score   Accuracy
+## claude-3-5-haiku-20241022      26  4 30  0 0.6046512 0.43333333
+## claude-3-5-sonnet-20240620     29  1 28  2 0.6666667 0.51666667
+## claude-3-5-sonnet-20241022     30  0 26  4 0.6976744 0.56666667
+## claude-3-7-sonnet-20250219     30  0 28  2 0.6818182 0.53333333
+## claude-opus-4-20250514         28  2 26  4 0.6666667 0.53333333
+## claude-sonnet-4-20250514       28  2 19 11 0.7272727 0.65000000
+## deepseek-ai-deepseek-r1        29  1 27  3 0.6744186 0.53333333
+## deepseek-ai-deepseek-v3        21  9 29  1 0.5250000 0.36666667
+## gemini-2.0-flash-001           27  3 30  0 0.6206897 0.45000000
+## gemini-2.0-flash-lite-001      23  7 26  4 0.5822785 0.45000000
+## gemini-2.5-pro-preview-03-25   30  0 22  8 0.7317073 0.63333333
+## gemini-2.5-pro-preview-05-06   30  0 23  7 0.7228916 0.61666667
+## gemini-2.5-pro-preview-06-05   30  0 15 15 0.8000000 0.75000000
+## google-deepmind-gemma-3-12b-it 20 10 30  0 0.5000000 0.33333333
+## google-deepmind-gemma-3-27b-it 21  9 30  0 0.5185185 0.35000000
+## google-deepmind-gemma-3-4b-it   5 25 30  0 0.1538462 0.08333333
+## gpt-4.1-2025-04-14             30  0 20 10 0.7500000 0.66666667
+## gpt-4.1-mini-2025-04-14        22  8 19 11 0.6197183 0.55000000
+## gpt-4.1-nano-2025-04-14        10 20 26  4 0.3030303 0.23333333
+## gpt-4o-2024-05-13              29  1  9 21 0.8529412 0.83333333
+## gpt-4o-2024-08-06              28  2  9 21 0.8358209 0.81666667
+## gpt-4o-2024-11-20              27  3  8 22 0.8307692 0.81666667
+## grok-2-1212                    23  7 24  6 0.5974026 0.48333333
+## grok-3-beta                    27  3 22  8 0.6835443 0.58333333
+## meta-llama-4-maverick-instruct 28  2 18 12 0.7368421 0.66666667
+## meta-llama-4-scout-instruct    24  6 24  6 0.6153846 0.50000000
+## mistral-large-2411             21  9  6 24 0.7368421 0.75000000
+## mistral-medium-2505            26  4 26  4 0.6341463 0.50000000
+## mistral-small-2503             25  5 18 12 0.6849315 0.61666667</code></pre>
 </div>
 </div>
 <div id="prompt-1-one-shot-1" class="section level2">
@@ -749,28 +885,36 @@ tmp[,&quot;Accuracy&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
 })
 p1fin &lt;- tmp
 p1fin</code></pre>
-<pre><code>##                                TP FN FP TN   F_score Accuracy
-## claude-3-5-haiku-20241022      22  3 25  0 0.6111111     0.44
-## claude-3-5-sonnet-20240620     24  1 24  1 0.6575342     0.50
-## claude-3-5-sonnet-20241022     24  1 21  4 0.6857143     0.56
-## claude-3-7-sonnet-20250219     24  1 21  4 0.6857143     0.56
-## deepseek-ai-deepseek-r1        24  1 20  5 0.6956522     0.58
-## gemini-1.5-pro-001             22  3 20  5 0.6567164     0.54
-## gemini-1.5-pro-002             18  7 22  3 0.5538462     0.42
-## gemini-2.0-flash-001           23  2 25  0 0.6301370     0.46
-## gemini-2.0-flash-lite-001      22  3 22  3 0.6376812     0.50
-## gemini-2.5-pro-preview-03-25   24  1 13 12 0.7741935     0.72
-## gpt-4.1-2025-04-14             24  1  9 16 0.8275862     0.80
-## gpt-4.1-mini-2025-04-14        19  6  6 19 0.7600000     0.76
-## gpt-4.1-nano-2025-04-14        10 15 25  0 0.3333333     0.20
-## gpt-4o-2024-05-13              24  1  4 21 0.9056604     0.90
-## gpt-4o-2024-08-06              23  2  6 19 0.8518519     0.84
-## gpt-4o-2024-11-20              24  1  4 21 0.9056604     0.90
-## grok-2-1212                    20  5 15 10 0.6666667     0.60
-## grok-3-beta                    23  2 14 11 0.7419355     0.68
-## meta-llama-4-maverick-instruct 23  2 14 11 0.7419355     0.68
-## meta-llama-4-scout-instruct    23  2 15 10 0.7301587     0.66
-## mistral-large-2411             22  3  9 16 0.7857143     0.76</code></pre>
+<pre><code>##                                TP FN FP TN   F_score  Accuracy
+## claude-3-5-haiku-20241022      27  3 30  0 0.6206897 0.4500000
+## claude-3-5-sonnet-20240620     29  1 28  2 0.6666667 0.5166667
+## claude-3-5-sonnet-20241022     29  1 26  4 0.6823529 0.5500000
+## claude-3-7-sonnet-20250219     29  1 25  5 0.6904762 0.5666667
+## claude-opus-4-20250514         29  1 24  6 0.6987952 0.5833333
+## claude-sonnet-4-20250514       27  3 13 17 0.7714286 0.7333333
+## deepseek-ai-deepseek-r1        28  2 25  5 0.6746988 0.5500000
+## deepseek-ai-deepseek-v3        26  4 27  3 0.6265060 0.4833333
+## gemini-2.0-flash-001           27  3 29  1 0.6279070 0.4666667
+## gemini-2.0-flash-lite-001      26  4 24  6 0.6500000 0.5333333
+## gemini-2.5-pro-preview-03-25   29  1 15 15 0.7837838 0.7333333
+## gemini-2.5-pro-preview-05-06   30  0 15 15 0.8000000 0.7500000
+## gemini-2.5-pro-preview-06-05   30  0  9 21 0.8695652 0.8500000
+## google-deepmind-gemma-3-12b-it 20 10 30  0 0.5000000 0.3333333
+## google-deepmind-gemma-3-27b-it 21  9 28  2 0.5316456 0.3833333
+## google-deepmind-gemma-3-4b-it  13 17 28  2 0.3661972 0.2500000
+## gpt-4.1-2025-04-14             29  1 11 19 0.8285714 0.8000000
+## gpt-4.1-mini-2025-04-14        23  7 10 20 0.7301587 0.7166667
+## gpt-4.1-nano-2025-04-14        12 18 30  0 0.3333333 0.2000000
+## gpt-4o-2024-05-13              28  2  4 26 0.9032258 0.9000000
+## gpt-4o-2024-08-06              27  3  6 24 0.8571429 0.8500000
+## gpt-4o-2024-11-20              28  2  4 26 0.9032258 0.9000000
+## grok-2-1212                    24  6 18 12 0.6666667 0.6000000
+## grok-3-beta                    28  2 18 12 0.7368421 0.6666667
+## meta-llama-4-maverick-instruct 28  2 18 12 0.7368421 0.6666667
+## meta-llama-4-scout-instruct    27  3 19 11 0.7105263 0.6333333
+## mistral-large-2411             24  6 10 20 0.7500000 0.7333333
+## mistral-medium-2505            26  4 23  7 0.6582278 0.5500000
+## mistral-small-2503             28  2 16 14 0.7567568 0.7000000</code></pre>
 </div>
 </div>
 <div id="prompt-2-few-shot-1" class="section level2">
@@ -801,31 +945,39 @@ tmp[,&quot;Accuracy&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
 })
 p2fin &lt;- tmp
 p2fin</code></pre>
-<pre><code>##                                TP FN FP TN   F_score Accuracy
-## claude-3-5-haiku-20241022      21  4 15 10 0.6885246     0.62
-## claude-3-5-sonnet-20240620     24  1 21  4 0.6857143     0.56
-## claude-3-5-sonnet-20241022     24  1 16  9 0.7384615     0.66
-## claude-3-7-sonnet-20250219     24  1 15 10 0.7500000     0.68
-## deepseek-ai-deepseek-r1        23  2 13 12 0.7540984     0.70
-## gemini-1.5-pro-001             19  6 11 14 0.6909091     0.66
-## gemini-1.5-pro-002             21  4 20  5 0.6363636     0.52
-## gemini-2.0-flash-001           20  5 22  3 0.5970149     0.46
-## gemini-2.0-flash-lite-001      20  5 13 12 0.6896552     0.64
-## gemini-2.5-pro-preview-03-25   24  1 11 14 0.8000000     0.76
-## gpt-4.1-2025-04-14             24  1  4 21 0.9056604     0.90
-## gpt-4.1-mini-2025-04-14        19  6  7 18 0.7450980     0.74
-## gpt-4.1-nano-2025-04-14        11 14 24  1 0.3666667     0.24
-## gpt-4o-2024-05-13              23  2  1 24 0.9387755     0.94
-## gpt-4o-2024-08-06              23  2  1 24 0.9387755     0.94
-## gpt-4o-2024-11-20              23  2  2 23 0.9200000     0.92
-## grok-2-1212                    19  6  4 21 0.7916667     0.80
-## grok-3-beta                    23  2  8 17 0.8214286     0.80
-## meta-llama-4-maverick-instruct 22  3 10 15 0.7719298     0.74
-## meta-llama-4-scout-instruct    20  5  8 17 0.7547170     0.74
-## mistral-large-2411             18  7  5 20 0.7500000     0.76</code></pre>
+<pre><code>##                                TP FN FP TN   F_score  Accuracy
+## claude-3-5-haiku-20241022      26  4 19 11 0.6933333 0.6166667
+## claude-3-5-sonnet-20240620     29  1 26  4 0.6823529 0.5500000
+## claude-3-5-sonnet-20241022     30  0 20 10 0.7500000 0.6666667
+## claude-3-7-sonnet-20250219     29  1 20 10 0.7341772 0.6500000
+## claude-opus-4-20250514         29  1 20 10 0.7341772 0.6500000
+## claude-sonnet-4-20250514       28  2 11 19 0.8115942 0.7833333
+## deepseek-ai-deepseek-r1        27  3 16 14 0.7397260 0.6833333
+## deepseek-ai-deepseek-v3        21  9 17 13 0.6176471 0.5666667
+## gemini-2.0-flash-001           24  6 26  4 0.6000000 0.4666667
+## gemini-2.0-flash-lite-001      24  6 13 17 0.7164179 0.6833333
+## gemini-2.5-pro-preview-03-25   29  1 13 17 0.8055556 0.7666667
+## gemini-2.5-pro-preview-05-06   30  0 14 16 0.8108108 0.7666667
+## gemini-2.5-pro-preview-06-05   30  0  7 23 0.8955224 0.8833333
+## google-deepmind-gemma-3-12b-it 22  8 30  0 0.5365854 0.3666667
+## google-deepmind-gemma-3-27b-it 20 10 17 13 0.5970149 0.5500000
+## google-deepmind-gemma-3-4b-it  12 18 21  9 0.3809524 0.3500000
+## gpt-4.1-2025-04-14             29  1  4 26 0.9206349 0.9166667
+## gpt-4.1-mini-2025-04-14        23  7 11 19 0.7187500 0.7000000
+## gpt-4.1-nano-2025-04-14        13 17 29  1 0.3611111 0.2333333
+## gpt-4o-2024-05-13              27  3  0 30 0.9473684 0.9500000
+## gpt-4o-2024-08-06              27  3  0 30 0.9473684 0.9500000
+## gpt-4o-2024-11-20              28  2  1 29 0.9491525 0.9500000
+## grok-2-1212                    24  6  4 26 0.8275862 0.8333333
+## grok-3-beta                    28  2 10 20 0.8235294 0.8000000
+## meta-llama-4-maverick-instruct 27  3 13 17 0.7714286 0.7333333
+## meta-llama-4-scout-instruct    23  7  8 22 0.7540984 0.7500000
+## mistral-large-2411             21  9  4 26 0.7636364 0.7833333
+## mistral-medium-2505            25  5 13 17 0.7352941 0.7000000
+## mistral-small-2503             28  2 11 19 0.8115942 0.7833333</code></pre>
 <pre class="r"><code>quantile(p2fin[,&quot;F_score&quot;], probs=c(0.25, 0.5, 0.75))</code></pre>
 <pre><code>##       25%       50%       75% 
-## 0.6896552 0.7500000 0.8000000</code></pre>
+## 0.6933333 0.7500000 0.8115942</code></pre>
 </div>
 </div>
 </div>
@@ -867,67 +1019,83 @@ tmp[,&quot;Accuracy&quot;] &lt;- apply(tmp, MARGIN=1, FUN=\(x){
 })
 p2both &lt;- tmp
 p2both</code></pre>
-<pre><code>##                                TP FN TimeCens0 FP TN  TimeCens1    TimeAll
-## claude-3-5-haiku-20241022      44  6 7.5616277 32 18  7.7200887  7.5616277
-## claude-3-5-sonnet-20240620     47  3 3.4395063 43  7  3.8863310  3.7124957
-## claude-3-5-sonnet-20241022     48  2 3.5044512 29 21  4.2424452  3.9299532
-## claude-3-7-sonnet-20250219     47  3 2.6284484 29 21  3.3607433  2.9914764
-## deepseek-ai-deepseek-r1        45  5 9.6503740 21 29 12.6883602 11.1305765
-## gemini-1.5-pro-001             39 11 1.1949142 22 28  1.1771801  1.1924279
-## gemini-1.5-pro-002             41  9 2.3279384 40 10  2.3300721  2.3279384
-## gemini-2.0-flash-001           44  6 0.5622825 30 20  0.5705006  0.5652040
-## gemini-2.0-flash-lite-001      38 12 0.5819998 34 16  0.5660004  0.5781634
-## gemini-2.5-pro-preview-03-25   47  3 4.8655953 24 26  8.0630163  6.3053017
-## gpt-4.1-2025-04-14             48  2 1.3074993 11 39  1.2642293  1.2772715
-## gpt-4.1-mini-2025-04-14        38 12 0.7882733 16 34  0.7420026  0.7685439
-## gpt-4.1-nano-2025-04-14        25 25 0.7523391 45  5  0.8004931  0.7855745
-## gpt-4o-2024-05-13              47  3 0.8081448  2 48  0.7120005  0.7540005
-## gpt-4o-2024-08-06              47  3 0.8159124  1 49  0.7490001  0.7901294
-## gpt-4o-2024-11-20              46  4 0.7112440  2 48  0.7020905  0.7065465
-## grok-2-1212                    42  8 0.8376784 12 38  0.6457724  0.7189992
-## grok-3-beta                    47  3 0.7396747 14 36  0.7405013  0.7405013
-## meta-llama-4-maverick-instruct 44  6 2.9450002 23 27  4.6933035  3.7137784
-## meta-llama-4-scout-instruct    38 12 2.7198124 21 29  2.5396936  2.5942779
-## mistral-large-2411             41  9 3.3482192 10 40  3.7070471  3.4732455
-##                                CondordanceExactProp   F_score Accuracy
-## claude-3-5-haiku-20241022                      0.79 0.6984127     0.62
-## claude-3-5-sonnet-20240620                     0.43 0.6714286     0.54
-## claude-3-5-sonnet-20241022                     0.26 0.7559055     0.69
-## claude-3-7-sonnet-20250219                     0.59 0.7460317     0.68
-## deepseek-ai-deepseek-r1                        0.02 0.7758621     0.74
-## gemini-1.5-pro-001                             0.70 0.7027027     0.67
-## gemini-1.5-pro-002                             0.96 0.6259542     0.51
-## gemini-2.0-flash-001                           0.81 0.7096774     0.64
-## gemini-2.0-flash-lite-001                      0.84 0.6229508     0.54
-## gemini-2.5-pro-preview-03-25                   0.86 0.7768595     0.73
-## gpt-4.1-2025-04-14                             0.87 0.8807339     0.87
-## gpt-4.1-mini-2025-04-14                        0.69 0.7307692     0.72
-## gpt-4.1-nano-2025-04-14                        0.94 0.4166667     0.30
-## gpt-4o-2024-05-13                              0.85 0.9494949     0.95
-## gpt-4o-2024-08-06                              0.97 0.9591837     0.96
-## gpt-4o-2024-11-20                              0.54 0.9387755     0.94
-## grok-2-1212                                    0.81 0.8076923     0.80
-## grok-3-beta                                    0.87 0.8468468     0.83
-## meta-llama-4-maverick-instruct                 0.63 0.7521368     0.71
-## meta-llama-4-scout-instruct                    0.13 0.6972477     0.67
-## mistral-large-2411                             0.19 0.8118812     0.81</code></pre>
+<pre><code>##                                TP FN  TimeCens0 FP TN  TimeCens1    TimeAll
+## claude-3-5-haiku-20241022      52  8  5.0785165 40 20  5.6784144  5.4416072
+## claude-3-5-sonnet-20240620     57  3  3.4676537 52  8  3.8984059  3.7432313
+## claude-3-5-sonnet-20241022     59  1  3.5592423 37 23  4.2770500  4.0036213
+## claude-3-7-sonnet-20250219     57  3  2.6284484 37 23  3.3728348  3.1030510
+## claude-opus-4-20250514         58  2  4.6672705 37 23  5.4259256  4.8519682
+## claude-sonnet-4-20250514       57  3  4.3758153 32 28  6.7735323  5.5884390
+## deepseek-ai-deepseek-r1        51  9  9.3259195 27 33 12.0991190 10.1637100
+## deepseek-ai-deepseek-v3        48 12  0.9058460 30 30  0.8303265  0.8657797
+## gemini-2.0-flash-001           52  8  0.5690625 35 25  0.5724999  0.5723592
+## gemini-2.0-flash-lite-001      45 15  0.5889408 38 22  0.5746077  0.5819986
+## gemini-2.5-pro-preview-03-25   57  3  5.4048013 28 32  8.5205070  6.9744912
+## gemini-2.5-pro-preview-05-06   58  2 11.3028765 32 28 22.9145900 14.1598883
+## gemini-2.5-pro-preview-06-05   58  2 11.5197437 20 40 16.6566945 14.7735180
+## google-deepmind-gemma-3-12b-it 42 18  2.9454379 40 20  2.5130812  2.9132118
+## google-deepmind-gemma-3-27b-it 43 17         NA 37 23  3.6373490         NA
+## google-deepmind-gemma-3-4b-it  22 38  6.8211338 36 24  6.6676247  6.7118490
+## gpt-4.1-2025-04-14             58  2  1.2553067 13 47  1.2004367  1.2270002
+## gpt-4.1-mini-2025-04-14        43 17  0.8245415 22 38  0.7790325  0.8032397
+## gpt-4.1-nano-2025-04-14        28 32  0.7324285 54  6  0.7507222  0.7405305
+## gpt-4o-2024-05-13              53  7  0.7689101  1 59  0.7013721  0.7433773
+## gpt-4o-2024-08-06              53  7  0.8720351  0 60  0.7700831  0.8119555
+## gpt-4o-2024-11-20              55  5  0.7242829  1 59  0.7108003  0.7189105
+## grok-2-1212                    50 10  0.8455670 12 48  0.6477552  0.7120720
+## grok-3-beta                    56  4  0.7310331 16 44  0.6886366  0.7177625
+## meta-llama-4-maverick-instruct 55  5  2.9933546 30 30  4.7252341  3.7661204
+## meta-llama-4-scout-instruct    45 15  2.7695005 23 37  2.7276554  2.7405171
+## mistral-large-2411             48 12  3.0839624 10 50  3.1367171  3.1104569
+## mistral-medium-2505            51  9  0.5644275 26 34  0.4986319  0.5353837
+## mistral-small-2503             54  6  0.5762119 25 35  0.9496560  0.9049481
+##                                CondordanceExactProp   F_score  Accuracy
+## claude-3-5-haiku-20241022                0.66666667 0.6842105 0.6000000
+## claude-3-5-sonnet-20240620               0.38333333 0.6745562 0.5416667
+## claude-3-5-sonnet-20241022               0.25000000 0.7564103 0.6833333
+## claude-3-7-sonnet-20250219               0.57500000 0.7402597 0.6666667
+## claude-opus-4-20250514                   0.69166667 0.7483871 0.6750000
+## claude-sonnet-4-20250514                 0.90833333 0.7651007 0.7083333
+## deepseek-ai-deepseek-r1                  0.01666667 0.7391304 0.7000000
+## deepseek-ai-deepseek-v3                  0.63333333 0.6956522 0.6500000
+## gemini-2.0-flash-001                     0.83333333 0.7074830 0.6416667
+## gemini-2.0-flash-lite-001                0.85000000 0.6293706 0.5583333
+## gemini-2.5-pro-preview-03-25             0.80833333 0.7862069 0.7416667
+## gemini-2.5-pro-preview-05-06             0.47500000 0.7733333 0.7166667
+## gemini-2.5-pro-preview-06-05             0.53333333 0.8405797 0.8166667
+## google-deepmind-gemma-3-12b-it           1.00000000 0.5915493 0.5166667
+## google-deepmind-gemma-3-27b-it           0.99166667 0.6142857 0.5500000
+## google-deepmind-gemma-3-4b-it            1.00000000 0.3728814 0.3833333
+## gpt-4.1-2025-04-14                       0.85833333 0.8854962 0.8750000
+## gpt-4.1-mini-2025-04-14                  0.67500000 0.6880000 0.6750000
+## gpt-4.1-nano-2025-04-14                  0.94166667 0.3943662 0.2833333
+## gpt-4o-2024-05-13                        0.82500000 0.9298246 0.9333333
+## gpt-4o-2024-08-06                        0.97500000 0.9380531 0.9416667
+## gpt-4o-2024-11-20                        0.55833333 0.9482759 0.9500000
+## grok-2-1212                              0.80000000 0.8196721 0.8166667
+## grok-3-beta                              0.86666667 0.8484848 0.8333333
+## meta-llama-4-maverick-instruct           0.58333333 0.7586207 0.7083333
+## meta-llama-4-scout-instruct              0.16666667 0.7031250 0.6833333
+## mistral-large-2411                       0.20833333 0.8135593 0.8166667
+## mistral-medium-2505                      0.92500000 0.7445255 0.7083333
+## mistral-small-2503                       1.00000000 0.7769784 0.7416667</code></pre>
 <pre class="r"><code>quantile(p2both[,&quot;F_score&quot;], probs=c(0.25, 0.5, 0.75))</code></pre>
 <pre><code>##       25%       50%       75% 
-## 0.6984127 0.7521368 0.8118812</code></pre>
+## 0.6880000 0.7483871 0.8135593</code></pre>
 <pre class="r"><code>cor(p2both[,&quot;TimeAll&quot;], p2both[,&quot;F_score&quot;], method=&quot;pearson&quot;)</code></pre>
-<pre><code>## [1] -0.06664566</code></pre>
+<pre><code>## [1] NA</code></pre>
 <pre class="r"><code>cor.test(p2both[,&quot;TimeAll&quot;], p2both[,&quot;F_score&quot;], method=&quot;pearson&quot;)</code></pre>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
 ## data:  p2both[, &quot;TimeAll&quot;] and p2both[, &quot;F_score&quot;]
-## t = -0.29115, df = 19, p-value = 0.7741
+## t = -0.1696, df = 26, p-value = 0.8666
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
-##  -0.4843963  0.3758545
+##  -0.4013415  0.3441025
 ## sample estimates:
 ##         cor 
-## -0.06664566</code></pre>
+## -0.03324194</code></pre>
 </div>
 </div>
 </div>
