@@ -3018,33 +3018,31 @@ prompts = [
 ]
 
 ## Functions for interacting with the data
+# TODO: Add sanity checking to indices
 
-# Statement handling
-def getMaxInputIndex():
-    return 98
+# Statement amount handling (stratified by language 0 = English, 1 = Finnish, 2 = Swedish)
+def getMaxInputIndex(lang : int) -> int:
+    return [98, 98, -1][lang]
 
-def getMaxInputLength():
-    #return len(statements)
-    return 99
+def getMaxInputLength(lang : int) -> int:
+    return [99, 99, 0][lang]
 
-def getArrayInputIndex():
-    return list(range(99))
+def getArrayInputIndex(lang : int) -> list[int]:
+    return list(range([99, 99, 0][lang]))
 
 # Prompt handling
 
-
-def getMaxPromptIndex():
+def getMaxPromptIndex() -> int:
     return len(prompts)-1
 
-def getMaxPromptLength():
+def getMaxPromptLength() -> int:
     return len(prompts)
 
-def getArrayPromptIndex():
+def getArrayPromptIndex() -> list[int]:
     return list(range(len(prompts)))
 
 # Whole content fetching; combines prompt + statement (in correct language & censoring status)
 def getQuery(promptIndex : int, inputIndex : int, lang : int, cens : int) -> str:
-    # TODO: Add sanity checking to indices
     return prompts[promptIndex][lang] + "\n\n" + statements[inputIndex][cens][lang]
 
 # Return just the statement without the structuring prompt prefix
