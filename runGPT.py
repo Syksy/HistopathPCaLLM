@@ -134,10 +134,10 @@ while True:
         ]:
             # Prompts to iterate across
             for promptIndex in histoPCaData.getArrayPromptIndex():
-                # Input statements
-                for inputIndex in histoPCaData.getArrayInputIndex():
-                    # Iterate across languages (0 = English, 1 = Finnish, ...)
-                    for lang in [0, 1]:
+                # Iterate across languages (0 = English, 1 = Finnish, ...)
+                for lang in [0, 1]:
+                    # Input statements
+                    for inputIndex in histoPCaData.getArrayInputIndex(lang):
                         # Non-censored (value 0) or censored (1) version of the input statements
                         for cens in [0, 1]:
                             # Seed settings

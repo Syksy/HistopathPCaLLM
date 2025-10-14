@@ -152,8 +152,7 @@ for modelname in [
 
 # Test running through GPT-OSSes locally
 for modelname in [
-    #"openai/gpt-oss-20b",
-    #"openai/gpt-oss-120b"
+    #"openai/gpt-oss-20b"
 ]:
     print("Creating pipeline...")
     pipe = pipeline(
@@ -168,10 +167,10 @@ for modelname in [
     # Prompts to iterate across
     #for promptIndex in data.getArrayPromptIndex():
     for promptIndex in [2, 1, 0]:
-        # Input statements
-        for inputIndex in histoPCaData.getArrayInputIndex():
-            # Iterate across languages (0 = English, 1 = Finnish, ...)
-            for lang in [0, 1]:
+        # Iterate across languages (0 = English, 1 = Finnish, ...)
+        for lang in [0, 1, 2]:
+            # Input statements
+            for inputIndex in histoPCaData.getArrayInputIndex(lang):
                 # Non-censored (value 0) or censored (1) version of the input statements
                 for cens in [0, 1]:
                     # Seed settings
@@ -235,7 +234,7 @@ for modelname in [
     #"Qwen/Qwen3-8B",
     #"Qwen/Qwen3-14B",
     #"Qwen/Qwen3-30B-A3B",
-    "Qwen/Qwen3-32B"
+    #"Qwen/Qwen3-32B"
 ]:
     print("Loading tokenizer and model...")
     # load the tokenizer and the model
@@ -248,8 +247,8 @@ for modelname in [
         #device_map="auto"
     )
     # Prompts to iterate across
-    #for promptIndex in data.getArrayPromptIndex():
-    for promptIndex in [2, 1, 0]:
+    for promptIndex in histoPCaData.getArrayPromptIndex():
+    #for promptIndex in [2, 1, 0]:
         # Input statements
         for inputIndex in histoPCaData.getArrayInputIndex():
             # Iterate across languages (0 = English, 1 = Finnish, ...)
