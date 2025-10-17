@@ -24,7 +24,7 @@ while True:
         ]:
             # Prompts to iterate across
             for promptIndex in histoPCaData.getArrayPromptIndex():
-                # Iterate across languages (0 = English, 1 = Finnish, ...)
+                # Iterate across languages (0 = English, 1 = Finnish, 2 = Swedish)
                 for lang in [0, 1, 2]:
                     # Input statements
                     for inputIndex in histoPCaData.getArrayInputIndex(lang):

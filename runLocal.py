@@ -167,7 +167,7 @@ for modelname in [
     # Prompts to iterate across
     #for promptIndex in data.getArrayPromptIndex():
     for promptIndex in [2, 1, 0]:
-        # Iterate across languages (0 = English, 1 = Finnish, ...)
+        # Iterate across languages (0 = English, 1 = Finnish, 2 = Swedish)
         for lang in [0, 1, 2]:
             # Input statements
             for inputIndex in histoPCaData.getArrayInputIndex(lang):

@@ -3022,13 +3022,13 @@ prompts = [
 
 # Statement amount handling (stratified by language 0 = English, 1 = Finnish, 2 = Swedish)
 def getMaxInputIndex(lang : int) -> int:
-    return [98, 98, -1][lang]
+    return [98, 98, 2][lang]
 
 def getMaxInputLength(lang : int) -> int:
-    return [99, 99, 0][lang]
+    return [99, 99, 3][lang]
 
 def getArrayInputIndex(lang : int) -> list[int]:
-    return list(range([99, 99, 0][lang]))
+    return list(range([99, 99, 3][lang]))
 
 # Prompt handling
 
