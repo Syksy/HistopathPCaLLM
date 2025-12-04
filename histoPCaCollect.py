@@ -172,6 +172,7 @@ modelnames = [
     "Qwen/Qwen3-8B",
     "Qwen/Qwen3-14B",
     "Qwen/Qwen3-30B-A3B",
+    "Qwen/Qwen3-32B",
 ]
 # Model name sanitization to avoid potentially difficult characters
 modelnames = list(map(lambda x: re.sub("/", "-", x), modelnames))
@@ -220,8 +221,8 @@ print(str(runtimes.shape) + "\n")
 for cens in [0, 1]:
     for modelIndex in range(len(modelnames)):
         for promptIndex in range(histoPCaData.getMaxPromptLength()):
-            for inputIndex in range(histoPCaData.getMaxInputLength()):
-                for lang in [0, 1]:
+            for lang in [0, 1]:
+                for inputIndex in range(histoPCaData.getMaxInputLength(lang)):
                     # Select seed variants based on if it was allowed (GPT and Llama families)
                     #if bool(re.search("gpt|llama", modelnames[modelIndex], re.IGNORECASE)):
                     #    seeds = range(2)

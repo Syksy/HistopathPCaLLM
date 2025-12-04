@@ -76,6 +76,7 @@ modelnames = [
     "Qwen/Qwen3-8B",
     "Qwen/Qwen3-14B",
     "Qwen/Qwen3-30B-A3B",
+    "Qwen/Qwen3-32B",
 ]
 # Model name sanitization to avoid potentially difficult characters
 modelnames = list(map(lambda x: re.sub("/", "-", x), modelnames))
@@ -94,7 +95,7 @@ full = np.chararray(
         # Maximum number of run prompt variation wrapping the statement
         histoPCaData.getMaxPromptLength(),
         # Maximum number of statements
-        histoPCaData.getMaxInputLength(),
+        histoPCaData.getMaxInputLength(0),
         # Number of languages (0 = English, 1 = Finnish, 2 = Swedish)
         #3
         2
@@ -115,7 +116,7 @@ output = np.chararray(
         # Maximum number of run prompt variation wrapping the statement
         histoPCaData.getMaxPromptLength(),
         # Maximum number of statements
-        histoPCaData.getMaxInputLength(),
+        histoPCaData.getMaxInputLength(0),
         # Number of languages (0 = English, 1 = Finnish, 2 = Swedish)
         #3
         2
@@ -136,7 +137,7 @@ runtimes = np.ndarray(
         # Maximum number of run prompt variation wrapping the statement
         histoPCaData.getMaxPromptLength(),
         # Maximum number of statements
-        histoPCaData.getMaxInputLength(),
+        histoPCaData.getMaxInputLength(0),
         # Number of languages (0 = English, 1 = Finnish, 2 = Swedish)
         #3
         2
@@ -156,12 +157,12 @@ for cens in range(2):
         for modelIndex in range(len(modelnames)):
             # Iterate over prompts
             for promptIndex in histoPCaData.getArrayPromptIndex():
-                # Iterate over inputs
-                for inputIndex in histoPCaData.getArrayInputIndex():
-                    # Iterate over replicates
-                    for rep in range(3):
-                        # Iterate across languages (0 = English, 1 = Finnish, 2 = Swedish)
-                        for langIndex in [0, 1]:
+                # Iterate across languages (0 = English, 1 = Finnish, 2 = Swedish)
+                for langIndex in [0, 1]:
+                    # Iterate over inputs
+                    for inputIndex in histoPCaData.getArrayInputIndex(langIndex):
+                        # Iterate over replicates
+                        for rep in range(3):
                             # String name for seed True/False
                             seedname = str([False, True][seed])
                             # Construct file name

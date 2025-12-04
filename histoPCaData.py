@@ -467,7 +467,7 @@ statements = [
             # English (censored)
             "The inspected material consists of multiple suspicious foci from the prostate. Among the total sample material, about half of it contains tissue that exhibits patterns that were closely inspected in digital histopathology. In these, various grades of cell differentation are observed, although assigning explicit scores is inconclusive due to resolution issues in the digitalized images. Conclusion is that grading of the sample content ought to be conducted manually on the slides prior to digitalization, and then re-entered into the statement system. This scrutiny is warranted, as any mid-grade (i.e. 3+4 or 4+3) differentation would be very difficult to reliable assess due to some mishap in digitalization.",
             # Finnish (censored)
-            "Tutkittu materiaali koostuu useammasta suspektista fokuksesta prostatassa. Tutkitussa materiaalissa noin puolet kattaa kudosta, jonka piirteet tutkittiin tarkasti digitaalisesa histopatologiassa. Näisä havaittiin vaihtelevan tasoisia solujen erilaistumisgradeja, mutta tarkan scoren luokittaminen on mahdoonta johtuen resoluutio-ongelmista digitalisoiduissa kuvissa. Konkluusio on että näytesisällön gradeeraus tulisi tehdä manuaalisesti laseilla ennen digitalisointia, ja sitten ne voitaisiin syöttää jälleen systeemiin. Tämä varotoimenpide on perusteltu, sillä minkään keski-graden (esim. 3+4 tai 4+3) erilaistuminen voisi olla erittäin vaikeaa arvioida, johtuen digitalisoinnissa tapahtuneesta mokasta.",
+            "Tutkittu materiaali koostuu useammasta suspektista fokuksesta prostatassa. Tutkitussa materiaalissa noin puolet kattaa kudosta, jonka piirteet tutkittiin tarkasti digitaalisessa histopatologiassa. Näissä havaittiin vaihtelevan tasoisia solujen erilaistumisgradeja, mutta tarkan scoren luokittaminen on mahdotonta johtuen resoluutio-ongelmista digitalisoiduissa kuvissa. Konkluusio on että näytesisällön gradeeraus tulisi tehdä manuaalisesti laseilla ennen digitalisointia, ja sitten ne voitaisiin syöttää jälleen systeemiin. Tämä varotoimenpide on perusteltu, sillä minkään keski-graden (esim. 3+4 tai 4+3) erilaistuminen voisi olla erittäin vaikeaa arvioida, johtuen digitalisoinnissa tapahtuneesta mokasta.",
             # Swedish (censored)
             # TODO
             # Challenges noted by RI
@@ -3022,13 +3022,16 @@ prompts = [
 
 # Statement amount handling (stratified by language 0 = English, 1 = Finnish, 2 = Swedish)
 def getMaxInputIndex(lang : int) -> int:
-    return [98, 98, 2][lang]
+    #return [98, 98, 98][lang]
+    return [49, 49, 2][lang]
 
 def getMaxInputLength(lang : int) -> int:
-    return [99, 99, 3][lang]
+    #return [99, 99, 99][lang]
+    return [50, 50, 3][lang]
 
 def getArrayInputIndex(lang : int) -> list[int]:
-    return list(range([99, 99, 3][lang]))
+    #return list(range([99, 99, 99][lang]))
+    return list(range([50, 50, 3][lang]))
 
 # Prompt handling
 
