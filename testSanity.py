@@ -32,10 +32,10 @@ system_prompt = "You are an expert histopathologist, who will critically review 
 # Iterate across the models and combinations
 while True:
     try:
-        # Input statements
-        for inputIndex in histoPCaData.getArrayInputIndex():
-            # Iterate across languages (0 = English, 1 = Finnish, 2 = Swedish)
-            for lang in [0, 1, 2]:
+        # Iterate across languages (0 = English, 1 = Finnish, 2 = Swedish)
+        for lang in [0, 1, 2]:
+            # Input statements
+            for inputIndex in histoPCaData.getArrayInputIndex(lang):
                 # Non-censored (value 0) or censored (1) version of the input statements
                 for cens in [0, 1]:
                     # Iterate across models to use for sanity checking
@@ -95,10 +95,10 @@ for modelname in [
     "moonshotai/kimi-k2-instruct",
     "openai/o1",
 ]:
-    # Input statements
-    for inputIndex in histoPCaData.getArrayInputIndex():
-        # Iterate across languages (0 = English, 1 = Finnish, 2 = Swedish)
-        for lang in [0, 1, 2]:
+    # Iterate across languages (0 = English, 1 = Finnish, 2 = Swedish)
+    for lang in [0, 1, 2]:
+        # Input statements
+        for inputIndex in histoPCaData.getArrayInputIndex(lang):
             # Non-censored (value 0) or censored (1) version of the input statements
             for cens in [0, 1]:
                 # Construct filename
